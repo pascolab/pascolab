@@ -3,10 +3,9 @@ import React from "react";
 import HeroSub from "@/components/SharedComponent/HeroSub";
 import { Metadata } from "next";
 import Counter from "@/components/Home/Counter";
-import Progresswork from "@/components/Home/WorkProgress";
 import Services from "@/components/Home/Services";
 export const metadata: Metadata = {
-    title: "Services | Venus",
+    title: "Services | Pascolab",
 };
 
 const page = () => {
