@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" fill="none">
+  <!-- triangle prism icon -->
+  <path d="M16 8 L28 30 L4 30 Z" stroke="currentColor" stroke-width="2" fill="none"/>
+  <line x1="16" y1="13" x2="16" y2="25" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 2"/>
+  <!-- wordmark -->
+  <text x="34" y="26" font-family="system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="-0.5" fill="currentColor">Prism</text>
+</svg>

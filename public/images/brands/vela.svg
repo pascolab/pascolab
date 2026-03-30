@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 40" fill="none">
+  <!-- wave icon -->
+  <path d="M4 20 Q8 12 12 20 Q16 28 20 20 Q24 12 28 20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <!-- wordmark -->
+  <text x="34" y="26" font-family="system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="-0.5" fill="currentColor">Vela</text>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 40" fill="none">
+  <!-- diamond icon -->
+  <path d="M16 8 L26 20 L16 32 L6 20 Z" stroke="currentColor" stroke-width="2" fill="none"/>
+  <path d="M6 20 L26 20" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2"/>
+  <!-- wordmark -->
+  <text x="32" y="26" font-family="system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="-0.5" fill="currentColor">Kova</text>
+</svg>
