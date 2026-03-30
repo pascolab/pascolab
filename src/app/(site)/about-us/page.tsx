@@ -1,5 +1,4 @@
 
-import React from "react";
 import HeroSub from "@/components/SharedComponent/HeroSub";
 import { Metadata } from "next";
 import Counter from "@/components/Home/Counter";
