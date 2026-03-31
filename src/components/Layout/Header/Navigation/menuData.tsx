@@ -1,52 +1,45 @@
 import { HeaderItem } from "@/types/menu";
 
 export const headerData: HeaderItem[] = [
-  { label: "About Us", href: "/about-us" },
   {
     label: "Services",
     href: "/services",
     megaMenu: {
       sections: [
         {
-          id: "overview",
-          sidebarLabel: "Overview",
-          panelTitle: "Services",
-          panelDescription: "Lifecycle consultancy for BFSI that compounds ROI",
+          id: "security-strategy",
+          sidebarLabel: "Security & Strategy",
+          panelTitle: "Security & Strategy",
+          panelDescription: "Governance, compliance and defence for regulated industries",
           items: [
             {
               title: "Information Security",
-              description: "Real-time defense with audit-ready compliance",
+              description: "Real-time defence with audit-ready compliance",
               href: "/services/information-security",
-            },
-            {
-              title: "Digital Solutions",
-              description: "AI, cloud, automation built into daily ops",
-              href: "/services/digital-solutions",
-            },
-            {
-              title: "AI, ML & Data Analytics",
-              description: "Predict, automate, and decide faster with AI and ML",
-              href: "/services/ai-ml-data-analytics",
-            },
-            {
-              title: "Generative AI",
-              description: "Create, adapt, and personalize at enterprise speed",
-              href: "/services/generative-ai",
             },
             {
               title: "Policy & Strategy",
               description: "Governance that clears the path for delivery",
               href: "/services/policy-strategy",
             },
+          ],
+          cta: { label: "All Services", href: "/services" },
+        },
+        {
+          id: "ai-data",
+          sidebarLabel: "AI & Data",
+          panelTitle: "AI & Data",
+          panelDescription: "Intelligence and automation at enterprise scale",
+          items: [
             {
-              title: "Emerging Technologies",
-              description: "Prove and scale what's next, safely",
-              href: "/services/emerging-technologies",
+              title: "AI, ML & Data Analytics",
+              description: "Predict, automate and decide faster",
+              href: "/services/ai-ml-data-analytics",
             },
             {
-              title: "Cloud Services",
-              description: "Cloud native on multicloud built for scale and uptime",
-              href: "/services/cloud-services",
+              title: "Generative AI",
+              description: "Create and personalise at enterprise speed",
+              href: "/services/generative-ai",
             },
             {
               title: "Data Engineering",
@@ -54,20 +47,49 @@ export const headerData: HeaderItem[] = [
               href: "/services/data-engineering",
             },
           ],
-          cta: { label: "Get Started", href: "/contact" },
+          cta: { label: "All Services", href: "/services" },
+        },
+        {
+          id: "digital-cloud",
+          sidebarLabel: "Digital & Cloud",
+          panelTitle: "Digital & Cloud",
+          panelDescription: "Modern platforms built for scale and uptime",
+          items: [
+            {
+              title: "Digital Solutions",
+              description: "AI, cloud and automation built into daily ops",
+              href: "/services/digital-solutions",
+            },
+            {
+              title: "Cloud Services",
+              description: "Cloud-native on multicloud built for scale",
+              href: "/services/cloud-services",
+            },
+            {
+              title: "Emerging Technologies",
+              description: "Prove and scale what's next, safely",
+              href: "/services/emerging-technologies",
+            },
+          ],
+          cta: { label: "All Services", href: "/services" },
         },
       ],
     },
   },
-  {
-    label: "Portfolio",
-    href: "/portfolio",
+  // TODO: add content for industries item, that an IT company can serve to
+  { 
+    label: "Industries",
+    href: "/industries"
+  },
+  { 
+    label: "Case Studies",
+    href: "/case-studies",
     megaMenu: {
       sections: [
         {
           id: "web",
-          sidebarLabel: "Web Projects",
-          panelTitle: "Web Projects",
+          sidebarLabel: "Web Platforms",
+          panelTitle: "Web Platforms",
           panelDescription: "Full-stack web platforms built for scale and performance",
           items: [
             {
@@ -91,7 +113,7 @@ export const headerData: HeaderItem[] = [
               href: "/portfolio/complianceiq",
             },
           ],
-          cta: { label: "View All Projects", href: "/portfolio" },
+          cta: { label: "All Projects", href: "/portfolio" },
         },
         {
           id: "mobile",
@@ -120,7 +142,7 @@ export const headerData: HeaderItem[] = [
               href: "/portfolio/branchconnect",
             },
           ],
-          cta: { label: "View All Projects", href: "/portfolio" },
+          cta: { label: "All Projects", href: "/portfolio" },
         },
         {
           id: "case-studies",
@@ -154,13 +176,61 @@ export const headerData: HeaderItem[] = [
       ],
     },
   },
+  
+  // TODO: add company page. I'll have further details to add. like About Us, How We Work, AI First Company, etc.
   {
-    label: "Teams",
+    label: "Company",
+    href: "/company",
+    megaMenu: {
+      sections: [
+        {
+          id: "about-us",
+          sidebarLabel: "About Us",
+          panelTitle: "About Us",
+          panelDescription: "We are a team of passionate developers and engineers who are dedicated to building innovative solutions for our clients.",
+          items: [
+            {
+              title: "About Us",
+              description: "We are a team of passionate developers and engineers who are dedicated to building innovative solutions for our clients.",
+              href: "/company/about-us",
+            },
+          ]
+        },
+        {
+          id: "how-we-work",
+          sidebarLabel: "How We Work",
+          panelTitle: "How We Work",
+          panelDescription: "We follow a agile methodology to deliver projects on time and within budget.",
+          items: [
+            {
+              title: "How We Work",
+              description: "We follow a agile methodology to deliver projects on time and within budget.",
+              href: "/company/how-we-work",
+            },
+          ]
+        },
+        {
+          id: "ai-first-company",
+          sidebarLabel: "AI First Company",
+          panelTitle: "AI First Company",
+          panelDescription: "We are a company that is dedicated to using AI to solve complex problems.",
+          items: [
+            {
+              title: "AI First Company",
+              description: "We are a company that is dedicated to using AI to solve complex problems.",
+              href: "/company/ai-first-company",
+            },
+          ]
+        }
+      ]
+    }
+  },
+  { label: "Careers", href: "/careers" },
+ 
+  {
+    label: "Dedicated Teams",
     href: "/teams",
   },
-  {
-    label: "Pricing",
-    href: "/pricing",
-  },
+  
   { label: "Contact", href: "/contact" },
 ];
