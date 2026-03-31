@@ -21,7 +21,6 @@ export default function RootLayout({
       <AuthDialogProvider>
        
           <Aoscompo>
-            <Header />
             <main >
               {children}
             </main>

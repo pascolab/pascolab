@@ -121,7 +121,7 @@ const Header: React.FC = () => {
       {/* Expanding container */}
       <div
         ref={desktopNavRef}
-        className='hidden lg:block overflow-hidden border-b border-border/40  bg-white  backdrop-blur-xl'
+        className='hidden lg:block overflow-hidden border-b border-border/40 bg-white  backdrop-blur-xl'
         style={{
           height: isMenuOpen ? BAR_H + PANEL_H : BAR_H,
           transition:

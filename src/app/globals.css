@@ -109,6 +109,21 @@ body {
   @apply focus-visible:outline-0!;
 }
 
+/* Hero slider: make all internal slick divs fill the parent height */
+.hero-slider,
+.hero-slider .slick-list,
+.hero-slider .slick-track {
+  height: 100%;
+}
+.hero-slider .slick-slide > div {
+  height: 100%;
+}
+.hero-slider .slick-dots {
+  bottom: 1.25rem;
+  z-index: 10;
+}
+
+
 /* Portfolio slider: add inter-slide gap without padding cards */
 .portfolio-slider .slick-list {
   margin: 0 -0.75rem;
