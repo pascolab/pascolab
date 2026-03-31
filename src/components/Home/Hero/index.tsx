@@ -25,11 +25,11 @@ const Hero = () => {
   };
 
   return (
-    <section className='relative h-[70vh] md:h-screen'>
+    <section className='relative h-screen'>
       <div className='absolute inset-0'>
         <Slider {...settings} className='hero-slider h-full'>
           {heroImages.map((image, index) => (
-            <div key={index} className='relative h-[70vh] md:h-screen'>
+            <div key={index} className='relative h-screen'>
               <Image
                 src={image.src}
                 alt={image.alt}
@@ -42,7 +42,9 @@ const Hero = () => {
           ))}
         </Slider>
       </div>
+      <div className='relative z-50 '>
         <Header />
+      </div>
     </section>
   )
 }

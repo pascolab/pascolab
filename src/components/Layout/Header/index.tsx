@@ -242,13 +242,7 @@ const Header: React.FC = () => {
           MOBILE — Top bar
           ════════════════════════════════════════════════════ */}
       <div
-        className={`lg:hidden flex items-center justify-between h-[60px] px-4 border-b border-border/40 transition-all ${
-          navbarOpen
-            ? 'bg-white dark:bg-darkmode'
-            : sticky
-              ? 'bg-white/60 backdrop-blur-sm dark:bg-darklight!'
-              : 'bg-transparent dark:bg-transparent'
-        }`}
+        className={`lg:hidden flex items-center justify-between h-[60px] px-4 border-b border-border/40 transition-all bg-white`}
       >
         <Logo />
         <button
