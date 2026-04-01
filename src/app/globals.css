@@ -109,6 +109,21 @@ body {
   @apply focus-visible:outline-0!;
 }
 
+/* Hero slider: make all internal slick divs fill the parent height */
+.hero-slider,
+.hero-slider .slick-list,
+.hero-slider .slick-track {
+  height: 100%;
+}
+.hero-slider .slick-slide > div {
+  height: 100%;
+}
+.hero-slider .slick-dots {
+  bottom: 1.25rem;
+  z-index: 10;
+}
+
+
 /* Portfolio slider: add inter-slide gap without padding cards */
 .portfolio-slider .slick-list {
   margin: 0 -0.75rem;
@@ -157,14 +172,24 @@ body {
 }
 
 /* Brands marquee */
-@keyframes brands-marquee {
+@keyframes brands-marquee-left {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
 
+@keyframes brands-marquee-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
 .brands-marquee-track {
-  animation: brands-marquee 40s linear infinite;
+  display: flex;
+  animation: brands-marquee-left 40s linear infinite;
   will-change: transform;
+}
+
+/* Modifier class for the second marquee */
+.brands-marquee-track.reverse {
+  animation-name: brands-marquee-right;
 }
 
 .brands-marquee-mask:hover .brands-marquee-track {
@@ -175,25 +200,61 @@ body {
   -webkit-mask-image: linear-gradient(
     to right,
     transparent 0%,
-    transparent 20%,
-    black 35%,
-    black 65%,
-    transparent 80%,
+    black 10%,
+    black 90%,
     transparent 100%
   );
   mask-image: linear-gradient(
     to right,
     transparent 0%,
-    transparent 20%,
-    black 35%,
-    black 65%,
-    transparent 80%,
+    black 10%,
+    black 90%,
     transparent 100%
   );
 }
 
 @media (prefers-reduced-motion: reduce) {
   .brands-marquee-track {
+    animation: none;
+  }
+}
+
+/* Testimonials marquee */
+@keyframes testimonials-marquee-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.testimonials-marquee-track {
+  display: flex;
+  animation: testimonials-marquee-left 40s linear infinite;
+  will-change: transform;
+}
+
+.testimonials-marquee-mask:hover .testimonials-marquee-track,
+.testimonials-marquee-mask:focus-within .testimonials-marquee-track {
+  animation-play-state: paused;
+}
+
+.testimonials-marquee-mask {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black,
+    black,
+      transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black ,
+    black ,
+    transparent 100%
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonials-marquee-track {
     animation: none;
   }
 }
