@@ -5,20 +5,11 @@ import { useContext, useEffect, useRef, useState } from 'react'
 import { headerData } from './Navigation/menuData'
 import Logo from './Logo'
 import MobileHeaderLink from './Navigation/MobileHeaderLink'
-import Signin from '@/components/Auth/SignIn'
-import SignUp from '@/components/Auth/SignUp'
-import { Icon } from '@iconify/react/dist/iconify.js'
-import { SuccessfullLogin } from '@/components/Auth/AuthDialog/SuccessfulLogin'
-import { FailedLogin } from '@/components/Auth/AuthDialog/FailedLogin'
-import { UserRegistered } from '@/components/Auth/AuthDialog/UserRegistered'
-import AuthDialogContext from '@/app/context/AuthDialogContext'
 
 const BAR_H = 52   // px — desktop nav bar height
 const PANEL_H = 280 // px — expanded mega-menu panel height
 
 const Header: React.FC = () => {
-  const pathUrl = usePathname()
-  const router = useRouter()
   // ── Apple-style mega-menu state ──────────────────────────────
   const [openItem, setOpenItem] = useState<string | null>(null)
   const [renderedItem, setRenderedItem] = useState<string | null>(null)
@@ -28,7 +19,6 @@ const Header: React.FC = () => {
 
   // ── General UI state ─────────────────────────────────────────
   const [navbarOpen, setNavbarOpen] = useState(false)
-  const [sticky, setSticky] = useState(false)
 
   const desktopNavRef = useRef<HTMLDivElement>(null)
   const mobileMenuRef = useRef<HTMLDivElement>(null)
@@ -130,7 +120,7 @@ const Header: React.FC = () => {
       >
         {/* ── Top bar ── */}
         <div
-          className='container flex items-center justify-between'
+          className='container mx-auto flex items-center justify-between'
           style={{ height: BAR_H }}
         >
           <Logo />

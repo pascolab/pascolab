@@ -172,14 +172,24 @@ body {
 }
 
 /* Brands marquee */
-@keyframes brands-marquee {
+@keyframes brands-marquee-left {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
 
+@keyframes brands-marquee-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
 .brands-marquee-track {
-  animation: brands-marquee 40s linear infinite;
+  display: flex;
+  animation: brands-marquee-left 40s linear infinite;
   will-change: transform;
+}
+
+/* Modifier class for the second marquee */
+.brands-marquee-track.reverse {
+  animation-name: brands-marquee-right;
 }
 
 .brands-marquee-mask:hover .brands-marquee-track {
@@ -190,19 +200,15 @@ body {
   -webkit-mask-image: linear-gradient(
     to right,
     transparent 0%,
-    transparent 20%,
-    black 35%,
-    black 65%,
-    transparent 80%,
+    black 10%,
+    black 90%,
     transparent 100%
   );
   mask-image: linear-gradient(
     to right,
     transparent 0%,
-    transparent 20%,
-    black 35%,
-    black 65%,
-    transparent 80%,
+    black 10%,
+    black 90%,
     transparent 100%
   );
 }
