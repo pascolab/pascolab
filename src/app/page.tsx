@@ -17,8 +17,8 @@ export default function Home() {
     <main >
       <Hero />
       <Brands />
+      <Counter  />
       <Services />
-      <Counter isColorMode={false} />
       <Portfolio />
       <Models />
       <Testimonial />

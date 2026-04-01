@@ -1,43 +1,113 @@
-import React from 'react'
-import { count } from '@/app/api/data'
-import Image from 'next/image'
+"use client";
 
-const Counter = ({ isColorMode }: { isColorMode: Boolean }) => {
+import { useEffect, useRef, useState } from "react";
+import { counterStats } from "@/app/api/data";
+
+function useCountUp(end: number, duration: number, active: boolean) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!active) return;
+    let startTimestamp: number | null = null;
+
+    const step = (timestamp: number) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 4);
+      setCount(Math.floor(eased * end));
+      if (progress < 1) requestAnimationFrame(step);
+    };
+
+    requestAnimationFrame(step);
+  }, [active, end, duration]);
+
+  return count;
+}
+
+function StatItem({
+  value,
+  suffix,
+  label,
+  active,
+  isLast,
+}: {
+  value: number;
+  suffix: string;
+  label: string;
+  active: boolean;
+  isLast: boolean;
+}) {
+  const count = useCountUp(value, 2200, active);
+
   return (
-    <section
-      className={` ${
-        isColorMode
-          ? 'dark:bg-darklight bg-section'
-          : 'dark:bg-darkmode bg-white'
-      }`}>
-      <div className='container'>
-        <div className='flex flex-wrap items-center md:justify-between justify-center md:gap-0 gap-9'>
-          {count.map((item, index) => (
-            <div
-              key={index}
-              className='flex flex-col items-center gap-[0.875rem]'
-              data-aos='fade-up'
-              data-aos-delay={`${index * 200}`}
-              data-aos-duration='1000'>
-              <Image
-                src={item.icon}
-                alt='icon'
-                width={30}
-                height={30}
-                unoptimized
-              />
-              <span className='text-5xl font-semibold text-midnight_text dark:text-white'>
-                {item.value}
-              </span>
-              <p className='text-base text-grey text-center max-w-[17.8125rem] w-full dark:text-white/50'>
-                {item.description}
-              </p>
+    <div
+      className={`flex flex-col gap-3 px-6 py-6 sm:py-8 ${
+        !isLast ? "border-r border-border" : ""
+      }`}
+    >
+      <p className="text-4xl md:text-5xl xl:text-6xl font-bold text-midnight_text leading-none tracking-tight">
+        {count}
+        <span className="text-primary">{suffix}</span>
+      </p>
+      <p className="text-xs sm:text-sm uppercase tracking-widest text-grey leading-relaxed">
+        {label}
+      </p>
+    </div>
+  );
+}
+
+const Counter = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setActive(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.25 }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section ref={sectionRef} className="bg-white overflow-hidden">
+      <div className="container">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 xl:gap-24 items-start lg:items-center">
+          {/* Left — heading + description */}
+          <div className="lg:w-5/12 xl:w-4/12 shrink-0">
+            <h2 className="text-3xl sm:text-4xl xl:text-5xl font-bold text-midnight_text leading-tight">
+              We&apos;re committed to lead your digital journey to success.
+            </h2>
+            <p className="mt-4 text-sm sm:text-base text-grey leading-relaxed max-w-xs">
+            We have a proven track record of building scalable software solutions for businesses.
+            </p>
+          </div>
+
+          {/* Right — stats grid */}
+          <div className="w-full lg:flex-1 border-t border-b border-border">
+            <div className="grid grid-cols-2 sm:grid-cols-4 divide-y sm:divide-y-0 divide-border">
+              {counterStats.map((stat, i) => (
+                <StatItem
+                  key={i}
+                  value={stat.value}
+                  suffix={stat.suffix}
+                  label={stat.label}
+                  active={active}
+                  isLast={i === counterStats.length - 1}
+                />
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Counter
+export default Counter;
