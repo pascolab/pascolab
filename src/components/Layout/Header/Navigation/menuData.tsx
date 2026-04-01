@@ -78,8 +78,8 @@ export const headerData: HeaderItem[] = [
   },
   // TODO: add content for industries item, that an IT company can serve to
   { 
-    label: "Industries",
-    href: "/industries"
+    label: "Solutions",
+    href: "/solutions"
   },
   { 
     label: "Case Studies",

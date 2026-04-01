@@ -1,7 +1,6 @@
 'use client'
 import Link from 'next/link'
-import { usePathname, useRouter } from 'next/navigation'
-import { useContext, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { headerData } from './Navigation/menuData'
 import Logo from './Logo'
 import MobileHeaderLink from './Navigation/MobileHeaderLink'
