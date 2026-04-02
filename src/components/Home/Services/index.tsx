@@ -25,7 +25,7 @@ const iconMap: Record<string, string> = {
 
 const ActiveArrow = () => (
   <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="28" height="28" rx="4" fill="#FF6B00" />
+    <rect width="28" height="28" rx="4" className="fill-primary" />
     <path d="M10 8L18 14L10 20" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
@@ -54,42 +54,51 @@ const Services = () => {
     if (!el || !container) return;
 
     isScrollingRef.current = true;
-    container.scrollTo({ top: el.offsetTop, behavior: "smooth" });
+    // getBoundingClientRect gives position relative to viewport, so we
+    // adjust by the container's current scroll position to get the true target.
+    const scrollTarget =
+      container.scrollTop +
+      el.getBoundingClientRect().top -
+      container.getBoundingClientRect().top;
+    container.scrollTo({ top: scrollTarget, behavior: "smooth" });
 
-    // Release the lock after the smooth scroll completes (~600 ms)
+    // Release the lock after the smooth scroll settles (~800 ms)
     setTimeout(() => {
       isScrollingRef.current = false;
-    }, 700);
+    }, 800);
   }, []);
 
   // Mobile tab click → same behaviour
-  const handleTabClick = useCallback((sectionId: string) => {
-    handleNavClick(sectionId);
-  }, [handleNavClick]);
+  const handleTabClick = useCallback(
+    (sectionId: string) => handleNavClick(sectionId),
+    [handleNavClick]
+  );
 
-  // IntersectionObserver: update active section as user scrolls freely
+  // Scroll listener: mark whichever section header has just passed the top of
+  // the container as active.  Much more reliable than IntersectionObserver for
+  // sections that are taller than the scroll window.
   useEffect(() => {
     const container = scrollRef.current;
     if (!container) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (isScrollingRef.current) return;
-        // Pick the entry with the largest intersection ratio
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible) setActiveSection(visible.target.id);
-      },
-      { root: container, threshold: 0.3 }
-    );
+    const onScroll = () => {
+      if (isScrollingRef.current) return;
+      const containerTop = container.getBoundingClientRect().top;
 
-    sections.forEach((section) => {
-      const el = sectionRefs.current[section.id];
-      if (el) observer.observe(el);
-    });
+      // Walk sections in order; keep updating activeId as long as the section
+      // header is at or above the container's top edge (with a small buffer).
+      let activeId = sections[0].id;
+      for (const section of sections) {
+        const el = sectionRefs.current[section.id];
+        if (!el) continue;
+        const elTop = el.getBoundingClientRect().top - containerTop;
+        if (elTop <= 16) activeId = section.id;
+      }
+      setActiveSection(activeId);
+    };
 
-    return () => observer.disconnect();
+    container.addEventListener("scroll", onScroll, { passive: true });
+    return () => container.removeEventListener("scroll", onScroll);
   }, [sections]);
 
   return (
@@ -131,7 +140,7 @@ const Services = () => {
                     <div className="flex flex-col items-center shrink-0 mt-1">
                       {isActive ? <ActiveArrow /> : <InactiveArrow />}
                       {!isLast && (
-                        <div className="w-px flex-1 mt-2 mb-2 min-h-10 border-l-2 border-dashed border-border dark:border-dark_border" />
+                        <div className={`w-px flex-1 mt-2 mb-2 min-h-10 border-l-2 border-dashed ${isActive ? "border-primary" : "border-border dark:border-dark_border"}`} />
                       )}
                     </div>
                     <div className={`${isLast ? "pb-0" : "pb-8"}`}>
@@ -144,11 +153,10 @@ const Services = () => {
                       >
                         {section.title}
                       </p>
-                      {isActive && (
-                        <p className="mt-1 text-sm text-grey dark:text-white/50 leading-relaxed max-w-56">
+                        <p className={`mt-1 text-sm ${isActive ? "text-midnight_text dark:text-white" : "text-grey dark:text-white/50"}  leading-relaxed max-w-56`}>
                           {section.description}
                         </p>
-                      )}
+                   
                     </div>
                   </button>
                 </div>
@@ -160,7 +168,7 @@ const Services = () => {
           <div className="flex-1 overflow-hidden">
             <div
               ref={scrollRef}
-              className="h-[400px] overflow-y-auto overflow-x-hidden scroll-smooth pr-1"
+              className="relative h-[400px] overflow-y-auto overflow-x-hidden pr-1"
             >
               {sections.map((section) => (
                 <div

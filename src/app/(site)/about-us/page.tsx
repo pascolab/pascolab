@@ -20,7 +20,7 @@ const page = () => {
       />
        <Counter />
     </>
-  );
+  );  
 };
 
 export default page;

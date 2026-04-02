@@ -5,7 +5,7 @@ import { headerData } from './Navigation/menuData'
 import Logo from './Logo'
 import MobileHeaderLink from './Navigation/MobileHeaderLink'
 
-const BAR_H = 52   // px — desktop nav bar height
+const BAR_H = 60   // px — desktop nav bar height
 const PANEL_H = 280 // px — expanded mega-menu panel height
 
 const Header: React.FC = () => {
