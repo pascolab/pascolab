@@ -18,10 +18,10 @@ const MegaMenuPanel: React.FC<Props> = ({ config, variant }) => {
       <div className='w-full mt-1'>
         {config.sections.map((section) => (
           <div key={section.id} className='mb-5 pl-3 border-l-2 border-primary'>
-            <p className='text-sm font-semibold text-midnight_text dark:text-white mb-0.5'>
+            <p className='text-sm font-semibold text-foreground mb-0.5'>
               {section.panelTitle}
             </p>
-            <p className='text-xs text-grey dark:text-grey mb-3'>
+            <p className='text-xs text-muted-foreground mb-3'>
               {section.panelDescription}
             </p>
             <div className='grid grid-cols-1 gap-2'>
@@ -30,10 +30,10 @@ const MegaMenuPanel: React.FC<Props> = ({ config, variant }) => {
                   key={i}
                   href={item.href ?? '#'}
                   className='group block py-1'>
-                  <span className='block text-sm font-medium text-midnight_text dark:text-white group-hover:text-primary dark:group-hover:text-primary transition-colors'>
+                  <span className='block text-sm font-medium text-foreground group-hover:text-primary transition-colors'>
                     {item.title}
                   </span>
-                  <span className='block text-xs text-grey dark:text-grey leading-relaxed'>
+                  <span className='block text-xs text-muted-foreground leading-relaxed'>
                     {item.description}
                   </span>
                 </Link>
@@ -42,7 +42,7 @@ const MegaMenuPanel: React.FC<Props> = ({ config, variant }) => {
             {section.cta && (
               <Link
                 href={section.cta.href}
-                className='mt-4 inline-block w-full text-center bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 text-sm font-medium'>
+                className='mt-4 inline-block w-full text-center bg-primary text-foreground px-4 py-2 rounded-lg hover:bg-primary/90 text-sm font-medium'>
                 {section.cta.label}
               </Link>
             )}
@@ -54,9 +54,9 @@ const MegaMenuPanel: React.FC<Props> = ({ config, variant }) => {
 
   // Desktop variant
   return (
-    <div className='flex bg-white dark:bg-darklight rounded-2xl border border-border dark:border-dark_border shadow-xl overflow-hidden'>
+    <div className='flex bg-background rounded-2xl border border-border shadow-xl overflow-hidden'>
       {/* Left sidebar */}
-      <div className='w-44 shrink-0 border-r border-border dark:border-dark_border py-4 px-2'>
+      <div className='w-44 shrink-0 border-r border-border py-4 px-2'>
         {config.sections.map((section) => (
           <button
             key={section.id}
@@ -64,10 +64,10 @@ const MegaMenuPanel: React.FC<Props> = ({ config, variant }) => {
             onClick={() => setActiveSectionId(section.id)}
             className={`flex items-center justify-between w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
               activeSectionId === section.id
-                ? 'bg-section dark:bg-midnight_text text-midnight_text dark:text-white'
-                : 'text-grey dark:text-grey hover:bg-section dark:hover:bg-midnight_text hover:text-midnight_text dark:hover:text-white'
+                ? 'bg-foreground text-background'
+                : 'text-muted-foreground hover:bg-foreground hover:text-background'
             }`}>
-            {section.sidebarLabel}
+            <span className='text-foreground'>{section.sidebarLabel}</span>
             {activeSectionId === section.id && (
               <svg
                 xmlns='http://www.w3.org/2000/svg'
@@ -91,22 +91,22 @@ const MegaMenuPanel: React.FC<Props> = ({ config, variant }) => {
 
       {/* Right content */}
       <div className='flex-1 p-6 min-w-0'>
-        <h3 className='text-lg font-bold text-midnight_text dark:text-white'>
+        <h3 className='text-lg font-bold text-foreground'>
           {activeSection.panelTitle}
         </h3>
-        <p className='text-sm text-grey dark:text-grey mt-0.5 mb-4'>
+        <p className='text-sm text-muted-foreground mt-0.5 mb-4'>
           {activeSection.panelDescription}
         </p>
-        <hr className='border-border dark:border-dark_border mb-5' />
+        <hr className='border-border mb-5' />
 
         <div className='grid grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-5'>
           {activeSection.items.map((item, i) => (
             <Link key={i} href={item.href ?? '#'} className='group'>
-              <p className='font-semibold text-sm text-midnight_text dark:text-white group-hover:text-primary dark:group-hover:text-primary transition-colors'>
-                {item.title}
+              <p className='font-semibold text-sm text-foreground group-hover:text-primary transition-colors'>
+                <span className='text-foreground'>{item.title}</span>
               </p>
-              <p className='text-xs text-grey dark:text-grey mt-0.5 leading-relaxed'>
-                {item.description}
+              <p className='text-xs text-muted-foreground mt-0.5 leading-relaxed'>
+                <span className='text-muted-foreground'>{item.description}</span>
               </p>
             </Link>
           ))}
@@ -114,11 +114,11 @@ const MegaMenuPanel: React.FC<Props> = ({ config, variant }) => {
 
         {activeSection.cta && (
           <>
-            <hr className='border-border dark:border-dark_border mt-5 mb-4' />
+            <hr className='border-border mt-5 mb-4' />
             <div className='flex justify-end'>
               <Link
                 href={activeSection.cta.href}
-                className='bg-primary text-white px-5 py-2 rounded-lg hover:bg-blue-700 text-sm font-medium'>
+                className='bg-foreground text-background px-5 py-2 rounded-lg hover:bg-primary/90 text-sm font-medium'>
                 {activeSection.cta.label}
               </Link>
             </div>

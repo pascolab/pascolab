@@ -14,14 +14,14 @@ const MobileHeaderLink: React.FC<{ item: HeaderItem }> = ({ item }) => {
   const path = usePathname();
   const isActive = path === item.href;
 
-  if (item.megaMenu) {
-    return (
+    if (item.megaMenu) {
+      return (
       <div className="relative block w-full">
         <button
           onClick={handleToggle}
-          className={`flex items-center justify-between w-full py-2 px-3 text-black rounded-md dark:text-grey dark:text-opacity-70 focus:outline-hidden ${isActive ? 'bg-black! text-white! dark:bg-white! dark:text-black!' : ''}`}
+          className={`flex items-center justify-between w-full py-2 px-3 rounded-md focus:outline-hidden ${isActive ? 'bg-foreground! text-background! ' : ''}`}
         >
-          {item.label}
+          <span className='text-foreground'>{item.label}</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="1.5em"
@@ -45,9 +45,9 @@ const MobileHeaderLink: React.FC<{ item: HeaderItem }> = ({ item }) => {
     <Link href={item.href} className="relative block w-full">
       <button
         onClick={item.submenu ? handleToggle : undefined}
-          className={`flex items-center justify-between w-full py-2 px-3 text-black rounded-md dark:text-grey dark:text-opacity-70 focus:outline-hidden ${isActive ? 'bg-black! text-white! dark:bg-white! dark:text-black!' : '  '}`}
+          className={`flex items-center justify-between w-full py-2 px-3 rounded-md focus:outline-hidden ${isActive ? 'bg-foreground! text-background! ' : '  '}`}
       >
-        {item.label}
+        <span className='text-foreground'>{item.label}</span>
         {item.submenu && (
           <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24">
             <path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="m7 10l5 5l5-5" />
@@ -55,10 +55,10 @@ const MobileHeaderLink: React.FC<{ item: HeaderItem }> = ({ item }) => {
         )}
       </button>
       {submenuOpen && item.submenu && (
-        <div className="bg-white p-2 w-full">
+        <div className="bg-muted p-2 w-full">
           {item.submenu.map((subItem, index) => (
-            <Link key={index} href={subItem.href} className="block py-2 text-gray-500 hover:bg-gray-200">
-              {subItem.label}
+            <Link key={index} href={subItem.href} className="block py-2 text-foreground/90 hover:bg-foreground/10">
+              <span className='text-foreground'>{subItem.label}</span>
             </Link>
           ))}
         </div>

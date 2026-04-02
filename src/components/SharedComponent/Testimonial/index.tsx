@@ -1,4 +1,6 @@
 import { testimonials } from '@/app/api/data'
+import { Badge } from '@/components/ui/badge'
+
 
 type Testimonial = {
   name: string
@@ -36,7 +38,7 @@ const TestimonialCard = ({
   return (
     <div className='shrink-0 w-72 sm:w-80 lg:w-88 bg-white  shadow-sm  transition-colors duration-500! ease-in-out rounded-lg p-6 flex flex-col gap-4 select-none'>
       {/* Quote */}
-      <p className='text-midnight_text text-sm leading-relaxed flex-1'>{item.quote}</p>
+      <p className='text-muted-foreground text-sm leading-relaxed flex-1'>{item.quote}</p>
 
       {/* Footer */}
       <div className='flex items-center justify-between gap-3 pt-2 '>
@@ -48,15 +50,18 @@ const TestimonialCard = ({
             {getInitials(item.name)}
           </div>
           <div>
-            <p className='text-midnight_text text-sm font-semibold leading-tight'>
+            <p className='text-foreground text-sm font-semibold leading-tight'>
               {item.name}
             </p>
             <p className='text-secondary text-xs'>{item.role}</p>
           </div>
         </div>
-        <span className='text-xs font-medium text-grey border border-border rounded-full px-3 py-0.5 shrink-0'>
-          {item.company}
-        </span>
+        {/* <span className='text-xs font-medium text-grey border border-border rounded-full px-3 py-0.5 shrink-0'>
+          {item.company}  
+        </span> */}
+
+        <Badge variant="outline">{item.company}</Badge>
+        
       </div>
     </div>
   )
@@ -70,10 +75,10 @@ const Testimonial = () => {
         <p className='text-primary font-semibold text-sm uppercase tracking-widest mb-3'>
           Feedback
         </p>
-        <h2 className='text-midnight_text text-3xl sm:text-4xl lg:text-[2.625rem] font-bold leading-tight mb-4'>
+        <h2 className='text-foreground text-3xl sm:text-4xl lg:text-[2.625rem] font-bold leading-tight mb-4'>
           What Our Clients Say
         </h2>
-        <p className='text-secondary text-base max-w-xl mx-auto'>
+        <p className='text-muted-foreground text-base max-w-xl mx-auto'>
           See what our clients have to say about their experience with us.
         </p>
       </div>

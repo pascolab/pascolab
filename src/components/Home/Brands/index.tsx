@@ -21,7 +21,7 @@ const BrandItem = ({brand}: {brand: Brand}) => {
 
 const Brands = () => {
   return (
-    <section className='bg-white overflow-hidden container mx-auto py-0 *:py-2  space-y-2.5'>
+    <section className=' py-0 *:py-3  space-y-3 bg-white'> 
 
       {/* Marquee strip LTR */}
       <div
