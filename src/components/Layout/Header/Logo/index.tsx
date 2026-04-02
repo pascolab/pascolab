@@ -7,22 +7,13 @@ const Logo: React.FC = () => {
   return (
     <Link href="/">
       <Image
-        src={getImgPath("/images/logo/pl-logo.png")}
+        src={getImgPath("/images/logo/logo.png")}
         alt="logo"
         width={135}
         height={90}
         // style={{ width: 'auto', height: 'auto' }}
         quality={100}
         className='dark:hidden'
-      />
-      <Image
-        src={getImgPath("/images/logo/logo-white.svg")}
-        alt="logo"
-        width={160}
-        height={50}
-        style={{ width: 'auto', height: 'auto' }}
-        quality={100}
-        className='dark:block hidden'
       />
     </Link>
   );
