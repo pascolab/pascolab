@@ -20,7 +20,7 @@ export default function Home() {
       <Services />
       <Portfolio />
       <Testimonial />
-      <Contactform />
+      {/* <Contactform /> */}
     </main>
   )
 }
