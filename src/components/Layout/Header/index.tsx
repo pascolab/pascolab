@@ -132,9 +132,9 @@ const Header: React.FC = () => {
                 <button
                   key={item.label}
                   onClick={() => toggleMenu(item.label)}
-                  className={`inline-flex items-center gap-0.5 text-base font-normal px-3.5 py-1.5 rounded-full transition-colors duration-150 cursor-pointer text-black/80 hover:text-black `}
+                  className={`inline-flex items-center gap-0.5 text-base font-normal px-3.5 py-1.5 rounded-full transition-colors duration-150 cursor-pointer text-foreground/80 hover:text-foreground `}
                 >
-                  {item.label}
+                  <span className='text-foreground'>{item.label}</span>
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
                     width='16'
@@ -160,10 +160,10 @@ const Header: React.FC = () => {
                   key={item.label}
                   href={item.href}
                   onClick={() => isMenuOpen && closeMenu()}
-                  className={`inline-flex items-center text-base font-normal px-3.5 py-1.5 rounded-full transition-colors duration-150 text-black/80 hover:text-black`}
+                  className={`inline-flex items-center text-base font-normal px-3.5 py-1.5 rounded-full transition-colors duration-150 text-foreground/80 hover:text-foreground`}
                 >
-                  {item.label}
-                </Link>
+                  <span className='text-foreground'>{item.label}</span>
+                </Link> 
               )
             )}
           </nav>
@@ -185,7 +185,7 @@ const Header: React.FC = () => {
               {renderedMegaMenu.sections.map((section) => (
                 <div key={section.id} className='flex-1 min-w-0'>
                   {/* Bold category heading */}
-                  <p className='text-lg font-semibold text-midnight_text dark:text-white mb-2'>
+                  <p className='text-lg font-semibold text-foreground mb-2'>
                     {section.sidebarLabel}
                   </p>
 
@@ -199,9 +199,9 @@ const Header: React.FC = () => {
                         <Link
                           href={item.href ?? '#'}
                           onClick={closeMenu}
-                          className='text-[13px] text-black/90  ps-1 md:ps-2  dark:hover:text-white transition-colors duration-300 block hover:text-primary'
+                          className='text-[13px] text-foreground/90  ps-1 md:ps-2  dark:hover:text-white transition-colors duration-300 block hover:text-primary'
                         >
-                          {item.title}
+                          <span className='text-foreground'>{item.title}</span>
                         </Link>
                       </li>
                     ))}
@@ -239,26 +239,26 @@ const Header: React.FC = () => {
           className='p-2 rounded-lg'
           aria-label='Toggle mobile menu'
         >
-          <span className='block w-6 h-0.5 bg-black dark:bg-white' />
-          <span className='block w-6 h-0.5 bg-black dark:bg-white mt-1.5' />
-          <span className='block w-6 h-0.5 bg-black dark:bg-white mt-1.5' />
+          <span className='block w-6 h-0.5 bg-foreground' />
+          <span className='block w-6 h-0.5 bg-foreground mt-1.5' />
+          <span className='block w-6 h-0.5 bg-foreground mt-1.5' />
         </button>
       </div>
 
       {/* Mobile backdrop overlay */}
       {navbarOpen && (
-        <div className='fixed inset-0 z-60 bg-black/50 lg:hidden' aria-hidden />
+        <div className='fixed inset-0 z-60 bg-foreground/50 lg:hidden' aria-hidden />
       )}
 
       {/* Mobile slide-out drawer */}
       <div
         ref={mobileMenuRef}
-        className={`lg:hidden fixed inset-y-0 right-0 z-70 flex h-dvh w-full max-w-xs flex-col bg-white shadow-lg transition-transform duration-300 dark:bg-darkmode isolate ${
+        className={`lg:hidden fixed inset-y-0 right-0 z-70 flex h-dvh w-full max-w-xs flex-col bg-background shadow-lg transition-transform duration-300 isolate ${
           navbarOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         <div className='flex shrink-0 items-center justify-between p-4'>
-          <h2 className='text-lg font-bold text-midnight_text dark:text-white'>
+          <h2 className='text-lg font-bold text-foreground'>
             Menu
           </h2>
           <button
@@ -270,7 +270,7 @@ const Header: React.FC = () => {
               width='24'
               height='24'
               viewBox='0 0 24 24'
-              className='dark:text-white'
+              className='text-foreground'
             >
               <path
                 fill='none'

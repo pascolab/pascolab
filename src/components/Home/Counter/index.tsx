@@ -45,7 +45,7 @@ function StatItem({
         !isLast ? "border-r border-border" : ""
       }`}
     >
-      <p className="text-4xl md:text-5xl xl:text-6xl font-bold text-midnight_text leading-none tracking-tight">
+      <p className="text-4xl md:text-5xl xl:text-6xl font-bold text-muted-foreground leading-none tracking-tight">
         {count}
         <span className="text-primary">{suffix}</span>
       </p>
@@ -81,10 +81,10 @@ const Counter = () => {
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 xl:gap-24 items-start lg:items-center">
           {/* Left — heading + description */}
           <div className="lg:w-5/12 xl:w-4/12 shrink-0">
-            <h2 className="text-3xl sm:text-4xl xl:text-5xl font-bold text-midnight_text leading-tight">
+            <h2 className="text-3xl sm:text-4xl xl:text-5xl font-bold text-foreground leading-tight">
               We&apos;re committed to lead your digital journey to success.
             </h2>
-            <p className="mt-4 text-sm sm:text-base text-grey leading-relaxed max-w-xs">
+            <p className="mt-4 text-sm sm:text-base text-muted-foreground leading-relaxed max-w-xs">
             We have a proven track record of building scalable software solutions for businesses.
             </p>
           </div>

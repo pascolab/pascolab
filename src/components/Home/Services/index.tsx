@@ -183,22 +183,22 @@ const Services = () => {
                       return (
                         <div
                           key={card.id}
-                          className="group rounded-xl p-6 flex flex-col gap-4 transition-all duration-300 bg-white dark:bg-darklight shadow-service border border-border dark:border-dark_border hover:bg-primary hover:border-primary hover:shadow-lg cursor-pointer"
+                          className="group rounded-xl p-6 flex flex-col gap-4 transition-all duration-300 bg-white dark:bg-darklight shadow-service border border-border/20  hover:bg-primary hover:border-primary hover:shadow-lg cursor-pointer"
                         >
                           {/* Icon */}
                           <div className="w-12 h-12 md:w-16 md:h-16 rounded-lg flex items-center justify-center shrink-0 bg-Sky-blue-mist/30 dark:bg-white/10 group-hover:bg-white/20 transition-colors duration-300">
                             <Icon
                               icon={iconName}
-                              className="text-2xl md:text-4xl text-primary group-hover:text-white transition-colors duration-300"
+                              className="text-2xl md:text-4xl text-primary group-hover:text-muted-foreground transition-colors duration-300"
                             />
                           </div>
 
                           {/* Content */}
                           <div className="flex-1">
-                            <h3 className="text-xl md:text-[1.3rem] font-medium leading-snug text-midnight_text dark:text-white group-hover:text-white transition-colors duration-300">
+                            <h3 className="text-xl md:text-[1.3rem] font-medium leading-snug text-foreground">
                               {card.title}
                             </h3>
-                            <p className="mt-2 text-sm md:text-sm leading-relaxed text-grey dark:text-white/50 group-hover:text-white/80 transition-colors duration-300 max-sm:line-clamp-1">
+                            <p className="mt-2 text-sm md:text-sm leading-relaxed text-muted-foreground max-sm:line-clamp-1">
                               {card.description}
                             </p>
                           </div>
@@ -206,7 +206,7 @@ const Services = () => {
                           {/* Link */}
                           <Link
                             href={card.href}
-                            className="inline-flex items-center gap-1.5 text-sm font-medium mt-auto text-primary group-hover:text-white transition-colors duration-300"
+                            className="inline-flex items-center gap-1.5 text-sm font-medium mt-auto text-primary group-hover:text-foreground transition-colors duration-300"
                           >
                             View Details
                             <Icon icon="ion:arrow-forward-outline" className="text-base" />
