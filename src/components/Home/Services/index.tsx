@@ -6,36 +6,71 @@ import { Icon } from "@iconify/react";
 import { services } from "@/app/api/data";
 
 const iconMap: Record<string, string> = {
-  shield: "ion:shield-checkmark-outline",
-  strategy: "ion:document-text-outline",
-  audit: "ion:clipboard-outline",
-  risk: "ion:warning-outline",
-  ai: "ion:hardware-chip-outline",
-  "generative-ai": "ion:sparkles-outline",
-  data: "ion:server-outline",
-  analytics: "ion:bar-chart-outline",
-  intelligence: "ion:bulb-outline",
-  digital: "ion:globe-outline",
-  cloud: "ion:cloud-outline",
-  emerging: "ion:rocket-outline",
-  devops: "ion:git-branch-outline",
-  infrastructure: "ion:layers-outline",
-  modernization: "ion:refresh-outline",
+  shield: "solar:shield-bold-duotone",
+  strategy: "solar:document-add-bold-duotone",
+  audit: "solar:clipboard-bold-duotone",
+  risk: "solar:danger-triangle-bold-duotone",
+  ai: "solar:cpu-bold-duotone",
+  "generative-ai": "solar:stars-bold-duotone",
+  data: "solar:database-bold-duotone",
+  analytics: "solar:chart-2-bold-duotone",
+  intelligence: "solar:lightbulb-bold-duotone",
+  digital: "solar:global-bold-duotone",
+  cloud: "solar:cloud-bold-duotone",
+  emerging: "solar:rocket-bold-duotone",
+  devops: "solar:settings-bold-duotone",
+  infrastructure: "solar:layers-bold-duotone",
+  modernization: "solar:refresh-circle-bold-duotone",
 };
 
-const ActiveArrow = () => (
-  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="28" height="28" rx="4" className="fill-primary" />
-    <path d="M10 8L18 14L10 20" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
+const NavIndicator = ({ isActive }: { isActive: boolean }) => (
+  <div
+    className={`w-8 h-8 rounded-[4px] flex items-center justify-center shrink-0 transition-all duration-200 font-bold text-sm select-none
+      ${isActive
+        ? "bg-primary text-primary-foreground"
+        : "border border-muted-foreground text-muted-foreground group-hover:border-primary group-hover:text-primary"
+      }`}
+  >
+    P
+  </div>
 );
 
-const InactiveArrow = () => (
-  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="28" height="28" rx="4" fill="none" stroke="#CCD7E1" strokeWidth="1.5" />
-    <path d="M10 8L18 14L10 20" stroke="#668199" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
+const ServiceCard = ({card}: {card: {id: string, title: string, description: string, href: string, iconName: string}}) => {
+  return (
+    <div
+    key={card.id}
+    className="group rounded-lg p-6 flex flex-col gap-4 transition-all duration-300 bg-card shadow-service border border-border/20 hover:bg-primary hover:border-primary hover:shadow-lg cursor-pointer"
+  >
+    {/* Icon */}
+    <div className="w-12 h-12 md:w-16 md:h-16 rounded-lg flex items-center justify-center shrink-0 bg-background shadow transition-colors duration-300 group-hover:bg-background/90">
+      <svg xmlns="http://www.w3.org/2000/svg" width={36} height={36} viewBox="0 0 24 24">
+        <path className="fill-primary" d="M3 11.991c0 5.638 4.239 8.375 6.899 9.536c.721.315 1.082.473 2.101.473V8l-9 3z"></path>
+        <path className="fill-midnight_text group-hover:fill-primary-foreground transition-colors duration-300" d="M14.101 21.527C16.761 20.365 21 17.63 21 11.991V11l-9-3v14c1.02 0 1.38-.158 2.101-.473M8.838 2.805L8.265 3c-3.007 1.03-4.51 1.545-4.887 2.082C3 5.62 3 7.22 3 10.417V11l9-3V2c-.811 0-1.595.268-3.162.805" opacity={0.8}></path>
+        <path className="fill-primary" d="m15.735 3l-.573-.195C13.595 2.268 12.812 2 12 2v6l9 3v-.583c0-3.198 0-4.797-.378-5.335c-.377-.537-1.88-1.052-4.887-2.081"></path>
+      </svg>
+    </div>
+
+    {/* Content */}
+    <div className="flex-1">
+      <h3 className="text-xl transition-all duration-300 md:text-[1.3rem] font-medium leading-snug text-foreground group-hover:text-primary-foreground">
+        {card.title}
+      </h3>
+      <p className="mt-2 transition-all duration-300 text-sm md:text-sm leading-relaxed text-muted-foreground group-hover:text-primary-foreground/90 max-sm:line-clamp-1">
+        {card.description}
+      </p>
+    </div>
+
+    {/* Link */}
+    <Link
+      href={card.href}
+      className="inline-flex items-center gap-1.5 text-sm font-semibold mt-auto text-foreground group-hover:text-primary-foreground transition-all duration-300 "
+    >
+      View Details
+      <Icon icon="solar:arrow-right-bold-duotone" className="text-base text-primary group-hover:text-primary-foreground transition-all duration-300" />
+    </Link>
+  </div>
+  )
+}
 
 const Services = () => {
   const { sections } = services;
@@ -68,15 +103,11 @@ const Services = () => {
     }, 800);
   }, []);
 
-  // Mobile tab click → same behaviour
   const handleTabClick = useCallback(
     (sectionId: string) => handleNavClick(sectionId),
     [handleNavClick]
   );
 
-  // Scroll listener: mark whichever section header has just passed the top of
-  // the container as active.  Much more reliable than IntersectionObserver for
-  // sections that are taller than the scroll window.
   useEffect(() => {
     const container = scrollRef.current;
     if (!container) return;
@@ -102,10 +133,11 @@ const Services = () => {
   }, [sections]);
 
   return (
-    <section className="bg-section overflow-hidden">
-      <div className="container">
+    <section className="overflow-hidden relative bg-background">
+        <div className="absolute inset-0 -z-10 h-full w-full bg-radial from-primary/10 to-transparent" />
+      <div className="container z-50">
         <div className="mb-10">
-          <span className="text-lg text-primary font-medium tracking-wide leading-tight ">Services We Offer</span>
+          <span className="text-lg font-medium tracking-wide leading-tight text-muted-foreground">Services We Offer</span>
           <h2 className="text-3xl sm:text-4xl xl:text-5xl font-bold text-midnight_text leading-tight mt-2">Transform Your Business</h2>
         </div>
         {/* Mobile: horizontal scrollable tabs */}
@@ -114,14 +146,13 @@ const Services = () => {
             <button
               key={section.id}
               onClick={() => handleTabClick(section.id)}
-              className={`shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
-                activeSection === section.id
-                  ? "bg-primary text-white"
-                  : "bg-white text-grey border border-border dark:bg-darklight dark:text-white/60 dark:border-dark_border"
-              }`}
+              className={`shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${activeSection === section.id
+                  ? "bg-primary text-primary-foreground"
+                    : "bg-background text-muted-foreground border border-muted-foreground"
+                }`}
             >
               {section.title}
-            </button>
+            </button> 
           ))}
         </div>
 
@@ -138,25 +169,24 @@ const Services = () => {
                     className="flex items-start gap-4 w-full text-left group"
                   >
                     <div className="flex flex-col items-center shrink-0 mt-1">
-                      {isActive ? <ActiveArrow /> : <InactiveArrow />}
+                      <NavIndicator isActive={isActive} />
                       {!isLast && (
-                        <div className={`w-px flex-1 mt-2 mb-2 min-h-10 border-l-2 border-dashed ${isActive ? "border-primary" : "border-border dark:border-dark_border"}`} />
+                        <div className={`w-px flex-1 mt-2 mb-2 min-h-20  border-l-2 border-dashed ${isActive ? "border-primary" : "border-muted-foreground"}`} />
                       )}
                     </div>
                     <div className={`${isLast ? "pb-0" : "pb-8"}`}>
                       <p
-                        className={`text-base font-semibold leading-snug transition-colors duration-200 ${
-                          isActive
-                            ? "text-midnight_text dark:text-white"
-                            : "text-grey dark:text-white/40 group-hover:text-midnight_text dark:group-hover:text-white/70"
-                        }`}
+                        className={`text-xl font-semibold leading-snug transition-colors duration-200 ${isActive
+                            ? "text-foreground"
+                            : "text-muted-foreground group-hover:text-foreground"
+                          }`}
                       >
                         {section.title}
                       </p>
-                        <p className={`mt-1 text-sm ${isActive ? "text-midnight_text dark:text-white" : "text-grey dark:text-white/50"}  leading-relaxed max-w-56`}>
-                          {section.description}
-                        </p>
-                   
+                      <p className={`mt-1 text-base ${isActive ? "text-foreground" : "text-muted-foreground"}  leading-relaxed max-w-[80%]`}>
+                        {section.description}
+                      </p>
+
                     </div>
                   </button>
                 </div>
@@ -168,7 +198,7 @@ const Services = () => {
           <div className="flex-1 overflow-hidden">
             <div
               ref={scrollRef}
-              className="relative h-[400px] overflow-y-auto overflow-x-hidden pr-1"
+              className="relative h-[440px] overflow-y-auto overflow-x-hidden pr-1"
             >
               {sections.map((section) => (
                 <div
@@ -179,39 +209,9 @@ const Services = () => {
                 >
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-5">
                     {section.cards.map((card) => {
-                      const iconName = iconMap[card.icon] ?? "ion:apps-outline";
+                      const iconName = iconMap[card.icon] ?? "solar:widget-bold-duotone";
                       return (
-                        <div
-                          key={card.id}
-                          className="group rounded-xl p-6 flex flex-col gap-4 transition-all duration-300 bg-white dark:bg-darklight shadow-service border border-border/20  hover:bg-primary hover:border-primary hover:shadow-lg cursor-pointer"
-                        >
-                          {/* Icon */}
-                          <div className="w-12 h-12 md:w-16 md:h-16 rounded-lg flex items-center justify-center shrink-0 bg-Sky-blue-mist/30 dark:bg-white/10 group-hover:bg-white/20 transition-colors duration-300">
-                            <Icon
-                              icon={iconName}
-                              className="text-2xl md:text-4xl text-primary group-hover:text-muted-foreground transition-colors duration-300"
-                            />
-                          </div>
-
-                          {/* Content */}
-                          <div className="flex-1">
-                            <h3 className="text-xl md:text-[1.3rem] font-medium leading-snug text-foreground">
-                              {card.title}
-                            </h3>
-                            <p className="mt-2 text-sm md:text-sm leading-relaxed text-muted-foreground max-sm:line-clamp-1">
-                              {card.description}
-                            </p>
-                          </div>
-
-                          {/* Link */}
-                          <Link
-                            href={card.href}
-                            className="inline-flex items-center gap-1.5 text-sm font-medium mt-auto text-primary group-hover:text-foreground transition-colors duration-300"
-                          >
-                            View Details
-                            <Icon icon="ion:arrow-forward-outline" className="text-base" />
-                          </Link>
-                        </div>
+                        <ServiceCard key={card.id} card={{...card, iconName}} />
                       );
                     })}
                   </div>

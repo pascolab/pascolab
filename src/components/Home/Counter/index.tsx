@@ -45,11 +45,11 @@ function StatItem({
         !isLast ? "border-r border-border" : ""
       }`}
     >
-      <p className="text-4xl md:text-5xl xl:text-6xl font-bold text-muted-foreground leading-none tracking-tight">
+      <p className="text-4xl md:text-5xl xl:text-6xl font-bold text-foreground leading-none tracking-tight">
         {count}
         <span className="text-primary">{suffix}</span>
       </p>
-      <p className="text-xs sm:text-sm uppercase tracking-widest text-grey leading-relaxed">
+      <p className="text-xs sm:text-sm uppercase tracking-widest text-muted-foreground leading-relaxed">
         {label}
       </p>
     </div>
@@ -76,7 +76,7 @@ const Counter = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-white overflow-hidden">
+    <section ref={sectionRef} className="bg-background overflow-hidden">
       <div className="container">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 xl:gap-24 items-start lg:items-center">
           {/* Left — heading + description */}

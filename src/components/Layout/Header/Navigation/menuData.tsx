@@ -2,6 +2,10 @@ import { HeaderItem } from "@/types/menu";
 
 export const headerData: HeaderItem[] = [
   {
+    label: "Home",
+    href: "/",
+  },
+  {
     label: "Services",
     href: "/services",
     megaMenu: {
@@ -80,7 +84,7 @@ export const headerData: HeaderItem[] = [
   { 
     label: "Solutions",
     href: "/solutions"
-  },
+  },    
   { 
     label: "Case Studies",
     href: "/case-studies",
@@ -225,12 +229,6 @@ export const headerData: HeaderItem[] = [
       ]
     }
   },
-  { label: "Careers", href: "/careers" },
- 
-  {
-    label: "Dedicated Teams",
-    href: "/teams",
-  },
   
-  { label: "Contact", href: "/contact" },
+  { label: "Contact", href: "/contact" }, 
 ];

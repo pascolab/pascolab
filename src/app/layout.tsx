@@ -6,6 +6,7 @@ import Aoscompo from "@/utils/aos";
 import { AuthDialogProvider } from "./context/AuthDialogContext";
 import { cn } from "@/lib/utils";
 import { Geist } from "next/font/google";
+import ThemeProvider from "@/components/Common/Theme/ThemeProvider";
 
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
@@ -21,13 +22,20 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning className={cn("font-sans", geist.variable)}>
       <body className={inter.className}>
       <AuthDialogProvider>
-          <Aoscompo>
-            <main >
-              {children}
-            </main>
-            <Footer />
-          </Aoscompo>
-          <ScrollToTop />
+      <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Aoscompo>
+              <main >
+                {children}
+              </main>
+              <Footer />
+            </Aoscompo>
+            <ScrollToTop />
+          </ThemeProvider>
         </AuthDialogProvider>
       </body>
     </html>

@@ -15,13 +15,13 @@ const MobileHeaderLink: React.FC<{ item: HeaderItem }> = ({ item }) => {
   const isActive = path === item.href;
 
     if (item.megaMenu) {
-      return (
+      return (    
       <div className="relative block w-full">
         <button
           onClick={handleToggle}
           className={`flex items-center justify-between w-full py-2 px-3 rounded-md focus:outline-hidden ${isActive ? 'bg-foreground! text-background! ' : ''}`}
         >
-          <span className='text-foreground'>{item.label}</span>
+          <span>{item.label}</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="1.5em"
@@ -47,7 +47,7 @@ const MobileHeaderLink: React.FC<{ item: HeaderItem }> = ({ item }) => {
         onClick={item.submenu ? handleToggle : undefined}
           className={`flex items-center justify-between w-full py-2 px-3 rounded-md focus:outline-hidden ${isActive ? 'bg-foreground! text-background! ' : '  '}`}
       >
-        <span className='text-foreground'>{item.label}</span>
+        <span>{item.label}</span>
         {item.submenu && (
           <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24">
             <path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="m7 10l5 5l5-5" />
@@ -58,7 +58,7 @@ const MobileHeaderLink: React.FC<{ item: HeaderItem }> = ({ item }) => {
         <div className="bg-muted p-2 w-full">
           {item.submenu.map((subItem, index) => (
             <Link key={index} href={subItem.href} className="block py-2 text-foreground/90 hover:bg-foreground/10">
-              <span className='text-foreground'>{subItem.label}</span>
+              <span>{subItem.label}</span>
             </Link>
           ))}
         </div>

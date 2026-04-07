@@ -27,14 +27,11 @@ export default function ScrollToTop() {
     window.addEventListener("scroll", toggleVisibility);
 
     return () => window.removeEventListener("scroll", toggleVisibility);
-  }, []);
+    }, []);
 
   return (
     <div className="fixed bottom-8 right-8 z-999">
       <div className="flex items-center gap-2.5">
-        <Link href={"https://themewagon.com/themes/venus-nextjs/"} target="_blank" className="hidden lg:block bg-primary text-sm hover:bg-blue-700 text-white px-4 py-3.5 leading-none rounded-lg font-medium text-nowrap">
-          Get This Template
-        </Link>
         {isVisible && (
           <div
             onClick={scrollToTop}

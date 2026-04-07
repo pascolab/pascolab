@@ -104,88 +104,100 @@ export const testimonials = [
     },
 ]
 
-export const portfolioinfo = [
+export type PortfolioKind = 'Case Study' | 'Blog'
+
+export type PortfolioItem = {
+    image: string
+    alt: string
+    title: string
+    slug: string
+    info: string
+    Class: string
+    kind: PortfolioKind
+}
+
+export const portfolioinfo: PortfolioItem[] = [
     {
         image: getImgPath('/images/portfolio/cozycasa.png'),
-        alt: 'Portfolio',
-        title: 'Cozycasa',
+        alt: 'US Fashion Resale Platform case study',
+        title: 'US Fashion Resale Platform',
         slug: 'Cozycasa',
-        info: 'Designation',
-        Class: 'md:mt-0'
+        info: 'E-commerce & marketplace',
+        Class: 'md:mt-0',
+        kind: 'Case Study',
     },
     {
         image: getImgPath('/images/portfolio/mars.png'),
-        alt: 'Portfolio',
-        title: 'Mars',
+        alt: 'Custom web application development article',
+        title: 'Custom Web Application Development: Everything You Need to Know',
         slug: 'Mars',
-        info: 'Designation',
-        Class: 'md:mt-24'
+        info: 'Engineering insights',
+        Class: 'md:mt-24',
+        kind: 'Blog',
     },
     {
         image: getImgPath('/images/portfolio/humans.png'),
-        alt: 'Portfolio',
-        title: 'Everyday Humans',
+        alt: 'Hospitality AI platform case study',
+        title: 'Hospitality AI Platform',
         slug: 'everyday-humans',
-        info: 'Designation',
-        Class: 'md:mt-0'
+        info: 'AI & analytics',
+        Class: 'md:mt-0',
+        kind: 'Case Study',
     },
     {
         image: getImgPath('/images/portfolio/roket-squred.png'),
-        alt: 'Portfolio',
-        title: 'Rocket Squared',
+        alt: 'Cloud computing transformation article',
+        title: 'How Cloud Computing Can Transform Your Operations',
         slug: 'rocket-squared',
-        info: 'Designation',
-        Class: 'md:mt-24'
+        info: 'Cloud strategy',
+        Class: 'md:mt-24',
+        kind: 'Blog',
     },
     {
         image: getImgPath('/images/portfolio/panda-logo.png'),
-        alt: 'Portfolio',
-        title: 'Panda Logo',
+        alt: 'Mobile design trends article',
+        title: 'Trends of Mobile Design: What’s Next for Your Business?',
         slug: 'panda-logo',
-        info: 'Designation',
-        Class: 'md:mt-0'
+        info: 'UX & mobile',
+        Class: 'md:mt-0',
+        kind: 'Blog',
     },
     {
         image: getImgPath('/images/portfolio/humans.png'),
-        alt: 'Portfolio',
-        title: 'Fusion Dynamics',
+        alt: 'Pakistan furniture Shopify migration case study',
+        title: 'Pakistan Furniture Leader’s Shopify Migration',
         slug: 'fusion-dynamics',
-        info: 'Designation',
-        Class: 'md:mt-0'
+        info: 'Shopify & retail',
+        Class: 'md:mt-0',
+        kind: 'Case Study',
     },
     {
         image: getImgPath('/images/portfolio/cozycasa.png'),
-        alt: 'Portfolio',
-        title: 'InnovateX Ventures',
+        alt: 'Generative AI in business article',
+        title: 'How Generative AI Is Transforming Product Teams',
         slug: 'innovate-x-ventures',
-        info: 'Designation',
-        Class: 'md:mt-24'
+        info: 'AI adoption',
+        Class: 'md:mt-24',
+        kind: 'Blog',
     },
     {
         image: getImgPath('/images/portfolio/mars.png'),
-        alt: 'Portfolio',
-        title: 'Nebula Holdings',
+        alt: 'US fintech AI financial modeling case study',
+        title: 'US Fintech’s AI Financial Modeling',
         slug: 'nebula-holdings',
-        info: 'Designation',
-        Class: 'md:mt-0'
+        info: 'Fintech & ML',
+        Class: 'md:mt-0',
+        kind: 'Case Study',
     },
     {
         image: getImgPath('/images/portfolio/panda-logo.png'),
-        alt: 'Portfolio',
-        title: 'Summit Partners',
+        alt: 'Innovation and venture case study',
+        title: 'Summit Partners: Scaling the Product Org',
         slug: 'summit-partners',
-        info: 'Designation',
-        Class: 'md:mt-24'
-    },
-    {
-        image: getImgPath('/images/portfolio/roket-squred.png'),
-        alt: 'Portfolio',
-        title: 'Apex Strategies',
-        slug: 'apex-strategies',
-        info: 'Designation',
-        Class: 'md:mt-0'
-    },
-    
+        info: 'Product & growth',
+        Class: 'md:mt-24',
+        kind: 'Case Study',
+    }
 ]
 
 export const services: Service = {
@@ -193,7 +205,7 @@ export const services: Service = {
     {
       id: "custom-solutions",
       title: "Custom Solutions",
-      description: "Tailored software built for your unique needs",
+      description: "Design and build tailored software solutions aligned with your business goals and operational needs. From strategy to implementation.",
       navReference: "security-strategy",
       cards: [
         {
@@ -229,7 +241,7 @@ export const services: Service = {
     {
       id: "ai-data",
       title: "AI & Data",
-      description: "Intelligence and automation at enterprise scale",
+      description: "Leverage AI, machine learning, and advanced data platforms to unlock actionable insights and automation. Transform raw data into intelligent systems that enhance.",
       navReference: "ai-data",
       cards: [
         {
@@ -272,7 +284,7 @@ export const services: Service = {
     {
       id: "digital-cloud",
       title: "Digital & Cloud",
-      description: "Modern platforms built for scale and uptime",
+      description: "Modernize your technology stack with cloud-native architectures and scalable digital platforms. We enable seamless transformation, ensuring.",
       navReference: "digital-cloud",
       cards: [
         {
