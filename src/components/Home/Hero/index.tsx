@@ -41,6 +41,7 @@ const Hero = () => {
             </div>
           ))}
         </Slider>
+        <div className='absolute inset-0 z-10 bg-linear-to-tr from-primary/25 to-[var(--text-heading)]/45 dark:from-primary/20 dark:to-[var(--bg-primary)]/70 pointer-events-none ' />
       </div>
       <div className='relative z-50 '>
         <Header />

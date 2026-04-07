@@ -1,123 +1,234 @@
-import React from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
-import { getImgPath } from '@/utils/image'
+"use client"
+
+import * as React from "react"
+
+import { Button } from "@/components/ui/button"
+import { Checkbox } from "@/components/ui/checkbox"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+import { Textarea } from "@/components/ui/textarea"
+import { cn } from "@/lib/utils"
+
+const SERVICE_OPTIONS = [
+  "Remote IT Resources",
+  "Custom Software Development",
+  "Web Development",
+  "Mobile App Development",
+  "AR/VR",
+  "Gaming",
+  "Cyber Security",
+  "Other IT Services",
+] as const
+
+const REGION_OPTIONS = [
+  "North America",
+  "Europe",
+  "Asia Pacific",
+  "Middle East & Africa",
+  "Latin America",
+  "Other",
+] as const
+
+
+function RequiredMark() {
+  return <span className="text-destructive">*</span>
+}
+
+function FieldLabel({
+  children,
+  required,
+  htmlFor,
+}: {
+  children: React.ReactNode
+  required?: boolean
+  htmlFor?: string
+}) {
+  return (
+    <Label
+      htmlFor={htmlFor}
+      className="text-xs font-normal text-foreground"
+    >
+      {children}
+      {required ? <RequiredMark /> : null}
+    </Label>
+  )
+}
 
 const ContactForm = () => {
   return (
-    <>
-      <section className='dark:bg-darkmode md:pb-24 pb-16'>
-        <div className='container mx-auto max-w-6xl px-4'>
-          <div className='grid md:grid-cols-12 grid-cols-1 gap-8'>
-            <div className='col-span-6'>
-              <h2 className='max-w-72 text-[40px] leading-tight font-bold mb-9 text-midnight_text dark:text-white'>
-                Get Online Consultation
-              </h2>
-              <form className='flex flex-wrap w-full m-auto justify-between'>
-                <div className='sm:flex gap-3 w-full'>
-                  <div className='mx-0 my-2.5 flex-1'>
-                    <label
-                      htmlFor='first-name'
-                      className='pb-3 inline-block text-base'>
-                      First Name*
-                    </label>
-                    <input
-                      className='w-full text-base px-4 rounded-lg py-2.5 border-border dark:border-dark_border border-solid dark:text-white  dark:bg-darkmode border transition-all duration-500 focus:border-primary dark:focus:border-primary focus:border-solid focus:outline-0'
-                      type='text'
-                    />
-                  </div>
-                  <div className='mx-0 my-2.5 flex-1'>
-                    <label
-                      htmlFor='last-name'
-                      className='pb-3 inline-block text-base'>
-                      Last Name*
-                    </label>
-                    <input
-                      className='w-full text-base px-4 py-2.5 rounded-lg border-border dark:border-dark_border border-solid dark:text-white  dark:bg-darkmode border transition-all duration-500 focus:border-primary dark:focus:border-primary focus:border-solid focus:outline-0'
-                      type='text'
-                    />
-                  </div>
-                </div>
-                <div className='sm:flex gap-3 w-full'>
-                  <div className='mx-0 my-2.5 flex-1'>
-                    <label
-                      htmlFor='email'
-                      className='pb-3 inline-block text-base'>
-                      Email address*
-                    </label>
-                    <input
-                      type='email'
-                      className='w-full text-base px-4 py-2.5 rounded-lg border-border dark:border-dark_border border-solid dark:text-white  dark:bg-darkmode border transition-all duration-500 focus:border-primary dark:focus:border-primary focus:border-solid focus:outline-0'
-                    />
-                  </div>
-                  <div className='mx-0 my-2.5 flex-1'>
-                    <label
-                      htmlFor='Specialist'
-                      className='pb-3 inline-block text-base'>
-                      Specialist*
-                    </label>
-                    <select className='w-full text-base px-4 py-2.5 rounded-lg border-border dark:text-white border-solid dark:bg-darkmode border transition-all duration-500 focus:border-primary dark:focus:border-primary dark:border-dark_border focus:border-solid focus:outline-0'>
-                      <option value=''>Choose a specialist</option>
-                      <option value='Baking &amp; Pastry'>
-                        Choose a specialist
-                      </option>
-                      <option value='Exotic Cuisine'>Exotic Cuisine</option>
-                      <option value='French Desserts'>French Desserts</option>
-                      <option value='Seafood &amp; Wine'>
-                        Choose a specialist
-                      </option>
-                    </select>
-                  </div>
-                </div>
-                <div className='sm:flex gap-3 w-full'>
-                  <div className='mx-0 my-2.5 flex-1'>
-                    <label
-                      htmlFor='date'
-                      className='pb-3 inline-block text-base'>
-                      Date*
-                    </label>
-                    <input
-                      className='w-full text-base px-4 rounded-lg  py-2.5 outline-hidden dark:text-white dark:bg-darkmode border-border border-solid border transition-all duration-500 focus:border-primary dark:focus:border-primary dark:border-dark_border focus:border-solid focus:outline-0'
-                      type='date'
-                    />
-                  </div>
-                  <div className='mx-0 my-2.5 flex-1'>
-                    <label
-                      htmlFor='time'
-                      className='pb-3 inline-block text-base'>
-                      Time*
-                    </label>
-                    <input
-                      className='w-full text-base px-4 rounded-lg py-2.5 border-border outline-hidden dark:text-white dark:bg-darkmode border-solid border transition-all duration-500 focus:border-primary dark:focus:border-primary dark:border-dark_border focus:border-solid focus:outline-0'
-                      type='time'
-                    />
-                  </div>
-                </div>
-                <div className='mx-0 my-2.5 w-full'>
-                  <Link
-                    href='#'
-                    className='bg-primary rounded-lg text-white py-4 px-8 mt-4 inline-block hover:bg-blue-700'
-                    type='submit'>
-                    Make an appointment
-                  </Link>
-                </div>
-              </form>
-            </div>
-            <div className='col-span-6'>
-              <Image
-                src={getImgPath('/images/contact-page/contact.jpg')}
-                alt='Contact'
-                width={1300}
-                height={0}
-                quality={100}
-                style={{ width: '100%', height: 'auto' }}
-                className='bg-no-repeat bg-contain'
-              />
-            </div>
-          </div>
+    <div className="mt-6 space-y-5">
+      <div className="space-y-2">
+        <FieldLabel htmlFor="contact-full-name" required>
+          Full Name
+        </FieldLabel>
+        <Input
+          id="contact-full-name"
+          type="text"
+          autoComplete="name"
+        />
+      </div>
+
+      <div className="space-y-2">
+        <FieldLabel htmlFor="contact-email" required>
+          Email
+        </FieldLabel>
+        <Input
+          id="contact-email"
+          type="email"
+          autoComplete="email"
+          
+        />
+      </div>
+
+      <div className="space-y-2">
+        <FieldLabel required>Phone Number</FieldLabel>
+        <div className="flex gap-2">
+          <Select defaultValue="us">
+            <SelectTrigger
+              className={cn(
+                "h-auto w-32! shrink-0 border-[#E5E7EB] bg-muted px-2 dark:bg-input/30",
+                "data-[size=default]:h-10"
+              )}
+            >
+              <SelectValue placeholder="🇺🇸 +1" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="us">
+                <span className="flex items-center gap-2">
+                  <span aria-hidden>🇺🇸</span>
+                  <span>+1</span>
+                </span>
+              </SelectItem>
+            </SelectContent>
+          </Select>
+          <Input
+            id="contact-phone"
+            type="tel"
+            autoComplete="tel"
+            placeholder="+1 (555) 000-0000"
+            className={cn("min-w-0 flex-1")}
+          />
         </div>
-      </section>
-    </>
+      </div>
+
+      <div className="space-y-2">
+        <FieldLabel htmlFor="contact-company" required>
+          Company Name
+        </FieldLabel>
+        <Input
+          id="contact-company"
+          type="text"
+          autoComplete="organization"
+          
+        />
+      </div>
+
+      <div className="space-y-2">
+        <FieldLabel htmlFor="contact-company-url">Company URL</FieldLabel>
+        <Input
+          id="contact-company-url"
+          type="url"
+          autoComplete="url"
+          placeholder="https://"
+          
+        />
+      </div>
+
+      <div className="space-y-2">
+        <FieldLabel required>Region</FieldLabel>
+        <Select>
+          <SelectTrigger
+            size="default"
+            className={cn(
+              "h-10 w-full border-[#E5E7EB] bg-[#F5F6F8] dark:bg-input/30",
+              "data-[size=default]:h-10"
+            )}
+          >
+            <SelectValue placeholder="Select Region" />
+          </SelectTrigger>
+          <SelectContent>
+            {REGION_OPTIONS.map((r) => (
+              <SelectItem key={r} value={r}>
+                {r}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
+
+      <div className="space-y-3">
+        <Label className="text-xs font-normal text-foreground">
+          Services you are looking for
+          <RequiredMark />
+        </Label>
+        <div className="space-y-3">
+          {SERVICE_OPTIONS.map((label, i) => {
+            const id = `contact-service-${i}`
+            return (
+              <div key={label} className="flex items-start gap-2.5">
+                <Checkbox id={id} className="mt-0.5" />
+                <Label
+                  htmlFor={id}
+                  className="cursor-pointer text-sm font-normal leading-snug text-foreground"
+                >
+                  {label}
+                </Label>
+              </div>
+            )
+          })}
+        </div>
+      </div>
+
+      <div className="space-y-2">
+        <FieldLabel htmlFor="contact-project-details" required>
+          Project Details
+        </FieldLabel>
+        <Textarea
+          id="contact-project-details"
+          rows={5}
+          className={cn(
+            "min-h-34 resize-y py-2.5"
+          )}
+        />
+      </div>
+
+      <div className="space-y-2">
+        <FieldLabel required>
+          I am looking for a job at Devinc
+        </FieldLabel>
+        <Select>
+          <SelectTrigger
+            size="default"
+            className={cn(
+              "h-10 w-full border-[#E5E7EB] bg-[#F5F6F8] dark:bg-input/30",
+              "data-[size=default]:h-10"
+            )}
+          >
+            <SelectValue placeholder="Please Select" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="yes">Yes</SelectItem>
+            <SelectItem value="no">No</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+
+      <div className="pt-1">
+        <Button
+          type="button"
+          className="rounded-full bg-primary px-10 py-5 text-base font-medium text-primary-foreground hover:bg-primary/90"
+        >
+          Submit
+        </Button>
+      </div>
+    </div>
   )
 }
 

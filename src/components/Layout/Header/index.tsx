@@ -4,21 +4,20 @@ import { useEffect, useRef, useState } from 'react'
 import { headerData } from './Navigation/menuData'
 import Logo from './Logo'
 import MobileHeaderLink from './Navigation/MobileHeaderLink'
+import { Button } from '@/components/ui/button'
+import ThemeSwitcher from '@/components/Common/Theme/ThemeSwitcher'
+import ContactCTA from '@/components/Common/ContactCTA'
 
-const BAR_H = 60   // px — desktop nav bar height
-const PANEL_H = 280 // px — expanded mega-menu panel height
+const BAR_H = 69
+const PANEL_H = 280
 
 const Header: React.FC = () => {
-  // ── Apple-style mega-menu state ──────────────────────────────
   const [openItem, setOpenItem] = useState<string | null>(null)
   const [renderedItem, setRenderedItem] = useState<string | null>(null)
   const [contentVisible, setContentVisible] = useState(false)
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
   const contentTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
-
-  // ── General UI state ─────────────────────────────────────────
   const [navbarOpen, setNavbarOpen] = useState(false)
-
   const desktopNavRef = useRef<HTMLDivElement>(null)
   const mobileMenuRef = useRef<HTMLDivElement>(null)
 
@@ -62,7 +61,7 @@ const Header: React.FC = () => {
   // ── Event listeners ───────────────────────────────────────────
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-    
+
       if (
         mobileMenuRef.current &&
         !mobileMenuRef.current.contains(e.target as Node) &&
@@ -110,7 +109,7 @@ const Header: React.FC = () => {
       {/* Expanding container */}
       <div
         ref={desktopNavRef}
-        className='hidden lg:block overflow-hidden border-b border-border/40 bg-white  backdrop-blur-xl'
+        className='hidden lg:block overflow-hidden border-b border-border/40 bg-background  backdrop-blur-xl'
         style={{
           height: isMenuOpen ? BAR_H + PANEL_H : BAR_H,
           transition:
@@ -119,56 +118,61 @@ const Header: React.FC = () => {
       >
         {/* ── Top bar ── */}
         <div
-          className='container mx-auto flex items-center justify-between'
+          className='container mx-auto'
           style={{ height: BAR_H }}
         >
-          <Logo />
+          <div className='flex items-center h-full justify-between'>
+            <Logo />
 
-          {/* Nav items */}
-          <nav className='flex items-center'>
-            {headerData.map((item) =>
-              item.megaMenu ? (
-                // Mega-menu trigger: button that toggles panel
-                <button
-                  key={item.label}
-                  onClick={() => toggleMenu(item.label)}
-                  className={`inline-flex items-center gap-0.5 text-base font-normal px-3.5 py-1.5 rounded-full transition-colors duration-150 cursor-pointer text-foreground/80 hover:text-foreground `}
-                >
-                  <span className='text-foreground'>{item.label}</span>
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    width='16'
-                    height='16'
-                    viewBox='0 0 24 24'
-                    className={`shrink-0 transition-transform duration-200 ${
-                      openItem === item.label ? '-rotate-180' : ''
-                    }`}
+            {/* Nav items */}
+            <nav className='flex items-center gap-x-4'>
+              {headerData.map((item) =>
+                item.megaMenu ? (
+                  // Mega-menu trigger: button that toggles panel
+                  <button
+                    key={item.label}
+                    onClick={() => toggleMenu(item.label)}
+                    className={`inline-flex items-center select-none gap-0.5 text-sm font-normal px-3.5 py-1.5 rounded-full transition-colors duration-150 cursor-pointer text-foreground `}
                   >
-                    <path
-                      fill='none'
-                      stroke='currentColor'
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
-                      strokeWidth='1.5'
-                      d='m7 10l5 5l5-5'
-                    />
-                  </svg>
-                </button>
-              ) : (
-                // Regular link — navigates directly
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  onClick={() => isMenuOpen && closeMenu()}
-                  className={`inline-flex items-center text-base font-normal px-3.5 py-1.5 rounded-full transition-colors duration-150 text-foreground/80 hover:text-foreground`}
-                >
-                  <span className='text-foreground'>{item.label}</span>
-                </Link> 
-              )
-            )}
-          </nav>
+                    {item.label}
+                    <svg
+                      xmlns='http://www.w3.org/2000/svg'
+                      width='16'
+                      height='16'
+                      viewBox='0 0 24 24'
+                      className={`shrink-0 transition-transform duration-200 ${openItem === item.label ? '-rotate-180' : ''
+                        }`}
+                    >
+                      <path
+                        fill='none'
+                        stroke='currentColor'
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                        strokeWidth='1.5'
+                        d='m7 10l5 5l5-5'
+                      />
+                    </svg>
+                  </button>
+                ) : (
+                  // Regular link — navigates directly
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    onClick={() => isMenuOpen && closeMenu()}
+                    className={`inline-flex items-center select-none text-sm font-normal px-3.5 py-1.5 rounded-full transition-colors duration-150 text-foreground/80 hover:text-foreground`}
+                  >
+                    <span className='text-foreground'>{item.label}</span>
+                  </Link>
+                )
+              )}
+            </nav>
 
-         <div />
+           <div className='flex items-center gap-2'>
+            <ThemeSwitcher />
+            <ContactCTA label='Let&apos;s Talk Business' size='lg' />
+           </div>
+          </div>
+          <div />
         </div>
 
         {/* ── Columns panel ── */}
@@ -181,7 +185,7 @@ const Header: React.FC = () => {
           className='overflow-auto'
         >
           {renderedMegaMenu && (
-            <div className='max-w-6xl mx-auto px-8 py-7 flex gap-12'>
+            <div className='container mx-auto px-8 py-7 flex gap-12 '>
               {renderedMegaMenu.sections.map((section) => (
                 <div key={section.id} className='flex-1 min-w-0'>
                   {/* Bold category heading */}
@@ -189,17 +193,17 @@ const Header: React.FC = () => {
                     {section.sidebarLabel}
                   </p>
 
-                  {/* Thin rule under heading */}
+                  {/* Thin rule  under heading */}
                   <div className='h-[0.5px] bg-border  mb-5' />
 
                   {/* Sub-item links */}
-                  <ul className='space-y-3'>
+                  <ul className='space-y-3 select-none'>
                     {section.items.map((item) => (
-                      <li key={item.title}>
+                      <li key={item.title} className='select-none'>
                         <Link
                           href={item.href ?? '#'}
                           onClick={closeMenu}
-                          className='text-[13px] text-foreground/90  ps-1 md:ps-2  dark:hover:text-white transition-colors duration-300 block hover:text-primary'
+                          className='text-[13px] select-none tracking-wide decoration-foreground/90 hover:underline underline-offset-4 text-foreground/90  ps-1 md:ps-2  dark:hover:text-white transition-colors duration-300 block hover:text-primary'
                         >
                           <span className='text-foreground'>{item.title}</span>
                         </Link>
@@ -253,9 +257,8 @@ const Header: React.FC = () => {
       {/* Mobile slide-out drawer */}
       <div
         ref={mobileMenuRef}
-        className={`lg:hidden fixed inset-y-0 right-0 z-70 flex h-dvh w-full max-w-xs flex-col bg-background shadow-lg transition-transform duration-300 isolate ${
-          navbarOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+        className={`lg:hidden fixed inset-y-0 right-0 z-70 flex h-dvh w-full max-w-xs flex-col bg-background shadow-lg transition-transform duration-300 isolate ${navbarOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
       >
         <div className='flex shrink-0 items-center justify-between p-4'>
           <h2 className='text-lg font-bold text-foreground'>

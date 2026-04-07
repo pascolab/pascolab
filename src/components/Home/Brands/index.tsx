@@ -21,31 +21,10 @@ const BrandItem = ({brand}: {brand: Brand}) => {
 
 const Brands = () => {
   return (
-    <section className=' py-0 *:py-3  space-y-3 bg-white'> 
-
-      {/* Marquee strip LTR */}
+    <section className=' py-0 bg-background'> 
+      {/* Second Marquee RTL */}  
       <div
-        className='w-full overflow-hidden brands-marquee-mask'
-        aria-hidden='true'
-      >
-        {/* First Marquee LTR */}
-        <div className='flex w-max brands-marquee-track'>
-          {/* Two identical sets for seamless looping */}
-          {[0, 1].map((set) => (
-            <div
-              key={set}
-              className='flex items-center gap-12 px-6'
-            >
-              {brands.map((brand) => (
-                <BrandItem key={brand.alt} brand={brand} />
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
-      {/* Second Marquee RTL */}
-      <div
-        className='w-full overflow-hidden brands-marquee-mask'
+        className='w-full brands-marquee-mask'
         aria-hidden='true'
       >
         <div className='flex w-max brands-marquee-track reverse'>
@@ -53,7 +32,7 @@ const Brands = () => {
           {[0, 1].map((set) => (
             <div
               key={set}
-              className='flex items-center gap-12  px-6'
+              className='flex items-center gap-12  px-6 py-2.75'
             >
               {brands.map((brand) => (
                 <BrandItem key={brand.alt} brand={brand} />

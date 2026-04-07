@@ -1,6 +1,10 @@
+'use client'
+
+import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 import { testimonials } from '@/app/api/data'
 import { Badge } from '@/components/ui/badge'
-
 
 type Testimonial = {
   name: string
@@ -36,46 +40,66 @@ const TestimonialCard = ({
 }) => {
   const colorClass = avatarColors[index % avatarColors.length]
   return (
-    <div className='shrink-0 w-72 sm:w-80 lg:w-88 bg-white  shadow-sm  transition-colors duration-500! ease-in-out rounded-lg p-6 flex flex-col gap-4 select-none'>
-      {/* Quote */}
-      <p className='text-muted-foreground text-sm leading-relaxed flex-1'>{item.quote}</p>
+    <div className='bg-background shadow-sm rounded-lg p-6 flex flex-col gap-4 h-full min-h-52'>
+      <p className='text-muted-foreground text-base leading-relaxed flex-1'>{item.quote}</p>
 
-      {/* Footer */}
-      <div className='flex items-center justify-between gap-3 pt-2 '>
+      <div className='flex items-center justify-between gap-3 pt-2'>
         <div className='flex items-center gap-3'>
-          {/* Initials avatar */}
           <div
             className={`shrink-0 w-9 h-9 rounded-full flex items-center justify-center text-xs font-semibold ${colorClass}`}
           >
-            {getInitials(item.name)}
+            {getInitials(item.name)}  
           </div>
           <div>
-            <p className='text-foreground text-sm font-semibold leading-tight'>
-              {item.name}
-            </p>
-            <p className='text-secondary text-xs'>{item.role}</p>
+            <p className='text-foreground text-sm font-semibold leading-tight'>{item.name}</p>
+            <p className='text-muted-foreground text-xs'>{item.role}</p>
           </div>
         </div>
-        {/* <span className='text-xs font-medium text-grey border border-border rounded-full px-3 py-0.5 shrink-0'>
-          {item.company}  
-        </span> */}
-
-        <Badge variant="outline">{item.company}</Badge>
-        
+        <Badge variant='outline'>{item.company}</Badge>
       </div>
     </div>
   )
 }
 
+
 const Testimonial = () => {
+  const settings = {
+    dots: true,
+    arrows: false,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 7000,
+    speed: 600,
+    pauseOnHover: true,
+    pauseOnFocus: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: { slidesToShow: 2, arrows: false },
+      },
+      {
+        breakpoint: 640,  
+        settings: { slidesToShow: 1, arrows: false },
+      },
+    ],
+  }
+
   return (
-    <section id='testimonials' className='bg-gray-50/70 overflow-hidden'>
-      {/* Header */}
-      <div className='container mx-auto text-center mb-8  '>
-        <p className='text-primary font-semibold text-sm uppercase tracking-widest mb-3'>
+    <section
+      id='testimonials'
+      className='bg-background/90 relative z-40'
+      aria-labelledby='testimonials-heading'
+    >
+      <div className='container mx-auto text-center mb-8'>
+        <p className='text-muted-foreground font-semibold text-sm uppercase tracking-widest mb-3'>
           Feedback
         </p>
-        <h2 className='text-foreground text-3xl sm:text-4xl lg:text-[2.625rem] font-bold leading-tight mb-4'>
+        <h2
+          id='testimonials-heading'
+          className='text-foreground text-3xl sm:text-4xl lg:text-[2.625rem] font-bold leading-tight mb-4'
+        >
           What Our Clients Say
         </h2>
         <p className='text-muted-foreground text-base max-w-xl mx-auto'>
@@ -83,24 +107,14 @@ const Testimonial = () => {
         </p>
       </div>
 
-      {/* Marquee strip */}
-      <div
-        className='w-full overflow-hidden testimonials-marquee-mask py-4'
-        aria-label='Scrolling testimonials'
-      >
-        <div className='flex w-max testimonials-marquee-track gap-5 px-2.5'>
-          {[0, 1].map((set) => (
-            <div key={set} className='flex gap-5'>
-              {testimonials.map((item, index) => (
-                <TestimonialCard
-                  key={`${set}-${index}`}
-                  item={item}
-                  index={index}
-                />
-              ))}
+      <div className='container mx-auto testimonial-slider'>
+        <Slider {...settings}>
+          {testimonials.map((item, index) => (
+            <div key={index} className='px-3 py-5'>
+              <TestimonialCard item={item} index={index} />
             </div>
           ))}
-        </div>
+        </Slider>
       </div>
     </section>
   )
