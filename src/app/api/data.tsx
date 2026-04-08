@@ -198,7 +198,7 @@ export const portfolioinfo: PortfolioItem[] = [
         Class: 'md:mt-24',
         kind: 'Case Study',
     }
-]
+] 
 
 export const services: Service = {
   sections: [
@@ -333,3 +333,5 @@ export const services: Service = {
     },
   ],
 };
+
+// Service Card Icons ( SVGs )

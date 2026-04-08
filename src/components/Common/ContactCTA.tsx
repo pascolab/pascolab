@@ -13,7 +13,7 @@ type ContactCTAProps = {
 
 export default function ContactCTA({ className, label, href = "/contact", variant = "default", size = "default" }: ContactCTAProps) {
     return (
-        <Button variant={variant} size={size} asChild className={cn('h-auto  text-white border border-primary   min-h-12.5   px-3.5 tracking-wide rounded-full hover:bg-transparent! hover:text-black  dark:hover:bg-white! dark:hover:text-black    font-normal', className)}>
+        <Button variant={variant} size={size} asChild className={cn('h-auto  text-white border border-primary   min-h-12.5   px-4 tracking-wide rounded-full hover:bg-transparent! hover:text-black  dark:hover:bg-white! dark:hover:text-black    font-normal', className)}>
             <Link href={href}>{label}</Link>
         </Button>
     )

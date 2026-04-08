@@ -5,6 +5,7 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { testimonials } from '@/app/api/data'
 import { Badge } from '@/components/ui/badge'
+import { Card, CardContent, CardHeader } from '@/components/ui/card'
 
 type Testimonial = {
   name: string
@@ -40,24 +41,28 @@ const TestimonialCard = ({
 }) => {
   const colorClass = avatarColors[index % avatarColors.length]
   return (
-    <div className='bg-background shadow-sm rounded-lg p-6 flex flex-col gap-4 h-full min-h-52'>
-      <p className='text-muted-foreground text-base leading-relaxed flex-1'>{item.quote}</p>
+    <Card className='flex flex-col gap-4 md:gap-6 h-full min-h-52 bg-transparent'>
+       <CardHeader>
+       <p className='text-muted-foreground text-base lg:text-lg leading-relaxed flex-1'>{item.quote}</p>
+       </CardHeader>
+      <CardContent>
 
-      <div className='flex items-center justify-between gap-3 pt-2'>
-        <div className='flex items-center gap-3'>
-          <div
-            className={`shrink-0 w-9 h-9 rounded-full flex items-center justify-center text-xs font-semibold ${colorClass}`}
-          >
-            {getInitials(item.name)}  
+        <div className='flex items-center justify-between gap-3'>
+          <div className='flex items-center gap-3'>
+            <div
+              className={`shrink-0 w-9 h-9 rounded-full flex items-center justify-center text-xs font-semibold ${colorClass}`}
+            >
+              {getInitials(item.name)}
+            </div>
+            <div>
+              <p className='text-foreground text-sm font-semibold leading-tight'>{item.name}</p>
+              <p className='text-muted-foreground text-xs'>{item.role}</p>
+            </div>
           </div>
-          <div>
-            <p className='text-foreground text-sm font-semibold leading-tight'>{item.name}</p>
-            <p className='text-muted-foreground text-xs'>{item.role}</p>
-          </div>
+          <Badge variant='outline'>{item.company}</Badge>
         </div>
-        <Badge variant='outline'>{item.company}</Badge>
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   )
 }
 
@@ -80,7 +85,7 @@ const Testimonial = () => {
         settings: { slidesToShow: 2, arrows: false },
       },
       {
-        breakpoint: 640,  
+        breakpoint: 640,
         settings: { slidesToShow: 1, arrows: false },
       },
     ],
