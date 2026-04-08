@@ -4,57 +4,43 @@
 
 @custom-variant dark (&:is(.dark *));
 
-:root {
-  /* Design tokens — Light mode (exact values) */
-  --bg-primary: #FFFFFF;
-  --bg-surface: #F0FAFA;
-  --accent: #0ABFA3;
-  --text-heading: #0E2A35;
-  --text-body: #1C4A5A;
-  --text-muted: #6B8E9A;
 
-  /* App variables mapped to tokens (keep existing utilities working) */
-  --background: var(--bg-primary);
-  --foreground: var(--text-body);
-  --card: var(--bg-surface);
-  --card-foreground: var(--text-body);
-  --popover: var(--bg-surface);
-  --popover-foreground: var(--text-body);
-  --primary: var(--accent);
-  --primary-foreground: var(--bg-primary);
-  --secondary: var(--text-heading);
-  --secondary-foreground: var(--bg-primary);
-  --muted: var(--bg-surface);
-  --muted-foreground: var(--text-muted);
-  --accent-foreground: var(--bg-primary);
+:root {
+  --background: #ffffff;
+  --foreground: #0e2a35;
+  --card: #ffffff;
+  --card-foreground: #0e2a35;
+  --popover: #ffffff;
+  --popover-foreground: #0e2a35;
+  --primary: #0abfa3;
+  --primary-foreground: #ffffff;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #0e2a35;
+  --muted: #f1f5f9;
+  --muted-foreground: #1a353f;
+  --accent: #f1f5f9;
+  --accent-foreground: #0abfa3;
   --destructive: #ef4444;
   --destructive-foreground: #f8fafc;
-  --border: #c0c0c0;
-  --input: #c0c0c0;
-  --ring: var(--accent);
-  --chart-1: var(--accent);
-  --chart-2: var(--text-heading);
-  --chart-3: var(--text-body);
-  --chart-4: var(--text-muted);
-  --chart-5: var(--bg-surface);
-  --sidebar: var(--bg-surface);
-  --sidebar-foreground: var(--text-body);
-  --sidebar-primary: var(--accent);
-  --sidebar-primary-foreground: var(--bg-primary);
-  --sidebar-accent: var(--bg-primary);
-  --sidebar-accent-foreground: var(--text-body);
-  --sidebar-border: #c0c0c0;
-  --sidebar-ring: var(--accent);
-
-  /* Tailwind v4 theme color variables used by existing class names */
-  --color-primary: var(--accent);
-  --color-secondary: var(--text-body);
-  --color-midnight_text: var(--text-heading);
-  --color-grey: var(--text-muted);
-  --color-section: var(--bg-surface);
-  --font-sans: Geist, Inter, sans-serif;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #0abfa3;
+  --chart-1: #0abfa3;
+  --chart-2: #0e2a35;
+  --chart-3: #2dd4bf;
+  --chart-4: #94a3b8;
+  --chart-5: #cbd5e1;
+  --sidebar: #f8fafc;
+  --sidebar-foreground: #0e2a35;
+  --sidebar-primary: #0abfa3;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #edf2f7;
+  --sidebar-accent-foreground: #0abfa3;
+  --sidebar-border: #e2e8f0;
+  --sidebar-ring: #0abfa3;
+  --font-sans: Inter, system-ui, sans-serif;
   --font-serif: Georgia, serif;
-  --font-mono: Monaco, monospace;
+  --font-mono: ui-monospace, monospace;
   --radius: 0.5rem;
   --shadow-x: 0px;
   --shadow-y: 2px;
@@ -75,49 +61,41 @@
 }
 
 .dark {
-  /* Design tokens — Dark mode (exact values) */
-  --bg-primary: #0A1A22;
-  --bg-surface: #0E2A35;
-  --accent: #0ABFA3;
-  --text-heading: #E8F8F6;
-  --text-body: #A8D4CE;
-  --text-muted: #5E9A92;
-
-  /* App variables mapped to tokens (keep existing utilities working) */
-  --background: var(--bg-primary);
-  --foreground: var(--text-body);
-  --card: var(--bg-surface);
-  --card-foreground: var(--text-body);
-  --popover: var(--bg-surface);
-  --popover-foreground: var(--text-body);
-  --primary: var(--accent);
-  --primary-foreground: var(--bg-primary);
-  --secondary: var(--text-heading);
-  --secondary-foreground: var(--bg-primary);
-  --muted: var(--bg-surface);
-  --muted-foreground: var(--text-muted);
-  --accent-foreground: var(--bg-primary);
+  --background: #07151b;
+  --foreground: #ffffff;
+  --card: #0e2a35;
+  --card-foreground: #ffffff;
+  --popover: #0e2a35;
+  --popover-foreground: #f8fafc;
+  --primary: #0abfa3;
+  --primary-foreground: #07151b;
+  --secondary: #1a3b47;
+  --secondary-foreground: #f2f2f2;
+  --muted: #1a3b47;
+  --muted-foreground: #f2f2f2;
+  --accent: #1a3b47;
+  --accent-foreground: #0abfa3;
   --destructive: #7f1d1d;
-  --destructive-foreground: #ffffff;
-  --border: #2e2e2e;
-  --input: #2e2e2e;
-  --ring: var(--accent);
-  --chart-1: var(--accent);
-  --chart-2: var(--text-heading);
-  --chart-3: var(--text-body);
-  --chart-4: var(--text-muted);
-  --chart-5: var(--bg-surface);
-  --sidebar: var(--bg-surface);
-  --sidebar-foreground: var(--text-body);
-  --sidebar-primary: var(--accent);
-  --sidebar-primary-foreground: var(--bg-primary);
-  --sidebar-accent: var(--bg-primary);
-  --sidebar-accent-foreground: var(--text-body);
-  --sidebar-border: #2e2e2e;
-  --sidebar-ring: var(--accent);
-  --font-sans: Geist, Inter, sans-serif;
+  --destructive-foreground: #f8fafc;
+  --border: #1a3b47;
+  --input: #1a3b47;
+  --ring: #0abfa3;
+  --chart-1: #0abfa3;
+  --chart-2: #2dd4bf;
+  --chart-3: #e5eaeb;
+  --chart-4: #94a3b8;
+  --chart-5: #1a3b47;
+  --sidebar: #07151b;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #0abfa3;
+  --sidebar-primary-foreground: #07151b;
+  --sidebar-accent: #1a3b47;
+  --sidebar-accent-foreground: #0abfa3;
+  --sidebar-border: #1a3b47;
+  --sidebar-ring: #0abfa3;
+  --font-sans: Inter, system-ui, sans-serif;
   --font-serif: Georgia, serif;
-  --font-mono: Monaco, monospace;
+  --font-mono: ui-monospace, monospace;
   --radius: 0.5rem;
   --shadow-x: 0px;
   --shadow-y: 4px;
