@@ -7,9 +7,8 @@ import { Button } from '@/components/ui/button'
 const Portfolio = () => {
   return (
     <section id='portfolio' className='bg-background relative z-30'>
-      {/* <div className='absolute inset-0 w-full h-full bg-linear-to-tl from-orange-600 via-transparent to-transparent' /> */}
       <div className='absolute right-0 bottom-0  w-[800px] h-[700px] 
-              bg-[radial-gradient(ellipse_at_bottom_right,orange_0%,transparent_70%)] 
+              bg-[radial-gradient(ellipse_at_bottom_right,#0abfa3_0%,transparent_70%)] 
               pointer-events-none blur-2xl' />
       <div className='container'>
         <div className='text-center'>
@@ -45,7 +44,7 @@ const Portfolio = () => {
               href='#portfolio-gallery'
               className='mt-8'
             >
-              <Button size={'lg'} className='h-auto hover:bg-transparent text-foreground border border-primary  hover:text-primary-foreground  min-h-12.5   px-5 tracking-wide rounded-full'>
+              <Button size={'lg'} className='h-auto  text-white border border-primary   min-h-12.5   px-4 tracking-wide rounded-full hover:bg-transparent! hover:text-black  dark:hover:bg-white! dark:hover:text-black    font-normal'>
                 Explore More
               </Button>
             </Link>

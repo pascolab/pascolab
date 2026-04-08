@@ -189,7 +189,7 @@ const Header: React.FC = () => {
               {renderedMegaMenu.sections.map((section) => (
                 <div key={section.id} className='flex-1 min-w-0'>
                   {/* Bold category heading */}
-                  <p className='text-lg font-semibold text-foreground mb-2'>
+                  <p className='text-3xl font-bold text-foreground mb-2'>
                     {section.sidebarLabel}
                   </p>
 
@@ -203,7 +203,7 @@ const Header: React.FC = () => {
                         <Link
                           href={item.href ?? '#'}
                           onClick={closeMenu}
-                          className='text-[13px] select-none tracking-wide decoration-foreground/90 hover:underline underline-offset-4 text-foreground/90  ps-1 md:ps-2  dark:hover:text-white transition-colors duration-300 block hover:text-primary'
+                          className='text-base select-none tracking-wide decoration-foreground/90 hover:underline underline-offset-4 text-foreground/90  ps-1 md:ps-2  dark:hover:text-white transition-colors duration-300 block hover:text-primary'
                         >
                           <span className='text-foreground'>{item.title}</span>
                         </Link>

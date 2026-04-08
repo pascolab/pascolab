@@ -62,20 +62,22 @@ function FieldLabel({
   )
 }
 
-const ContactForm = () => {
+const ContactForm = ({showTitle = true}: {showTitle?: boolean}) => {
   return (
     <Card className="dark:ring-0">
-      <CardHeader>
-        <CardTitle>
-          <h2 className='text-2xl md:text-3xl lg:text-5xl font-bold leading-tight text-primary text-center'>
-
-            Get In Touch
-          </h2>
-        </CardTitle>
-      </CardHeader>
+      {showTitle && (
+        <CardHeader>
+          <CardTitle>
+            <h2 className='text-2xl md:text-3xl lg:text-5xl font-bold leading-tight text-primary text-center'>
+                Get In Touch
+              </h2> 
+            </CardTitle>
+          </CardHeader>
+        )}
       <CardContent className="space-y-5">
 
-        <div className="space-y-2">
+       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+       <div className="space-y-2">
           <FieldLabel htmlFor="contact-full-name" required>
             Full Name
           </FieldLabel>
@@ -97,6 +99,7 @@ const ContactForm = () => {
 
           />
         </div>
+       </div>
 
         <div className="space-y-2">
           <FieldLabel required>Phone Number</FieldLabel>
@@ -164,7 +167,7 @@ const ContactForm = () => {
             >
               <SelectValue placeholder="Select Region" />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent >
               {REGION_OPTIONS.map((r) => (
                 <SelectItem key={r} value={r}>
                   {r}
@@ -179,7 +182,7 @@ const ContactForm = () => {
             Services you are looking for
             <RequiredMark />
           </Label>
-          <div className="space-y-3">
+          <div className="space-y-3 columns-2">
             {SERVICE_OPTIONS.map((label, i) => {
               const id = `contact-service-${i}`
               return (
@@ -187,7 +190,7 @@ const ContactForm = () => {
                   <Checkbox id={id} className="mt-0.5" />
                   <Label
                     htmlFor={id}
-                    className="cursor-pointer text-sm font-normal leading-snug text-foreground"
+                    className="cursor-pointer text-xs md:text-sm font-normal leading-snug text-foreground"
                   >
                     {label}
                   </Label>
@@ -212,7 +215,7 @@ const ContactForm = () => {
 
         <div className="space-y-2">
           <FieldLabel required>
-            I am looking for a job at Devinc
+            I am looking for a job at Pascolab
           </FieldLabel>
           <Select>
             <SelectTrigger
@@ -231,11 +234,11 @@ const ContactForm = () => {
           </Select>
         </div>
       </CardContent>
-      <CardFooter className="flex justify-end bg-transparent border-t-0">
+      <CardFooter className="flex justify-end bg-transparent border-t-0 pb-7">
         <Button
           type="button"
-          className="rounded-full bg-primary px-10 py-5 text-base font-medium text-primary-foreground hover:bg-primary/90"
-        >
+          className="h-auto  text-white border border-primary   min-h-11   px-8 tracking-wide rounded-full hover:bg-transparent! hover:text-black  dark:hover:bg-white! dark:hover:text-black    font-normal"
+        > 
           Submit
         </Button>
       </CardFooter>

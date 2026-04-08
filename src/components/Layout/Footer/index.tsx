@@ -4,29 +4,15 @@ import Image from 'next/image'
 import { getImgPath } from '@/utils/image'
 import { Icon } from '@iconify/react/dist/iconify.js'
 
-const companyLinks = [
-  { label: 'About Us', href: '/company/about-us' },
-  { label: 'How We Work', href: '/company/how-we-work' },
-  { label: 'AI First Company', href: '/company/ai-first-company' },
-  { label: 'Careers', href: '/careers' },
+const navigationLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/services' },
+  { label: 'Solutions', href: '/solutions' },
+  {label: 'Case Studies', href: '/case-studies' },
+  {label: "Company", href: '/company' },
   { label: 'Contact', href: '/contact' },
 ]
 
-const serviceLinks = [
-  { label: 'Information Security', href: '/services/information-security' },
-  { label: 'AI, ML & Data Analytics', href: '/services/ai-ml-data-analytics' },
-  { label: 'Generative AI', href: '/services/generative-ai' },
-  { label: 'Digital Solutions', href: '/services/digital-solutions' },
-  { label: 'Cloud Services', href: '/services/cloud-services' },
-]
-
-const solutionLinks = [
-  { label: 'Solutions', href: '/solutions' },
-  { label: 'Case Studies', href: '/case-studies' },
-  { label: 'Dedicated Teams', href: '/teams' },
-  { label: 'Policy & Strategy', href: '/services/policy-strategy' },
-  { label: 'Emerging Technologies', href: '/services/emerging-technologies' },
-]
 
 const socialLinks = [
   { href: '#', icon: '/images/footer/facebook.svg', label: 'Facebook' },
@@ -40,15 +26,15 @@ const Footer: FC = () => {
 
       {/* ── Main grid ── */}
       <div className="container mx-auto pb-10 pt-16">
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 w-full">
 
           {/* Brand column */}
           <div className="flex flex-col gap-6">
             <Link href="/" className="inline-block w-fit">
               <Image
-                src={getImgPath('/images/logo/Pascolab_Logo.svg')}
+                src={getImgPath('/images/logo/white-logo-footer.png')}
                 alt="Pascolab"
-                width={50}
+                width={150}
                 height={28}
                 quality={100}
                 className="h-auto"
@@ -108,17 +94,14 @@ const Footer: FC = () => {
             </ul>
           </div>
 
-          {/* Company links */}
-          <div>
-              <h3 className="mb-5 text-lg font-semibold uppercase tracking-widest text-foreground">
-              Company
-            </h3>
+          {/* Navigation links */}
+          <div className="w-full">
             <ul className="space-y-3">
-              {companyLinks.map(({ label, href }) => (
+              {navigationLinks.map(({ label, href }) => (
                 <li key={label}>
                   <Link
                     href={href}
-                    className="text-base transition-colors duration-200 tracking-wide hover:text-foreground dark:hover:text-white"
+                    className="text-base max-sm:border-b w-full pb-1 border-b-muted-foreground hover:border-b-primary  inline-block  transition-colors duration-200 tracking-wide hover:text-foreground dark:hover:text-white"
                   >
                     {label}
                   </Link>
@@ -127,43 +110,6 @@ const Footer: FC = () => {
             </ul>
           </div>
 
-          {/* Services links */}
-          <div>
-            <h3 className="mb-5 text-lg font-semibold uppercase tracking-widest text-foreground">
-              Services
-            </h3>
-            <ul className="space-y-3">
-              {serviceLinks.map(({ label, href }) => (
-                <li key={label}>
-                  <Link
-                    href={href}
-                    className="text-base transition-colors duration-200 tracking-wide hover:text-foreground dark:hover:text-white"
-                  >
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Solutions links */}
-          <div>
-            <h3 className="mb-5 text-lg font-semibold uppercase tracking-widest text-foreground">
-              Solutions
-            </h3>
-            <ul className="space-y-3">
-              {solutionLinks.map(({ label, href }) => (
-                <li key={label}>
-                  <Link
-                    href={href}
-                    className="text-base transition-colors duration-200 tracking-wide hover:text-foreground dark:hover:text-white"
-                  >
-                    {label} 
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
       </div>
     </footer>
