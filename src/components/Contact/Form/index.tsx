@@ -16,6 +16,7 @@ import {
 import { Textarea } from "@/components/ui/textarea"
 import { cn } from "@/lib/utils"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import CTA from "@/components/Common/CTA"
 
 const SERVICE_OPTIONS = [
   "Remote IT Resources",
@@ -74,7 +75,7 @@ const ContactForm = ({showTitle = true}: {showTitle?: boolean}) => {
             </CardTitle>
           </CardHeader>
         )}
-      <CardContent className="space-y-5">
+      <CardContent className="space-y-5 max-sm:px-0">
 
        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
        <div className="space-y-2">
@@ -234,13 +235,8 @@ const ContactForm = ({showTitle = true}: {showTitle?: boolean}) => {
           </Select>
         </div>
       </CardContent>
-      <CardFooter className="flex justify-end bg-transparent border-t-0 pb-7">
-        <Button
-          type="button"
-          className="h-auto  text-white border border-primary   min-h-11   px-8 tracking-wide rounded-full hover:bg-transparent! hover:text-black  dark:hover:bg-white! dark:hover:text-black    font-normal"
-        > 
-          Submit
-        </Button>
+      <CardFooter className="flex justify-end bg-transparent border-t-0 pb-7 max-sm:px-0">
+        <CTA label='Submit' type='submit' size='lg' className="px-7 py-3" />
       </CardFooter>
     </Card>
   )
