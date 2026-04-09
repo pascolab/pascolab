@@ -26,9 +26,6 @@ const Page = () => {
         </div>
 
         <div>
-          <h3 className="text-lg font-semibold text-primary sm:text-xl">
-            Get In Touch
-          </h3>
 
          <ContactForm />
         </div>
