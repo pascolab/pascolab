@@ -4,9 +4,8 @@ import { useEffect, useRef, useState } from 'react'
 import { headerData } from './Navigation/menuData'
 import Logo from './Logo'
 import MobileHeaderLink from './Navigation/MobileHeaderLink'
-import { Button } from '@/components/ui/button'
 import ThemeSwitcher from '@/components/Common/Theme/ThemeSwitcher'
-import ContactCTA from '@/components/Common/ContactCTA'
+import CTA from '@/components/Common/CTA'
 
 const BAR_H = 69
 const PANEL_H = 280
@@ -169,7 +168,7 @@ const Header: React.FC = () => {
 
            <div className='flex items-center gap-2'>
             <ThemeSwitcher />
-            <ContactCTA label='Let&apos;s Talk Business' size='lg' />
+            <CTA label='Let&apos;s Talk Business' href='/contact' size='lg' />
            </div>
           </div>
           <div />
@@ -235,29 +234,37 @@ const Header: React.FC = () => {
           MOBILE — Top bar
           ════════════════════════════════════════════════════ */}
       <div
-        className={`lg:hidden flex items-center justify-between h-[60px] px-4 border-b border-border/40 transition-all bg-white`}
+        className='lg:hidden flex h-[60px] items-center justify-between border-b border-border/40 bg-background/95 px-4 backdrop-blur-xl transition-colors'
       >
         <Logo />
-        <button
-          onClick={() => setNavbarOpen(!navbarOpen)}
-          className='p-2 rounded-lg'
-          aria-label='Toggle mobile menu'
-        >
-          <span className='block w-6 h-0.5 bg-foreground' />
-          <span className='block w-6 h-0.5 bg-foreground mt-1.5' />
-          <span className='block w-6 h-0.5 bg-foreground mt-1.5' />
-        </button>
+        <div className='flex items-center gap-0.5'>
+          <ThemeSwitcher />
+          <button
+            type='button'
+            onClick={() => setNavbarOpen(!navbarOpen)}
+            className='inline-flex flex-col items-center justify-center gap-1.5 rounded-lg p-2 text-foreground hover:bg-muted/80'
+            aria-label='Toggle mobile menu'
+            aria-expanded={navbarOpen}
+          >
+            <span className='block h-0.5 w-6 bg-foreground' />
+            <span className='block h-0.5 w-6 bg-foreground' />
+            <span className='block h-0.5 w-6 bg-foreground' />
+          </button>
+        </div>
       </div>
 
       {/* Mobile backdrop overlay */}
       {navbarOpen && (
-        <div className='fixed inset-0 z-60 bg-foreground/50 lg:hidden' aria-hidden />
+        <div
+          className='fixed inset-0 z-100 bg-foreground/50 lg:hidden'
+          aria-hidden
+        />
       )}
 
       {/* Mobile slide-out drawer */}
       <div
         ref={mobileMenuRef}
-        className={`lg:hidden fixed inset-y-0 right-0 z-70 flex h-dvh w-full max-w-xs flex-col bg-background shadow-lg transition-transform duration-300 isolate ${navbarOpen ? 'translate-x-0' : 'translate-x-full'
+        className={`fixed inset-y-0 right-0 z-110 flex h-dvh w-full max-w-xs flex-col bg-background shadow-lg transition-transform duration-300 isolate lg:hidden ${navbarOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
       >
         <div className='flex shrink-0 items-center justify-between p-4'>

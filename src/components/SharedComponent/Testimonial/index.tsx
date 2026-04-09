@@ -6,6 +6,9 @@ import 'slick-carousel/slick/slick-theme.css'
 import { testimonials } from '@/app/api/data'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
+import Image from 'next/image'
+import { Quote, Star } from 'lucide-react'
+import clientTestimonial from '../../../../public/images/testimonial/Client-testimonial.png'
 
 type Testimonial = {
   name: string
@@ -14,54 +17,43 @@ type Testimonial = {
   quote: string
 }
 
-const getInitials = (name: string) =>
-  name
-    .split(' ')
-    .slice(0, 2)
-    .map((n) => n[0])
-    .join('')
-    .toUpperCase()
-
-const avatarColors = [
-  'bg-blue-100 text-blue-700',
-  'bg-emerald-100 text-emerald-700',
-  'bg-violet-100 text-violet-700',
-  'bg-amber-100 text-amber-700',
-  'bg-rose-100 text-rose-700',
-  'bg-cyan-100 text-cyan-700',
-  'bg-orange-100 text-orange-700',
-]
-
 const TestimonialCard = ({
   item,
-  index,
 }: {
   item: Testimonial
-  index: number
 }) => {
-  const colorClass = avatarColors[index % avatarColors.length]
   return (
-    <Card className='flex flex-col gap-4 md:gap-6 h-full min-h-52 bg-transparent'>
-       <CardHeader>
-       <p className='text-muted-foreground text-base lg:text-lg leading-relaxed flex-1'>{item.quote}</p>
-       </CardHeader>
-      <CardContent>
+    <Card className='relative h-full shadow-none! ring-0 pt-20 bg-transparent border-none'>
+        <p className="font-medium text-foreground text-sm absolute top-0 left-4 md:left-0 ps-5 py-2.5 before:content-[''] before:absolute before:top-0 before:left-0 before:rounded-lg before:w-[55%]  before:h-full before:bg-orange-200 dark:before:bg-orange-700 before:z-[-1] "
+        >
+          Client Testimonial  
+        </p>
+      <CardHeader className='gap-4 pt-10'>
 
-        <div className='flex items-center justify-between gap-3'>
-          <div className='flex items-center gap-3'>
-            <div
-              className={`shrink-0 w-9 h-9 rounded-full flex items-center justify-center text-xs font-semibold ${colorClass}`}
-            >
-              {getInitials(item.name)}
-            </div>
-            <div>
-              <p className='text-foreground text-sm font-semibold leading-tight'>{item.name}</p>
-              <p className='text-muted-foreground text-xs'>{item.role}</p>
-            </div>
+        <div className='flex items-center gap-1 text-orange-500/80'>
+          {Array.from({ length: 5 }).map((_, i) => (
+            <Star key={i} className='h-4 w-4 fill-current' />
+          ))}
+        </div>
+
+        <p className='text-foreground text-base leading-relaxed md:text-2xl'>
+          &ldquo;{item.quote}&rdquo;
+        </p>
+      </CardHeader>
+
+      <CardContent className='pt-8'>
+        <div className='flex items-start justify-between gap-6'>
+          <div>
+            <p className='text-foreground font-bold text-xl tracking-wider'>{item.name}</p>
+            <p className='text-muted-foreground/75 text-base font-bold  tracking-widest'>
+              {item.role}
+              <span className='inline-block uppercase'>{item.company ? ` · ${item.company}` : null}</span>
+            </p>
           </div>
-          <Badge variant='outline'>{item.company}</Badge>
         </div>
       </CardContent>
+
+      <Quote className='pointer-events-none absolute bottom-4 right-4 h-10 w-10 text-transparent  fill-orange-200 dark:fill-orange-200/30' />
     </Card>
   )
 }
@@ -69,7 +61,7 @@ const TestimonialCard = ({
 
 const Testimonial = () => {
   const settings = {
-    dots: true,
+    dots: false,
     arrows: false,
     infinite: true,
     autoplay: true,
@@ -77,49 +69,45 @@ const Testimonial = () => {
     speed: 600,
     pauseOnHover: true,
     pauseOnFocus: true,
-    slidesToShow: 3,
+    slidesToShow: 1,
     slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: { slidesToShow: 2, arrows: false },
-      },
-      {
-        breakpoint: 640,
-        settings: { slidesToShow: 1, arrows: false },
-      },
-    ],
+    swipeToSlide: true,
+    touchMove: true,
+    adaptiveHeight: true,
   }
 
   return (
     <section
       id='testimonials'
-      className='bg-background/90 relative z-40'
+      className='relative z-40 '
       aria-labelledby='testimonials-heading'
     >
-      <div className='container mx-auto text-center mb-8'>
-        <p className='text-muted-foreground font-semibold text-sm uppercase tracking-widest mb-3'>
-          Feedback
-        </p>
-        <h2
-          id='testimonials-heading'
-          className='text-foreground text-3xl sm:text-4xl lg:text-[2.625rem] font-bold leading-tight mb-4'
-        >
-          What Our Clients Say
+      <div className='container mx-auto'>
+        <h2 id='testimonials-heading' className='sr-only'>
+          Testimonials
         </h2>
-        <p className='text-muted-foreground text-base max-w-xl mx-auto'>
-          See what our clients have to say about their experience with us.
-        </p>
-      </div>
 
-      <div className='container mx-auto testimonial-slider'>
-        <Slider {...settings}>
-          {testimonials.map((item, index) => (
-            <div key={index} className='px-3 py-5'>
-              <TestimonialCard item={item} index={index} />
-            </div>
-          ))}
-        </Slider>
+        <div className='flex flex-col lg:flex-row items-center md:justify-between gap-10 lg:gap-14'>
+          <div className='w-full  max-w-[520px] lg:max-w-[40%]'>
+            <Image
+              src={clientTestimonial}
+              alt='Client testimonial'
+              className='h-auto w-full'
+              priority={false}
+              sizes='(min-width: 1024px) 560px, 100vw'
+            />
+          </div>
+
+          <div className='w-full lg:max-w-[50%] testimonial-slider'>
+            <Slider {...settings}>
+              {testimonials.map((item, index) => (
+                <div key={index} className='py-2'>
+                  <TestimonialCard item={item} />
+                </div>
+              ))}
+            </Slider>
+          </div>
+        </div>
       </div>
     </section>
   )

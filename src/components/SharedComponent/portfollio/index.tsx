@@ -2,12 +2,14 @@ import React from 'react'
 import Link from 'next/link'
 import PortfolioCard from '@/components/SharedComponent/portfollio/Portfolio-card'
 import { Button } from '@/components/ui/button'
+import ContactCTA from '@/components/Common/CTA'
+import CTA from '@/components/Common/CTA'
 
 
 const Portfolio = () => {
   return (
-    <section id='portfolio' className='bg-background relative z-30'>
-      <div className='absolute right-0 bottom-0  w-[800px] h-[700px] 
+    <section id='portfolio' className='bg-background relative z-30 overflow-hidden'>
+      <div className='absolute right-0 bottom-0 w-[350px] h-[200px]  md:w-[800px] md:h-[700px] 
               bg-[radial-gradient(ellipse_at_bottom_right,#0abfa3_0%,transparent_70%)] 
               pointer-events-none blur-2xl' />
       <div className='container'>
@@ -29,24 +31,22 @@ const Portfolio = () => {
         <div className='grid grid-cols-1 gap-10 md:grid-cols-[minmax(0,45%)_1fr] md:gap-8 lg:gap-12'>
           <div className='flex flex-col items-start text-left md:pt-20'>
             <p
-              className='text-sm font-semibold uppercase tracking-widest text-primary'
+              className='text-xs sm:text-sm font-semibold uppercase tracking-widest text-primary'
             >
               Featured Insights
             </p>
-            <h2 className='mt-4 text-xl font-semibold bg-linear-to-r from-primary via-foreground to-foreground dark:from-foreground dark:via-primary dark:to-primary bg-clip-text text-transparent leading-tight md:text-3xl lg:text-5xl  lg:leading-[1.2]'>
+            <h2 className='mt-4 font-semibold bg-linear-to-r from-primary via-foreground to-foreground dark:from-foreground dark:via-primary dark:to-primary bg-clip-text text-transparent leading-tight text-left text-[2.5rem] lg:text-5xl  lg:leading-[1.2]'>
                 Stories of our{' '}
                 transformations across Services and Industries
             </h2>
-            <p className='mt-4 max-w-md text-base font-normal text-foreground dark:text-muted-foreground'>
+            <p className='mt-4 max-w-md text-xl sm:text-base font-normal text-foreground dark:text-muted-foreground'>
               From Concept to Completion
             </p>
             <Link
               href='#portfolio-gallery'
               className='mt-8'
             >
-              <Button size={'lg'} className='h-auto  text-white border border-primary   min-h-12.5   px-4 tracking-wide rounded-full hover:bg-transparent! hover:text-black  dark:hover:bg-white! dark:hover:text-black    font-normal'>
-                Explore More
-              </Button>
+              <CTA label='Explore More' href='/case-studies' size='lg' />
             </Link>
           </div>
           <div id='portfolio-gallery' className='min-w-0'>

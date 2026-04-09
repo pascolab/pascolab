@@ -26,7 +26,7 @@ const Footer: FC = () => {
 
       {/* ── Main grid ── */}
       <div className="container mx-auto pb-10 pt-16">
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 w-full">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 w-full">
 
           {/* Brand column */}
           <div className="flex flex-col gap-6">
@@ -101,7 +101,7 @@ const Footer: FC = () => {
                 <li key={label}>
                   <Link
                     href={href}
-                    className="text-base max-sm:border-b w-full pb-1 border-b-muted-foreground hover:border-b-primary  inline-block  transition-colors duration-200 tracking-wide hover:text-foreground dark:hover:text-white"
+                    className="text-base max-sm:border-b w-full pb-1 border-b-muted-foreground hover:border-b-primary  inline-block  transition-colors duration-200 tracking-wide text-foreground/90 hover:text-foreground dark:text-muted-foreground/80 dark:hover:text-muted-foreground"
                   >
                     {label}
                   </Link>

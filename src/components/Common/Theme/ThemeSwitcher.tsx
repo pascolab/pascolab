@@ -10,7 +10,7 @@ export default function ThemeSwitcher() {
 
   return (
         <Button variant="ghost"  size="icon" onClick={() => setTheme(theme === "dark" ? "light" : "dark")} 
-        className="size-9"
+        className="size-9 hover:bg-transparent dark:hover:bg-transparent"
         >
       {theme === "dark" ? (
         <Sun className="size-5 scale-100 transition-all" />

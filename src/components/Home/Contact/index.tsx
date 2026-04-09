@@ -3,6 +3,7 @@ import { getImgPath } from '@/utils/image'
 import ContactForm from '@/components/Contact/Form'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
+import CTA from '@/components/Common/CTA'
 
 const Contact = () => {
   return (
@@ -13,18 +14,11 @@ const Contact = () => {
             <h2 className='mt-4 text-xl font-semibold bg-linear-to-r from-primary via-foreground to-foreground dark:from-foreground dark:via-primary dark:to-primary bg-clip-text text-transparent leading-tight md:text-3xl lg:text-5xl  lg:leading-[1.2]'>
               Get In Touch
               </h2>
-            <p className='mt-4 max-w-md text-base font-normal text-foreground dark:text-muted-foreground'>
+            <p className='mt-4 max-w-md text-base font-normal text-foreground dark:text-muted-foreground mb-8'>
               We are committed to understanding your requirements and crafting a
               tailored solution that aligns with your goals.
             </p>
-            <Link
-              href='/contact'
-              className='mt-8'
-            >
-              <Button size={'lg'} className='h-auto  text-white border border-primary   min-h-12.5   px-4 tracking-wide rounded-full hover:bg-transparent! hover:text-black  dark:hover:bg-white! dark:hover:text-black    font-normal'>
-                Get In Touch
-              </Button>
-            </Link>
+            <CTA label='Get In Touch' href='/contact' size='lg' />
           </div>
           <div id='contact-form' className='min-w-0'>
             <ContactForm />

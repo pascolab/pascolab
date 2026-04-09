@@ -48,15 +48,15 @@ function GalleryCard({ item }: { item: PortfolioItem }) {
         />
         <div className="absolute inset-0 z-2 flex flex-col justify-between p-5 sm:p-6">
           <div className="relative">
-            <p className="text-xs font-bold uppercase tracking-wider text-white/90 drop-shadow-sm">
+            <p className="text-sm font-bold uppercase tracking-wider text-white md:text-white/90 drop-shadow-sm">
               {item.kind}
             </p>
-            <h3 className="mt-2 text-base font-normal leading-snug text-white drop-shadow-md">
+            <h3 className="mt-3.5 md:mt-2 text-3xl md:text-[.9rem] font-normal leading-snug text-white drop-shadow-md">
               {item.title}
             </h3>
           </div>
           <span
-            className="pointer-events-none absolute bottom-5 left-5 inline-flex w-fit translate-y-2 items-center rounded-full bg-primary px-4 py-2 text-sm font-medium text-white opacity-0 shadow-lg transition-all duration-500 group-hover:pointer-events-auto group-hover:translate-y-1 group-hover:opacity-100 group-focus-visible:pointer-events-auto group-focus-visible:translate-y-0 group-focus-visible:opacity-100 sm:bottom-6 sm:left-6"
+            className="pointer-events-none absolute bottom-5 left-5 inline-flex w-fit translate-y-2 items-center rounded-full bg-primary px-4 py-2 text-sm font-medium text-white opacity-0 shadow-lg transition-all duration-500 group-hover:pointer-events-auto group-hover:translate-y-1 group-hover:opacity-100 group-focus-visible:pointer-events-auto group-focus-visible:translate-y-0 group-focus-visible:opacity-100 sm:bottom- sm:left-6"
             aria-hidden
           >
             Explore More &gt;

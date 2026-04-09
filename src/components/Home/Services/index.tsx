@@ -126,7 +126,7 @@ const Services = () => {
   }, [sections]);
 
   return (
-    <section className="overflow-hidden relative bg-background">
+    <section className="overflow-hidden relative bg-accent/30! dark:bg-accent">
       <div className="absolute inset-0 -z-10 h-full w-full bg-radial from-primary/10 to-transparent" />
       <div className="container z-50">
         <div className="mb-10">
