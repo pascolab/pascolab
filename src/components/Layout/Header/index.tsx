@@ -108,7 +108,7 @@ const Header: React.FC = () => {
       {/* Expanding container */}
       <div
         ref={desktopNavRef}
-        className='hidden lg:block overflow-hidden border-b border-border/40 bg-background  backdrop-blur-xl'
+        className='hidden lg:block overflow-hidden border-b border-border/40 bg-background/75 dark:bg-background/65  backdrop-blur-xl'
         style={{
           height: isMenuOpen ? BAR_H + PANEL_H : BAR_H,
           transition:
@@ -131,7 +131,7 @@ const Header: React.FC = () => {
                   <button
                     key={item.label}
                     onClick={() => toggleMenu(item.label)}
-                    className={`inline-flex items-center select-none gap-0.5 text-sm font-normal px-3.5 py-1.5 rounded-full transition-colors duration-150 cursor-pointer text-foreground `}
+                    className={`inline-flex items-center select-none gap-0.5 text-sm font-normal px-3.5 py-1.5 rounded-full transition-colors duration-150 cursor-pointer text-foreground/90 hover:text-foreground`}
                   >
                     {item.label}
                     <svg
@@ -158,7 +158,7 @@ const Header: React.FC = () => {
                     key={item.label}
                     href={item.href}
                     onClick={() => isMenuOpen && closeMenu()}
-                    className={`inline-flex items-center select-none text-sm font-normal px-3.5 py-1.5 rounded-full transition-colors duration-150 text-foreground/80 hover:text-foreground`}
+                    className={`inline-flex items-center select-none text-sm font-normal px-3.5 py-1.5 rounded-full transition-colors duration-150 text-foreground/90 hover:text-foreground`}
                   >
                     <span className='text-foreground'>{item.label}</span>
                   </Link>
@@ -168,7 +168,7 @@ const Header: React.FC = () => {
 
            <div className='flex items-center gap-2'>
             <ThemeSwitcher />
-            <CTA label='Let&apos;s Talk Business' href='/contact' size='lg' />
+            <CTA label='Let&apos;s Talk' href='/contact' size='lg' />
            </div>
           </div>
           <div />
@@ -181,7 +181,7 @@ const Header: React.FC = () => {
             opacity: contentVisible ? 1 : 0,
             transition: 'opacity 0.22s ease',
           }}
-          className='overflow-auto'
+          className='overflow-auto bg-background!'
         >
           {renderedMegaMenu && (
             <div className='container mx-auto px-8 py-7 flex gap-12 '>

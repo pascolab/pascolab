@@ -4,7 +4,6 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { testimonials } from '@/app/api/data'
-import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import Image from 'next/image'
 import { Quote, Star } from 'lucide-react'
@@ -24,7 +23,7 @@ const TestimonialCard = ({
 }) => {
   return (
     <Card className='relative h-full shadow-none! ring-0 pt-20 bg-transparent border-none'>
-        <p className="font-medium text-foreground text-sm absolute top-0 left-4 md:left-0 ps-5 py-2.5 before:content-[''] before:absolute before:top-0 before:left-0 before:rounded-lg before:w-[55%]  before:h-full before:bg-orange-200 dark:before:bg-orange-700 before:z-[-1] "
+        <p className=" text-primary absolute top-0 left-4 md:left-0 ps-5 py-2.5 before:content-[''] before:absolute before:top-0 before:left-0 before:rounded-lg before:w-[55%]  before:h-full before:bg-primary/15 dark:before:bg-accent/30 before:z-[-1] "
         >
           Client Testimonial  
         </p>
@@ -36,7 +35,7 @@ const TestimonialCard = ({
           ))}
         </div>
 
-        <p className='text-foreground text-base leading-relaxed md:text-2xl'>
+        <p className='text-foreground text-body-large '>
           &ldquo;{item.quote}&rdquo;
         </p>
       </CardHeader>
@@ -44,8 +43,8 @@ const TestimonialCard = ({
       <CardContent className='pt-8'>
         <div className='flex items-start justify-between gap-6'>
           <div>
-            <p className='text-foreground font-bold text-xl tracking-wider'>{item.name}</p>
-            <p className='text-muted-foreground/75 text-base font-bold  tracking-widest'>
+            <p className='text-foreground font-bold text-body-large'>{item.name}</p>
+            <p className='text-muted-foreground/75  font-bold  tracking-widest text-small'>
               {item.role}
               <span className='inline-block uppercase'>{item.company ? ` · ${item.company}` : null}</span>
             </p>
@@ -53,7 +52,7 @@ const TestimonialCard = ({
         </div>
       </CardContent>
 
-      <Quote className='pointer-events-none absolute bottom-4 right-4 h-10 w-10 text-transparent  fill-orange-200 dark:fill-orange-200/30' />
+      <Quote className='pointer-events-none absolute bottom-4 right-4 h-10 w-10 text-transparent  fill-primary/15 dark:fill-accent/30' />
     </Card>
   )
 }

@@ -49,14 +49,14 @@ function StatItem({
         {count}
         <span className="text-primary">{suffix}</span>
       </p>
-      <p className="text-xs sm:text-sm uppercase tracking-widest text-muted-foreground leading-relaxed">
+      <p className=" uppercase tracking-widest text-muted-foreground text-small">
         {label}
       </p>
     </div>
   );
 }
 
-const Counter = () => {
+const Stats = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(false);
 
@@ -80,11 +80,11 @@ const Counter = () => {
       <div className="container">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 xl:gap-24 items-start lg:items-center">
           {/* Left — heading + description */}
-          <div className="lg:w-5/12 xl:w-4/12 shrink-0">
-            <h2 className="text-3xl sm:text-4xl xl:text-5xl font-bold text-foreground leading-tight">
+          <div className="lg:w-5/12 xl:w-4/12 shrink-0 content-space">
+          <h2 className="md:max-w-4xl w-full">
               We&apos;re committed to lead your digital journey to success.
             </h2>
-            <p className="mt-4 text-sm sm:text-base text-muted-foreground leading-relaxed max-w-xs">
+            <p className="text-muted-foreground max-w-md  font-normal">
             We have a proven track record of building scalable software solutions for businesses.
             </p>
           </div>
@@ -110,4 +110,4 @@ const Counter = () => {
   );
 };
 
-export default Counter;
+export default Stats;

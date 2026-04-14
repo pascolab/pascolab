@@ -2,7 +2,7 @@
 import { Metadata } from "next";
 import Hero from '@/components/Home/Hero';
 import Brands from '@/components/Home/Brands';
-import Counter from '@/components/Home/Counter'
+import Stats from '@/components/SharedComponent/Stats'
 import Services from '@/components/Home/Services';
 import Portfolio from '@/components/SharedComponent/portfollio'
 import Testimonial from '@/components/SharedComponent/Testimonial'
@@ -16,7 +16,7 @@ export default function Home() {
     <main >
       <Hero />
       <Brands />
-      <Counter  />  
+      <Stats  />  
       <Services />
       <Portfolio />
       <Testimonial />
