@@ -14,7 +14,7 @@ type CTAProps = {
 
 export default function CTA({ className, label, href, type = "button", variant = "default", size = "default" }: CTAProps) {
     const classes = cn(
-        "h-auto text-white border border-primary min-h-11 py-3.5 px-4 tracking-wide rounded-full hover:bg-transparent! hover:text-black dark:hover:bg-white! dark:hover:text-black font-normal",
+        "h-auto text-white text-sm md:text-base border border-primary min-h-11 px-3.5 md:px-4.5 py-1.5 md:py-2.75 tracking-wide rounded-full hover:bg-transparent! hover:text-black dark:hover:bg-white! dark:hover:text-black font-normal",
         className
     )
 

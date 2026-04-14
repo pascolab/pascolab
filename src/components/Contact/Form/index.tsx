@@ -236,7 +236,7 @@ const ContactForm = ({showTitle = true}: {showTitle?: boolean}) => {
         </div>
       </CardContent>
       <CardFooter className="flex justify-end bg-transparent border-t-0 pb-7 max-sm:px-0">
-        <CTA label='Submit' type='submit' size='lg' className="px-7 py-3" />
+        <CTA label='Submit' type='submit' size='lg' />
       </CardFooter>
     </Card>
   )

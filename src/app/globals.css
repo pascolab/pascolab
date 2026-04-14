@@ -5,6 +5,49 @@
 @custom-variant dark (&:is(.dark *));
 
 
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    font-size: 100%;
+  }
+  html {
+    @apply scroll-smooth overflow-x-hidden;
+    font-size: 16px!important
+  }
+
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+    letter-spacing: var(--tracking-normal);
+    line-height: 1.5;
+  }
+
+  section {
+    @apply py-[69px];
+  }
+
+  h1 {
+    @apply text-display font-semibold;
+  }
+
+  h2 {
+    @apply text-h2 font-semibold tracking-tight;
+  }
+
+  h3 {
+    @apply text-h3 font-semibold tracking-tight;
+  }
+
+ p {
+  @apply text-body font-normal tracking-wide;
+ }
+
+ small, .caption {
+  @apply text-small;
+ }
+
+}
+
 :root {
   --background: #ffffff;
   --foreground: #0e2a35;  
@@ -171,30 +214,83 @@
   --tracking-wide: calc(var(--tracking-normal) + 0.025em);
   --tracking-wider: calc(var(--tracking-normal) + 0.05em);
   --tracking-widest: calc(var(--tracking-normal) + 0.1em);
+
+  /* ============================================= */
+  /* NEW: Fluid Typography */
+  /* ============================================= */
+
+  --text-display: clamp(1.8rem, 5vw, 4.1rem);
+  --text-display--line-height: 1.15;
+  --text-display--letter-spacing: -0.03em;
+  --text-display--font-weight: 700;
+
+  --text-h1: clamp(1.5rem, 5vw, 3.7rem);
+  --text-h1--line-height: 1.125;
+  --text-h1--letter-spacing: -0.025em;
+  --text-h1--font-weight: 600;
+
+  --text-h2: clamp(1.8rem, 5vw, 3.2rem);
+  --text-h2--line-height: 1.1;
+  --text-h2--letter-spacing: -0.015em;
+  --text-h2--font-weight: 600;
+
+  --text-h3: clamp(1.25rem, 5vw, 1.58rem);
+  --text-h3--line-height: 1.3;
+  --text-h3--letter-spacing: -0.01em;
+  --text-h3--font-weight: 500;
+
+  --text-body: 1rem;
+  --text-body--line-height: 1.5;
+  --text-body--letter-spacing: 0;
+
+  --text-body-large: clamp(1rem, 2.5vw, 1.125rem);
+  --text-body-large--line-height: 1.5;
+  --text-body-large--letter-spacing: 0;
+
+  --text-small: 0.875rem;
+  --text-small--line-height: 1.4;
+  --text-small--letter-spacing: 0.025em;
+
+
+  /* UI extras */
+  --text-card-title: clamp(1rem, 2.5vw, 1.125rem);
+  --text-card-title--line-height: 1.3;
+  --text-card-title--letter-spacing: -0.01em;
+  --text-card-title--font-weight: 500;
+
+  --text-label: 0.875rem;
+  --text-label--line-height: 1.4;
+  --text-label--letter-spacing: 0.025em;
+  --text-label--font-weight: 500;
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
+
+
+@layer utilities {
+
+  .content-space {
+    @apply flex flex-col gap-y-3 md:gap-y-4.5;
   }
 
-  body {
-    @apply bg-background text-foreground;
-    letter-spacing: var(--tracking-normal);
+  .flex-center {
+    @apply flex items-center justify-center;
   }
 
-  section {
-    @apply py-16;
+  .flex-between {
+    @apply flex items-center justify-between;
   }
-}
 
-html {
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-}
+  .flex-start {
+    @apply flex items-center justify-start;
+  }
 
-body {
-  @apply overflow-x-hidden;
+  .card-title {
+    @apply text-card-title font-semibold;
+  }
+
+  /* .contact-heading {
+    @apply mt-4 text-xl font-semibold bg-linear-to-r from-primary via-foreground to-foreground dark:from-foreground dark:via-primary dark:to-primary bg-clip-text text-transparent leading-tight md:text-3xl lg:text-5xl  lg:leading-[1.2]
+  } */
 }
 
 
@@ -241,7 +337,7 @@ body {
 
 .hero-slider .slick-dots {
   bottom: 1.25rem;
-  z-index: 10;
+  z-index: 40
 }
 
 /* Portfolio slider: add inter-slide gap without padding cards */

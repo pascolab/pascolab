@@ -7,6 +7,7 @@ import { AuthDialogProvider } from "./context/AuthDialogContext";
 import { cn } from "@/lib/utils";
 import { Geist } from "next/font/google";
 import ThemeProvider from "@/components/Common/Theme/ThemeProvider";
+import Header from "@/components/Layout/Header";
 
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
@@ -29,6 +30,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <Aoscompo>
+              <Header />
               <main >
                 {children}
               </main>

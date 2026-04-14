@@ -77,7 +77,7 @@ const Footer: FC = () => {
                 <Icon icon="mdi:email" className="shrink-0 text-muted-foreground w-7 h-10" />
                 <a
                   href="mailto:info@pascolab.com"
-                  className="text-base transition-colors duration-200 hover:text-foreground dark:hover:text-white"
+                  className="text-body transition-colors duration-200 hover:text-foreground dark:hover:text-white"
                 >
                   info@pascolab.com
                 </a>
@@ -86,7 +86,7 @@ const Footer: FC = () => {
                 <Icon icon="mdi:phone" className="shrink-0 text-muted-foreground w-7 h-10" />
                 <a
                   href="tel:+19296340281"
-                  className="text-base transition-colors duration-200 hover:text-foreground dark:hover:text-white"
+                  className="text-bodytransition-colors duration-200 hover:text-foreground dark:hover:text-white"
                 >
                   +1 (929) 634-0281
                 </a>
@@ -101,7 +101,7 @@ const Footer: FC = () => {
                 <li key={label}>
                   <Link
                     href={href}
-                    className="text-base max-sm:border-b w-full pb-1 border-b-muted-foreground hover:border-b-primary  inline-block  transition-colors duration-200 tracking-wide text-foreground/90 hover:text-foreground dark:text-muted-foreground/80 dark:hover:text-muted-foreground"
+                    className="text-body max-sm:border-b w-full pb-1 border-b-muted-foreground hover:border-b-primary  inline-block  transition-colors duration-200 tracking-wide text-foreground/90 hover:text-foreground dark:text-muted-foreground/80 dark:hover:text-muted-foreground"
                   >
                     {label}
                   </Link>

@@ -108,7 +108,7 @@ const Header: React.FC = () => {
       {/* Expanding container */}
       <div
         ref={desktopNavRef}
-        className='hidden lg:block overflow-hidden border-b border-border/40 bg-background  backdrop-blur-xl'
+        className='hidden lg:block overflow-hidden border-b border-border/40 bg-background/75 dark:bg-background/65  backdrop-blur-xl'
         style={{
           height: isMenuOpen ? BAR_H + PANEL_H : BAR_H,
           transition:
@@ -168,7 +168,7 @@ const Header: React.FC = () => {
 
            <div className='flex items-center gap-2'>
             <ThemeSwitcher />
-            <CTA label='Let&apos;s Talk Business' href='/contact' size='lg' />
+            <CTA label='Let&apos;s Talk' href='/contact' size='lg' />
            </div>
           </div>
           <div />
@@ -181,7 +181,7 @@ const Header: React.FC = () => {
             opacity: contentVisible ? 1 : 0,
             transition: 'opacity 0.22s ease',
           }}
-          className='overflow-auto'
+          className='overflow-auto bg-background!'
         >
           {renderedMegaMenu && (
             <div className='container mx-auto px-8 py-7 flex gap-12 '>

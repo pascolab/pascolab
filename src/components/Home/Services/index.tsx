@@ -39,16 +39,16 @@ const ServiceCard = ({ card }: { card: { id: string, title: string, description:
   return (
     <div
       key={card.id}
-      className="group rounded-lg p-6 flex flex-col gap-4 transition-all duration-300 bg-card dark:bg-[#E8622A] shadow-service border border-border/20 hover:bg-[#E8622A] dark:hover:bg-foreground  shadow-lg cursor-pointer"
+      className="group rounded-lg p-4 flex flex-col content-space transition-all duration-300 bg-card dark:bg-[#E8622A] shadow-service border border-border/20 hover:bg-[#E8622A] dark:hover:bg-foreground  shadow-lg cursor-pointer"
     >
         <Icon icon="solar:document-add-bold-duotone" width={36} height={36} className="text-primary dark:text-white group-hover:text-white dark:group-hover:text-background transition-all duration-300" />
 
       {/* Content */}
-      <div className="flex-1">
-        <h3 className="text-xl transition-all duration-300 md:text-[1.3rem] font-medium leading-snug text-black dark:text-white group-hover:text-white dark:group-hover:text-background">
+      <div className="flex-1 content-space md:gap-y-2!">
+        <h3 className="transition-all duration-300  text-black dark:text-white group-hover:text-white dark:group-hover:text-background">
           {card.title}
         </h3>
-        <p className="mt-2 transition-all duration-300 text-sm md:text-sm leading-relaxed text-black/90 dark:text-white/95 group-hover:text-white/90 dark:group-hover:text-background max-sm:line-clamp-1">
+        <p className="transition-all duration-300  text-black/90 dark:text-white/95 group-hover:text-white/90 dark:group-hover:text-background max-sm:line-clamp-1">
           {card.description}
         </p>
       </div>
@@ -129,9 +129,9 @@ const Services = () => {
     <section className="overflow-hidden relative bg-accent/30! dark:bg-accent">
       <div className="absolute inset-0 -z-10 h-full w-full bg-radial from-primary/10 to-transparent" />
       <div className="container z-50">
-        <div className="mb-10">
-          <span className="text-lg font-medium tracking-wide leading-tight text-muted-foreground">Services We Offer</span>
-          <h2 className="text-3xl sm:text-4xl xl:text-5xl font-bold text-midnight_text leading-tight mt-2">Transform Your Business</h2>
+        <div className="mb-10 content-space">
+          <p className=" text-primary text-body-large ">Services We Offer</p>
+          <h2 className="max-w-4xl w-full ">Transform Your Business</h2>
         </div>
         {/* Mobile: horizontal scrollable tabs */}
         <div className="flex md:hidden gap-2 overflow-x-auto pb-4 mb-6">
@@ -167,16 +167,17 @@ const Services = () => {
                         <div className={`w-px flex-1 mt-2 mb-2 min-h-20  border-l-2 border-dashed ${isActive ? "border-primary" : "border-muted-foreground"}`} />
                       )}
                     </div>
-                    <div className={`${isLast ? "pb-0" : "pb-8"}`}>
-                      <p
+                    <div className={`content-space md:gap-y-4! ${isLast ? "pb-0" : "pb-8"}`}>
+                      {/* <p
                         className={`text-xl font-semibold leading-snug transition-colors duration-200 ${isActive
                           ? "text-foreground"
                           : "text-muted-foreground group-hover:text-foreground"
                           }`}
                       >
                         {section.title}
-                      </p>
-                      <p className={`mt-1 text-base ${isActive ? "text-foreground" : "text-muted-foreground"}  leading-relaxed max-w-[80%]`}>
+                      </p> */}
+                      <h3 className="">{section.title}</h3>
+                      <p className={`${isActive ? "text-foreground" : "text-muted-foreground"}  max-w-[80%]`}>
                         {section.description}
                       </p>
 
