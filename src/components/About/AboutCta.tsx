@@ -30,7 +30,7 @@ export default function AboutCta() {
               <CTA
                 label={`${primaryCtaLabel} →`}
                 href={primaryCtaHref}
-                className=""
+                className="hover:bg-white! dark:hover:bg-transparent"
               />
               <Link
                 href={secondaryCtaHref}

@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { getImgPath } from '@/utils/image'
 import { useTheme } from 'next-themes'
+import CTA from '@/components/Common/CTA'
 
 
 const Footer = () => {
@@ -19,22 +20,18 @@ const Footer = () => {
                 <Image
                   src={getImgPath(theme === 'dark' ? '/images/logo/white-logo-footer.png' : '/images/logo/logo-light.png')}
                   alt='logo'
-                  width={250}
+                  width={200}
                   height={50}
-                  style={{ width: '250px', height: 'auto' }}
+                  style={{ width: '200px', height: 'auto' }}
                   className='w-full h-auto'
                   quality={100}
                   unoptimized
                 />
               </Link>
-              <h2 className='text-foreground py-10'>
+              <h2 className='text-foreground py-10 md:text-[2.8rem]'>
                 Ready to get started?
               </h2>
-              <Link
-                href='#'
-                className='px-9 py-3 rounded-lg bg-primary text-white hover:bg-blue-700 hover:shadow-none'>
-                Get Started
-              </Link>
+              <CTA label='Get Started' href='/contact' size='lg' />
             </div>
           </div>
           <div className='md:col-span-4 sm:col-span-6 col-span-12 sm:flex items-center sm:min-h-25 py-10 justify-center shrink-0 md:border-r border-b sm:border-b-0 border-solid border-border'>
@@ -167,7 +164,7 @@ const Footer = () => {
               </Link>
             </li>
             <li className='text-foreground/80'>
-              <Link href='/about' className='hover:text-primary'>
+              <Link href='/about-s' className='hover:text-primary'>
                 About
               </Link>
             </li>
