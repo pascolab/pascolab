@@ -55,7 +55,7 @@ const Hero = () => {
         <div className='container mx-auto flex h-full flex-1 flex-col justify-center'>
           <div className='flex h-full w-full md:w-[60%] flex-col items-start justify-center pointer-events-none'>
             <div className='pointer-events-auto content-space'>
-              <h1 >
+              <h1 className='text-display text-white'>
                 Build digital products that scale with confidence
               </h1>
               <p className='max-w-lg text-white/90 text-body-large tracking-wide'>

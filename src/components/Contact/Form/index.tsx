@@ -109,7 +109,7 @@ const ContactForm = ({showTitle = true}: {showTitle?: boolean}) => {
               <SelectTrigger
                 className={cn(
                   "h-auto w-32! shrink-0 border-[#E5E7EB] bg-muted px-2 dark:bg-input/30",
-                  "data-[size=default]:h-10"
+                  "data-[size=default]:h-10 overflow-hidden!"
                 )}
               >
                 <SelectValue placeholder="🇺🇸 +1" />

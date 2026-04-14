@@ -131,7 +131,7 @@ const Header: React.FC = () => {
                   <button
                     key={item.label}
                     onClick={() => toggleMenu(item.label)}
-                    className={`inline-flex items-center select-none gap-0.5 text-sm font-normal px-3.5 py-1.5 rounded-full transition-colors duration-150 cursor-pointer text-foreground `}
+                    className={`inline-flex items-center select-none gap-0.5 text-sm font-normal px-3.5 py-1.5 rounded-full transition-colors duration-150 cursor-pointer text-foreground/90 hover:text-foreground`}
                   >
                     {item.label}
                     <svg
@@ -158,7 +158,7 @@ const Header: React.FC = () => {
                     key={item.label}
                     href={item.href}
                     onClick={() => isMenuOpen && closeMenu()}
-                    className={`inline-flex items-center select-none text-sm font-normal px-3.5 py-1.5 rounded-full transition-colors duration-150 text-foreground/80 hover:text-foreground`}
+                    className={`inline-flex items-center select-none text-sm font-normal px-3.5 py-1.5 rounded-full transition-colors duration-150 text-foreground/90 hover:text-foreground`}
                   >
                     <span className='text-foreground'>{item.label}</span>
                   </Link>
