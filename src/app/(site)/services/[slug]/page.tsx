@@ -1,32 +1,33 @@
-import { headerData } from "@/components/Layout/Header/Navigation/menuData";
-
-
-
+import { services } from "@/app/api/data";
 
 type ServicesPageProps = {
-    params: Promise<{ slug: string }>
+  params: { slug: string };
+};
+
+export const dynamic = "force-static";
+export const dynamicParams = false;
+
+export default function ServicesPage({ params }: ServicesPageProps) {
+  const { slug } = params;
+
+  return (
+    <section>
+      <div className="container">
+        <h1>Services</h1>
+        <p>Selected service: {slug}</p>
+      </div>
+    </section>
+  );
 }
 
-export default async function ServicesPage({ params }: ServicesPageProps) {
-    const { slug } = await params;
+export function generateStaticParams() {
+  const slugs = services.sections
+    .flatMap((s) => s.cards)
+    .map((c) => c.href)
+    .filter((href): href is string => !!href && href.startsWith("/services/"))
+    .map((href) => href.replace("/services/", "").replace(/\/$/, ""))
+    .filter((slug) => slug.length > 0);
 
-
-    return (
-        <section className="">
-            <div className="container">
-                <h1>Services</h1>
-                <p>Selected service: {slug}</p>
-            </div>
-        </section>
-    )
+  return slugs.map((slug) => ({ slug }));
 }
-
-export async function generateStaticParams() {
-    const hrefs =
-        headerData
-            .find((item) => item.href === "/services")
-            ?.megaMenu?.sections.flatMap((section) => section.items.map((i) => i.href)) ??
-        [];
-
-    return hrefs.map((href) => ({ slug: href?.replace(/^\/services\//, "") }));
-}   
+ 
