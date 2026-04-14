@@ -23,7 +23,7 @@ export default function WhatWeStandFor() {
         <div
           className={cn(
             "flex flex-col gap-8 py-4 md:gap-10",
-            "lg:flex-row lg:flex-nowrap lg:items-stretch lg:justify-between lg:gap-3 xl:gap-4",
+            "lg:flex-row lg:flex-nowrap lg:items-stretch md:justify-between md:gap-5",
             "lg:pb-6",
           )}
         >
@@ -33,7 +33,7 @@ export default function WhatWeStandFor() {
               className={cn("w-full min-w-0 shrink-0", "lg:w-0 lg:flex-1")}
             >
               <Card>
-                <CardHeader>
+                <CardHeader className="px-0">
                   <div
                     className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary/15 lg:size-10 xl:size-11"
                     aria-hidden
@@ -44,7 +44,7 @@ export default function WhatWeStandFor() {
                     {cardTitle}
                   </CardTitle>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="px-0">
                   <small className="text-muted-foreground">{description}</small>
                 </CardContent>
               </Card>

@@ -314,7 +314,7 @@
   }
 
   @media (min-width: 112.5rem) {
-    @apply max-w-[1440px];
+    @apply max-w-[1536px];
   }
 }
 

@@ -23,7 +23,7 @@ const TestimonialCard = ({
 }) => {
   return (
     <Card className='relative h-full shadow-none! ring-0 pt-20 bg-transparent border-none'>
-        <p className=" text-foreground absolute top-0 left-4 md:left-0 ps-5 py-2.5 before:content-[''] before:absolute before:top-0 before:left-0 before:rounded-lg before:w-[55%]  before:h-full before:bg-primary/30 dark:before:bg-primary/15 before:z-[-1] "
+        <p className=" text-primary absolute top-0 left-4 md:left-0 ps-5 py-2.5 before:content-[''] before:absolute before:top-0 before:left-0 before:rounded-lg before:w-[55%]  before:h-full before:bg-primary/15 dark:before:bg-accent/30 before:z-[-1] "
         >
           Client Testimonial  
         </p>
@@ -52,7 +52,7 @@ const TestimonialCard = ({
         </div>
       </CardContent>
 
-      <Quote className='pointer-events-none absolute bottom-4 right-4 h-10 w-10 text-transparent  fill-primary/30 dark:fill-primary/15' />
+      <Quote className='pointer-events-none absolute bottom-4 right-4 h-10 w-10 text-transparent  fill-primary/15 dark:fill-accent/30' />
     </Card>
   )
 }

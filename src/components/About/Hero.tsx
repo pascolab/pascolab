@@ -27,16 +27,16 @@ export default function Hero() {
       />
       <div className="container h-full relative z-10 flex  items-end">
         <div className="max-w-3xl pb-2 text-left content-space">
-          <p className="text-body-large text-primary font-semibold">
+          <p className="text-body-large text-primary font-semibold tracking-wide">
             {highlight}
           </p>
           <h1
             id="about-hero-heading"
-            className="text-h1 "
+            className="text-h1 text-white"
           >
             {title}
           </h1>
-          <p className="max-w-5xl text-body-large text-white/90  ">
+          <p className="max-w-5xl text-body-large text-white/80 ">
             {description}
           </p>
         </div>

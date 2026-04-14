@@ -27,8 +27,8 @@ export default function MissionVision() {
             </div>
             <div className=" flex flex-col md:flex-row bg-primary/10 dark:bg-accent/30">
                 <div className="w-full md:w-7 h-7 md:h-full bg-primary shrink-0" />
-             <div className="space-y-1.5 p-4">
-             <span className="text-body-large font-bold text-foreground inline-block">
+             <div className="p-4 content-space">
+             <span className="text-body-large font-semibold tracking-wide">
                 {mission.practicalIntro}
               </span>
               <div className="content-space">
@@ -58,7 +58,7 @@ export default function MissionVision() {
             </div>
             <div className=" flex flex-col md:flex-row bg-primary/10 dark:bg-accent/30">
                 <div className="w-full md:w-7 h-7 md:h-full bg-primary shrink-0" />
-             <div className="space-y-1.5 p-4">
+             <div className="p-4 content-space">
              <span className="text-body-large font-bold text-foreground inline-block">
                 {vision.directionTitle}
               </span>

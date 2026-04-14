@@ -9,17 +9,20 @@ const Page = () => {
  
   return (
     <section className="bg-background">
-    <div className="container">
+    <div className="container py-4 md:py-6 lg:py-12">
       <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-12 lg:gap-16">
-        <div className="space-y-5 md:pr-4">
-          <h2 className="text-3xl font-bold leading-tight text-midnight_text sm:text-4xl">
+        <div className="content-space md:pr-4">
+          <p className="text-body-large font-light text-primary">
+            Pascolab
+          </p>
+          <h1 className="font-semibold">
             Let&apos;s discuss your project
-          </h2>
-          <p className="text-base leading-relaxed text-foreground">
+          </h1>
+          <p className="text-body font-light text-foreground">
             We are committed to understanding your requirements and crafting a
             tailored solution that aligns with your goals.
           </p>
-          <p className="text-base leading-relaxed text-foreground">
+          <p className="text-body font-light text-foreground">
             Enter your details and someone from our team will reach out to find
             a time to connect with you.
           </p>
