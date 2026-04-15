@@ -3,6 +3,10 @@
 import Image from 'next/image'
 import { getImgPath } from '@/utils/image'
 import { useTheme } from 'next-themes'
+import CTA from '@/components/Common/CTA'
+import { footerCtaContent } from '@/app/api/data'
+import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
 
 
 const Footer = () => {
@@ -19,22 +23,18 @@ const Footer = () => {
                 <Image
                   src={getImgPath(theme === 'dark' ? '/images/logo/white-logo-footer.png' : '/images/logo/logo-light.png')}
                   alt='logo'
-                  width={250}
+                  width={200}
                   height={50}
-                  style={{ width: '250px', height: 'auto' }}
+                  style={{ width: '200px', height: 'auto' }}
                   className='w-full h-auto'
                   quality={100}
                   unoptimized
                 />
               </Link>
-              <h2 className='text-foreground py-10'>
-                Ready to get started?
+              <h2 className='text-foreground py-10 md:text-[2.8rem]'>
+                {footerCtaContent.title}
               </h2>
-              <Link
-                href='#'
-                className='px-9 py-3 rounded-lg bg-primary text-white hover:bg-blue-700 hover:shadow-none'>
-                Get Started
-              </Link>
+              <CTA label={footerCtaContent.primaryCtaLabel} href={footerCtaContent.primaryCtaHref} size='lg' />
             </div>
           </div>
           <div className='md:col-span-4 sm:col-span-6 col-span-12 sm:flex items-center sm:min-h-25 py-10 justify-center shrink-0 md:border-r border-b sm:border-b-0 border-solid border-border'>
@@ -126,23 +126,25 @@ const Footer = () => {
           </div>
           <div className='md:col-span-4 col-span-12 border-t md:border-none border-solid border-border sm:flex items-center justify-end md:min-h-25 py-10 shrink-0'>
             <div className='md:w-3/4 w-full sm:text-start text-center'>
-              <h3 className='text-foreground pb-4 inline-block'>
+              {/* <h3 className='text-foreground pb-4 inline-block'>
                 Subscribe newsletter
-              </h3>
-              <p className='text-foreground/80 pb-7'>
-                To be updated with all the latest trends and product
-              </p>
-              <form className='newsletter-form flex rounded-lg sm:w-full w-3/4 sm:mx-0 mx-auto'>
-                <input
+              </h3> */}
+              {footerCtaContent.paragraphs.map(p => <p key={p} className=' pb-7'>
+                {p}
+              </p>)}
+              <form className='newsletter-form flex w-full md:w-3/4 sm:mx-0 mx-auto items-stretch'>
+                <Input
+                  id='footer-email'
                   type='email'
                   placeholder='Email*'
-                  className='p-4 text-base border-transparent rounded-s-lg rounded-e-none! outline-0 focus:border-primary dark:focus:border-primary w-[calc(100%_-_137px)] flex bg-white dark:bg-midnight_text dark:text-white dark:border-solid dark:border dark:border-border_color'
+                  autoComplete='email'
+                  className='rounded-none text-base px-2 py-1.25 h-auto focus-visible:ring-offset-0'
                 />
-                <button
+                <Button
                   type='submit'
-                  className='p-2.5 text-base font-medium bg-primary text-white border-none cursor-pointer rounded-e-lg outline-0 text-center w-[8.5625rem] hover:bg-blue-700 hover:shadow-none'>
-                  Subscribe
-                </button>
+                  className='rounded-none border-2 border-primary text-white h-auto py-4'>
+                  {footerCtaContent.secondaryCtaLabel}
+                </Button>
               </form>
             </div>
           </div>
@@ -150,7 +152,7 @@ const Footer = () => {
       </div>
       <div className='text-center gap-4 md:gap-0 flex-wrap p-7 border-t border-solid border-border'>
         <div>
-          <ul className='flex justify-center mb-4 items-center sm:gap-7 gap-3'>
+          <ul className='flex justify-center mb-4 items-center sm:gap-7 gap-3 md:ps-26'>
             <li className='text-foreground/80'>
               <Link href='/' className='hover:text-primary'>
                 Home
@@ -167,13 +169,8 @@ const Footer = () => {
               </Link>
             </li>
             <li className='text-foreground/80'>
-              <Link href='/about' className='hover:text-primary'>
+              <Link href='/about-s' className='hover:text-primary'>
                 About
-              </Link>
-            </li>
-            <li className='text-foreground/80'>
-              <Link href='/contact' className='hover:text-primary'>
-                Contact
               </Link>
             </li>
           </ul>

@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { Brand, brands } from './brandsData'
+import { homeBrandsContent } from '../homeContent'
 
 const BrandItem = ({brand}: {brand: Brand}) => {
   return (
@@ -21,10 +22,15 @@ const BrandItem = ({brand}: {brand: Brand}) => {
 
 const Brands = () => {
   return (
-    <section className=' py-0 bg-background'> 
+    <section className=' max-sm:py-8 max-sm:border-b border-border/50 bg-background'> 
+    <div className='container mx-auto flex flex-col md:flex-row! items-center content-space'>
+    <div className='w-full md:w-[25%] shrink-0 content-space'>
+      <h2 className='text-display text-white'>{homeBrandsContent.heading}</h2>
+      <p className='text-body-large text-muted-foreground'>{homeBrandsContent.subHeading}</p>
+    </div>
       {/* Second Marquee RTL */}  
       <div
-        className='w-full brands-marquee-mask'
+        className='flex-1 brands-marquee-mask'
         aria-hidden='true'
       >
         <div className='flex w-max brands-marquee-track reverse'>
@@ -41,6 +47,7 @@ const Brands = () => {
           ))}
         </div>
       </div>
+    </div>
     </section>
   )
 }

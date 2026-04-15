@@ -22,7 +22,7 @@ export default function Hero() {
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute inset-0 bg-linear-to-br from-black/98 via-[#0e2a35]/80 to-[#0e2a35]/10"
+        className="pointer-events-none absolute inset-0 bg-linear-to-r from-black via-[#0e2a35]/80 to-[#0e2a35]/40"
         aria-hidden
       />
       <div className="container h-full relative z-10 flex  items-end">
@@ -36,7 +36,7 @@ export default function Hero() {
           >
             {title}
           </h1>
-          <p className="max-w-5xl text-body-large text-white/80 ">
+          <p className="max-w-5xl text-body-large text-white/90 ">
             {description}
           </p>
         </div>

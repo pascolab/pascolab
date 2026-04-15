@@ -66,8 +66,8 @@ const ServiceCard = ({ card }: { card: { id: string, title: string, description:
 }
 
 const Services = () => {
-  const { sections } = services;
-  const [activeSection, setActiveSection] = useState(sections[0].id);
+  const sections = services;
+  const [activeSection, setActiveSection] = useState(sections[0]?.id ?? "");
 
   const scrollRef = useRef<HTMLDivElement>(null);
   const sectionRefs = useRef<Record<string, HTMLDivElement | null>>({});
@@ -111,7 +111,7 @@ const Services = () => {
 
       // Walk sections in order; keep updating activeId as long as the section
       // header is at or above the container's top edge (with a small buffer).
-      let activeId = sections[0].id;
+      let activeId = sections[0]?.id ?? "";
       for (const section of sections) {
         const el = sectionRefs.current[section.id];
         if (!el) continue;
@@ -178,7 +178,7 @@ const Services = () => {
                       </p> */}
                       <h3 className="">{section.title}</h3>
                       <p className={`${isActive ? "text-foreground" : "text-muted-foreground"}  max-w-[80%]`}>
-                        {section.description}
+                        {section.subHeading}
                       </p>
 
                     </div>

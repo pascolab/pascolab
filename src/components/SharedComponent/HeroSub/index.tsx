@@ -1,26 +1,49 @@
 import React, { FC } from 'react'
-import Breadcrumb from '@/components/Breadcrumb'
-import { BreadcrumbLink } from '@/types/breadcrumb'
+import Image, { StaticImageData } from 'next/image'
 
-interface HeroSubProps {
-  title: string
-  description: string
-  breadcrumbLinks: BreadcrumbLink[]
+export type HeroSubProps = {
+  image: StaticImageData;
+  highlight: string;
+  title: string;
+  description: string;
 }
 
-const HeroSub: FC<HeroSubProps> = ({ title, description, breadcrumbLinks }) => {
+const HeroSub: FC<HeroSubProps> = ({ image, highlight, title, description }) => {
   return (
-    <>
-      <section className='text-center'>
-        <h2 className='dark:text-white md:text-[40px] leading-tight text-4xl font-bold text-midnight_text'>
+    <div
+    aria-labelledby="about-hero-heading"
+    className="relative overflow-hidden h-[50vh] md:h-[45vh] py-5"
+  >
+    <Image
+      src={image}
+      alt={title}
+      fill
+      priority
+      className="object-cover object-center"
+      sizes="100vw"
+      aria-hidden
+    />
+    <div
+      className="pointer-events-none absolute inset-0 bg-linear-to-r from-black via-[#0e2a35]/80 to-[#0e2a35]/40"
+      aria-hidden
+    />
+    <div className="container h-full relative z-10 flex  items-end">
+      <div className="max-w-3xl pb-2 text-left content-space">
+        <p className="text-body-large text-primary font-semibold tracking-wide">
+          {highlight}
+        </p>
+        <h1
+          id="about-hero-heading"
+          className="text-h1 text-white tracking-wide"
+        >
           {title}
-        </h2>
-        <p className='md:text-xl text-lg text-grey font-normal max-w-3xl w-full mx-auto my-7.5'>
+        </h1>
+        <p className="max-w-5xl text-body-large text-white/90 ">
           {description}
-        </p>  
-        <Breadcrumb links={breadcrumbLinks} />
-      </section>
-    </>
+        </p>
+      </div>
+    </div>
+  </div>
   )
 }
 

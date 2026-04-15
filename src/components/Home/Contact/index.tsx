@@ -1,5 +1,8 @@
 import ContactForm from '@/components/Contact/Form'
 import CTA from '@/components/Common/CTA'
+import { homeCTAContent } from '../homeContent'
+import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 
 const Contact = () => {
   return (
@@ -8,13 +11,23 @@ const Contact = () => {
       <div className='grid grid-cols-1 gap-10 md:grid-cols-[minmax(0,40%)_1fr] md:gap-8 lg:gap-12'>
           <div className='flex flex-col items-start text-left md:pt-20 content-space'>
             <h2 className='contact-heading'>
-              Get In Touch
+             {homeCTAContent.heading}
               </h2>
-            <p className='max-w-md text-muted-foreground'>
-              We are committed to understanding your requirements and crafting a
-              tailored solution that aligns with your goals.
+            <p className='max-w-md text-body-large text-muted-foreground'>
+                {homeCTAContent.description}
             </p>
-            <CTA label='Get In Touch' href='/contact' size='lg' />
+            <div className='flex flex-wrap items-center gap-4'>
+            <CTA label={homeCTAContent.primaryCtaLabel} href={homeCTAContent.primaryCtaHref} size='lg' />
+            {/* <CTA label={homeCTAContent.secondaryCtaLabel} href={homeCTAContent.secondaryCtaHref} size='lg' /> */}
+            <Button
+                  asChild
+                  variant='outline'
+                  size='lg'
+                  className='py-3.5 h-auto md:px-7 border-primary! rounded-full'
+                >
+                  <Link href={homeCTAContent.secondaryCtaHref}>{homeCTAContent.secondaryCtaLabel}</Link>
+                </Button>
+            </div>
           </div>
           <div id='contact-form' className='min-w-0'>
             <ContactForm />

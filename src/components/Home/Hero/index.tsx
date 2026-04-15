@@ -1,12 +1,12 @@
 'use client'
 
 import CTA from '@/components/Common/CTA'
-import Header from '@/components/Layout/Header'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import Link from 'next/link'
 import Slider from "react-slick";
 import hero1 from '../../../../public/images/hero/hero-img.jpg'
+import { homeHeroContent } from '../homeContent'
 
 const heroImages = [
   { src: hero1, alt: 'Hero slide 1' },
@@ -56,21 +56,20 @@ const Hero = () => {
           <div className='flex h-full w-full md:w-[60%] flex-col items-start justify-center pointer-events-none'>
             <div className='pointer-events-auto content-space'>
               <h1 className='text-display text-white'>
-                Build digital products that scale with confidence
+                {homeHeroContent.heading}
               </h1>
-              <p className='max-w-lg text-white/90 text-body-large tracking-wide'>
-              {/* <p className='max-w-lg text-white/90  text-lg md:text-2xl font-normal leading-relaxed tracking-wide'> */}
-                Strategy, delivery, and engineering for teams navigating complex requirements—from first concept to production.
+              <p className='max-w-2xl text-white/90 text-body-large'>
+                {homeHeroContent.subheading}
               </p>
               <div className='flex flex-wrap items-center gap-4'>
-                <CTA label="Let's Talk" href='/contact' size='lg' className='hover:bg-white! md:py-3.5 md:px-7' />
+                <CTA label={homeHeroContent.primaryCtaLabel} href={homeHeroContent.primaryCtaHref} size='lg' className='hover:bg-white! md:py-3.5 md:px-7' />
                 <Button
                   asChild
                   variant='outline'
                   size='lg'
-                  className='py-3.5 h-auto md:px-7 rounded-full'
+                  className='py-3.5 h-auto md:px-7 border-primary! rounded-full'
                 >
-                  <Link href='/case-studies'>View Our Work</Link>
+                  <Link href={homeHeroContent.secondaryCtaHref}>{homeHeroContent.secondaryCtaLabel}</Link>
                 </Button>
               </div>
             </div>
