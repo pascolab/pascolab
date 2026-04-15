@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { counterStats } from "@/app/api/data";
+import { statsContent } from "@/app/api/data";
 
 function useCountUp(end: number, duration: number, active: boolean) {
   const [count, setCount] = useState(0);
@@ -31,13 +31,14 @@ function StatItem({
   active,
   isLast,
 }: {
-  value: number;
-  suffix: string;
+  value?: number;
+  suffix?: string;
   label: string;
   active: boolean;
   isLast: boolean;
 }) {
-  const count = useCountUp(value, 2200, active);
+  const hasValue = typeof value === "number" && Number.isFinite(value);
+  const count = hasValue ? useCountUp(value, 2200, active) : 0;
 
   return (
     <div
@@ -45,13 +46,21 @@ function StatItem({
         !isLast ? "border-r border-border" : ""
       }`}
     >
-      <p className="text-4xl md:text-5xl xl:text-6xl font-bold text-foreground leading-none tracking-tight">
-        {count}
-        <span className="text-primary">{suffix}</span>
-      </p>
-      <p className=" uppercase tracking-widest text-muted-foreground text-small">
-        {label}
-      </p>
+      {hasValue ? (
+        <>
+          <p className="text-4xl md:text-5xl xl:text-6xl font-bold text-foreground leading-none tracking-tight">
+            {count}
+            {suffix ? <span className="text-primary">{suffix}</span> : null}
+          </p>
+          <p className="uppercase tracking-widest text-muted-foreground text-small">
+            {label}
+          </p>
+        </>
+      ) : (
+        <p className="text-xl md:text-2xl font-bold text-primary ">
+          {label}
+        </p>
+      )}
     </div>
   );
 }
@@ -82,24 +91,24 @@ const Stats = () => {
           {/* Left — heading + description */}
           <div className="lg:w-5/12 xl:w-4/12 shrink-0 content-space">
           <h2 className="md:max-w-4xl w-full">
-              We&apos;re committed to lead your digital journey to success.
+              {statsContent.title}
             </h2>
             <p className="text-muted-foreground max-w-md  font-normal">
-            We have a proven track record of building scalable software solutions for businesses.
+            Not just numbers… a reflection of the <span className="underline underline-offset-2 decoration-primary">work</span>, <span className="underline underline-offset-2 decoration-primary">thinking</span>, and <span className="underline underline-offset-2 decoration-primary">momentum</span> behind what we build.
             </p>
           </div>
 
           {/* Right — stats grid */}
           <div className="w-full lg:flex-1 border-t border-b border-border">
             <div className="grid grid-cols-2 sm:grid-cols-4 divide-y sm:divide-y-0 divide-border">
-              {counterStats.map((stat, i) => (
+              {statsContent.stats.map((stat, i) => (
                 <StatItem
                   key={i}
                   value={stat.value}
                   suffix={stat.suffix}
                   label={stat.label}
                   active={active}
-                  isLast={i === counterStats.length - 1}
+                  isLast={i === statsContent.stats.length - 1}
                 />
               ))}
             </div>

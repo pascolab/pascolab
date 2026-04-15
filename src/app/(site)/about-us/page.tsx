@@ -1,13 +1,9 @@
 
 import Stats from "@/components/SharedComponent/Stats";
 import { Metadata } from "next";
-import MissionVision from "@/components/About/MissionVision";
-import Story from "@/components/About/Story";
-import WhatWeStandFor from "@/components/About/WhatWeStandFor";
+import HowItStartedAndTheProcessWeFollow from "@/components/About/HowItStartedAndTheProcessWeFollow";
+import WhoWeAre from "@/components/About/WhoWeAre";
 import Hero from "@/components/About/Hero";
-import Industries from "@/components/About/Industries";
-import AboutCta from "@/components/About/AboutCta";
-import RemoteFirst from "@/components/About/RemoteFirst";
 import HowWeWork from "@/components/About/HowWeWork";
 
 export const metadata: Metadata = {
@@ -19,13 +15,9 @@ export default function AboutUsPage() {
     <section className="overflow-hidden">
       <Hero />
       <Stats />
-      <Story />
-      <MissionVision />
-      <WhatWeStandFor />
+      <WhoWeAre />
+      <HowItStartedAndTheProcessWeFollow />
       <HowWeWork />
-      <Industries />
-      <RemoteFirst />
-      <AboutCta />
     </section>
   );
 }

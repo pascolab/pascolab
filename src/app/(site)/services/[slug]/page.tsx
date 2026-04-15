@@ -21,13 +21,6 @@ export default function ServicesPage({ params }: ServicesPageProps) {
 }
 
 export function generateStaticParams() {
-  const slugs = services.sections
-    .flatMap((s) => s.cards)
-    .map((c) => c.href)
-    .filter((href): href is string => !!href && href.startsWith("/services/"))
-    .map((href) => href.replace("/services/", "").replace(/\/$/, ""))
-    .filter((slug) => slug.length > 0);
-
-  return slugs.map((slug) => ({ slug }));
+  return services.map((service) => ({ slug: service.id }));
 }
  

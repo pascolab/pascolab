@@ -1,18 +1,17 @@
 import Link from "next/link";
 
-import { aboutClosingCtaContent } from "./aboutContent";
+import { closingCtaContent } from "./aboutContent";
 import CTA from "@/components/Common/CTA";
 
 export default function AboutCta() {
   const {
     title,
-    description,
+    paragraphs,
     primaryCtaLabel,
     primaryCtaHref,
     secondaryCtaLabel,
     secondaryCtaHref,
-    footerLine,
-  } = aboutClosingCtaContent;
+  } = closingCtaContent;
 
   return (
     <section className="overflow-hidden relative">
@@ -23,7 +22,11 @@ export default function AboutCta() {
               {title}
             </h2>
             <p className="text-muted">
-              {description}
+              {paragraphs.map((p) => (
+                <p key={p} className="text-muted-foreground">
+                  {p}
+                </p>
+              ))}
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-8 md:gap-5 pt-8 md:pt-2">
@@ -39,10 +42,6 @@ export default function AboutCta() {
                 {secondaryCtaLabel} →
               </Link>
             </div>
-
-            <small className="pt-4 text-muted ">
-              {footerLine}
-            </small>
           </div>
         </div>
       </div>
