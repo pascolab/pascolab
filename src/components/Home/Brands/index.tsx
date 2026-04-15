@@ -25,7 +25,7 @@ const Brands = () => {
     <section className=' max-sm:py-8 max-sm:border-b border-border/50 bg-background'> 
     <div className='container mx-auto flex flex-col md:flex-row! items-center content-space'>
     <div className='w-full md:w-[25%] shrink-0 content-space'>
-      <h2 className='text-display text-white'>{homeBrandsContent.heading}</h2>
+      <h2 className='text-display'>{homeBrandsContent.heading}</h2>
       <p className='text-body-large text-muted-foreground'>{homeBrandsContent.subHeading}</p>
     </div>
       {/* Second Marquee RTL */}  
