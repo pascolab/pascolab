@@ -1,25 +1,25 @@
-
-import React from "react";
-import HeroSub from "@/components/SharedComponent/HeroSub";
 import { Metadata } from "next";
-import Services from "@/components/Home/Services";
-import heroBg from "../../../../public/images/hero/hero-img.jpg";
+import { servicesPageData } from "@/app/api/data";
+import ServicesHero from "@/components/Services/ServicesHero";
+import ServicesNav from "@/components/Services/ServicesNav";
+import ServiceSection from "@/components/Services/ServiceSection";
+
 export const metadata: Metadata = {
-    title: "Services | Pascolab",
+  title: "Services | Pascolab",
 };
 
-const page = () => {
+export default function ServicesPage() {
   return (
     <>
-      <HeroSub
-        image={heroBg}
-        highlight="> What we do"
-        title="Services"
-        description="Discover a wealth of insightful materials meticulously crafted to provide you with a comprehensive understanding of the latest trends."
-      />
-      <Services/>
+      <ServicesHero />
+      <ServicesNav sections={servicesPageData} />
+      {servicesPageData.map((section, idx) => (
+        <ServiceSection
+          key={section.id}
+          section={section}
+          isLast={idx === servicesPageData.length - 1}
+        />
+      ))}
     </>
   );
-};
-
-export default page;
+}
