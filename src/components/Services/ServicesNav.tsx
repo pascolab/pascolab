@@ -8,7 +8,7 @@ type ServicesNavProps = {
 
 export default function ServicesNav({ sections }: ServicesNavProps) {
   return (
-    <div className="border-b border-border bg-background">
+    <div className="border-y border-border bg-background shadow-md">
       <div className="container mx-auto">
         <nav
           className="flex gap-4 overflow-x-auto py-3 md:py-4 px-0.5 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"

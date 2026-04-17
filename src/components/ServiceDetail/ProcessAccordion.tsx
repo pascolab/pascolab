@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { cn } from "@/lib/utils";
 import {
   Accordion,
@@ -15,15 +15,14 @@ type ProcessAccordionProps = {
 };
 
 export default function ProcessAccordion({ section }: ProcessAccordionProps) {
-  const [value, setValue] = useState(section.process[1]?.step ?? section.process[0]?.step ?? "");
-  const activeStep = useMemo(
-    () => section.process.find((item) => item.step === value) ?? section.process[0],
-    [section.process, value]
-  );
+  const [value, setValue] = useState(section.process[0]?.step ?? "");
+
+  const activeIndex = section.process.findIndex((item) => item.step === value);
 
   return (
     <section id="process">
       <div className="container content-space">
+
         <div className="content-space">
           <p className="text-body-large font-semibold uppercase tracking-wide text-primary">
             Process
@@ -31,22 +30,49 @@ export default function ProcessAccordion({ section }: ProcessAccordionProps) {
           <h2 className="max-w-3xl">How we deliver {section.eyebrow.toLowerCase()}</h2>
         </div>
 
-        <div className="grid gap-10 rounded-2xl border border-border bg-card lg:grid-cols-[1.05fr_1fr]">
-          <div className="flex flex-col justify-between gap-10 border-b border-border p-8 lg:border-b-0 lg:border-r md:p-10">
-            <div className="text-h2 font-semibold text-foreground">{activeStep?.step}</div>
+        <div className="grid border border-border rounded-lg overflow-hidden lg:grid-cols-[1fr_1.8fr]">
 
-            <div className="flex min-h-[14rem] items-center justify-center">
-              <div className="relative h-40 w-40">
-                <div className="absolute left-1/2 top-2 h-16 w-16 -translate-x-1/2 rotate-45 bg-primary/15" />
-                <div className="absolute left-1/2 top-12 h-20 w-20 -translate-x-1/2 rotate-45 bg-primary" />
-                <div className="absolute left-1/2 top-24 h-16 w-16 -translate-x-1/2 rotate-45 bg-primary/20" />
-                <div className="absolute left-1/2 top-[8.5rem] h-14 w-14 -translate-x-1/2 rotate-45 bg-primary/12" />
-              </div>
+          {/* ── Left panel: step number + animated diamond stack ── */}
+          <div className="hidden lg:flex flex-col gap-10 justify-between border-r border-border bg-card p-10">
+
+            {/* Active step number */}
+            <p className="text-h1 font-bold leading-none text-foreground select-none">
+              {section.process[activeIndex]?.step ?? section.process[0]?.step}
+            </p>
+
+            {/* Diamond stack — flat plan-view tiles, active one highlights */}
+            <div className="flex flex-col items-center py-4">
+              {section.process.map((item, idx) => (
+                <div
+                  key={item.step}
+                  style={{
+                    clipPath: "polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)",
+                    zIndex: idx === activeIndex ? 10 : section.process.length - idx,
+                  }}
+                  className={cn(
+                    "h-17 w-50 shrink-0 transition-colors duration-300",
+                    idx > 0 && "-mt-5",
+                    idx === activeIndex ? "bg-primary" : "bg-primary/15"
+                  )}
+                />
+              ))}
             </div>
           </div>
 
-          <div className="p-6 md:p-8">
-            <Accordion type="single" collapsible value={value} onValueChange={(next) => setValue(next || value)}>
+          {/* ── Right panel: accordion ── */}
+          <div className="p-6 md:p-8 lg:p-10">
+
+            {/* Mobile-only: show active step number above accordion */}
+            <p className="lg:hidden text-h2 font-bold mb-6 text-foreground">
+              {section.process[activeIndex]?.step ?? section.process[0]?.step}
+            </p>
+
+            <Accordion
+              type="single"
+              collapsible
+              value={value}
+              onValueChange={(next) => setValue(next || value)}
+            >
               {section.process.map((item) => (
                 <AccordionItem
                   key={item.step}
@@ -54,28 +80,29 @@ export default function ProcessAccordion({ section }: ProcessAccordionProps) {
                   onMouseEnter={() => setValue(item.step)}
                   className="border-border"
                 >
-                  <AccordionTrigger className="py-5 text-base hover:no-underline">
-                    <div className="flex items-start gap-4 text-left">
-                      <span className="mt-1 text-xs font-medium tracking-[0.2em] text-muted-foreground">
+                  <AccordionTrigger className="py-5 hover:no-underline [&>svg]:hidden">
+                    <div className="flex items-baseline gap-4 text-left">
+                      <p className="shrink-0 text-sm font-medium tracking-[0.2em] text-muted-foreground/50 transition-colors duration-300 ease-in-out">
                         {item.step}
-                      </span>
-                      <span
+                      </p>
+                      <h3
                         className={cn(
-                          "text-h3 transition-colors",
+                          "text-h3 font-semibold transition-colors duration-300 ease-in-out",
                           value === item.step ? "text-primary" : "text-foreground"
                         )}
                       >
                         {item.title}
-                      </span>
+                      </h3>
                     </div>
                   </AccordionTrigger>
-                  <AccordionContent className="pl-10 text-muted-foreground">
-                    <p>{item.description}</p>
+                  <AccordionContent className="pb-5 pl-[2.1rem] text-muted-foreground">
+                    {item.description}
                   </AccordionContent>
                 </AccordionItem>
               ))}
             </Accordion>
           </div>
+
         </div>
       </div>
     </section>

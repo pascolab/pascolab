@@ -9,7 +9,7 @@ type DetailHeroProps = {
 
 export default function DetailHero({ section }: DetailHeroProps) {
   return (
-    <section className="relative overflow-hidden bg-foreground py-0!">
+    <section className="relative overflow-hidden  py-0!">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(10,191,163,0.2),transparent_35%),linear-gradient(135deg,rgba(255,255,255,0.05),transparent_35%)]" />
 
       <div className="container relative z-10 flex min-h-[70vh] items-center py-24 md:py-32">
@@ -18,9 +18,9 @@ export default function DetailHero({ section }: DetailHeroProps) {
             {section.eyebrow}
           </p>
 
-          <h1 className="max-w-4xl text-white">{section.heroTitle}</h1>
+          <h1 className="max-w-4xl text-foreground">{section.heroTitle}</h1>
 
-          <p className="max-w-3xl text-body-large text-white/80">
+          <p className="max-w-3xl text-body-large text-muted-foreground/90">
             {section.heroSubtitle}
           </p>
 
