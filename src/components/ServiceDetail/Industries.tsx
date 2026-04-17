@@ -1,7 +1,9 @@
-"use client";
-
-import { useState } from "react";
-import { cn } from "@/lib/utils";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/components/ui/tabs";
 import type { ServicePageSection } from "@/types/service";
 
 type IndustriesProps = {
@@ -9,54 +11,65 @@ type IndustriesProps = {
 };
 
 export default function Industries({ section }: IndustriesProps) {
-  const [activeTab, setActiveTab] = useState(section.industries[0]?.id ?? "");
-  const selected =
-    section.industries.find((industry) => industry.id === activeTab) ?? section.industries[0];
+  const defaultValue = section.industries[0]?.id ?? "";
 
   return (
-    <section id="industries">
+    <section id="industries " className="bg-accent/30! dark:bg-accent">
       <div className="container content-space">
+
         <div className="content-space">
           <p className="text-body-large font-semibold uppercase tracking-wide text-primary">
             Industries
           </p>
-          <h2 className="max-w-3xl">Find use cases and delivery patterns relevant to your industry</h2>
+          <h2 className="max-w-3xl">
+            Find use cases and delivery patterns relevant to your industry
+          </h2>
         </div>
 
-        <div className="content-space">
-          <div className="flex gap-3 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+        <Tabs
+          orientation="vertical"
+          defaultValue={defaultValue}
+          className="flex-col md:flex-row items-stretch overflow-hidden bg-background rounded-lg py-4 md:py-8 max-sm:content-space"
+        >
+          {/* Left sidebar — industry list */}
+          <TabsList
+            className="w-full md:space-y-2 shrink-0 md:w-60 lg:w-72 max-md:border-b border-border rounded-none ring-0 p-0 max-md:pb-5 h-auto justify-start items-stretch bg-transparent"
+          >
             {section.industries.map((industry) => (
-              <button
+              <TabsTrigger
                 key={industry.id}
-                type="button"
-                onClick={() => setActiveTab(industry.id)}
-                className={cn(
-                  "shrink-0 rounded-full border px-4 py-2 text-sm font-medium transition-colors",
-                  selected?.id === industry.id
-                    ? "border-primary bg-primary text-primary-foreground"
-                    : "border-border text-muted-foreground hover:border-primary hover:text-primary"
-                )}
+                value={industry.id}
+                className="h-auto w-full justify-start rounded-none border-0 px-6 py-4 text-left text-sm font-medium text-muted-foreground/90 hover:text-foreground data-active:bg-primary! data-active:text-white! data-active:font-semibold hover:bg-primary/10"
               >
                 {industry.label}
-              </button>
+              </TabsTrigger>
             ))}
-          </div>
+          </TabsList>
 
-          <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
-            <div className="grid gap-8 lg:grid-cols-[1.1fr_1fr]">
-              <p className="text-muted-foreground">{selected?.description}</p>
+          {/* Right panel — content for selected industry */}
+          {section.industries.map((industry) => (
+            <TabsContent
+              key={industry.id}
+              value={industry.id}
+              className="m-0 ring-0 p-6 md:p-8 lg:p-10 relative z-10 flex-1"
+            >
+              <div className="content-space max-w-2xl">
+                <h3 className="text-h3 font-medium text-foreground">{industry.label}</h3>
+                <p className="text-body-large font-normal text-muted-foreground">{industry.description}</p>
 
-              <ul className="space-y-3">
-                {selected?.bullets.map((bullet) => (
-                  <li key={bullet} className="flex gap-3 text-muted-foreground">
-                    <span className="mt-2 h-2.5 w-2.5 shrink-0 rounded-[2px] bg-primary" />
-                    <span>{bullet}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
+                <ul className="space-y-3 pt-2">
+                  {industry.bullets.map((bullet) => (
+                    <li key={bullet} className="flex gap-3 text-muted-foreground text-body">
+                      <span className="mt-[0.35rem] h-2.5 w-2.5 shrink-0 rounded-[2px] bg-primary" />
+                      <p className="">{bullet}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </TabsContent>
+          ))}
+        </Tabs>
+
       </div>
     </section>
   );

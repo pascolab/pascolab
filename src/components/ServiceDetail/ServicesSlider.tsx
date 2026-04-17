@@ -19,9 +19,14 @@ export default function ServicesSlider({ section }: ServicesSliderProps) {
   const settings = {
     arrows: false,
     dots: false,
-    infinite: false,
-    speed: 500,
+    speed: 600,
     slidesToShow: 4,
+    autoplay: true,
+    autoplaySpeed: 7000,
+    infinite: true,
+    touchMove: true,
+    swipeToSlide: true,
+    adaptiveHeight: true,
     slidesToScroll: 1,
     responsive: [
       { breakpoint: 1280, settings: { slidesToShow: 3 } },
@@ -61,21 +66,21 @@ export default function ServicesSlider({ section }: ServicesSliderProps) {
           </div>
         </div>
 
-        <div className="services-slider">
+        <div className="services-slider min-h-96 py-2">
           <Slider ref={sliderRef} {...settings}>
             {section.services.map((item) => (
               <div key={item.id} className="h-full px-3">
                 <Link
                   href={item.href}
-                  className="group flex h-full min-h-[18rem] flex-col justify-between rounded-none border border-border bg-background p-6 transition-colors duration-300 hover:border-primary hover:bg-primary hover:text-primary-foreground"
+                  className="group flex min-h-82 h-full flex-col z-10 rounded-t-lg rounded-bl-lg justify-between rounded-none bg-background p-6 transition-all ease-in-out border border-border duration-300 hover:border-primary hover:bg-primary relative hover:rounded-br-lg"
                 >
                   <div className="content-space">
-                    <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground transition-colors duration-300 group-hover:text-primary-foreground/75">
+                    <p className=" text-muted-foreground/70 transition-colors duration-300 group-hover:text-white">
                       {item.category}
                     </p>
 
                     <div className="content-space">
-                      <h3 className="max-w-xs text-foreground transition-colors duration-300 group-hover:text-primary-foreground">
+                      <h3 className="max-w-xs text-foreground transition-colors duration-300 group-hover:text-white">
                         {item.title}
                       </h3>
 
@@ -83,7 +88,7 @@ export default function ServicesSlider({ section }: ServicesSliderProps) {
                         {item.bullets?.map((bullet) => (
                           <li
                             key={bullet}
-                            className="text-small text-muted-foreground transition-colors duration-300 group-hover:text-primary-foreground/85"
+                            className="text-small text-muted-foreground transition-colors duration-300 group-hover:text-white"
                           >
                             • {bullet}
                           </li>
@@ -92,9 +97,9 @@ export default function ServicesSlider({ section }: ServicesSliderProps) {
                     </div>
                   </div>
 
-                  <div className="flex justify-end">
-                    <span className="flex h-11 w-11 items-center justify-center border border-border text-primary transition-colors duration-300 group-hover:border-primary-foreground/30 group-hover:text-primary-foreground">
-                      <Icon icon="solar:arrow-right-linear" className="h-4 w-4" />
+                  <div className="flex justify-end absolute bottom-0 -right-px z-30 bg-white group-hover:rounded-br-lg ">
+                    <span className="flex h-11 w-11 items-center justify-center border border-border text-primary transition-colors duration-300 border-r-transparent group-hover:border-primary/30  group-hover:border-r-primary border-b-0 group-hover:rounded-br-lg">
+                      <Icon icon="solar:arrow-right-linear" className="h-4 w-4 -translate-x-1 group-hover:translate-x-1 transition-all ease-in-out duration-300" />
                     </span>
                   </div>
                 </Link>
