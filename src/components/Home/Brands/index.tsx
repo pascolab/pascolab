@@ -22,7 +22,7 @@ const BrandItem = ({brand}: {brand: Brand}) => {
 
 const Brands = () => {
   return (
-    <section className=' max-sm:py-8 max-sm:border-b border-border/50 bg-background'> 
+    <section className=' max-sm:py-8 max-sm:border-b border-border/50 bg-background overflow-hidden'> 
     <div className='container mx-auto flex flex-col md:flex-row! items-center content-space'>
     <div className='w-full md:w-[25%] shrink-0 content-space'>
       <h2 className='text-display'>{homeBrandsContent.heading}</h2>

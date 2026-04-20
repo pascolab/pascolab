@@ -1,14 +1,15 @@
 'use client'
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
+import { servicesPageData } from '@/app/api/data'
 import { headerData } from './Navigation/menuData'
 import Logo from './Logo'
 import MobileHeaderLink from './Navigation/MobileHeaderLink'
+import ServicesMegaPanel from './Navigation/ServicesMegaPanel'
 import ThemeSwitcher from '@/components/Common/Theme/ThemeSwitcher'
 import CTA from '@/components/Common/CTA'
 
 const BAR_H = 69
-const PANEL_H = 280
 
 const Header: React.FC = () => {
   const [openItem, setOpenItem] = useState<string | null>(null)
@@ -85,8 +86,9 @@ const Header: React.FC = () => {
   useEffect(() => () => clearMenuTimers(), [])
 
   const isMenuOpen = !!openItem
-  const renderedMegaMenu =
-    headerData.find((n) => n.label === renderedItem)?.megaMenu ?? null
+  const renderedHeaderItem = headerData.find((n) => n.label === renderedItem) ?? null
+  const renderedMegaMenu = renderedHeaderItem?.megaMenu ?? null
+  const renderedPanel = renderedHeaderItem?.panel ?? null
 
   return (
     <header className='fixed top-0 left-0 right-0 z-50'>
@@ -101,18 +103,18 @@ const Header: React.FC = () => {
           top: BAR_H,
           background: 'rgba(0,0,0,0.3)',
           opacity: isMenuOpen ? 1 : 0,
-          transition: 'opacity 0.35s ease',
+          transition: 'opacity 0.35s ease-in-out',
         }}
       />
 
       {/* Expanding container */}
       <div
         ref={desktopNavRef}
-        className='hidden lg:block overflow-hidden border-b border-border/40 bg-background/75 dark:bg-background/65  backdrop-blur-xl'
+        className='hidden lg:block overflow-hidden border-b border-border/40 bg-background dark:bg-background/65 backdrop-blur-xl'
         style={{
-          height: isMenuOpen ? BAR_H + PANEL_H : BAR_H,
+          maxHeight: isMenuOpen ? `calc(${BAR_H}px + 70vh)` : BAR_H,
           transition:
-            'height 0.42s cubic-bezier(0.45, 0, 0.2, 1), background-color 0.2s ease',
+            'max-height 0.42s cubic-bezier(0.45, 0, 0.2, 1), background-color 0.2s ease',
         }}
       >
         {/* ── Top bar ── */}
@@ -126,10 +128,11 @@ const Header: React.FC = () => {
             {/* Nav items */}
             <nav className='flex items-center gap-x-4'>
               {headerData.map((item) =>
-                item.megaMenu ? (
+                item.megaMenu || item.panel === 'services' ? (
                   // Mega-menu trigger: button that toggles panel
                   <button
                     key={item.label}
+                    type='button'
                     onClick={() => toggleMenu(item.label)}
                     className={`inline-flex items-center select-none gap-0.5 text-sm font-normal px-3.5 py-1.5 rounded-full transition-colors duration-150 cursor-pointer text-foreground/90 hover:text-foreground`}
                   >
@@ -177,13 +180,15 @@ const Header: React.FC = () => {
         {/* ── Columns panel ── */}
         <div
           style={{
-            height: PANEL_H,
             opacity: contentVisible ? 1 : 0,
-            transition: 'opacity 0.22s ease',
+            maxHeight: isMenuOpen ? '70vh' : 0,
+            transition: 'opacity 0.22s ease, max-height 0.42s cubic-bezier(0.45, 0, 0.2, 1)',
           }}
-          className='overflow-auto bg-background!'
+          className='overflow-auto '
         >
-          {renderedMegaMenu && (
+          {renderedPanel === 'services' ? (
+            <ServicesMegaPanel sections={servicesPageData} onClose={closeMenu} />
+          ) : renderedMegaMenu ? (
             <div className='container mx-auto px-8 py-7 flex gap-12 '>
               {renderedMegaMenu.sections.map((section) => (
                 <div key={section.id} className='flex-1 min-w-0'>
@@ -226,7 +231,7 @@ const Header: React.FC = () => {
                 </div>
               ))}
             </div>
-          )}
+          ) : null}
         </div>
       </div>
 

@@ -7,6 +7,15 @@ type ServicesNavProps = {
 };
 
 export default function ServicesNav({ sections }: ServicesNavProps) {
+  const handleClick = (id: string) => {
+    const element = document.getElementById(id);
+    if (!element) return;
+
+    const headerHeight = window.innerWidth >= 1024 ? 69 : 60;
+    const y = element.getBoundingClientRect().top + window.scrollY - headerHeight - 16;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  };
+
   return (
     <div className="border-y border-border bg-background shadow-md">
       <div className="container mx-auto">
@@ -15,14 +24,14 @@ export default function ServicesNav({ sections }: ServicesNavProps) {
           aria-label="Service navigation"
         >
           {sections.map((s) => (
-            <div
-            
-            tabIndex={0}
+            <button
               key={s.id}
-              className="shrink-0 px-4 py-2.5 cursor-pointer rounded-full text-sm font-medium whitespace-nowrap text-muted-foreground  ring-1 ring-border hover:bg-primary hover:text-primary-foreground transition-colors duration-200"
+              type="button"
+              onClick={() => handleClick(s.id)}
+              className="shrink-0 px-4 py-2.5 cursor-pointer rounded-full text-sm font-medium whitespace-nowrap text-muted-foreground ring-1 ring-primary hover:bg-primary hover:text-white transition-colors duration-300"
             >
               {s.title}
-            </div>
+            </button>
           ))}
         </nav>
       </div>
