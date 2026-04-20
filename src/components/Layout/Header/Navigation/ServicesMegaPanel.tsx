@@ -48,7 +48,7 @@ const ServicesMegaPanel: React.FC<ServicesMegaPanelProps> = ({ sections, onClose
   if (!activeSection) return null
 
   return (
-    <div className='container mx-auto border border-red-500 px-0'>
+    <div className='px-0'>
       <div className='flex flex-col overflow-hidden bg-card shadow-xl lg:flex-row'>
         <div className='flex w-full shrink-0 flex-col border-b border-border bg-secondary lg:w-[260px] lg:border-b-0 lg:border-r'>
           <div className=''>

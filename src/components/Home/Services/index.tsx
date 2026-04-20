@@ -1,222 +1,88 @@
 "use client";
 
-import { useState, useRef, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
-import { services } from "@/app/api/data";
+import { Button } from "@/components/ui/button";
+import { servicesPageData } from "@/app/api/data";
 
-const iconMap: Record<string, string> = {
-  shield: "solar:shield-bold-duotone",
-  strategy: "solar:document-add-bold-duotone",
-  audit: "solar:clipboard-bold-duotone",
-  risk: "solar:danger-triangle-bold-duotone",
-  ai: "solar:cpu-bold-duotone",
-  "generative-ai": "solar:stars-bold-duotone",
-  data: "solar:database-bold-duotone",
-  analytics: "solar:chart-2-bold-duotone",
-  intelligence: "solar:lightbulb-bold-duotone",
-  digital: "solar:global-bold-duotone",
-  cloud: "solar:cloud-bold-duotone",
-  emerging: "solar:rocket-bold-duotone",
-  devops: "solar:settings-bold-duotone",
-  infrastructure: "solar:layers-bold-duotone",
-  modernization: "solar:refresh-circle-bold-duotone",
+// Colour accent per service id — extend as more sections are added to servicesPageData
+const sectionAccents: Record<string, string> = {
+  "ai-data-innovation":  "text-primary",
+  "cloud-infrastructure": "text-sky-500",
 };
 
-const NavIndicator = ({ isActive }: { isActive: boolean }) => (
-  <div
-    className={`w-8 h-8 rounded-[4px] flex items-center justify-center shrink-0 transition-all duration-200 font-bold text-sm select-none
-      ${isActive
-        ? "bg-primary text-primary-foreground"
-        : "border border-muted-foreground text-muted-foreground group-hover:border-primary group-hover:text-primary"
-      }`}
-  >
-    P
-  </div>
-);
+const Services = () => (
+  <section>
+    <div className="container">
 
-const ServiceCard = ({ card }: { card: { id: string, title: string, description: string, href: string, iconName: string } }) => {
-  return (
-    <div
-      key={card.id}
-      className="group rounded-lg p-4 flex flex-col content-space transition-all duration-300 bg-card dark:bg-[#E8622A] shadow-service border border-border/20 hover:bg-[#E8622A] dark:hover:bg-foreground  shadow-lg cursor-pointer"
-    >
-        <Icon icon="solar:document-add-bold-duotone" width={36} height={36} className="text-primary dark:text-white group-hover:text-white dark:group-hover:text-background transition-all duration-300" />
-
-      {/* Content */}
-      <div className="flex-1 content-space md:gap-y-2!">
-        <h3 className="transition-all duration-300  text-black dark:text-white group-hover:text-white dark:group-hover:text-background">
-          {card.title}
-        </h3>
-        <p className="transition-all duration-300  text-black/90 dark:text-white/95 group-hover:text-white/90 dark:group-hover:text-background max-sm:line-clamp-1">
-          {card.description}
-        </p>
+      {/* Section header */}
+      <div className="flex flex-wrap items-end justify-between gap-4 mb-10 md:mb-14">
+        <div className="content-space">
+          <p className="text-primary text-body-large font-medium">What We Do</p>
+          <h2>Our services</h2>
+        </div>
+        <Button
+          asChild
+          variant="outline"
+          className="shrink-0 rounded-full h-auto py-2.5 px-5 font-normal"
+        >
+          <Link href="/services">View all services</Link>
+        </Button>
       </div>
 
-      {/* Link */}
-      <Link
-        href={card.href}
-        className="inline-flex items-center gap-1.5 text-sm font-semibold mt-auto text-foreground group-hover:text-primary-foreground dark:group-hover:text-background transition-all duration-300 "
-      >
-        View Details
-        <Icon icon="solar:arrow-right-bold-duotone" className="text-base text-primary dark:text-white group-hover:text-primary-foreground dark:group-hover:text-background transition-all duration-300" />
-      </Link>
+      {/* Grid — fixed card height, no reflow on hover */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
+        {servicesPageData.map((service) => {
+          const color = sectionAccents[service.id] ?? "text-primary";
+
+          return (
+            <Link
+              key={service.id}
+              href={`/services/${service.id}`}
+              className="group relative flex flex-col h-72 overflow-hidden rounded-2xl
+                         border border-border bg-card
+                         transition-colors duration-300 hover:border-primary/30"
+            >
+              {/* Icon */}
+              <div className="flex flex-1 items-center justify-center">
+                <Icon icon={service.icon} width={76} height={76} className={color} />
+              </div>
+
+              {/* Title */}
+              <div className="px-5 pb-5">
+                <p className="text-lg font-semibold leading-snug text-foreground">
+                  {service.title}
+                </p>
+              </div>
+
+              {/* Categories panel — hidden below card bottom, slides up on hover */}
+              <div
+                className="absolute inset-x-0 bottom-0 bg-card border-t border-border p-5
+                           translate-y-full group-hover:translate-y-0
+                           transition-transform duration-300 ease-out"
+              >
+                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground">
+                  {service.title}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {service.categories.map((cat) => (
+                    <span
+                      key={cat.id}
+                      className="inline-flex items-center rounded-full border border-border
+                                 bg-background px-3 py-1 text-xs text-foreground/80"
+                    >
+                      {cat.title}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </Link>
+          );
+        })}
+      </div>
+
     </div>
-  )
-}
-
-const Services = () => {
-  const sections = services;
-  const [activeSection, setActiveSection] = useState(sections[0]?.id ?? "");
-
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const sectionRefs = useRef<Record<string, HTMLDivElement | null>>({});
-  // Prevent observer from overriding active state while a programmatic scroll is settling
-  const isScrollingRef = useRef(false);
-
-  // Click left nav → scroll to that section group
-  const handleNavClick = useCallback((sectionId: string) => {
-    setActiveSection(sectionId);
-    const el = sectionRefs.current[sectionId];
-    const container = scrollRef.current;
-    if (!el || !container) return;
-
-    isScrollingRef.current = true;
-    // getBoundingClientRect gives position relative to viewport, so we
-    // adjust by the container's current scroll position to get the true target.
-    const scrollTarget =
-      container.scrollTop +
-      el.getBoundingClientRect().top -
-      container.getBoundingClientRect().top;
-    container.scrollTo({ top: scrollTarget, behavior: "smooth" });
-
-    // Release the lock after the smooth scroll settles (~800 ms)
-    setTimeout(() => {
-      isScrollingRef.current = false;
-    }, 800);
-  }, []);
-
-  const handleTabClick = useCallback(
-    (sectionId: string) => handleNavClick(sectionId),
-    [handleNavClick]
-  );
-
-  useEffect(() => {
-    const container = scrollRef.current;
-    if (!container) return;
-
-    const onScroll = () => {
-      if (isScrollingRef.current) return;
-      const containerTop = container.getBoundingClientRect().top;
-
-      // Walk sections in order; keep updating activeId as long as the section
-      // header is at or above the container's top edge (with a small buffer).
-      let activeId = sections[0]?.id ?? "";
-      for (const section of sections) {
-        const el = sectionRefs.current[section.id];
-        if (!el) continue;
-        const elTop = el.getBoundingClientRect().top - containerTop;
-        if (elTop <= 16) activeId = section.id;
-      }
-      setActiveSection(activeId);
-    };
-
-    container.addEventListener("scroll", onScroll, { passive: true });
-    return () => container.removeEventListener("scroll", onScroll);
-  }, [sections]);
-
-  return (
-    <section className="overflow-hidden relative bg-accent/30! dark:bg-accent">
-      <div className="absolute inset-0 -z-10 h-full w-full bg-radial from-primary/10 to-transparent" />
-      <div className="container z-50">
-        <div className="mb-10 content-space">
-          <p className=" text-primary text-body-large ">Services We Offer</p>
-          <h2 className="max-w-4xl w-full ">Transform Your Business</h2>
-        </div>
-        {/* Mobile: horizontal scrollable tabs */}
-        <div className="flex md:hidden gap-2 overflow-x-auto pb-4 mb-6">
-          {sections.map((section) => (
-            <button
-              key={section.id}
-              onClick={() => handleTabClick(section.id)}
-              className={`shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${activeSection === section.id
-                ? "bg-primary text-primary-foreground"
-                : "bg-background text-muted-foreground border border-muted-foreground"
-                }`}
-            >
-              {section.title}
-            </button>
-          ))}
-        </div>
-
-        <div className="flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-16 py-10">
-          {/* Left nav — desktop only */}
-          <div className="hidden md:flex flex-col w-[30%] lg:w-[28%] shrink-0">
-            {sections.map((section, idx) => {
-              const isActive = activeSection === section.id;
-              const isLast = idx === sections.length - 1;
-              return (
-                <div key={section.id} className="relative">
-                  <button
-                    onClick={() => handleNavClick(section.id)}
-                    className="flex items-start gap-4 w-full text-left group"
-                  >
-                    <div className="flex flex-col items-center shrink-0 mt-1">
-                      <NavIndicator isActive={isActive} />
-                      {!isLast && (
-                        <div className={`w-px flex-1 mt-2 mb-2 min-h-20  border-l-2 border-dashed ${isActive ? "border-primary" : "border-muted-foreground"}`} />
-                      )}
-                    </div>
-                    <div className={`content-space md:gap-y-4! ${isLast ? "pb-0" : "pb-8"}`}>
-                      {/* <p
-                        className={`text-xl font-semibold leading-snug transition-colors duration-200 ${isActive
-                          ? "text-foreground"
-                          : "text-muted-foreground group-hover:text-foreground"
-                          }`}
-                      >
-                        {section.title}
-                      </p> */}
-                      <h3 className="">{section.title}</h3>
-                      <p className={`${isActive ? "text-foreground" : "text-muted-foreground"}  max-w-[80%]`}>
-                        {section.subHeading}
-                      </p>
-
-                    </div>
-                  </button>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Right panel: all sections rendered, fixed-height scrollable */}
-          <div className="flex-1 overflow-hidden">
-            <div
-              ref={scrollRef}
-              className="relative h-[440px] overflow-y-auto overflow-x-hidden pr-1"
-            >
-              {sections.map((section) => (
-                <div
-                  key={section.id}
-                  id={section.id}
-                  ref={(el) => { sectionRefs.current[section.id] = el; }}
-                  className="mb-6 last:mb-0"
-                >
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 p-3 lg:gap-5">
-                    {section.cards.map((card) => {
-                      const iconName = iconMap[card.icon] ?? "solar:widget-bold-duotone";
-                      return (
-                        <ServiceCard key={card.id} card={{ ...card, iconName }} />
-                      );
-                    })}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
+  </section>
+);
 
 export default Services;
