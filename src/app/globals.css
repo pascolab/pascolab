@@ -17,7 +17,7 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-x-hidden;
     letter-spacing: var(--tracking-normal);
     line-height: 1.5;
   }
@@ -269,7 +269,7 @@
 @layer utilities {
 
   .content-space {
-    @apply flex flex-col gap-y-5 md:gap-y-10;
+    @apply flex flex-col gap-y-3.5 md:gap-y-5;
   }
 
   .flex-center {

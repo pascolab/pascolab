@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import PortfolioCard from '@/components/SharedComponent/portfollio/Portfolio-card'
 import CTA from '@/components/Common/CTA'
 
@@ -35,12 +34,7 @@ const Portfolio = () => {
             <p>
               From Concept to Completion
             </p>
-            <Link
-              href='#portfolio-gallery'
-              className=''
-            >
-              <CTA label='Explore More' href='/case-studies' size='lg' />
-            </Link>
+            <CTA label='Explore More' href='/case-studies' size='lg' />
           </div>
           <div id='portfolio-gallery' className='min-w-0'>
             <PortfolioCard />

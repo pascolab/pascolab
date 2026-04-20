@@ -25,6 +25,7 @@ export type MegaMenuConfig = {
 export type HeaderItem = {
   label: string;
   href: string;
+  panel?: "services";
   submenu?: SubmenuItem[];
   megaMenu?: MegaMenuConfig;
 };

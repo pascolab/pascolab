@@ -72,34 +72,45 @@ export default function ServicesSlider({ section }: ServicesSliderProps) {
               <div key={item.id} className="h-full px-3">
                 <Link
                   href={item.href}
-                  className="group flex min-h-82 h-full flex-col z-10 rounded-t-lg rounded-bl-lg justify-between rounded-none bg-background p-6 transition-all ease-in-out border border-border duration-300 hover:border-primary hover:bg-primary relative hover:rounded-br-lg"
+                  className="group relative min-h-82 h-full rounded-t-lg border border-border bg-background transition-all duration-300 hover:border-primary hover:bg-primary
+                             flex flex-col md:block md:overflow-hidden"
                 >
-                  <div className="content-space">
-                    <p className=" text-muted-foreground/70 transition-colors duration-300 group-hover:text-white">
-                      {item.category}
-                    </p>
+                  {/* Category — always at top, never moves */}
+                  <p className="
+                    px-6 pt-6 text-muted-foreground/70 transition-colors duration-300
+                    group-hover:text-white/80
+                    md:absolute md:top-6 md:left-6 md:px-0 md:pt-0
+                  ">
+                    {item.category}
+                  </p>
 
-                    <div className="content-space">
-                      <h3 className="max-w-xs text-foreground transition-colors duration-300 group-hover:text-white">
-                        {item.title}
-                      </h3>
-
-                      <ul className="space-y-1.5 opacity-0 translate-y-2 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                        {item.bullets?.map((bullet) => (
-                          <li
-                            key={bullet}
-                            className="text-small text-muted-foreground transition-colors duration-300 group-hover:text-white"
-                          >
-                            • {bullet}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                  {/* Title + bullets — normal flow on mobile, anchored to bottom on desktop.
+                      On hover the block nudges upward so bullets slide into view. */}
+                  <div className="
+                    flex flex-col gap-10 p-6 pt-3 mt-auto pb-14
+                    md:absolute md:bottom-0 md:left-0 md:right-0 md:mt-0 md:p-6
+                    transition-transform duration-500 ease-[cubic-bezier(0.34,1.1,0.64,1)]
+                    md:translate-y-32 md:group-hover:-translate-y-7
+                  ">
+                    <h3 className="max-w-xs text-foreground transition-colors duration-300 group-hover:text-white">
+                      {item.title}
+                    </h3>
+                    <ul className="space-y-1.5">
+                      {item.bullets?.map((bullet) => (
+                        <li
+                          key={bullet}
+                          className="text-small text-muted-foreground transition-colors duration-300 group-hover:text-white"
+                        >
+                          • {bullet}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
 
-                  <div className="flex justify-end absolute bottom-0 -right-px z-30 bg-white group-hover:rounded-br-lg ">
-                    <span className="flex h-11 w-11 items-center justify-center border border-border text-primary transition-colors duration-300 border-r-transparent group-hover:border-primary/30  group-hover:border-r-primary border-b-0 group-hover:rounded-br-lg">
-                      <Icon icon="solar:arrow-right-linear" className="h-4 w-4 -translate-x-1 group-hover:translate-x-1 transition-all ease-in-out duration-300" />
+                  {/* Arrow tab */}
+                  <div className="flex justify-end absolute bottom-0 -right-px z-30 bg-white ">
+                    <span className="flex h-11 w-11 items-center justify-center border border-border text-primary transition-colors duration-300 md:border-r-transparent group-hover:border-primary/30 group-hover:border-r-primary border-b-0 ">
+                      <Icon icon="solar:arrow-right-linear" className="h-4 w-4 md:-translate-x-1 md:group-hover:translate-x-1 transition-all ease-in-out duration-300" />
                     </span>
                   </div>
                 </Link>

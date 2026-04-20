@@ -8,77 +8,7 @@ export const headerData: HeaderItem[] = [
   {
     label: "Services",
     href: "/services",
-    // megaMenu: {
-    //   sections: [
-    //     {
-    //       id: "security-strategy",
-    //       sidebarLabel: "Security & Strategy",
-    //       panelTitle: "Security & Strategy",
-    //       panelDescription: "Governance, compliance and defence for regulated industries",
-    //       items: [
-    //         {
-    //           title: "Information Security",
-    //           description: "Real-time defence with audit-ready compliance",
-    //           href: "/services/information-security",
-    //         },
-    //         {
-    //           title: "Policy & Strategy",
-    //           description: "Governance that clears the path for delivery",
-    //           href: "/services/policy-strategy",
-    //         },
-    //       ],
-    //       cta: { label: "All Services", href: "/services" },
-    //     },
-    //     {
-    //       id: "ai-data",
-    //       sidebarLabel: "AI & Data",
-    //       panelTitle: "AI & Data",
-    //       panelDescription: "Intelligence and automation at enterprise scale",
-    //       items: [
-    //         {
-    //           title: "AI, ML & Data Analytics",
-    //           description: "Predict, automate and decide faster",
-    //           href: "/services/ai-ml-data-analytics",
-    //         },
-    //         {
-    //           title: "Generative AI",
-    //           description: "Create and personalise at enterprise speed",
-    //           href: "/services/generative-ai",
-    //         },
-    //         {
-    //           title: "Data Engineering",
-    //           description: "Reliable data layers that power AI and decisions",
-    //           href: "/services/data-engineering",
-    //         },
-    //       ],
-    //       cta: { label: "All Services", href: "/services" },
-    //     },
-    //     {
-    //       id: "digital-cloud",
-    //       sidebarLabel: "Digital & Cloud",
-    //       panelTitle: "Digital & Cloud",
-    //       panelDescription: "Modern platforms built for scale and uptime",
-    //       items: [
-    //         {
-    //           title: "Digital Solutions",
-    //           description: "AI, cloud and automation built into daily ops",
-    //           href: "/services/digital-solutions",
-    //         },
-    //         {
-    //           title: "Cloud Services",
-    //           description: "Cloud-native on multicloud built for scale",
-    //           href: "/services/cloud-services",
-    //         },
-    //         {
-    //           title: "Emerging Technologies",
-    //           description: "Prove and scale what's next, safely",
-    //           href: "/services/emerging-technologies",
-    //         },
-    //       ],
-    //       cta: { label: "All Services", href: "/services" },
-    //     },
-    //   ],
-    // },
+    panel: "services",
   },  
   { 
     label: "Projects",
