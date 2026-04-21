@@ -2,7 +2,6 @@
 
 import * as React from "react"
 
-import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -17,6 +16,8 @@ import { Textarea } from "@/components/ui/textarea"
 import { cn } from "@/lib/utils"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import CTA from "@/components/Common/CTA"
+
+const CONTACT_FORM_ACTION = "https://formspree.io/f/xlgawowa"
 
 const SERVICE_OPTIONS = [
   "Remote IT Resources",
@@ -36,6 +37,14 @@ const REGION_OPTIONS = [
   "Middle East & Africa",
   "Latin America",
   "Other",
+] as const
+
+const PHONE_CODE_OPTIONS = [
+  {
+    code: "+1",
+    label: "US / Canada",
+    value: "us",
+  },
 ] as const
 
 
@@ -64,6 +73,25 @@ function FieldLabel({
 }
 
 const ContactForm = ({showTitle = true}: {showTitle?: boolean}) => {
+  const [phoneCountryCode, setPhoneCountryCode] = React.useState<string>(
+    PHONE_CODE_OPTIONS[0].code
+  )
+  const [region, setRegion] = React.useState("")
+  const [jobInterest, setJobInterest] = React.useState("")
+  const [selectedServices, setSelectedServices] = React.useState<string[]>([])
+
+  const handleServiceChange = (service: string, checked: boolean) => {
+    setSelectedServices((currentServices) => {
+      if (checked) {
+        return currentServices.includes(service)
+          ? currentServices
+          : [...currentServices, service]
+      }
+
+      return currentServices.filter((currentService) => currentService !== service)
+    })
+  }
+
   return (
     <Card className="dark:ring-0">
       {showTitle && (
@@ -75,7 +103,15 @@ const ContactForm = ({showTitle = true}: {showTitle?: boolean}) => {
             </CardTitle>
           </CardHeader>
         )}
+      <form action={CONTACT_FORM_ACTION} method="POST">
       <CardContent className="space-y-5 max-sm:px-0">
+       <input type="hidden" name="_next" value="/thanks?type=contact" />
+       <input type="hidden" name="phoneCountryCode" value={phoneCountryCode} />
+       <input type="hidden" name="region" value={region} />
+       <input type="hidden" name="lookingForJob" value={jobInterest} />
+       {selectedServices.map((service) => (
+        <input key={service} type="hidden" name="services" value={service} />
+       ))}
 
        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
        <div className="space-y-2">
@@ -84,6 +120,7 @@ const ContactForm = ({showTitle = true}: {showTitle?: boolean}) => {
           </FieldLabel>
           <Input
             id="contact-full-name"
+            name="fullName"
             type="text"
             autoComplete="name"
           />
@@ -95,6 +132,7 @@ const ContactForm = ({showTitle = true}: {showTitle?: boolean}) => {
           </FieldLabel>
           <Input
             id="contact-email"
+            name="email"
             type="email"
             autoComplete="email"
 
@@ -105,7 +143,13 @@ const ContactForm = ({showTitle = true}: {showTitle?: boolean}) => {
         <div className="space-y-2">
           <FieldLabel required>Phone Number</FieldLabel>
           <div className="flex gap-2">
-            <Select defaultValue="us">
+            <Select
+              defaultValue={PHONE_CODE_OPTIONS[0].value}
+              onValueChange={(value) => {
+                const selectedOption = PHONE_CODE_OPTIONS.find((option) => option.value === value)
+                setPhoneCountryCode(selectedOption?.code ?? PHONE_CODE_OPTIONS[0].code)
+              }}
+            >
               <SelectTrigger
                 className={cn(
                   "h-auto w-32! shrink-0 border-[#E5E7EB] bg-muted px-2 dark:bg-input/30",
@@ -115,16 +159,16 @@ const ContactForm = ({showTitle = true}: {showTitle?: boolean}) => {
                 <SelectValue placeholder="🇺🇸 +1" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="us">
-                  <span className="flex items-center gap-2">
-                    <span aria-hidden>🇺🇸</span>
-                    <span>+1</span>
-                  </span>
-                </SelectItem>
+                {PHONE_CODE_OPTIONS.map((option) => (
+                  <SelectItem key={option.value} value={option.value}>
+                    {option.code}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
             <Input
               id="contact-phone"
+              name="phone"
               type="tel"
               autoComplete="tel"
               placeholder="+1 (555) 000-0000"
@@ -139,6 +183,7 @@ const ContactForm = ({showTitle = true}: {showTitle?: boolean}) => {
           </FieldLabel>
           <Input
             id="contact-company"
+            name="companyName"
             type="text"
             autoComplete="organization"
 
@@ -149,6 +194,7 @@ const ContactForm = ({showTitle = true}: {showTitle?: boolean}) => {
           <FieldLabel htmlFor="contact-company-url">Company URL</FieldLabel>
           <Input
             id="contact-company-url"
+            name="companyUrl"
             type="url"
             autoComplete="url"
             placeholder="https://"
@@ -158,7 +204,7 @@ const ContactForm = ({showTitle = true}: {showTitle?: boolean}) => {
 
         <div className="space-y-2">
           <FieldLabel required>Region</FieldLabel>
-          <Select>
+          <Select onValueChange={setRegion}>
             <SelectTrigger
               size="default"
               className={cn(
@@ -188,7 +234,14 @@ const ContactForm = ({showTitle = true}: {showTitle?: boolean}) => {
               const id = `contact-service-${i}`
               return (
                 <div key={label} className="flex items-start gap-2.5">
-                  <Checkbox id={id} className="mt-0.5" />
+                  <Checkbox
+                    checked={selectedServices.includes(label)}
+                    id={id}
+                    className="mt-0.5"
+                    onCheckedChange={(checked) =>
+                      handleServiceChange(label, checked === true)
+                    }
+                  />
                   <Label
                     htmlFor={id}
                     className="cursor-pointer text-xs md:text-sm font-normal leading-snug text-foreground"
@@ -207,6 +260,7 @@ const ContactForm = ({showTitle = true}: {showTitle?: boolean}) => {
           </FieldLabel>
           <Textarea
             id="contact-project-details"
+            name="projectDetails"
             rows={5}
             className={cn(
               "min-h-34 resize-y py-2.5"
@@ -218,7 +272,7 @@ const ContactForm = ({showTitle = true}: {showTitle?: boolean}) => {
           <FieldLabel required>
             I am looking for a job at Pascolab
           </FieldLabel>
-          <Select>
+          <Select onValueChange={setJobInterest}>
             <SelectTrigger
               size="default"
               className={cn(
@@ -238,6 +292,7 @@ const ContactForm = ({showTitle = true}: {showTitle?: boolean}) => {
       <CardFooter className="flex justify-end bg-transparent border-t-0 pb-7 max-sm:px-0">
         <CTA label='Submit' type='submit' size='lg' className="max-sm:min-h-9.5 px-4"  />
       </CardFooter>
+      </form>
     </Card>
   )
 }

@@ -1,4 +1,6 @@
 "use client"
+
+
   import Link from 'next/link'
 import Image from 'next/image'
 import { getImgPath } from '@/utils/image'
@@ -7,6 +9,12 @@ import CTA from '@/components/Common/CTA'
 import { footerCtaContent } from '@/app/api/data'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
+import { useState } from 'react'
+import { Loader2 } from 'lucide-react'
+import { useRouter } from 'next/navigation'
+import NewsletterForm from '@/components/SharedComponent/NewsLetterForm'
+
+
 
 
 const Footer = () => {
@@ -132,20 +140,8 @@ const Footer = () => {
               {footerCtaContent.paragraphs.map(p => <p key={p} className=' pb-7'>
                 {p}
               </p>)}
-              <form className='newsletter-form flex w-full md:w-3/4 sm:mx-0 mx-auto items-stretch'>
-                <Input
-                  id='footer-email'
-                  type='email'
-                  placeholder='Email*'
-                  autoComplete='email'
-                  className='rounded-none text-base px-2 py-1.25 h-auto focus-visible:ring-offset-0'
-                />
-                <Button
-                  type='submit'
-                  className='rounded-none border-2 border-primary text-white h-auto py-4'>
-                  {footerCtaContent.secondaryCtaLabel}
-                </Button>
-              </form>
+              
+              <NewsletterForm />
             </div>
           </div>
         </div>
