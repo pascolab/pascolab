@@ -166,7 +166,7 @@ const Header: React.FC = () => {
       {renderedItem && (
         <div
           ref={panelRef}
-          className='hidden lg:block fixed left-0 right-0'
+          className='hidden lg:block fixed left-0 right-0 container mx-auto'
           style={{
             top: BAR_H,
             opacity: contentVisible ? 1 : 0,
@@ -175,13 +175,11 @@ const Header: React.FC = () => {
             pointerEvents: isMenuOpen ? 'auto' : 'none',
           }}
         >
-          <div className='container mx-auto'>
             {renderedPanel === 'services' ? (
               <ServicesMegaPanel sections={servicesPageData} onClose={closeMenu} />
             ) : renderedMegaMenu ? (
               <MegaMenuPanel config={renderedMegaMenu} variant='desktop' />
             ) : null}
-          </div>
         </div>
       )}
 
