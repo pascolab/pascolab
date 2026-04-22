@@ -1,20 +1,22 @@
 import ThankYouMessage from "@/components/SharedComponent/ThankYouMessage"
 
+type ThanksPageProps = {
+  params: Promise<{ type: string }>
+}
 export default async function ThanksPage({
-  searchParams,
-}: {
-  searchParams: { type: string }
-}) {
-  const { type } = searchParams
+  params,
+  
+}: ThanksPageProps) {
+  const { type } = await params
 
   return (
-      <ThankYouMessage type={type} />
+      <ThankYouMessage type={type as "contact-request" | "get-in-touch"} />
   );
 }
 
 export function generateStaticParams() {
   return [
-    { type: "contact" },
-    { type: "newsletter" },
+    { type: "contact-request" },
+    { type: "get-in-touch" },
   ]
 }

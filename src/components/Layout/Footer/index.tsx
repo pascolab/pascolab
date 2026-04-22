@@ -7,12 +7,7 @@ import { getImgPath } from '@/utils/image'
 import { useTheme } from 'next-themes'
 import CTA from '@/components/Common/CTA'
 import { footerCtaContent } from '@/app/api/data'
-import { Input } from '@/components/ui/input'
-import { Button } from '@/components/ui/button'
-import { useState } from 'react'
-import { Loader2 } from 'lucide-react'
-import { useRouter } from 'next/navigation'
-import NewsletterForm from '@/components/SharedComponent/NewsLetterForm'
+import GetInTouchForm from '@/components/SharedComponent/GetInTouchForm'
 
 
 
@@ -134,14 +129,11 @@ const Footer = () => {
           </div>
           <div className='md:col-span-4 col-span-12 border-t md:border-none border-solid border-border sm:flex items-center justify-end md:min-h-25 py-10 shrink-0'>
             <div className='md:w-3/4 w-full sm:text-start text-center'>
-              {/* <h3 className='text-foreground pb-4 inline-block'>
-                Subscribe newsletter
-              </h3> */}
               {footerCtaContent.paragraphs.map(p => <p key={p} className=' pb-7'>
                 {p}
               </p>)}
               
-              <NewsletterForm />
+              <GetInTouchForm />
             </div>
           </div>
         </div>

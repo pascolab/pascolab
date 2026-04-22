@@ -15,9 +15,6 @@ type ServicesPageProps = {
   params: Promise<{ slug: string }>;
 };
 
-export const dynamic = "force-static";
-export const dynamicParams = false;
-
 export async function generateMetadata({ params }: ServicesPageProps): Promise<Metadata> {
   const { slug } = await params;
   const section = servicesPageData.find((s) => s.id === slug);
