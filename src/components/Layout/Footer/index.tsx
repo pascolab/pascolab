@@ -1,12 +1,15 @@
 "use client"
+
+
   import Link from 'next/link'
 import Image from 'next/image'
 import { getImgPath } from '@/utils/image'
 import { useTheme } from 'next-themes'
 import CTA from '@/components/Common/CTA'
 import { footerCtaContent } from '@/app/api/data'
-import { Input } from '@/components/ui/input'
-import { Button } from '@/components/ui/button'
+import GetInTouchForm from '@/components/SharedComponent/GetInTouchForm'
+
+
 
 
 const Footer = () => {
@@ -126,26 +129,11 @@ const Footer = () => {
           </div>
           <div className='md:col-span-4 col-span-12 border-t md:border-none border-solid border-border sm:flex items-center justify-end md:min-h-25 py-10 shrink-0'>
             <div className='md:w-3/4 w-full sm:text-start text-center'>
-              {/* <h3 className='text-foreground pb-4 inline-block'>
-                Subscribe newsletter
-              </h3> */}
               {footerCtaContent.paragraphs.map(p => <p key={p} className=' pb-7'>
                 {p}
               </p>)}
-              <form className='newsletter-form flex w-full md:w-3/4 sm:mx-0 mx-auto items-stretch'>
-                <Input
-                  id='footer-email'
-                  type='email'
-                  placeholder='Email*'
-                  autoComplete='email'
-                  className='rounded-none text-base px-2 py-1.25 h-auto focus-visible:ring-offset-0'
-                />
-                <Button
-                  type='submit'
-                  className='rounded-none border-2 border-primary text-white h-auto py-4'>
-                  {footerCtaContent.secondaryCtaLabel}
-                </Button>
-              </form>
+              
+              <GetInTouchForm />
             </div>
           </div>
         </div>
