@@ -1,15 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { servicesPageData } from "@/app/api/data";
-import Challenges from "@/components/ServiceDetail/Challenges";
 import DetailHero from "@/components/ServiceDetail/DetailHero";
 import DetailTabs from "@/components/ServiceDetail/DetailTabs";
-import Expertise from "@/components/ServiceDetail/Expertise";
-import FAQs from "@/components/ServiceDetail/FAQs";
-import Industries from "@/components/ServiceDetail/Industries";
-import ProcessAccordion from "@/components/ServiceDetail/ProcessAccordion";
-import ServicesSlider from "@/components/ServiceDetail/ServicesSlider";
-import WhatWeOffer from "@/components/ServiceDetail/WhatWeOffer";
+import HowWeThink from "@/components/ServiceDetail/HowWeThink";
+import WhenServiceRightForYou from "@/components/ServiceDetail/WhenServiceRightForYou";
+import WhatWeDo from "@/components/ServiceDetail/WhatWeDo";
+import { ProjectDetails } from "@/components/ServiceDetail/Project";
+import TechStackSection from "@/components/ServiceDetail/TechStack";
 
 type ServicesPageProps = {
   params: Promise<{ slug: string }>;
@@ -38,17 +36,15 @@ export default async function ServicesPage({ params }: ServicesPageProps) {
   }
 
   return (
-    <>
+    <article>
       <DetailHero section={section} />
-      <DetailTabs />
-      <Challenges section={section} />
-      <ServicesSlider section={section} />
-      <WhatWeOffer section={section} />
-      <ProcessAccordion section={section} />
-      <Industries section={section} />
-      <Expertise section={section} />
-      <FAQs section={section} />
-    </>
+      <DetailTabs section={section} />
+      <HowWeThink section={section} />
+      <WhatWeDo section={section} />
+      <WhenServiceRightForYou section={section} />
+      <ProjectDetails section={section} />
+      <TechStackSection section={section} />
+    </article>
   );
 }
 

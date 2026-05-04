@@ -1,8 +1,8 @@
 import Link from "next/link";
-import type { ServiceCategoryItem } from "@/types/service";
+import type { WhatWeDoItem } from "@/types/service";
 
 type CategoryItemProps = {
-  category: ServiceCategoryItem;
+  category: WhatWeDoItem;
   isFirst?: boolean;
 };
 

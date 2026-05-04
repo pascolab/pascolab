@@ -77,7 +77,7 @@ export default function ServiceSection({ section, isLast }: ServiceSectionProps)
               </Link>
             </div>
 
-            {section.categories.map((cat, idx) => (
+            {section.whatWeDo.map((cat, idx) => (
               <CategoryItem
                 key={cat.id}
                 category={cat}

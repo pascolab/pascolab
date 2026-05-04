@@ -76,7 +76,7 @@ const MobileHeaderLink: React.FC<{ item: HeaderItem }> = ({ item }) => {
             <div className="space-y-3 p-3">
               <div>
                 <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
-                  Services
+                  What we do
                 </p>
                 <p className="mt-2 text-sm font-semibold text-foreground">
                   {activeService.title}
@@ -87,7 +87,7 @@ const MobileHeaderLink: React.FC<{ item: HeaderItem }> = ({ item }) => {
               </div>
 
               <div className="grid grid-cols-1 gap-2">
-                {activeService.categories.map((category) => (
+                {activeService.whatWeDo.map((category) => (
                   <Link
                     key={category.id}
                     href={category.href}

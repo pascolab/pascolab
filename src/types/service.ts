@@ -28,11 +28,36 @@ export type ServiceItem = {
 
 export type Service = ServiceItem[];
 
-export type ServiceCategoryItem = {
+export type WhatWeDoItem = {
   id: string;
   title: string;
   description: string;
   href: string;
+};
+
+export type HowWeThink = {
+  title: string;
+  intro: string;
+  focusLabel: string;
+  points: string[];
+  closing: string;
+};
+
+export type ServiceFeaturedProject = {
+  title: string;
+  description: string;
+  challenge: string;
+  focusIntro: string;
+  focusPoints: string[];
+  result: string;
+};
+
+export type ServiceRightFit = {
+  title: string;
+  points: string[];
+  outro?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
 };
 
 export type ChallengeItem = {
@@ -92,9 +117,15 @@ export type ServicePageSection = {
   // ── Listing page (services overview) ──────────────────────────────
   title: string;          // section heading, e.g. "AI & Data Innovation"
   subtitle: string;       // short section description
+  description: string;
   icon: string;           // iconify icon string
   listingCtaLabel: string; // CTA label on listing, e.g. "Go to AI & Data Innovation"
-  categories: ServiceCategoryItem[];
+  catLabel: string;
+  whatWeDo: WhatWeDoItem[];
+  howWeThink: HowWeThink;
+  techStack: string[];
+  project: ServiceFeaturedProject;
+  whenServiceRightForYou?: ServiceRightFit;
 
   // ── Detail page hero ───────────────────────────────────────────────
   eyebrow: string;        // small label above hero heading
@@ -104,11 +135,5 @@ export type ServicePageSection = {
   ctaHref: string;        // hero CTA destination (e.g. "/contact")
 
   // ── Detail page sections ───────────────────────────────────────────
-  challenges: ChallengeItem[];
-  services: ServiceSliderCard[];
   offerTabs: OfferTab[];
-  process: ProcessStep[];
-  industries: IndustryTab[];
-  expertise: ExpertiseGroup[];
-  faqs: FaqItem[];
 };

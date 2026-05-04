@@ -26,7 +26,7 @@ const Services = () => (
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
-        {[...servicesPageData].map((service) => {
+        {[...servicesPageData].slice(0, 4).map((service) => {
 
           return (
             <Link
@@ -58,7 +58,7 @@ const Services = () => (
                   {service.title}
                 </h3>
                 <div className="flex flex-wrap justify-start gap-2">
-                  {service.categories.slice(0,5).map((cat) => (
+                  {service.whatWeDo.slice(0, 5).map((cat) => (
                     <span
                       key={cat.id}
                       className="inline-flex items-center rounded-full border border-border

@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@iconify-json/simple-icons':
+        specifier: ^1.2.80
+        version: 1.2.80
       '@iconify/icons-ion':
         specifier: ^1.2.10
         version: 1.2.10
@@ -277,6 +280,9 @@ packages:
     engines: {node: '>=18.14.1'}
     peerDependencies:
       hono: ^4
+
+  '@iconify-json/simple-icons@1.2.80':
+    resolution: {integrity: sha512-iglncJJ6X/dVuzFDU32MrHwwo4RBwivGf108dgyYg+HKS78ifx0h7sTenpDZMVT+UhdS6CSgZcvY/SvRXlIEUg==}
 
   '@iconify/icons-ion@1.2.10':
     resolution: {integrity: sha512-8vd2gihc8fkugNH+bqnNpgAbXJl2AyTiGRgpDG/ELDUyscvUefEE/kW7uz6NnPUYH293vR+tdiruLIgvVsQfNA==}
@@ -3405,6 +3411,10 @@ snapshots:
   '@hono/node-server@1.19.12(hono@4.12.9)':
     dependencies:
       hono: 4.12.9
+
+  '@iconify-json/simple-icons@1.2.80':
+    dependencies:
+      '@iconify/types': 2.0.0
 
   '@iconify/icons-ion@1.2.10':
     dependencies:
