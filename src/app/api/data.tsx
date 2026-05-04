@@ -443,721 +443,489 @@ export const services: Service = [
 
 export const servicesPageData: ServicePageSection[] = [
   {
-    id: "ai-data-innovation",
-    title: "AI & Data Innovation",
+    id: "custom-software-engineering",
+    title: "Custom Software Engineering",
     subtitle:
-      "Turning your data into intelligent action that drives measurable business results and innovation across every department.",
-    icon: "solar:cpu-bold-duotone",
-    listingCtaLabel: "Go to AI & Data Innovation",
-    eyebrow: "AI & Data Innovation",
-    heroTitle: "Build your AI roadmap to ROI with clarity and speed",
+      "Build it right from the start,  not twice later.",
+    description:
+      "We help you design and develop software that is structured, scalable, and built to evolve with your business not break as it grows. At Pascolab, we don’t just write code. We build systems with clarity, so every decision made today still supports you tomorrow.",
+    icon: "solar:code-bold-duotone",
+    listingCtaLabel: "→ Let’s Talk",
+    catLabel: "What We Do",
+    eyebrow: "Custom Software Engineering",
+    heroTitle: "Build it right from the start, not twice later",
     heroSubtitle:
-      "Start with a focused AI engagement to identify high-impact opportunities, assess readiness, and define a practical path from experimentation to measurable business value.",
-    ctaLabel: "Book a workshop",
+      "We help you design and develop software that is structured, scalable, and built to evolve with your business not break as it grows. At Pascolab, we don’t just write code. We build systems with clarity, so every decision made today still supports you tomorrow.",
+    ctaLabel: "Let’s Talk",
     ctaHref: "/contact",
-    categories: [
+    whatWeDo: [
       {
-        id: "ai-agents",
-        title: "AI Agents",
+        id: "enterprise-web-applications",
+        title: "Enterprise Web Applications",
         description:
-          "Deploy intelligent agents to automate workflows and decisions.",
-        href: "/services/ai-data-innovation",
+          "High-performance platforms built for real users and real scale. Designed with reliability, security, and long-term stability at the core.",
+        href: "/services#custom-software-engineering",
       },
       {
-        id: "genai-consulting",
-        title: "GenAI Consulting & Workshops",
+        id: "api-design-system-integration",
+        title: "API Design & System Integration",
         description:
-          "Build your AI roadmap with expert strategy, readiness, and ROI clarity.",
-        href: "/services/ai-data-innovation",
+          "Clean, well-structured REST and GraphQL APIs that connect smoothly with internal systems and third-party platforms.",
+        href: "/services#custom-software-engineering",
       },
       {
-        id: "intelligent-automation",
-        title: "Intelligent Automation",
+        id: "legacy-system-modernization",
+        title: "Legacy System Modernization",
         description:
-          "Streamline operations using AI-driven automation.",
-        href: "/services/ai-data-innovation",
-      },
-      {
-        id: "ai-poc-mvp",
-        title: "AI PoC & MVP Development",
-        description:
-          "Validate AI ideas quickly with proof-of-concept and MVP delivery.",
-        href: "/services/ai-data-innovation",
-      },
-      {
-        id: "machine-learning",
-        title: "Machine Learning Solutions",
-        description:
-          "Custom ML models for prediction, classification, and automation.",
-        href: "/services/ai-data-innovation",
-      },
-      {
-        id: "mlops",
-        title: "MLOps & AI Infrastructure",
-        description:
-          "Operationalize AI models with secure infrastructure.",
-        href: "/services/ai-data-innovation",
-      },
-      {
-        id: "data-science",
-        title: "Data Science & Predictive Analytics",
-        description:
-          "Advanced analytics for actionable business insights.",
-        href: "/services/ai-data-innovation",
-      },
-      {
-        id: "data-engineering",
-        title: "Data Engineering & Integration",
-        description:
-          "Scalable data pipelines and system integrations.",
-        href: "/services/ai-data-innovation",
-      },
-      {
-        id: "data-governance",
-        title: "Data Governance & Business Intelligence",
-        description: "Govern, visualize, and trust your data.",
-        href: "/services/ai-data-innovation",
-      },
-      {
-        id: "artificial-intelligence",
-        title: "Artificial Intelligence",
-        description:
-          "Smart AI software built for real business impact.",
-        href: "/services/ai-data-innovation",
+          "Transform outdated systems into modern, scalable architectures while improving performance without disrupting operations.",
+        href: "/services#custom-software-engineering",
       },
     ],
-    challenges: [
-      {
-        value: "70%",
-        label: "of AI roadblocks come from people, process, and delivery gaps rather than tooling alone.",
-      },
-      {
-        value: "75%",
-        label: "of teams lack the in-house expertise needed to move from ideas to governed implementation.",
-      },
-      {
-        value: "74%",
-        label: "of organizations struggle to scale value from AI pilots into durable operating workflows.",
-      },
-    ],
-    services: [
-      {
-        id: "ai-workshop",
-        category: "AI & DATA INNOVATION",
-        title: "AI workshop",
-        bullets: [
-          "Identify high-value AI opportunities.",
-          "Build a practical adoption roadmap.",
-          "Align teams with hands-on sessions.",
-        ],
-        href: "/contact",
-      },
-      {
-        id: "readiness-assessment",
-        category: "AI & DATA INNOVATION",
-        title: "AI strategy & readiness assessment",
-        bullets: [
-          "Assess data maturity and governance.",
-          "Review infrastructure readiness.",
-          "Prioritize realistic next steps.",
-        ],
-        href: "/contact",
-      },
-      {
-        id: "roi-modeling",
-        category: "AI & DATA INNOVATION",
-        title: "Use case discovery & ROI modeling",
-        bullets: [
-          "Map use cases to business goals.",
-          "Estimate impact and delivery effort.",
-          "Rank opportunities by feasibility.",
-        ],
-        href: "/contact",
-      },
-      {
-        id: "rag-systems",
-        category: "IMPLEMENTATION & ENABLEMENT",
-        title: "Knowledge & RAG systems",
-        bullets: [
-          "Connect AI to your business data.",
-          "Improve answer quality with context.",
-          "Design secure retrieval pipelines.",
-        ],
-        href: "/contact",
-      },
-      {
-        id: "workflow-automation",
-        category: "IMPLEMENTATION & ENABLEMENT",
-        title: "Workflow & process automation",
-        bullets: [
-          "Automate repetitive internal workflows.",
-          "Reduce response times and manual effort.",
-          "Improve consistency across teams.",
-        ],
-        href: "/contact",
-      },
-      {
-        id: "agentic-systems",
-        category: "IMPLEMENTATION & ENABLEMENT",
-        title: "Agentic & multimodal AI systems",
-        bullets: [
-          "Coordinate text, image, and data inputs.",
-          "Support guided decision-making.",
-          "Build role-specific intelligent assistants.",
-        ],
-        href: "/contact",
-      },
-    ],
-    offerTabs: [
-      {
-        id: "consulting-workshop",
-        label: "Consulting & workshop",
-        items: [
-          {
-            title: "AI workshop",
-            description:
-              "A focused strategy session to uncover opportunities, assess readiness, and align decision-makers around a clear adoption roadmap.",
-          },
-          {
-            title: "AI strategy & readiness assessment",
-            description:
-              "We evaluate maturity across data, security, workflows, and operating constraints so your roadmap is grounded in reality.",
-          },
-          {
-            title: "Use case discovery & ROI modeling",
-            description:
-              "Identify and prioritize AI use cases based on impact, feasibility, and expected return rather than hype.",
-          },
-          {
-            title: "Governance & responsible AI advisory",
-            description:
-              "Shape guardrails, review processes, and model controls that fit your compliance and risk posture.",
-          },
-          {
-            title: "Pilot & proof-of-concept advisory",
-            description:
-              "Define success metrics, scope lean pilots, and validate value before committing to a broader rollout.",
-          },
-        ],
-      },
-      {
-        id: "implementation-enablement",
-        label: "Implementation & enablement",
-        items: [
-          {
-            title: "LLM integration & customization",
-            description:
-              "Embed the right models into your workflows while aligning for privacy, reliability, and production fit.",
-          },
-          {
-            title: "Knowledge & RAG systems",
-            description:
-              "Deliver context-aware answers by connecting AI systems to trusted internal knowledge sources.",
-          },
-          {
-            title: "Workflow & process automation",
-            description:
-              "Apply AI where it removes friction, accelerates throughput, and improves operational consistency.",
-          },
-          {
-            title: "Code generation & developer copilots",
-            description:
-              "Support engineering teams with AI-assisted documentation, prototyping, testing, and review workflows.",
-          },
-          {
-            title: "GenAI platform & MLOps enablement",
-            description:
-              "Set up the infrastructure, observability, and governance required to scale safely after launch.",
-          },
-        ],
-      },
-    ],
-    process: [
-      {
-        step: "01",
-        title: "Discover",
-        description:
-          "Run a structured workshop to identify high-impact AI opportunities, assess readiness, and align stakeholders on business outcomes before any build begins.",
-      },
-      {
-        step: "02",
-        title: "Validate",
-        description:
-          "Test feasibility through targeted experiments and lean pilots to confirm model fit, data quality, user value, and delivery constraints early.",
-      },
-      {
-        step: "03",
-        title: "Build",
-        description:
-          "Move into implementation with clear architecture, responsible AI guardrails, measurable workflows, and an execution plan tied to business goals.",
-      },
-      {
-        step: "04",
-        title: "Scale",
-        description:
-          "Operationalize with monitoring, governance, training, and iteration loops so the solution remains reliable as adoption grows.",
-      },
-    ],
-    industries: [
-      {
-        id: "financial-services",
-        label: "Financial services",
-        description:
-          "Use generative AI to improve reporting, client support, compliance workflows, and internal knowledge retrieval without sacrificing governance.",
-        bullets: [
-          "Generate financial summaries and compliance-ready reports faster.",
-          "Support analysts with contextual research assistants.",
-          "Automate client communication drafts and internal Q&A workflows.",
-          "Improve fraud and risk review with better data access patterns.",
-        ],
-      },
-      {
-        id: "healthcare",
-        label: "Healthcare",
-        description:
-          "Support care operations, documentation, and patient communication with tightly scoped, human-supervised AI workflows.",
-        bullets: [
-          "Summarize clinical notes and discharge content efficiently.",
-          "Improve staff access to policy and treatment knowledge.",
-          "Automate administrative communication and intake workflows.",
-          "Design governance patterns for protected health information.",
-        ],
-      },
-      {
-        id: "retail-ecommerce",
-        label: "Retail & e-commerce",
-        description:
-          "Bring AI into merchandising, support, and marketing systems to improve speed, consistency, and personalization.",
-        bullets: [
-          "Generate product content and metadata at scale.",
-          "Power support copilots for agents and customers.",
-          "Create campaign variants aligned to brand voice.",
-          "Surface insights from sales, reviews, and customer feedback.",
-        ],
-      },
-      {
-        id: "manufacturing",
-        label: "Manufacturing",
-        description:
-          "Make operational knowledge easier to access and turn documentation-heavy workflows into faster, more reliable systems.",
-        bullets: [
-          "Improve SOP retrieval and technician support.",
-          "Generate maintenance and production summaries.",
-          "Automate training materials and operational briefs.",
-          "Expose quality and process insights from fragmented systems.",
-        ],
-      },
-      {
-        id: "software-it",
-        label: "Software & IT services",
-        description:
-          "Accelerate delivery teams with AI-assisted knowledge management, internal tooling, and developer enablement workflows.",
-        bullets: [
-          "Create engineering copilots and internal assistants.",
-          "Summarize incidents, logs, and retrospectives.",
-          "Draft technical documentation and onboarding content.",
-          "Support delivery operations with AI-enhanced workflow automation.",
-        ],
-      },
-    ],
-    expertise: [
-      {
-        label: "LLMs",
-        items: ["OpenAI", "Anthropic", "Gemini", "Llama", "Mistral", "DeepSeek"],
-      },
-      {
-        label: "Agent frameworks",
-        items: ["LangChain", "OpenAI Agents", "CrewAI", "Copilot Studio", "LangGraph"],
-      },
-      {
-        label: "Data & retrieval",
-        items: ["Qdrant", "Weaviate", "pgvector", "PostgreSQL", "Pinecone"],
-      },
-    ],
-    faqs: [
-      {
-        question: "What is included in your GenAI consulting workshop?",
-        answer:
-          "The workshop covers opportunity discovery, readiness assessment, ROI framing, delivery constraints, and a practical roadmap tied to business priorities.",
-      },
-      {
-        question: "How is this different from generic AI strategy consulting?",
-        answer:
-          "Our approach is delivery-oriented. We focus on where AI can create measurable value, what is realistic to implement, and what should happen next after the workshop.",
-      },
-      {
-        question: "Can you support implementation after strategy work?",
-        answer:
-          "Yes. We can move from workshop to pilot, MVP, and scaled implementation with architecture, governance, and enablement built into the process.",
-      },
-      {
-        question: "Is this suitable for teams without in-house AI expertise?",
-        answer:
-          "Yes. The engagement is designed to give decision-makers and delivery teams a clear path forward even when internal AI capability is still emerging.",
-      },
-      {
-        question: "How quickly can we move from workshop to pilot?",
-        answer:
-          "Most teams can define a pilot path within weeks once the right use case, success metrics, and constraints are clarified during discovery.",
-      },
-    ],
+    howWeThink: {
+      title: "How We Think About Engineering",
+      intro: "We treat software as a long-term asset, not a short-term deliverable.",
+      focusLabel: "That means:",
+      points: [
+        "Structuring systems so they don’t collapse under growth",
+        "Making architecture decisions that reduce future technical debt",
+        "Keeping codebases clean, readable, and easy to extend",
+      ],
+      closing:
+        "Good engineering is not about doing more, it’s about doing things the right way early.",
+    },
+    techStack: ["React", "Node.js", "Ruby on Rails", "MERN", "PostgreSQL"],
+    project: {
+      title: "eFuse — Real-Time Data Intelligence Platform",
+      description:
+        "We built a unified platform designed to handle and organize large-scale real-time data for the global esports ecosystem.",
+      challenge:
+        "The challenge was not just handling data but making it usable. The system needed to process fast-moving information streams while keeping the experience smooth, structured, and accessible for end users.",
+      focusIntro: "We focused on:",
+      focusPoints: [
+        "Designing a scalable backend structure capable of handling high-frequency data updates",
+        "Building clean API layers for efficient data delivery",
+        "Structuring the frontend experience for fast, real-time consumption without overload",
+        "Ensuring system stability under continuous data flow and high traffic conditions",
+      ],
+      result:
+        "The result was a platform that improved how esports data is accessed and consumed, turning fragmented information into a unified, real-time experience.",
+    },
+    whenServiceRightForYou: {
+      title: "When This Service Is Right For You",
+      points: [
+        "You’re building a new product from scratch",
+        "Your system is starting to break under growth",
+        "You need a solid engineering foundation before scaling",
+        "You want a team that thinks beyond just writing code",
+      ],
+      outro:
+        "Have something similar in mind? Let’s talk about how we can help you build it the right way.",
+      ctaLabel: "→Get in touch",
+      ctaHref: "/contact",
+    },
+    offerTabs: [{ id: "overview", label: "Overview", items: [] }]
   },
   {
-    id: "cloud-infrastructure",
-    title: "Cloud & Infrastructure",
+    id: "ai-data-systems",
+    title: "AI & Data Systems",
     subtitle:
-      "Architect, migrate, and manage cloud environments that scale with your business while staying secure and cost-efficient.",
-    icon: "solar:cloud-bold-duotone",
-    listingCtaLabel: "Go to Cloud & Infrastructure",
-    eyebrow: "Cloud & Infrastructure",
-    heroTitle: "Migrate to the cloud with less disruption and more confidence",
+      "Make your product better without complicating it",
+    description:
+      "AI and data is used only where they improve real outcomes, not as a buzzword layer. The focus is simple: clarity, usefulness, and systems that help users and businesses make better decisions without added complexity. At Pascolab, we design AI-driven features that feel natural inside your product.",
+    icon: "solar:cpu-bold-duotone",
+    listingCtaLabel: "→ Let’s Talk",
+    catLabel: "What We Do",
+    eyebrow: "AI & Data Systems",
+    heroTitle: "Make your product better without complicating it",
     heroSubtitle:
-      "Modernize legacy systems and move critical workloads with a migration strategy that balances continuity, security, performance, and cost control.",
-    ctaLabel: "Talk to a cloud expert",
+      "AI and data is used only where they improve real outcomes, not as a buzzword layer. The focus is simple: clarity, usefulness, and systems that help users and businesses make better decisions without added complexity. At Pascolab, we design AI-driven features that feel natural inside your product.",
+    ctaLabel: "Let’s Talk",
     ctaHref: "/contact",
-    categories: [
+    whatWeDo: [
       {
-        id: "cloud-strategy",
-        title: "Cloud Strategy & Architecture",
+        id: "intelligent-workflows",
+        title: "Intelligent Workflows",
         description:
-          "Build a trusted data foundation for consistent, actionable intelligence.",
-        href: "/services/cloud-infrastructure",
+          "Automate repetitive and rule-based processes to reduce manual effort and improve speed.",
+        href: "/services#ai-data-systems",
       },
+      {
+        id: "data-driven-product-features",
+        title: "Data-Driven Product Features",
+        description:
+          "Turn raw, unstructured data into meaningful insights directly inside your application.",
+        href: "/services#ai-data-systems",
+      },
+      {
+        id: "scalable-data-architectures",
+        title: "Scalable Data Architectures",
+        description:
+          "Build data systems designed to grow with your product while keeping performance stable.",
+        href: "/services#ai-data-systems",
+      },
+    ],
+    howWeThink: {
+      title: "How We Think About AI & Data",
+      intro: "AI is not the product,  it’s a layer that improves the product.",
+      focusLabel: "We focus on:",
+      points: [
+        "Using AI only where it creates real value",
+        "Avoiding unnecessary complexity or over-engineering",
+        "Designing systems that are explainable, maintainable, and scalable",
+        "Making data usable, not just available",
+      ],
+      closing: "The goal is always the same: better decisions with less friction.",
+    },
+    techStack: ["Next.js", "MongoDB", "GraphQL", "Apollo"],
+    project: {
+      title: "InsightFlow — Data Intelligence System",
+      description:
+        "We built a structured data intelligence system designed to help teams work with complex datasets more effectively.",
+      challenge:
+        "The challenge wasn’t collecting data,  it was making it usable. Most systems overwhelm users with raw information, making decision-making slower instead of faster.",
+      focusIntro: "We focused on:",
+      focusPoints: [
+        "Designing a structured data pipeline that organizes and processes large datasets efficiently",
+        "Creating clear, accessible interfaces for interpreting complex information",
+        "Building scalable backend systems that support continuous data growth",
+        "Reducing cognitive load by presenting only relevant, actionable insights",
+      ],
+      result:
+        "The result was a system that transforms complexity into clarity, helping teams make faster, more confident decisions using data they already have.",
+    },
+    whenServiceRightForYou: {
+      title: "When This Service Is Right For You",
+      points: [
+        "Your product depends heavily on data but feels hard to interpret",
+        "You want to introduce AI in a practical, controlled way",
+        "Your team spends too much time on manual or repetitive processes",
+        "You need a system that turns data into decisions, not dashboards",
+      ],
+      outro:
+        "Have something similar in mind? Let’s talk about how we can help you build it the right way.",
+      ctaLabel: "→Get in touch",
+      ctaHref: "/contact",
+    },
+    offerTabs: [{ id: "overview", label: "Overview", items: [] }]
+  },
+  {
+    id: "fintech-proptech-systems",
+    title: "FinTech & PropTech Systems",
+    subtitle:
+      "When trust, accuracy, and speed matter, the system has to be right from day one.",
+    description:
+      "Building for finance or real estate isn’t just about features. It’s about handling sensitive, high-value data with precision and clarity. We design systems that simplify complexity and making financial workflows and property platforms secure.",
+    icon: "solar:shield-bold-duotone",
+    listingCtaLabel: "→ Let’s Talk",
+    catLabel: "What We Do",
+    eyebrow: "FinTech & PropTech Systems",
+    heroTitle: "When trust, accuracy, and speed matter",
+    heroSubtitle:
+      "Building for finance or real estate isn’t just about features. It’s about handling sensitive, high-value data with precision and clarity. We design systems that simplify complexity and making financial workflows and property platforms secure.",
+    ctaLabel: "Let’s Talk",
+    ctaHref: "/contact",
+    whatWeDo: [
+      {
+        id: "real-estate-analytics",
+        title: "Real Estate Analytics",
+        description:
+          "Dashboards and models that help teams understand trends, performance, and investment opportunities.",
+        href: "/services#fintech-proptech-systems",
+      },
+      {
+        id: "digital-onboarding-systems",
+        title: "Digital Onboarding Systems",
+        description:
+          "Secure, paperless onboarding flows that reduce friction while ensuring compliance and accuracy.",
+        href: "/services#fintech-proptech-systems",
+      },
+      {
+        id: "marketplace-logic-systems",
+        title: "Marketplace Logic Systems",
+        description:
+          "Backend structures for bookings, rentals, and scheduling built for real operational complexity.",
+        href: "/services#fintech-proptech-systems",
+      },
+    ],
+    howWeThink: {
+      title: "How We Think About This Domain",
+      intro: "In FinTech and PropTech, small mistakes become big risks.",
+      focusLabel: "That’s why we focus on:",
+      points: [
+        "Strong data integrity from the start",
+        "Secure and compliant system design",
+        "Clean workflows that reduce operational friction",
+        "Architecture that supports scale without breaking trust",
+      ],
+      closing: "",
+    },
+    techStack: ["Meteor", "GraphQL", "Apollo", "MongoDB", "MEAN Stack"],
+    project: {
+      title: "KFHK Bank — Digital Onboarding Platform",
+      description:
+        "We helped digitize the customer onboarding journey, transforming a traditionally slow and paperwork-heavy process into a seamless digital experience.",
+      challenge:
+        "The challenge was to simplify onboarding without compromising security or compliance.",
+      focusIntro: "We focused on:",
+      focusPoints: [
+        "Designing a secure, step-based onboarding flow",
+        "Reducing friction in user verification processes",
+        "Structuring backend systems for compliance and scalability",
+        "Ensuring smooth mobile-first user experience",
+      ],
+      result:
+        "The result was a platform that allows users to open accounts within minutes replacing manual processes with a fast, reliable digital workflow.",
+    },
+    whenServiceRightForYou: {
+      title: "",
+      points: [],
+      outro:
+        "Have something similar in mind? Let’s talk about how we can help you build it the right way.",
+      ctaLabel: "→Get in touch",
+      ctaHref: "/contact",
+    },
+    offerTabs: [{ id: "overview", label: "Overview", items: [] }]
+  },
+  {
+    id: "cloud-devops",
+    title: "Cloud & DevOps",
+    subtitle:
+      "Your product shouldn’t slow down because your infrastructure can’t keep up.",
+    description:
+      "We design cloud systems that are built for stability and scale so your product performs reliably even as demand grows. From deployment pipelines to infrastructure optimization, we ensure everything behind your product runs smoothly and efficiently.",
+    icon: "solar:cloud-bold-duotone",
+    listingCtaLabel: "→ Let’s Talk",
+    catLabel: "What We Do",
+    eyebrow: "Cloud & DevOps",
+    heroTitle: "Your product shouldn’t slow down because your infrastructure can’t keep up.",
+    heroSubtitle:
+      "We design cloud systems that are built for stability and scale so your product performs reliably even as demand grows. From deployment pipelines to infrastructure optimization, we ensure everything behind your product runs smoothly and efficiently.",
+    ctaLabel: "Let’s Talk",
+    ctaHref: "/contact",
+    whatWeDo: [
       {
         id: "cloud-migration",
         title: "Cloud Migration",
         description:
-          "Migrate confidently with a cloud approach that reduces disruption.",
-        href: "/services/cloud-infrastructure",
+          "Move existing systems to modern cloud environments carefully with minimal disruption.",
+        href: "/services#cloud-devops",
       },
       {
-        id: "infrastructure-modernization",
-        title: "Infrastructure Modernization",
+        id: "cicd-automation",
+        title: "CI/CD Automation",
         description:
-          "Modernize legacy systems with secure infrastructure for automation.",
-        href: "/services/cloud-infrastructure",
+          "Automated deployment pipelines that speed up releases and reduce manual errors.",
+        href: "/services#cloud-devops",
       },
       {
-        id: "cloud-engineering",
-        title: "Cloud Engineering",
+        id: "infrastructure-optimization",
+        title: "Infrastructure Optimization",
         description:
-          "Build secure, automated, cloud-native systems.",
-        href: "/services/cloud-infrastructure",
-      },
-      {
-        id: "cloudops-devops",
-        title: "CloudOps & DevOps",
-        description:
-          "Automate delivery and strengthen cloud ops for stable deployments.",
-        href: "/services/cloud-infrastructure",
-      },
-      {
-        id: "managed-cloud",
-        title: "Support & Managed Cloud Services",
-        description:
-          "Reduce outages with 24/7 cloud monitoring and optimization.",
-        href: "/services/cloud-infrastructure",
-      },
-      {
-        id: "cloud-cost-optimization",
-        title: "Cloud Cost Optimization",
-        description:
-          "Cut cloud costs with rightsizing, tuning, and FinOps practices.",
-        href: "/services/cloud-infrastructure",
-      },
-      {
-        id: "multi-cloud-security",
-        title: "Multi-Cloud Security & Compliance",
-        description:
-          "Get unified threat visibility and security controls with compliance.",
-        href: "/services/cloud-infrastructure",
+          "Load balancing, containerization, and server-level improvements for better performance.",
+        href: "/services#cloud-devops",
       },
     ],
-    challenges: [
+    howWeThink: {
+      title: "How We Think About Infrastructure",
+      intro: "Good infrastructure is invisible when it works and painful when it doesn’t.",
+      focusLabel: "We focus on:",
+      points: [
+        "Stability before scale",
+        "Automation over manual processes",
+        "Cost efficiency without performance trade-offs",
+        "Systems that are easy to maintain and evolve",
+      ],
+      closing: "",
+    },
+    techStack: ["AWS", "Docker", "Nginx", "Heroku", "GitHub Actions"],
+    project: {
+      title: "Screenfluence — Cloud Distribution Network",
+      description:
+        "We managed and optimized the cloud infrastructure powering large-scale digital advertising screens across multiple locations.",
+      challenge:
+        "The focus was on ensuring reliability in a system that required continuous content delivery and minimal downtime.",
+      focusIntro: "We worked on:",
+      focusPoints: [
+        "Optimizing cloud distribution for high-volume content delivery",
+        "Improving system reliability across multiple endpoints",
+        "Streamlining deployment workflows for faster updates",
+        "Enhancing performance under continuous load",
+      ],
+      result:
+        "The result was a stable and scalable cloud setup capable of supporting large-scale digital display networks.",
+    },
+    whenServiceRightForYou: {
+      title: "",
+      points: [],
+      outro:
+        "Have something similar in mind? Let’s talk about how we can help you build it the right way.",
+      ctaLabel: "→Get in touch",
+      ctaHref: "/contact",
+    },
+    offerTabs: [{ id: "overview", label: "Overview", items: [] }]
+  },
+  {
+    id: "ecommerce-headless-commerce",
+    title: "E-commerce & Headless Commerce",
+    subtitle:
+      "E-commerce today is not just about stores. It's about systems that sell, retain, and scale.",
+    description:
+      "We build e-commerce platforms that go beyond traditional storefronts, designed for speed, flexibility, and business growth. From headless architectures to deep system integrations, we help brands build commerce systems that actually perform.",
+    icon: "solar:cart-bold-duotone",
+    listingCtaLabel: "→ Let’s Talk",
+    catLabel: "What We Do",
+    eyebrow: "E-commerce & Headless Commerce",
+    heroTitle: "E-commerce today is not just about stores. It's about systems that sell, retain, and scale.",
+    heroSubtitle:
+      "We build e-commerce platforms that go beyond traditional storefronts, designed for speed, flexibility, and business growth. From headless architectures to deep system integrations, we help brands build commerce systems that actually perform.",
+    ctaLabel: "Let’s Talk",
+    ctaHref: "/contact",
+    whatWeDo: [
       {
-        value: "68%",
-        label: "of cloud migration delays come from unclear dependencies, legacy constraints, and migration sequencing issues.",
+        id: "headless-commerce",
+        title: "Headless Commerce",
+        description:
+          "Decoupled storefronts for better performance, flexibility, and SEO.",
+        href: "/services#ecommerce-headless-commerce",
       },
       {
-        value: "61%",
-        label: "of teams underestimate governance, security, and cost planning during the move to cloud infrastructure.",
+        id: "custom-shopify-solutions",
+        title: "Custom Shopify Solutions",
+        description:
+          "Tailored Shopify apps for rewards, warranties, loyalty programs, and workflows.",
+        href: "/services#ecommerce-headless-commerce",
       },
       {
-        value: "57%",
-        label: "of organizations struggle to modernize architecture after lift-and-shift migrations are complete.",
+        id: "crm-system-integrations",
+        title: "CRM & System Integrations",
+        description:
+          "Connect your store to backend systems so customer data flows across the business.",
+        href: "/services#ecommerce-headless-commerce",
       },
     ],
-    services: [
+    howWeThink: {
+      title: "How We Think About E-commerce",
+      intro: "Modern commerce is not just transactions, it’s experience and retention.",
+      focusLabel: "We focus on:",
+      points: [
+        "Speed and performance-first storefronts",
+        "Flexible systems that adapt to business growth",
+        "Seamless integration between sales and operations",
+        "Reducing friction across the customer journey",
+      ],
+      closing: "",
+    },
+    techStack: ["Shopify Polaris", "Next.js", "DynamoDB", "Node.js"],
+    project: {
+      title: "Abaco Polarized — Shopify Integrated Commerce System",
+      description:
+        "We built a custom Shopify-based system that extended beyond a traditional storefront.",
+      challenge:
+        "The goal was to create a connected commerce experience with rewards and warranty management built directly into the system.",
+      focusIntro: "We focused on:",
+      focusPoints: [
+        "Developing custom Shopify extensions for business-specific workflows",
+        "Integrating CRM systems for better customer lifecycle tracking",
+        "Enhancing post-purchase experience through rewards and warranty flows",
+        "Improving overall operational efficiency across platforms",
+      ],
+      result:
+        "The result was a more structured and connected e-commerce ecosystem that improved both customer experience and internal operations.",
+    },
+    whenServiceRightForYou: {
+      title: "",
+      points: [],
+    },
+    offerTabs: [{ id: "overview", label: "Overview", items: [] }]
+  },
+  {
+    id: "team-extension-product-leadership",
+    title: "Team Extension & Product Leadership",
+    subtitle:
+      "We don’t just support teams; we become part of them.",
+    description:
+      "When you need experienced engineers or product guidance, we step in as an extension of your team, bringing structure, clarity, and execution strength.",
+    icon: "solar:users-group-rounded-bold-duotone",
+    listingCtaLabel: "→ Let’s Talk",
+    catLabel: "What We Do",
+    eyebrow: "Team Extension & Product Leadership",
+    heroTitle: "We don’t just support teams; we become part of them.",
+    heroSubtitle:
+      "When you need experienced engineers or product guidance, we step in as an extension of your team, bringing structure, clarity, and execution strength.",
+    ctaLabel: "Let’s Talk",
+    ctaHref: "/contact",
+    whatWeDo: [
       {
-        id: "assessment-planning",
-        category: "CLOUD & INFRASTRUCTURE",
-        title: "Migration assessment & planning",
-        bullets: [
-          "Audit systems, workloads, and dependencies.",
-          "Define migration waves and risks.",
-          "Prioritize by impact and complexity.",
-        ],
-        href: "/contact",
+        id: "full-lifecycle-support",
+        title: "Full Lifecycle Support",
+        description:
+          "Support from planning and prototyping through launch and ongoing iteration.",
+        href: "/services#team-extension-product-leadership",
       },
       {
-        id: "application-replatforming",
-        category: "CLOUD & INFRASTRUCTURE",
-        title: "Application replatforming",
-        bullets: [
-          "Refactor where it creates real value.",
-          "Improve cloud fit and resilience.",
-          "Reduce long-term operational drag.",
-        ],
-        href: "/contact",
+        id: "agile-delivery",
+        title: "Agile Delivery",
+        description:
+          "Transparent workflows with clear progress tracking and consistent communication.",
+        href: "/services#team-extension-product-leadership",
       },
       {
-        id: "data-migration",
-        category: "CLOUD & INFRASTRUCTURE",
-        title: "Database & data migration",
-        bullets: [
-          "Move critical data with validation steps.",
-          "Protect integrity during cutovers.",
-          "Reduce downtime and rollback risk.",
-        ],
-        href: "/contact",
-      },
-      {
-        id: "landing-zone",
-        category: "SECURITY & OPERATIONS",
-        title: "Cloud landing zones",
-        bullets: [
-          "Set up accounts, networking, and access.",
-          "Create secure deployment foundations.",
-          "Standardize environments early.",
-        ],
-        href: "/contact",
-      },
-      {
-        id: "devops-automation",
-        category: "SECURITY & OPERATIONS",
-        title: "DevOps & deployment automation",
-        bullets: [
-          "Automate release workflows.",
-          "Improve repeatability and recovery.",
-          "Lower manual deployment risk.",
-        ],
-        href: "/contact",
-      },
-      {
-        id: "cost-optimization",
-        category: "SECURITY & OPERATIONS",
-        title: "Post-migration optimization",
-        bullets: [
-          "Tune performance and cloud spend.",
-          "Improve observability and reliability.",
-          "Stabilize the operating model.",
-        ],
-        href: "/contact",
+        id: "mvp-development",
+        title: "MVP Development",
+        description:
+          "Build investor-ready products without unnecessary complexity or overbuilding.",
+        href: "/services#team-extension-product-leadership",
       },
     ],
-    offerTabs: [
-      {
-        id: "migration-strategy",
-        label: "Strategy & planning",
-        items: [
-          {
-            title: "Current-state assessment",
-            description:
-              "Map existing applications, infrastructure, dependencies, and operational constraints before choosing a migration path.",
-          },
-          {
-            title: "Migration roadmap",
-            description:
-              "Define the migration sequence, workstreams, risk controls, and milestones needed to move with minimal disruption.",
-          },
-          {
-            title: "Target architecture planning",
-            description:
-              "Choose cloud patterns, service boundaries, and infrastructure principles that support long-term scalability.",
-          },
-          {
-            title: "Security & compliance planning",
-            description:
-              "Shape the identity, access, networking, and governance decisions required before workloads move.",
-          },
-          {
-            title: "Cost and operating model analysis",
-            description:
-              "Estimate cloud economics and clarify the support model needed after migration is complete.",
-          },
-        ],
-      },
-      {
-        id: "execution-optimization",
-        label: "Execution & optimization",
-        items: [
-          {
-            title: "Application migration",
-            description:
-              "Move services and workloads with the right mix of rehost, replatform, and refactor strategies.",
-          },
-          {
-            title: "Database migration",
-            description:
-              "Plan cutovers, validation, rollback paths, and data integrity checks for critical systems.",
-          },
-          {
-            title: "CI/CD enablement",
-            description:
-              "Set up pipelines, deployment controls, and environment automation for repeatable releases.",
-          },
-          {
-            title: "Observability & resilience",
-            description:
-              "Improve monitoring, alerting, and fault tolerance as workloads settle into the new environment.",
-          },
-          {
-            title: "Performance & cost tuning",
-            description:
-              "Right-size infrastructure and optimize runtime behavior once the migration is stable.",
-          },
-        ],
-      },
-    ],
-    process: [
-      {
-        step: "01",
-        title: "Assess",
-        description:
-          "Audit the current estate, identify dependencies, map constraints, and define the migration scope with business continuity in mind.",
-      },
-      {
-        step: "02",
-        title: "Plan",
-        description:
-          "Create the migration roadmap, target architecture, landing zone, governance model, and release sequencing before execution starts.",
-      },
-      {
-        step: "03",
-        title: "Migrate",
-        description:
-          "Move workloads in controlled waves with cutover planning, validation steps, and fallback paths to reduce operational risk.",
-      },
-      {
-        step: "04",
-        title: "Optimize",
-        description:
-          "Stabilize operations after migration with observability, performance tuning, security hardening, and cloud cost control.",
-      },
-    ],
-    industries: [
-      {
-        id: "saas-platforms",
-        label: "SaaS platforms",
-        description:
-          "Improve deployment speed, resilience, and scalability while reducing the operational burden of aging infrastructure.",
-        bullets: [
-          "Migrate customer-facing applications with low disruption.",
-          "Improve release processes through CI/CD automation.",
-          "Design cloud foundations that support product growth.",
-          "Tune infrastructure for better performance and cost control.",
-        ],
-      },
-      {
-        id: "fintech",
-        label: "FinTech",
-        description:
-          "Move regulated workloads with stronger governance, access controls, and architecture planning built into the migration process.",
-        bullets: [
-          "Align migration planning with compliance constraints.",
-          "Protect sensitive systems and data paths during cutovers.",
-          "Improve observability for critical financial workflows.",
-          "Reduce infrastructure risk without slowing delivery teams.",
-        ],
-      },
-      {
-        id: "retail",
-        label: "Retail & e-commerce",
-        description:
-          "Support traffic variability, faster releases, and better uptime for customer-facing digital systems.",
-        bullets: [
-          "Improve resilience during seasonal traffic spikes.",
-          "Modernize storefront and backend infrastructure.",
-          "Reduce deployment friction across environments.",
-          "Support analytics and integration-heavy commerce stacks.",
-        ],
-      },
-      {
-        id: "healthcare",
-        label: "Healthcare",
-        description:
-          "Plan carefully for risk, continuity, and security when modernizing systems tied to care operations and sensitive data.",
-        bullets: [
-          "Move legacy systems with minimal downtime.",
-          "Build stronger access controls and network segmentation.",
-          "Increase reliability for critical internal applications.",
-          "Create clearer operational visibility after migration.",
-        ],
-      },
-      {
-        id: "media",
-        label: "Media & content platforms",
-        description:
-          "Support variable workloads, faster publishing systems, and distributed infrastructure needs with cloud-native patterns.",
-        bullets: [
-          "Handle burst traffic and large content volumes.",
-          "Improve deployment velocity for fast-moving teams.",
-          "Support asset workflows with modern infrastructure.",
-          "Optimize cloud resources for cost-sensitive workloads.",
-        ],
-      },
-    ],
-    expertise: [
-      {
-        label: "Cloud platforms",
-        items: ["AWS", "Azure", "Google Cloud", "Cloudflare", "Heroku"],
-      },
-      {
-        label: "Infrastructure & deployment",
-        items: ["Docker", "Kubernetes", "Terraform", "Nginx", "GitHub Actions"],
-      },
-      {
-        label: "Data & observability",
-        items: ["PostgreSQL", "MongoDB", "Prometheus", "Grafana", "Datadog"],
-      },
-    ],
-    faqs: [
-      {
-        question: "How do you reduce risk during cloud migration?",
-        answer:
-          "We reduce risk through dependency mapping, phased migration plans, validation checkpoints, rollback paths, and clear operational ownership before each move.",
-      },
-      {
-        question: "Do you only support lift-and-shift migrations?",
-        answer:
-          "No. We help choose the right mix of rehost, replatform, and refactor strategies depending on business needs, technical debt, and timeline.",
-      },
-      {
-        question: "Can you modernize our deployment process during migration?",
-        answer:
-          "Yes. We frequently pair migrations with CI/CD improvements, environment automation, and better observability so teams gain long-term benefits after the move.",
-      },
-      {
-        question: "How do you handle security and compliance requirements?",
-        answer:
-          "Security and governance are built into the planning phase, including access patterns, networking, logging, and operational controls appropriate to the environment.",
-      },
-      {
-        question: "What happens after migration is complete?",
-        answer:
-          "We support post-migration stabilization, cost tuning, monitoring improvements, and architecture refinements so the cloud environment performs well over time.",
-      },
-    ],
+    howWeThink: {
+      title: "How We Work in Teams",
+      intro:
+        "We focus on becoming a reliable extension of your workflow, not an external dependency.",
+      focusLabel: "That means:",
+      points: [
+        "Clear communication",
+        "Predictable delivery cycles",
+        "Ownership of outcomes",
+        "Seamless integration into your existing team",
+      ],
+      closing: "",
+    },
+    techStack: ["Agile", "Jira", "Trello", "Teamwork", "InVision"],
+    project: {
+      title: "Multiple startup collaborations",
+      description:
+        "We’ve supported early-stage teams in shaping, building, and scaling their MVPs.",
+      challenge:
+        "",
+      focusIntro: "",
+      focusPoints: [],
+      result:
+        "It helps them move from idea to investor-ready product with structured engineering support and clean execution.",
+    },
+    whenServiceRightForYou: {
+      title: "",
+      points: [],
+      outro:
+        "Have something similar in mind? Let’s talk about how we can help you build it the right way.",
+      ctaLabel: "→Get in touch",
+      ctaHref: "/contact",
+    },
+    offerTabs: [{ id: "overview", label: "Overview", items: [] }]
   },
 ];
 
+export const servicesPageIntro = {
+  title: "Services built around what your product actually needs",
+  subtitle:
+    "From custom development to AI systems and cloud infrastructure, everything we do is built to support real products, not just ship features. Clean engineering, thoughtful architecture, and systems designed to hold up over time.",
+};
+
 export const footerCtaContent = {
-  title: "Let’s Keep It Simple",
+  title: "Not sure where to start? That’s a good place to begin.",
   paragraphs: [
-    "If you’re building something new, or trying to fix something that isn’t working.",
-    "we’re happy to take a look and give you honest input."
+    "Tell us what you’re working on, and we’ll help you figure out the best way forward."
   ],
-  primaryCtaLabel: "Let's Talk",
+  primaryCtaLabel: "Let’s Talk",
   secondaryCtaLabel: "Start a Project",
   primaryCtaHref: "/contact",
   secondaryCtaHref: "/contact"

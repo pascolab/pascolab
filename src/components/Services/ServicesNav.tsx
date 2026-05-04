@@ -28,7 +28,7 @@ export default function ServicesNav({ sections }: ServicesNavProps) {
               key={s.id}
               type="button"
               onClick={() => handleClick(s.id)}
-              className="shrink-0 px-4 py-2.5 cursor-pointer rounded-full text-sm font-medium whitespace-nowrap text-muted-foreground ring-1 ring-primary hover:bg-primary hover:text-white transition-colors duration-300"
+              className="shrink-0 px-3 py-2.5 cursor-pointer rounded-full text-sm font-medium whitespace-nowrap text-muted-foreground ring-1 ring-primary hover:bg-primary hover:text-white transition-colors duration-300"
             >
               {s.title}
             </button>
