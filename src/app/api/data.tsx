@@ -1,3 +1,4 @@
+import { CareersPageData } from "@/types/career";
 import { Service, ServicePageSection } from "@/types/service";
 import { getImgPath } from "@/utils/image";
 
@@ -913,6 +914,64 @@ export const servicesPageData: ServicePageSection[] = [
     offerTabs: [{ id: "overview", label: "Overview", items: [] }]
   },
 ];
+
+export const careersData: CareersPageData = {
+  hero: {
+    eyebrow: "Careers",
+    title: ["Build the kind of work you’d be","proud","to put your name on"],
+    subtitle: "Turn your ideas, skills, and ambition into something real not just tasks on a board.",
+    ctaLabel: "Get in touch",
+    ctaHref: "/contact",
+  },
+  ourCulture: {
+    eyebrow: "Our Culture",
+    title: "What this means here",
+    description: "At Pascolab, work isn’t about filling hours or closing tickets. It’s about:",
+    points: ["Taking something unclear and turning it into something that works",
+      "Building products people actually use",
+      "Growing your thinking, not just your skillset",
+    ],
+    closing: "We believe your career shouldn’t feel stuck or repetitive. It should feel like you’re moving forward.",
+  },
+  howWeWork: {
+    eyebrow: "How We Work",
+    title: "We keep things simple and intentional",
+    points: ["No unnecessary pressure",
+      "No chaotic workflows.",
+      "Just clear direction and thoughtful execution",
+    ],
+    closing: "You'll be trusted to think, contribute, and take ownership — not just follow instructions",
+  },
+  whatWeLookFor: {
+    eyebrow: "Who fits here",
+    title: "What we look for",
+    description: ["Your imperfect resumes won’t be judged.", "We’re looking for people who:"],
+    points: ["Care about doing things properly",
+      "Want to grow through real work",
+      "Take ownership of what you build",
+      "Aren't afraid to ask “why” before “how”",
+    ],
+  },
+  openRoles: {
+    eyebrow: "Open roles",
+    title: "We're not hiring for fixed roles at the moment.",
+    description: "But we're always open to meeting people who want to build something meaningful.",
+    ctaLabel: "Always open",
+  },
+  careersQoute: {
+    quote: "Every role here has a story.",
+    description: "Your career shouldn't feel like repetition.",
+  },
+  careersCta: {
+    eyebrow: "Start here",
+    title: "Your career shouldn’t feel like repetition.",
+    description: ["If this sounds like your kind of work, we should talk.", "Send us your work, your ideas, or just a short note about how you think."],
+    ctaLabel: "Apply now",
+    ctaHref: "/contact",
+    email: "info@pascolab.com",
+    contactMessage: "I'm interested in the [role] position at Pascolab. Here's a bit about me: [your bio]",
+  },
+}
 
 export const servicesPageIntro = {
   title: "Services built around what your product actually needs",

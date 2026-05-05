@@ -12,12 +12,12 @@
     font-size: 100%;
   }
   html {
-    @apply scroll-smooth overflow-x-hidden;
+    @apply scroll-smooth;
     font-size: 16px!important
   }
 
   body {
-    @apply bg-background text-foreground overflow-x-hidden;
+    @apply bg-background text-foreground;
     letter-spacing: var(--tracking-normal);
     line-height: 1.5;
   }
