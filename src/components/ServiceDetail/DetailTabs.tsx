@@ -23,7 +23,7 @@ export default function DetailTabs({section}: {section: ServicePageSection}) {
   };
 
   return (
-    <section className="py-0! border-b border-border shadow-md bg-background/70  backdrop-blur-xl transition-colors sticky top-16 z-10">
+    <section className="py-0! border-b border-border shadow-md bg-background/70  backdrop-blur-xl transition-colors sticky! top-16! z-10!">
       <div className="container mx-auto ">
         <nav
           aria-label="Service details sections"
