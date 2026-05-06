@@ -14,20 +14,19 @@ jobs:
           fetch-depth: 0
 
       - name: Configure Git
-        run: 
+        run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
 
       - name: Add Pascolab Remote
-        run: 
+        run: |
           git remote remove pascolab || true
           git remote add pascolab https://x-access-token:${{ secrets.PASCOLAB_SYNC_TOKEN }}@github.com/pascolab/pascolab.git
 
       - name: Sync All Branches
-      run: 
-        git push pascolab --all
-
+        run: |
+          git push pascolab --all
 
       - name: Sync Tags
-        run: 
+        run: |
           git push pascolab --tags
