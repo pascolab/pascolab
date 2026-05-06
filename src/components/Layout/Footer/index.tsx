@@ -1,19 +1,16 @@
-"use client"
 
-
-  import Link from 'next/link'
+import Link from 'next/link'
 import Image from 'next/image'
 import { getImgPath } from '@/utils/image'
-import { useTheme } from 'next-themes'
 import CTA from '@/components/Common/CTA'
 import { footerCtaContent } from '@/app/api/data'
 import GetInTouchForm from '@/components/SharedComponent/GetInTouchForm'
 
-
+const logoLight = getImgPath("/images/logo/white-logo-footer.png");
+const logoDark = getImgPath("/images/logo/logo-light.png");
 
 
 const Footer = () => {
-  const { theme } = useTheme()
   return (
     <footer className="relative overflow-hidden border-t border-solid border-border bg-background text-muted-foreground">
 
@@ -24,14 +21,22 @@ const Footer = () => {
             <div className='sm:content-normal sm:text-start text-center content-center sm:w-auto w-full'>
               <Link href='/' className='md:block flex justify-center'>
                 <Image
-                  src={getImgPath(theme === 'dark' ? '/images/logo/white-logo-footer.png' : '/images/logo/logo-light.png')}
-                  alt='logo'
+                  src={logoLight}
+                  alt="logo"
                   width={200}
                   height={50}
-                  style={{ width: '200px', height: 'auto' }}
-                  className='w-full h-auto'
-                  quality={100}
-                  unoptimized
+                  style={{ height: 'auto' }}
+                  className=" hidden dark:block"
+                  loading="eager"
+                />
+                <Image
+                  src={logoDark}
+                  alt="logo"
+                  width={200}
+                  height={50}
+                  style={{ height: 'auto' }}
+                  className=" block dark:hidden"
+                  loading="eager"
                 />
               </Link>
               <h2 className='text-foreground py-10 md:text-[2.8rem]'>
@@ -132,7 +137,7 @@ const Footer = () => {
               {footerCtaContent.paragraphs.map(p => <p key={p} className=' pb-7'>
                 {p}
               </p>)}
-              
+
               <GetInTouchForm />
             </div>
           </div>

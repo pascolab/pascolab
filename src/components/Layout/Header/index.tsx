@@ -114,14 +114,14 @@ const Header: React.FC = () => {
           <div className='flex items-center h-full justify-between'>
             <Logo />
 
-            <nav className='flex items-center gap-x-4'>
+            <nav className='flex items-center gap-x-7'>
               {headerData.map((item) =>
                 item.megaMenu || item.panel === 'services' ? (
                   <button
                     key={item.label}
                     type='button'
                     onClick={() => toggleMenu(item.label)}
-                    className='inline-flex items-center select-none gap-0.5 text-sm font-normal px-3.5 py-1.5 rounded-full transition-colors duration-150 cursor-pointer text-foreground/90 hover:text-foreground'
+                    className='inline-flex items-center select-none gap-0.5 text-sm font-semibold tracking-wider px-3.5 py-1.5 rounded-full transition-colors duration-150 cursor-pointer text-foreground/90 hover:text-foreground'
                   >
                     {item.label}
                     <svg
@@ -146,9 +146,9 @@ const Header: React.FC = () => {
                     key={item.label}
                     href={item.href}
                     onClick={() => isMenuOpen && closeMenu()}
-                    className='inline-flex items-center select-none text-sm font-normal px-3.5 py-1.5 rounded-full transition-colors duration-150 text-foreground/90 hover:text-foreground'
+                    className='inline-flex items-center select-none text-sm font-semibold tracking-wider px-3.5 py-1.5 rounded-full transition-colors duration-150 text-foreground/90 hover:text-foreground'
                   >
-                    <span className='text-foreground'>{item.label}</span>
+                    {item.label}
                   </Link>
                 )
               )}
