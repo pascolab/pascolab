@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import Link from 'next/link'
 import Slider from "react-slick";
-import hero1 from '../../../../public/images/hero/hero-img.jpg'
+import hero1 from '../../../../public/images/hero/homepage-hero.svg'
 import { homeHeroContent } from '../homeContent'
 
 const heroImages = [
@@ -42,6 +42,7 @@ const Hero = () => {
                 priority={index === 0}
                 className='object-cover object-center'
                 sizes='100vw'
+                loading='eager'
               />
             </div>
           ))}
@@ -49,9 +50,7 @@ const Hero = () => {
         <div className='pointer-events-none absolute inset-0 z-10 bg-linear-to-r from-black/98 via-[#0e2a35]/50 to-[#0e2a35]/10 ' />
       </div>
       <div className='relative z-40 flex h-full flex-col pointer-events-none'>
-        {/* <div className='pointer-events-auto'>
-          <Header />
-        </div> */}
+
         <div className='container mx-auto flex h-full flex-1 flex-col justify-center'>
           <div className='flex h-full w-full md:w-[60%] flex-col items-start justify-center pointer-events-none'>
             <div className='pointer-events-auto content-space'>
@@ -62,15 +61,8 @@ const Hero = () => {
                 {homeHeroContent.subheading}
               </p>
               <div className='flex flex-wrap items-center gap-4'>
-                <CTA label={homeHeroContent.primaryCtaLabel} href={homeHeroContent.primaryCtaHref} size='lg' className='hover:bg-white! md:py-3.5 md:px-7' />
-                <Button
-                  asChild
-                  variant='outline'
-                  size='lg'
-                  className='py-3.5 h-auto md:px-7 border-primary! rounded-full'
-                >
-                  <Link href={homeHeroContent.secondaryCtaHref}>{homeHeroContent.secondaryCtaLabel}</Link>
-                </Button>
+                <CTA label={homeHeroContent.primaryCtaLabel} href={homeHeroContent.primaryCtaHref} size='lg' className='hover:bg-white! md:px-7' />
+                <CTA label={homeHeroContent.secondaryCtaLabel} href={homeHeroContent.secondaryCtaLabel} size='lg' className='border-primary bg-transparent ' />
               </div>
             </div>
           </div>
