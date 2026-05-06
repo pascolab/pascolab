@@ -103,19 +103,19 @@ export default function HowWeThink({ section }: { section: ServicePageSection })
         <Card className="rounded-lg shadow-sm flex flex-col gap-6 md:gap-3 px-4 md:px-6">
             <CardHeader className="px-0 ">
             <div className="flex flex-col md:items-center md:flex-row md:justify-between ">
-            <div className="max-w-3xl flex flex-col gap-6 md:gap-3">
+            <div className="max-w-3xl flex flex-col 2">
               <h3 className="text-foreground">{heading}</h3>
               {subtitle ? (
-                <p className="text-body-large text-muted-foreground italic">
+                <p className="text-body text-muted-foreground italic">
                   {subtitle}
                 </p>
               ) : null}
               {howWeThink.focusLabel ? (
-                <p className="text-body-large text-muted-foreground">{howWeThink.focusLabel}</p>
+                <p className="text-body-large text-muted-foreground py-2">{howWeThink.focusLabel}</p>
               ) : null}
             </div>
 
-            <div className="hidden md:flex items-start gap-3 md:flex-col md:items-end">
+            <div className="hidden md:flex items-start gap-4 md:flex-col md:items-end">
               <p className="text-h1 font-bold text-primary leading-none">{points.length}</p>
               <p className="text-sm font-semibold uppercase tracking-wide text-primary/90">
                 Core principles

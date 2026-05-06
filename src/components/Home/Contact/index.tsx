@@ -18,7 +18,7 @@ const Contact = () => {
             </p>
             <div className='flex flex-wrap items-center gap-4'>
             <CTA label={homeCTAContent.primaryCtaLabel} href={homeCTAContent.primaryCtaHref} size='lg' />
-            <CTA label={homeCTAContent.secondaryCtaLabel} href={homeCTAContent.secondaryCtaHref} size='lg' className='border-primary bg-transparent ' />
+            <CTA label={homeCTAContent.secondaryCtaLabel} href={homeCTAContent.secondaryCtaHref} size='lg' className='border-primary bg-transparent text-foreground' />
             </div>
           </div>
           <div id='contact-form' className='min-w-0'>

@@ -4,6 +4,8 @@ import Link from "next/link";
 import { Icon } from "@iconify/react";
 import { Button } from "@/components/ui/button";
 import { servicesPageData } from "@/app/api/data";
+import EyeBrew from "@/components/SharedComponent/EyeBrew";
+import CTA from "@/components/Common/CTA";
 
 
 const Services = () => (
@@ -13,16 +15,10 @@ const Services = () => (
       {/* Section header */}
       <div className="flex flex-wrap items-end justify-between gap-4 mb-10 md:mb-14">
         <div className="content-space">
-          <p className="text-primary text-body-large font-medium">What We Do</p>
-          <h2>Our services</h2>
+          <EyeBrew text="What We Do" />
+          <h2 className="text-foreground">Our services</h2>
         </div>
-        <Button
-          asChild
-          variant="outline"
-          className="shrink-0 rounded-full border-primary h-auto py-2.5 px-5 font-normal"
-        >
-          <Link href="/services">View all services</Link>
-        </Button>
+        <CTA label="View all services" href="/services" size='lg' className='border-primary bg-transparent text-foreground' />
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">

@@ -262,6 +262,10 @@
   --text-label--line-height: 1.4;
   --text-label--letter-spacing: 0.025em;
   --text-label--font-weight: 500;
+
+  /* container breakpoints */
+  --breakpoint-3xl: 120rem; /* 1920px */
+  --breakpoint-led: 150rem; /* 2400px */
 }
 
 
@@ -296,26 +300,12 @@
 
 @utility container {
   @apply w-full mx-auto px-4 md:px-6;
-
-  @variant sm {
-    @apply max-w-[640px];
-  }
-
-  @variant md {
-    @apply max-w-[768px];
-  }
-
-  @variant lg {
-    @apply max-w-[1024px];
-  }
-
-  @variant xl {
-    @apply max-w-[1200px];
-  }
-
-  @media (min-width: 112.5rem) {
-    @apply max-w-[1536px];
-  }
+ @variant sm  { max-width: 600px; }
+ @variant md  { max-width: 680px;}
+ @variant lg  { max-width: 960px; }
+ @variant xl  { max-width: 1400px; }
+ @variant 3xl { max-width: 1600px; } 
+ @variant led { max-width: 1920px; }
 }
 
 /* Slick Slider */

@@ -6,7 +6,7 @@ import {
 } from "lucide-react";
 
 export const aboutHeroContent = {
-  highlight: "> About Us",
+  highlight: "About Us",
   eyebrow: "ABOUT PASCOLAB",
   title: "We build software like it's our own",
   description:

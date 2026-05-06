@@ -12,12 +12,12 @@ export const metadata: Metadata = {
 
 export default function AboutUsPage() {
   return (
-    <section className="overflow-hidden">
+    <article>
       <Hero />
       <Stats />
       <WhoWeAre />
       <HowItStartedAndTheProcessWeFollow />
       <HowWeWork />
-    </section>
+    </article>
   );
 }

@@ -8,6 +8,7 @@ import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import Image from 'next/image'
 import { Quote, Star } from 'lucide-react'
 import clientTestimonial from '../../../../public/images/testimonial/Client-testimonial.png'
+import EyeBrew from '../EyeBrew'
 
 type Testimonial = {
   name: string
@@ -22,12 +23,9 @@ const TestimonialCard = ({
   item: Testimonial
 }) => {
   return (
-    <Card className='relative h-full shadow-none! ring-0 pt-20 bg-transparent border-none'>
-        <p className=" text-primary absolute top-0 left-4 md:left-0 ps-5 py-2.5 before:content-[''] before:absolute before:top-0 before:left-0 before:rounded-lg before:w-[55%]  before:h-full before:bg-primary/15 dark:before:bg-accent/30 before:z-[-1] "
-        >
-          Client Testimonial  
-        </p>
-      <CardHeader className='gap-4 pt-10'>
+    <Card className='relative h-full shadow-none! ring-0 content-space bg-transparent border-none '>
+        <EyeBrew text="Client Testimonial" />
+      <CardHeader className='gap-4'>
 
         <div className='flex items-center gap-1 text-orange-500/80'>
           {Array.from({ length: 5 }).map((_, i) => (
@@ -40,7 +38,7 @@ const TestimonialCard = ({
         </p>
       </CardHeader>
 
-      <CardContent className='pt-8'>
+      <CardContent className=''>
         <div className='flex items-start justify-between gap-6'>
           <div>
             <p className='text-foreground font-bold text-body-large'>{item.name}</p>

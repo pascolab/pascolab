@@ -1,4 +1,5 @@
 import { careersData } from "@/app/api/data";
+import EyeBrew from "../SharedComponent/EyeBrew";
 
 const pills = [
   "Clear direction over ambiguous sprints",
@@ -11,10 +12,8 @@ export default function HowWeWork() {
   return (
     <section className="">
       <div className="container mx-auto content-space">
-        <p className="text-small font-medium tracking-wide text-primary uppercase">
-          {careersData.howWeWork.eyebrow}
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-4">
+        <EyeBrew text={careersData.howWeWork.eyebrow} />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <h2 className=" text-foreground tracking-normal max-w-xl">
               {careersData.howWeWork.title}
             </h2>
@@ -34,9 +33,9 @@ export default function HowWeWork() {
             ))}
           </div>
 
-          <p className="text-body-large text-muted-foreground mt-2">{careersData.howWeWork.closing}</p>
-
         </div>
+          <p className="text-body text-muted-foreground">{careersData.howWeWork.closing}</p>
+
       </div>
     </section>
   );

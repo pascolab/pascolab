@@ -22,14 +22,14 @@ export default function ServiceSection({ section, isLast }: ServiceSectionProps)
           <div className="hidden md:block md:w-[50%]">
             <div className="flex flex-col justify-between h-full pr-8 lg:pr-12 py-18  border-b md:border-b-0 ">
               {/* Heading / icon — sticks to top while the section scrolls */}
-              <div className="md:sticky md:top-25 space-y-6">
+              <div className="md:sticky md:top-25 content-space self-start">
                 <Icon
                   icon={section.icon}
                   width={48}
                   height={48}
                   className="text-primary"
                 />
-                <div className="content-space">
+                <div className="flex flex-col gap-4">
                   <h2>{section.title}</h2>
                   <p className="text-muted-foreground max-w-md">
                     {section.subtitle}

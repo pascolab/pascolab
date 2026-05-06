@@ -1,5 +1,6 @@
 
 import ContactForm from "@/components/Contact/Form";
+import EyeBrew from "@/components/SharedComponent/EyeBrew";
 import { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Contact | Pascolab",
@@ -12,9 +13,7 @@ const Page = () => {
     <div className="container py-4 md:py-6 lg:py-12">
       <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-12 lg:gap-16">
         <div className="content-space md:pr-4">
-          <p className="text-body-large font-light text-primary">
-            Pascolab
-          </p>
+          <EyeBrew text="Pascolab" />
           <h1 className="font-semibold">
             Let&apos;s discuss your project
           </h1>

@@ -1,4 +1,5 @@
 import CTA from "@/components/Common/CTA";
+import EyeBrew from "../SharedComponent/EyeBrew";
 
 export default function ServicesHero() {
   return (
@@ -7,14 +8,9 @@ export default function ServicesHero() {
 
       <div className="container relative z-10">
         <div className="max-w-3xl content-space">
-          <p className="text-primary text-body-large font-semibold tracking-wide uppercase">
-            Our Services
-          </p>
-
-          <h1 className="text-foreground">
-            Services that power{" "}
-            <br className="hidden sm:block" />
-            growth, not just delivery
+          <EyeBrew text="Our Services" />
+          <h1 className="text-display text-foreground max-w-3xl">
+            Services that power growth, not just delivery
           </h1>
 
           <p className="text-muted-foreground/90 text-body-large max-w-2xl">
@@ -22,8 +18,8 @@ export default function ServicesHero() {
             reliable digital solutions that grow with your business.
           </p>
 
-          <div className="pt-2">
-            <CTA label="Talk to an expert" href="/contact" />
+          <div>
+            <CTA label="Talk to an expert" href="/contact" size='lg' className='w-fit' />
           </div>
         </div>
       </div>

@@ -17,7 +17,7 @@ export default function HowItStartedAndTheProcessWeFollow() {
             <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-linear-to-r from-primary/70 via-primary/30 to-transparent" />
             <div className="content-space">
               <h2>{howItStarted.title}</h2>
-              <div className="content-space">
+              <div className="flex flex-col gap-4">
                 {howItStarted.paragraphs.map((p) => (
                   <p
                     key={p}
@@ -38,7 +38,7 @@ export default function HowItStartedAndTheProcessWeFollow() {
             <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-linear-to-r from-primary/70 via-primary/30 to-transparent" />
             <div className="content-space">
               <h2>{processWeFollow.title}</h2>
-              <div className="content-space">
+              <div className="flex flex-col gap-4">
                 {processWeFollow.paragraphs.map((p) => (
                   <p key={p} className="text-muted-foreground">
                     {p}

@@ -451,7 +451,7 @@ export const servicesPageData: ServicePageSection[] = [
     description:
       "We help you design and develop software that is structured, scalable, and built to evolve with your business not break as it grows. At Pascolab, we don’t just write code. We build systems with clarity, so every decision made today still supports you tomorrow.",
     icon: "solar:code-bold-duotone",
-    listingCtaLabel: "→ Let’s Talk",
+    listingCtaLabel: "Let’s Talk",
     catLabel: "What We Do",
     eyebrow: "Custom Software Engineering",
     heroTitle: "Build it right from the start, not twice later",
@@ -465,21 +465,21 @@ export const servicesPageData: ServicePageSection[] = [
         title: "Enterprise Web Applications",
         description:
           "High-performance platforms built for real users and real scale. Designed with reliability, security, and long-term stability at the core.",
-        href: "/services#custom-software-engineering",
+        href: "/services/custom-software-engineering",
       },
       {
         id: "api-design-system-integration",
         title: "API Design & System Integration",
         description:
           "Clean, well-structured REST and GraphQL APIs that connect smoothly with internal systems and third-party platforms.",
-        href: "/services#custom-software-engineering",
+        href: "/services/custom-software-engineering",
       },
       {
         id: "legacy-system-modernization",
         title: "Legacy System Modernization",
         description:
           "Transform outdated systems into modern, scalable architectures while improving performance without disrupting operations.",
-        href: "/services#custom-software-engineering",
+        href: "/services/custom-software-engineering",
       },
     ],
     howWeThink: {
@@ -534,7 +534,7 @@ export const servicesPageData: ServicePageSection[] = [
     description:
       "AI and data is used only where they improve real outcomes, not as a buzzword layer. The focus is simple: clarity, usefulness, and systems that help users and businesses make better decisions without added complexity. At Pascolab, we design AI-driven features that feel natural inside your product.",
     icon: "solar:cpu-bold-duotone",
-    listingCtaLabel: "→ Let’s Talk",
+    listingCtaLabel: "Let’s Talk",
     catLabel: "What We Do",
     eyebrow: "AI & Data Systems",
     heroTitle: "Make your product better without complicating it",
@@ -548,21 +548,21 @@ export const servicesPageData: ServicePageSection[] = [
         title: "Intelligent Workflows",
         description:
           "Automate repetitive and rule-based processes to reduce manual effort and improve speed.",
-        href: "/services#ai-data-systems",
+        href: "/services/ai-data-systems",
       },
       {
         id: "data-driven-product-features",
         title: "Data-Driven Product Features",
         description:
           "Turn raw, unstructured data into meaningful insights directly inside your application.",
-        href: "/services#ai-data-systems",
+        href: "/services/ai-data-systems",
       },
       {
         id: "scalable-data-architectures",
         title: "Scalable Data Architectures",
         description:
           "Build data systems designed to grow with your product while keeping performance stable.",
-        href: "/services#ai-data-systems",
+        href: "/services/ai-data-systems",
       },
     ],
     howWeThink: {
@@ -617,7 +617,7 @@ export const servicesPageData: ServicePageSection[] = [
     description:
       "Building for finance or real estate isn’t just about features. It’s about handling sensitive, high-value data with precision and clarity. We design systems that simplify complexity and making financial workflows and property platforms secure.",
     icon: "solar:shield-bold-duotone",
-    listingCtaLabel: "→ Let’s Talk",
+    listingCtaLabel: "Let’s Talk",
     catLabel: "What We Do",
     eyebrow: "FinTech & PropTech Systems",
     heroTitle: "When trust, accuracy, and speed matter",
@@ -631,21 +631,21 @@ export const servicesPageData: ServicePageSection[] = [
         title: "Real Estate Analytics",
         description:
           "Dashboards and models that help teams understand trends, performance, and investment opportunities.",
-        href: "/services#fintech-proptech-systems",
+        href: "/services/fintech-proptech-systems",
       },
       {
         id: "digital-onboarding-systems",
         title: "Digital Onboarding Systems",
         description:
           "Secure, paperless onboarding flows that reduce friction while ensuring compliance and accuracy.",
-        href: "/services#fintech-proptech-systems",
+        href: "/services/fintech-proptech-systems",
       },
       {
         id: "marketplace-logic-systems",
         title: "Marketplace Logic Systems",
         description:
           "Backend structures for bookings, rentals, and scheduling built for real operational complexity.",
-        href: "/services#fintech-proptech-systems",
+        href: "/services/fintech-proptech-systems",
       },
     ],
     howWeThink: {
@@ -695,7 +695,7 @@ export const servicesPageData: ServicePageSection[] = [
     description:
       "We design cloud systems that are built for stability and scale so your product performs reliably even as demand grows. From deployment pipelines to infrastructure optimization, we ensure everything behind your product runs smoothly and efficiently.",
     icon: "solar:cloud-bold-duotone",
-    listingCtaLabel: "→ Let’s Talk",
+      listingCtaLabel: "Let’s Talk",
     catLabel: "What We Do",
     eyebrow: "Cloud & DevOps",
     heroTitle: "Your product shouldn’t slow down because your infrastructure can’t keep up.",
@@ -709,21 +709,21 @@ export const servicesPageData: ServicePageSection[] = [
         title: "Cloud Migration",
         description:
           "Move existing systems to modern cloud environments carefully with minimal disruption.",
-        href: "/services#cloud-devops",
+        href: "/services/cloud-devops",
       },
       {
         id: "cicd-automation",
         title: "CI/CD Automation",
         description:
           "Automated deployment pipelines that speed up releases and reduce manual errors.",
-        href: "/services#cloud-devops",
+        href: "/services/cloud-devops",
       },
       {
         id: "infrastructure-optimization",
         title: "Infrastructure Optimization",
         description:
           "Load balancing, containerization, and server-level improvements for better performance.",
-        href: "/services#cloud-devops",
+        href: "/services/cloud-devops",
       },
     ],
     howWeThink: {
@@ -773,7 +773,7 @@ export const servicesPageData: ServicePageSection[] = [
     description:
       "We build e-commerce platforms that go beyond traditional storefronts, designed for speed, flexibility, and business growth. From headless architectures to deep system integrations, we help brands build commerce systems that actually perform.",
     icon: "solar:cart-bold-duotone",
-    listingCtaLabel: "→ Let’s Talk",
+    listingCtaLabel: "Let’s Talk",
     catLabel: "What We Do",
     eyebrow: "E-commerce & Headless Commerce",
     heroTitle: "E-commerce today is not just about stores. It's about systems that sell, retain, and scale.",
@@ -787,21 +787,21 @@ export const servicesPageData: ServicePageSection[] = [
         title: "Headless Commerce",
         description:
           "Decoupled storefronts for better performance, flexibility, and SEO.",
-        href: "/services#ecommerce-headless-commerce",
+        href: "/services/ecommerce-headless-commerce",
       },
       {
         id: "custom-shopify-solutions",
         title: "Custom Shopify Solutions",
         description:
           "Tailored Shopify apps for rewards, warranties, loyalty programs, and workflows.",
-        href: "/services#ecommerce-headless-commerce",
+        href: "/services/ecommerce-headless-commerce",
       },
       {
         id: "crm-system-integrations",
         title: "CRM & System Integrations",
         description:
           "Connect your store to backend systems so customer data flows across the business.",
-        href: "/services#ecommerce-headless-commerce",
+        href: "/services/ecommerce-headless-commerce",
       },
     ],
     howWeThink: {
@@ -847,7 +847,7 @@ export const servicesPageData: ServicePageSection[] = [
     description:
       "When you need experienced engineers or product guidance, we step in as an extension of your team, bringing structure, clarity, and execution strength.",
     icon: "solar:users-group-rounded-bold-duotone",
-    listingCtaLabel: "→ Let’s Talk",
+    listingCtaLabel: "Let’s Talk",
     catLabel: "What We Do",
     eyebrow: "Team Extension & Product Leadership",
     heroTitle: "We don’t just support teams; we become part of them.",
@@ -861,21 +861,21 @@ export const servicesPageData: ServicePageSection[] = [
         title: "Full Lifecycle Support",
         description:
           "Support from planning and prototyping through launch and ongoing iteration.",
-        href: "/services#team-extension-product-leadership",
+        href: "/services/team-extension-product-leadership",
       },
       {
         id: "agile-delivery",
         title: "Agile Delivery",
         description:
           "Transparent workflows with clear progress tracking and consistent communication.",
-        href: "/services#team-extension-product-leadership",
+        href: "/services/team-extension-product-leadership",
       },
       {
         id: "mvp-development",
         title: "MVP Development",
         description:
           "Build investor-ready products without unnecessary complexity or overbuilding.",
-        href: "/services#team-extension-product-leadership",
+        href: "/services/team-extension-product-leadership",
       },
     ],
     howWeThink: {
