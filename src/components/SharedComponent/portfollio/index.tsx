@@ -1,5 +1,6 @@
 import PortfolioCard from '@/components/SharedComponent/portfollio/Portfolio-card'
 import CTA from '@/components/Common/CTA'
+import EyeBrew from '../EyeBrew'
 
 
 const Portfolio = () => {
@@ -21,15 +22,12 @@ const Portfolio = () => {
             </p>
           </div>
         </div>
-        <div className='grid grid-cols-1  gap-10 md:grid-cols-[minmax(0,45%)_1fr] md:gap-8 lg:gap-12'>
+        <div className='grid grid-cols-1  gap-4 md:grid-cols-[minmax(0,45%)_1fr] '>
           <div className='flex flex-col items-start text-left md:pt-20 content-space'>
-            <p className="text-body-large text-primary">
-              Featured Insights
-            </p>
-            <h2 className='bg-linear-to-r from-primary via-foreground to-foreground dark:from-foreground dark:via-primary dark:to-primary bg-clip-text text-transparent  text-left  max-w-4xl w-full
+            <EyeBrew text="Featured Insights" />
+            <h2 className=' text-foreground text-left  max-w-4xl w-full
             '>
-              Stories of our{' '}
-              transformations across Services and Industries
+              Stories of our transformations across <span className='text-primary'>Services</span> and Industries
             </h2>
             <p>
               From Concept to Completion

@@ -59,11 +59,11 @@ export default function WhenServiceRightForYou({
                 {section.whenServiceRightForYou?.title}
               </h2>
         <Card className="px-4 md:px-6">
-          <div className="">
+          <div className="content-space">
 
             {points.length > 0 ? (
               <>
-                <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-4">
                   {points.map((point, idx) => (
                     <button
                       type="button"
@@ -77,7 +77,7 @@ export default function WhenServiceRightForYou({
                           : "border-border bg-background/40 hover:bg-primary/5 hover:border-primary/30"
                       }`}
                     >
-                      <div className="flex md:items-center gap-3">
+                      <div className="flex md:items-center gap-4">
                         <span
                           className={`mt-0.5 inline-flex h-5 w-5 md:h-7 md:w-7 items-center shrink-0 justify-center rounded-full transition-colors duration-300 ${
                             isSelected(idx)
@@ -101,7 +101,7 @@ export default function WhenServiceRightForYou({
                   ))}
                 </div>
 
-                <div className="mt-6 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                   <div className="flex items-center gap-4">
                     <div className="h-1.5 w-32 rounded-full bg-primary/20 overflow-hidden">
                       <div

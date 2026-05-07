@@ -18,7 +18,7 @@ const Footer = () => {
       <div className="container mx-auto">
         <div className='grid md:grid-cols-12 grid-cols-1 sm:grid-cols-12'>
           <div className='md:col-span-4 sm:col-span-6 col-span-12 sm:border-r border-b border-solid border-border flex items-center sm:border-b-0 sm:min-h-25 py-10 shrink-0 '>
-            <div className='sm:content-normal sm:text-start text-center content-center sm:w-auto w-full'>
+            <div className='sm:content-normal sm:text-start text-center content-center sm:w-auto w-full content-space'>
               <Link href='/' className='md:block flex justify-center'>
                 <Image
                   src={logoLight}
@@ -39,23 +39,23 @@ const Footer = () => {
                   loading="eager"
                 />
               </Link>
-              <h2 className='text-foreground py-10 md:text-[2.8rem]'>
+              <h2 className='text-foreground md:text-[2.8rem]'>
                 {footerCtaContent.title}
               </h2>
-              <CTA label={footerCtaContent.primaryCtaLabel} href={footerCtaContent.primaryCtaHref} size='lg' />
+              <CTA label={footerCtaContent.primaryCtaLabel} href={footerCtaContent.primaryCtaHref} size='lg' className='w-fit' />
             </div>
           </div>
           <div className='md:col-span-4 sm:col-span-6 col-span-12 sm:flex items-center sm:min-h-25 py-10 justify-center shrink-0 md:border-r border-b sm:border-b-0 border-solid border-border'>
-            <div className='flex flex-col md:items-start items-center'>
-              <h3 className='text-foreground pb-4 inline-block'>
+            <div className='flex flex-col md:items-start items-center content-space'>
+              <h3 className='text-foregroundinline-block'>
                 Support
               </h3>
-              <div className='pb-5 sm:block flex'>
+              <div className='sm:block flex'>
                 <p className='text-foreground'>Phone</p>
                 <Link
                   href='tel:+(690) 2560 0020'
                   className='text-foreground/80 hover:text-foreground'>
-                  +(690) 2560 0020
+                  +91 98260 00000
                 </Link>
               </div>
               <div className='sm:block flex items-center gap-3'>
@@ -63,11 +63,11 @@ const Footer = () => {
                 <Link
                   href='mailto:info@venus.com'
                   className='text-foreground/80 hover:text-foreground'>
-                  info@Venus.com
+                  info@pascolab.com
                 </Link>
               </div>
               <div>
-                <ul className='flex items-center gap-3 mt-7.5'>
+                <ul className='flex items-center gap-4'>
                   <li className='group'>
                     <Link href='#' className=''>
                       <svg
@@ -133,8 +133,8 @@ const Footer = () => {
             </div>
           </div>
           <div className='md:col-span-4 col-span-12 border-t md:border-none border-solid border-border sm:flex items-center justify-end md:min-h-25 py-10 shrink-0'>
-            <div className='md:w-3/4 w-full sm:text-start text-center'>
-              {footerCtaContent.paragraphs.map(p => <p key={p} className=' pb-7'>
+            <div className='md:w-3/4 w-full sm:text-start text-center content-space'>
+              {footerCtaContent.paragraphs.map(p => <p key={p} className=''>
                 {p}
               </p>)}
 
@@ -143,9 +143,9 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className='text-center gap-4 md:gap-0 flex-wrap p-7 border-t border-solid border-border'>
+      <div className='text-center gap-4 md:gap-0 flex-wrap p-5 min-h-15 md:min-h-17.25 border-t border-solid border-border'>
         <div>
-          <ul className='flex justify-center mb-4 items-center sm:gap-7 gap-3 md:ps-26'>
+          <ul className='flex justify-center items-center sm:gap-7 gap-3 md:ps-26'>
             <li className='text-foreground/80'>
               <Link href='/' className='hover:text-primary'>
                 Home

@@ -1,12 +1,11 @@
 import { careersData } from "@/app/api/data";
+import EyeBrew from "../SharedComponent/EyeBrew";
 
 export default function OurCulture() {
   return (
     <section className="border-t border-border">
       <div className="container mx-auto content-space">
-        <p className="text-small font-medium tracking-wide text-primary uppercase">
-          {careersData.ourCulture.eyebrow}
-        </p>
+        <EyeBrew text={careersData.ourCulture.eyebrow} />
         <div className="grid grid-cols-1 md:grid-cols-[400px_1fr] gap-6 md:gap-4">
 
           <h2 className="font-semibold text-foreground tracking-normal">
@@ -14,7 +13,7 @@ export default function OurCulture() {
           </h2>
 
           {/* Right content col */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col content-space">
             <p className="text-body-large text-muted-foreground">
               {careersData.ourCulture.description}
             </p>

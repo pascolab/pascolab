@@ -1,6 +1,7 @@
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { ServicePageSection } from '@/types/service'
+import EyeBrew from '../SharedComponent/EyeBrew';
 
 export function ProjectDetails(
   {section}:{section:ServicePageSection}) {
@@ -9,9 +10,7 @@ export function ProjectDetails(
     return (
         <section id="project-details">
         <div className="container content-space">
-            <p className="text-body-large font-semibold uppercase tracking-wide text-primary">
-              Our Recent Project
-            </p>
+            <EyeBrew text="Our Recent Project" />
           <div className="content-space">
             <div>
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-6 text-balance">

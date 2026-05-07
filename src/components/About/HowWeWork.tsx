@@ -15,7 +15,7 @@ export default function HowWeWork() {
         <div className="content-space">
           <h2>{title}</h2>
 
-          <div className="grid grid-cols-1 py-6 md:py-4 sm:grid-cols-2 lg:grid-cols-4 gap-7 md:gap-5">
+          <div className="grid grid-cols-1 py-6 md:py-4 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {steps.map((step, i) => {
               const isLast = i === steps.length - 1;
 

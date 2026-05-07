@@ -82,7 +82,7 @@ export default function TechStackSection({
                     </h2>
 
                     {/* Cards grid — 3 cols mobile → 4 sm → 5 md → 6 lg */}
-                    <div className="gap-6 md:gap-4 flex flex-col md:flex-row flex-wrap items-center justify-center">
+                    <div className="gap-4 flex flex-col md:flex-row flex-wrap items-center justify-center">
                         {techStack.map((tech) => {
                             const { icon, color, bg } = getMeta(tech);
                             return (

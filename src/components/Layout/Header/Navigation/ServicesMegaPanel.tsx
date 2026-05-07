@@ -62,7 +62,7 @@ const ServicesMegaPanel: React.FC<ServicesMegaPanelProps> = ({ sections, onClose
                   onMouseEnter={() => setActiveSectionId(section.id)}
                   onFocus={() => setActiveSectionId(section.id)}
                   onClick={() => setActiveSectionId(section.id)}
-                className={`flex w-full items-center justify-between rounded-none px-4 h-auto py-3 text-left text-sm font-medium transition-all duration-300 ease-in-out ${
+                className={`flex w-full items-center justify-between rounded-none px-6.5 h-auto py-4 text-left text-sm font-medium transition-all duration-300 ease-in-out ${
                   isActive
                     ? 'text-white'
                     : 'text-foreground bg-transparent'
@@ -88,7 +88,7 @@ const ServicesMegaPanel: React.FC<ServicesMegaPanelProps> = ({ sections, onClose
           </div>
         </div>
 
-        <div className='min-w-0 flex-1 p-5 lg:p-7'>
+        <div className='min-w-0 flex-1 p-5 lg:p-7 px-5 py-5 lg:py-7 lg:px-10 lg:pe-20'>
           <div className='mb-5 border-b border-border pb-4'>
             <p className='text-[11px] font-semibold uppercase tracking-[0.22em] text-muted-foreground'>
               What we do

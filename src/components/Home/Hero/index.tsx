@@ -5,13 +5,15 @@ import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import Link from 'next/link'
 import Slider from "react-slick";
-import hero1 from '../../../../public/images/hero/homepage-hero.svg'
+import hero1 from '../../../../public/images/hero/hero-1.svg'
+import hero2 from '../../../../public/images/hero/hero-2.svg'
+import hero3 from '../../../../public/images/hero/hero-3.svg'
 import { homeHeroContent } from '../homeContent'
 
 const heroImages = [
   { src: hero1, alt: 'Hero slide 1' },
-  { src: hero1, alt: 'Hero slide 2' },
-  { src: hero1, alt: 'Hero slide 3' },
+  { src: hero2, alt: 'Hero slide 2' },
+  { src: hero3, alt: 'Hero slide 3' },
 ]
 
 const Hero = () => {
@@ -30,7 +32,7 @@ const Hero = () => {
   };
 
   return (
-    <section className='relative  h-screen py-0 my-0 overflow-hidden'>
+    <section className='relative  py-0 h-[calc(100vh-60px)] md:h-[calc(100vh-69px)] mt-15 md:mt-[69px] overflow-hidden'>
       <div className='absolute inset-0'>
         <Slider {...settings} className='hero-slider h-full'>
           {heroImages.map((image, index) => (
