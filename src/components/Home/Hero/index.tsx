@@ -54,8 +54,8 @@ const Hero = () => {
       <div className='relative z-40 flex h-full flex-col pointer-events-none'>
 
         <div className='container mx-auto flex h-full flex-1 flex-col justify-center'>
-          <div className='flex h-full w-full md:w-[60%] flex-col items-start justify-center pointer-events-none'>
-            <div className='pointer-events-auto content-space'>
+          <div className='flex h-full w-full md:w-[60%] flex-col items-start justify-center'>
+            <div className='pointer-events-auto content-space select-none'>
               <h1 className='text-display text-white'>
                 {homeHeroContent.heading}
               </h1>

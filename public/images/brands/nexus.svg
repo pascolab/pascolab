@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 40" fill="none">
-  <!-- double ring icon -->
-  <circle cx="16" cy="20" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
-  <circle cx="16" cy="20" r="5" fill="currentColor"/>
-  <line x1="26" y1="20" x2="30" y2="20" stroke="currentColor" stroke-width="2"/>
-  <!-- wordmark -->
-  <text x="34" y="26" font-family="system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="-0.5" fill="currentColor">Nexus</text>
-</svg>

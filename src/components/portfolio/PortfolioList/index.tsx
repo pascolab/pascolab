@@ -1,4 +1,3 @@
-import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { portfolioinfo } from '@/app/api/data'
@@ -19,7 +18,7 @@ const PortfolioList = () => {
                   style={{ width: '100%', height: 'auto' }}
                 />
               </div>
-              <h4 className='pb-[0.3125rem] pt-[2.1875rem] group-hover:text-primary group-hover:cursor-pointer text-2xl text-midnight_text font-bold dark:text-white'>
+              <h4 className='pb-1.25 pt-8.75 group-hover:text-primary group-hover:cursor-pointer text-2xl text-midnight_text font-bold dark:text-white'>
                 {item.title}
               </h4>
               <p className='text-secondary font-normal text-lg group-hover:text-primary group-hover:cursor-pointer dark:text-white/50'>
