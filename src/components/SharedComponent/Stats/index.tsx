@@ -1,27 +1,37 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+import {
+  motion,
+  useInView,
+  useMotionValue,
+  useTransform,
+  animate,
+  useSpring,
+} from "motion/react";
 import { statsContent } from "@/app/api/data";
 
-function useCountUp(end: number, duration: number, active: boolean) {
-  const [count, setCount] = useState(0);
+function AnimatedNumber({
+  value,
+  active,
+}: {
+  value: number;
+  active: boolean;
+}) {
+  const motionValue = useMotionValue(0);
+  const rounded = useTransform(motionValue, (v) => Math.round(v));
+  const display = useTransform(rounded, (v) => v.toLocaleString());
 
   useEffect(() => {
     if (!active) return;
-    let startTimestamp: number | null = null;
+    const controls = animate(motionValue, value, {
+      duration: 1.5,
+      ease: [0.4, 0, 0.58, 1],
+    });
+    return controls.stop;
+  }, [active, value, motionValue]);
 
-    const step = (timestamp: number) => {
-      if (!startTimestamp) startTimestamp = timestamp;
-      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 4);
-      setCount(Math.floor(eased * end));
-      if (progress < 1) requestAnimationFrame(step);
-    };
-
-    requestAnimationFrame(step);
-  }, [active, end, duration]);
-
-  return count;
+  return <motion.span>{display}</motion.span>;
 }
 
 function StatItem({
@@ -30,18 +40,26 @@ function StatItem({
   label,
   active,
   isLast,
+  index,
 }: {
   value?: number;
   suffix?: string;
   label: string;
   active: boolean;
   isLast: boolean;
+  index: number;
 }) {
   const hasValue = typeof value === "number" && Number.isFinite(value);
-  const count = hasValue ? useCountUp(value, 2200, active) : 0;
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={active ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+      transition={{
+        duration: 0.6,
+        delay: index * 0.12,
+        ease: [0.16, 1, 0.3, 1],
+      }}
       className={`flex flex-col gap-3 px-6 py-6 sm:py-8 ${
         !isLast ? "border-r border-border" : ""
       }`}
@@ -49,7 +67,7 @@ function StatItem({
       {hasValue ? (
         <>
           <p className="text-4xl md:text-5xl xl:text-6xl font-bold text-foreground leading-none tracking-tight">
-            {count}
+            <AnimatedNumber value={value} active={active} />
             {suffix ? <span className="text-primary">{suffix}</span> : null}
           </p>
           <p className="uppercase tracking-widest text-muted-foreground text-small">
@@ -57,32 +75,15 @@ function StatItem({
           </p>
         </>
       ) : (
-        <p className="text-xl md:text-2xl font-bold text-primary ">
-          {label}
-        </p>
+        <p className="text-xl md:text-2xl font-bold text-primary">{label}</p>
       )}
-    </div>
+    </motion.div>
   );
 }
 
 const Stats = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [active, setActive] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setActive(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.25 }
-    );
-
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
+  const active = useInView(sectionRef, { once: true, amount: 0.25 });
 
   return (
     <section ref={sectionRef} className="bg-background overflow-hidden">
@@ -90,11 +91,21 @@ const Stats = () => {
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 xl:gap-24 items-start lg:items-center">
           {/* Left — heading + description */}
           <div className="lg:w-5/12 xl:w-4/12 shrink-0 content-space">
-          <h2 className="md:max-w-4xl w-full">
-              {statsContent.title}
-            </h2>
-            <p className="text-muted-foreground max-w-md  font-normal">
-            Not just numbers… a reflection of the <span className="underline underline-offset-2 decoration-primary">work</span>, <span className="underline underline-offset-2 decoration-primary">thinking</span>, and <span className="underline underline-offset-2 decoration-primary">momentum</span> behind what we build.
+            <h2 className="md:max-w-4xl w-full">{statsContent.title}</h2>
+            <p className="text-muted-foreground max-w-md font-normal">
+              Not just numbers… a reflection of the{" "}
+              <span className="underline underline-offset-2 decoration-primary">
+                work
+              </span>
+              ,{" "}
+              <span className="underline underline-offset-2 decoration-primary">
+                thinking
+              </span>
+              , and{" "}
+              <span className="underline underline-offset-2 decoration-primary">
+                momentum
+              </span>{" "}
+              behind what we build.
             </p>
           </div>
 
@@ -104,6 +115,7 @@ const Stats = () => {
               {statsContent.stats.map((stat, i) => (
                 <StatItem
                   key={i}
+                  index={i}
                   value={stat.value}
                   suffix={stat.suffix}
                   label={stat.label}

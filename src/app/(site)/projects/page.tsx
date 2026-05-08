@@ -1,15 +1,13 @@
-import React from "react";
-import Portfolio from "@/components/portfolio/PortfolioList";
-import HeroSub from "@/components/SharedComponent/HeroSub";
+
 import { Metadata } from "next";
-import heroBg from "../../../../public/images/hero/hero-2.svg";
 import CTA from "@/components/Common/CTA";
 import EyeBrew from "@/components/SharedComponent/EyeBrew";
+import ProjectsGrid from "@/components/Projects/ProjectsGrid";
 export const metadata: Metadata = {
-  title: "Portfolio | Pascolab",
+  title: "Projects | Pascolab",
 };
 
-const PortfolioList = () => {
+const ProjectsPage = () => {
   return (
     <article>
       <section className="relative py-0! mt-15 md:mt-[69px] overflow-hidden border-b border-border">
@@ -17,7 +15,7 @@ const PortfolioList = () => {
         <div className="container relative z-10 md:min-h-[70vh] py-24 md:py-32 content-space">
           <EyeBrew text="Our Solutions" />
           <h1 className="text-display text-foreground max-w-3xl">
-            Portfolio
+            Projects
           </h1>
           <p className="text-body-large text-muted-foreground max-w-xl">
             Dive into a curated collection of my finest work, showcasing expertise across various industries.
@@ -26,9 +24,11 @@ const PortfolioList = () => {
           <CTA label="View Portfolio" href="/portfolio" size="lg" className="w-fit" />
         </div>
       </section>
-      <Portfolio />
+      <ProjectsGrid />
     </article>
   );
 };
 
-export default PortfolioList;
+
+
+export default ProjectsPage;

@@ -29,7 +29,7 @@ export default function GetInTouchForm() {
       }
     }
     return (
-      <form action={handleSubmit} className='get_in_touch-form flex w-full md:w-3/4 sm:mx-0 mx-auto items-stretch'>
+      <form action={handleSubmit} className='get_in_touch-form flex w-full  sm:mx-0 mx-auto items-stretch'>
       <Input
         name='email'
         id='footer-email'
@@ -37,7 +37,7 @@ export default function GetInTouchForm() {
         placeholder='Email*'
         required
         autoComplete='email'
-        className='rounded-none text-base px-2 py-1.25 h-auto focus-visible:ring-offset-0'
+        className='rounded-none text-sm md:text-base px-2 py-1.25 h-auto focus-visible:ring-offset-0'
       />
       <Input type='hidden' name='source' value='footer' />
       <Input type='hidden' name='formType' value='get_in_touch' />

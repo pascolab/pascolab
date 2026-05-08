@@ -132,7 +132,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className='md:col-span-4 col-span-12 border-t md:border-none border-solid border-border sm:flex items-center justify-end md:min-h-25 py-10 shrink-0'>
+          <div className='md:col-span-4  col-span-12 border-t md:border-none border-solid border-border sm:flex items-center justify-end md:min-h-25 py-10 shrink-0'>
             <div className='md:w-3/4 w-full sm:text-start text-center content-space'>
               {footerCtaContent.paragraphs.map(p => <p key={p} className=''>
                 {p}

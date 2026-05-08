@@ -36,16 +36,17 @@ export default function ServiceSection({ section, isLast }: ServiceSectionProps)
                   </p>
                 </div>
               {/* CTA — sticks near bottom */}
-              <div >
+              <div>
                 <Link
                   href={`/services/${section.id}`}
-                  className="inline-flex items-center gap-2 text-primary font-medium transition-all duration-200 group"
+                  className="group relative inline-flex items-center gap-2 font-medium text-foreground pb-0.5"
                 >
                   {section.listingCtaLabel}
-                  <Icon
+                  {/* <Icon
                     icon="solar:arrow-right-linear"
-                    className="text-lg transition-transform duration-200 group-hover:translate-x-1"
-                  />
+                    className="text-base text-primary transition-transform duration-300 group-hover:translate-x-1.5"
+                  /> */}
+                  <span className="absolute -bottom-0.5 left-0 h-0.5 w-1/2 bg-primary transition-[width] duration-400 ease-in-out group-hover:w-full " />
                 </Link>
               </div>
               </div>
@@ -67,13 +68,14 @@ export default function ServiceSection({ section, isLast }: ServiceSectionProps)
               <p className="text-muted-foreground max-w-md">{section.subtitle}</p>
               <Link
                 href={`/services/${section.id}`}
-                className="inline-flex items-center gap-2 text-primary font-medium transition-all duration-200 group"
+                className="group relative inline-flex items-center gap-2 font-medium text-foreground pb-0.5"
               >
                 {section.listingCtaLabel}
                 <Icon
                   icon="solar:arrow-right-linear"
-                  className="text-lg transition-transform duration-200 group-hover:translate-x-1"
+                  className="text-base text-primary transition-transform duration-300 group-hover:translate-x-1.5"
                 />
+                <span className="absolute bottom-0 left-0 h-px w-1/2 bg-primary/50 transition-[width] duration-400 ease-in-out group-hover:w-full group-hover:bg-primary" />
               </Link>
             </div>
 

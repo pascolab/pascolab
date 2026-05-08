@@ -32,7 +32,7 @@ const Hero = () => {
   };
 
   return (
-    <section className='relative  py-0 h-[calc(100vh-60px)] md:h-[calc(100vh-69px)] mt-15 md:mt-[69px] overflow-hidden'>
+    <section className='relative  py-0 h-[calc(90vh-60px)] md:h-[calc(100vh-69px)] mt-15 md:mt-[69px] overflow-hidden'>
       <div className='absolute inset-0'>
         <Slider {...settings} className='hero-slider h-full'>
           {heroImages.map((image, index) => (
@@ -42,7 +42,7 @@ const Hero = () => {
                 alt={image.alt}
                 fill
                 priority={index === 0}
-                className='object-cover object-center'
+                className='object-cover object-[70%_80%] md:object-center'
                 sizes='100vw'
                 loading='eager'
               />
