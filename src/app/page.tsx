@@ -7,6 +7,7 @@ import Services from '@/components/Home/Services';
 import Portfolio from '@/components/SharedComponent/portfollio'
 import Testimonial from '@/components/SharedComponent/Testimonial'
 import Contact from "@/components/Home/Contact";
+import PortfolioShowcase from "@/components/Home/ProjectShowcase";
 export const metadata: Metadata = {
   title: "Pascolab",
 };
@@ -18,7 +19,7 @@ export default function Home() {
       <Brands />
       <Stats  />  
       <Services />
-      <Portfolio />
+      <PortfolioShowcase />
       <Testimonial />
       <Contact />
     </main>

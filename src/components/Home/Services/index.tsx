@@ -39,7 +39,7 @@ const Services = () => (
               </div>
 
               <div className="hidden lg:block px-5 pb-5 lg:group-hover:opacity-0 transition-opacity duration-300 z-20">
-                <h3 className="text-foreground">
+                <h3 className="text-foreground font-semibold">
                   {service.title}
                 </h3>
               </div>
@@ -50,7 +50,7 @@ const Services = () => (
                            transition-all duration-500 ease-in-out"
               >
                 <div className="flex flex-col gap-2 h-full justify-end">
-                <h3 className="mb-3 text-xl text-muted-foreground">
+                <h3 className="mb-3 text-xl text-muted-foreground font-semibold">
                   {service.title}
                 </h3>
                 <div className="flex flex-wrap justify-start gap-2">

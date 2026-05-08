@@ -1,4 +1,5 @@
 import { CareersPageData } from "@/types/career";
+import { Project } from "@/types/project";
 import { Service, ServicePageSection } from "@/types/service";
 import { getImgPath } from "@/utils/image";
 
@@ -90,101 +91,544 @@ export const testimonials = [
   },
 ]
 
-export type PortfolioKind = 'Case Study' | 'Blog'
 
-export type PortfolioItem = {
-  image: string
-  alt: string
-  title: string
-  slug: string
-  info: string
-  Class: string
-  kind: PortfolioKind
-}
-
-export const portfolioinfo: PortfolioItem[] = [
+export const projects: Project[] = [
   {
-    image: getImgPath('/images/portfolio/cozycasa.png'),
-    alt: 'US Fashion Resale Platform case study',
-    title: 'US Fashion Resale Platform',
-    slug: 'Cozycasa',
-    info: 'E-commerce & marketplace',
-    Class: 'md:mt-0',
-    kind: 'Case Study',
+    image: getImgPath("/images/portfolio/project-mockups/screenfluence.jpg"),
+    mockup: getImgPath("/images/portfolio/project-mockups/details/screenfluence.png"),
+    slug: "screenfluence",
+    title: "Screenfluence",
+    categories: ["AdTech", "SaaS", "Digital Signage Platform"],
+    overview:
+      "Screenfluence is a cloud-based digital signage platform that gives businesses complete control over their advertising content across distributed screen networks from a single dashboard. Clients can upload media, build display schedules, and push content updates to any number of screens and locations in real time, with no physical access to devices required.",
+    whatWeBuilt: [
+      {
+        title: "Centralized Content Management",
+        description:
+          "A cloud portal where businesses upload, organize, and manage all advertising content from one place, structured for speed and clarity at scale.",
+      },
+      {
+        title: "Remote Screen Distribution",
+        description:
+          "A real-time content delivery system that syncs media across connected displays instantly, keeping every screen current without on-site intervention.",
+      },
+      {
+        title: "Scheduling & Playlist Management",
+        description:
+          "Flexible scheduling tools with time-based and location-based rules, giving operators precise control over what plays, where, and when.",
+      },
+      {
+        title: "Enterprise Client Management",
+        description:
+          "Role-based access controls, multi-client organization, and scalable SaaS infrastructure designed to grow alongside advertising networks of any size.",
+      },
+    ],
+    approach: [
+      "The core challenge was building a platform that could handle large-scale digital signage operations without adding complexity for the teams managing them.",
+      "We prioritized reliability and a clean, predictable user experience making it easy to manage campaigns, push updates, and keep screens in sync across multiple locations.",
+      "Particular attention went into content synchronization stability, and long-term maintainability of the underlying system architecture.",
+    ],
+    techStack: [
+      "Ruby on Rails",
+      "Cloud Infrastructure",
+      "Digital Signage Systems",
+    ],
+    outcome:
+      "Screenfluence is a fully operational SaaS platform actively powering digital advertising networks across North America. It helps businesses manage content distribution more efficiently while eliminating the operational burden of manual screen management.",
+    cta: {
+      title: "Building something like this?",
+      description:
+        "We can help you plan it, build it, and get it ready for real users.",
+      actionText: "Start a Conversation",
+      href: "/contact"
+    },
   },
   {
-    image: getImgPath('/images/portfolio/mars.png'),
-    alt: 'Custom web application development article',
-    title: 'Custom Web Application Development: Everything You Need to Know',
-    slug: 'Mars',
-    info: 'Engineering insights',
-    Class: 'md:mt-24',
-    kind: 'Blog',
+    image: getImgPath("/images/portfolio/project-mockups/viatrm.jpg"),
+    mockup: getImgPath("/images/portfolio/project-mockups/details/viatrm.png"),
+    slug: "viatrm",
+    title: "ViaTrm",
+    categories: ["EdTech", "SaaS", "Study Abroad Management Platform"],
+    overview:
+      "ViaTrm is a comprehensive study abroad management platform built for universities and international education offices. It centralizes the entire student mobility lifecycle from applications and advising through travel coordination and institutional reporting inside one unified system. Designed as a multi-tenant SaaS product, ViaTrm helps universities run international programs more efficiently while delivering a better experience for students and administrators alike.",
+    whatWeBuilt: [
+      {
+        title: "Student Workflow Management",
+        description:
+          "A structured application and pre-departure system that guides students through every step of the study abroad process with clarity and minimal friction.",
+      },
+      {
+        title: "Advisor & Administration Dashboards",
+        description:
+          "Centralized dashboards giving advisors real-time visibility into student engagement, application progress, approvals, and program activity.",
+      },
+      {
+        title: "Institutional Program Management",
+        description:
+          "Tools for managing university partnerships, travel logistics, and international program records, all in one organized system.",
+      },
+      {
+        title: "Multi-Tenant SaaS Architecture",
+        description:
+          "A scalable platform structure where each university operates within its own secure, independently configured environment under a shared infrastructure.",
+      },
+    ],
+    approach: [
+      "Universities were managing study abroad programs through spreadsheets, disconnected tools, and manual communication, a process that was slow, error-prone, and hard to scale.",
+      "Our focus was building a platform that creates clarity across the entire study abroad lifecycle.",
+      "Advisors needed operational control; students needed a smooth, accessible experience.",
+      "We designed for both, with strong attention to data organization, scalability, and the flexibility required to support multiple institutions under one architecture.",
+    ],
+    techStack: ["React", "Ruby on Rails", "PostgreSQL"],
+    outcome:
+      "ViaTrm grew into a global SaaS platform adopted by universities across multiple regions to manage international education programs more effectively. It later expanded into multiple specialized product lines, a testament to the scalability and flexibility built into the original system architecture.",
+    cta: {
+      title: "Building something like this?",
+      description:
+        "We can help you plan it, build it, and get it ready for real users.",
+      actionText: "Start a Conversation",
+      href: "/contact"
+    },
+  },
+  
+  {
+    image: getImgPath("/images/portfolio/project-mockups/house-folios.jpg"),
+    mockup: getImgPath("/images/portfolio/project-mockups/details/housefolios.png"),
+    slug: "housefolios",
+    title: "HouseFolios",
+    categories: [
+      "Real Estate",
+      "SaaS",
+      "Investment Analytics Platform",
+    ],
+    overview:
+      "HouseFolios is a real estate investment management platform that helps investors move faster and make better decisions through structured, data-driven analytics. The platform supports the full investment lifecycle, deal sourcing, property analysis, offer management, rehab tracking, and portfolio oversight, all within one centralized system.",
+    whatWeBuilt: [
+      {
+        title: "Property Analytics Engine",
+        description:
+          "A powerful evaluation system that processes investment opportunities using key metrics: ROI, cash flow projections, cap rate, and ARV calculations, giving investors the data they need to act with confidence.",
+      },
+      {
+        title: "Deal Sourcing & Market Comparisons",
+        description:
+          "Integrated property search and market comparison tools that let investors analyze opportunities faster and benchmark against relevant market data.",
+      },
+      {
+        title: "Investment Workflow Management",
+        description:
+          "End-to-end tools for managing offers, tracking deal closings, monitoring active rehab projects, and organizing property portfolios in one place.",
+      },
+      {
+        title: "Collaborative Investor Platform",
+        description:
+          "Shared portfolio management features that support team collaboration and group investment decisions across organizations.",
+      },
+    ],
+    approach: [
+      "Real estate investors have long relied on fragmented tools, manual spreadsheets, and incomplete market data to make high-stakes decisions.",
+      "We set out to replace that with a platform that transforms raw property data into a clear, actionable investment workflow.",
+      "The architecture was built to process large volumes of property information while keeping the experience fast and highly interactive designed for investors who are actively working deals, not just reviewing reports.",
+      "Data visualization, real-time updates, and scalable analytics infrastructure were central to every design decision.",
+    ],
+    techStack: [
+      "Meteor",
+      "React",
+      "GraphQL",
+      "Apollo",
+      "MongoDB",
+    ],
+    outcome:
+      "HouseFolios is a growing SaaS platform serving real estate investors across the US market, helping users evaluate opportunities faster and manage their portfolios through a centralized, analytics-driven system. The platform continues to expand with new features and an active and growing user base.",
+    cta: {
+      title: "Building something like this?",
+      description:
+        "We can help you plan it, build it, and get it ready for real users.",
+      actionText: "Start a Conversation",
+      href: "/contact"
+    },
+  },
+  
+  {
+    image: getImgPath("/images/portfolio/project-mockups/sellify.jpg"),
+    mockup: getImgPath("/images/portfolio/project-mockups/details/sellify.png"),
+    slug: "sellifyhq",
+    title: "SellifyHQ",
+    categories: ["B2B Commerce", "SaaS", "Wholesale Growth Platform"],
+    overview:
+      "SellifyHQ is a wholesale growth platform built for modern product brands that need to manage B2B sales, inventory, customer relationships, and e-commerce operations in one connected system. It brings together CRM functionality, inventory-aware workflows, and wholesale ordering tools, eliminating the friction that comes from running these operations across disconnected platforms.",
+    whatWeBuilt: [
+      {
+        title: "Wholesale B2B Platform",
+        description:
+          "A self-serve ordering system purpose-built around how B2B buyers actually place and manage orders, streamlined, transparent, and easy to use.",
+      },
+      {
+        title: "Stock-Aware CRM",
+        description:
+          "CRM workflows connected directly to live inventory and order data, giving sales teams full visibility into account health and stock availability in real time.",
+      },
+      {
+        title: "Inventory & Order Synchronization",
+        description:
+          "Systems that keep inventory levels, customer accounts, and order data synchronized across connected tools and sales channels automatically.",
+      },
+      {
+        title: "Sales & Account Management Tools",
+        description:
+          "Features for pipeline tracking, follow-ups, account health monitoring, and automated reorder workflows built specifically for the needs of product-based wholesale businesses.",
+      },
+    ],
+    approach: [
+      "Wholesale operations typically suffer from the same problem: sales, inventory, and customer data live in separate systems that don't talk to each other.",
+      "The result is slow order processing, poor visibility, and a frustrating experience for B2B buyers.",
+      "We built SellifyHQ to solve that at the core; a platform where inventory, CRM activity, and commerce are connected in real time, with a scalable architecture that reduces operational complexity instead of adding to it.",
+    ],
+    techStack: [
+      "React",
+      "SaaS Architecture",
+      "CRM Systems",
+      "Inventory Management",
+      "B2B Commerce",
+    ],
+    outcome:
+      "SellifyHQ is a scalable wholesale growth platform helping brands manage B2B operations more efficiently through connected CRM, inventory, and commerce workflows. It continues to support businesses looking to streamline wholesale sales, automate day-to-day operations, and improve customer management through one unified system.",
+    cta: {
+      title: "Building something like this?",
+      description:
+        "We can help you plan it, build it, and get it ready for real users.",
+      actionText: "Start a Conversation",
+      href: "/contact"
+    },
   },
   {
-    image: getImgPath('/images/portfolio/humans.png'),
-    alt: 'Hospitality AI platform case study',
-    title: 'Hospitality AI Platform',
-    slug: 'everyday-humans',
-    info: 'AI & analytics',
-    Class: 'md:mt-0',
-    kind: 'Case Study',
+    image: getImgPath("/images/portfolio/project-mockups/machinetools.jpg"),
+    mockup: getImgPath("/images/portfolio/project-mockups/details/machinetools.png"),
+    slug: "machinetools",
+    title: "MachineTools.com",
+    categories: [
+      "Industrial",
+      "B2B Marketplace",
+      "Manufacturing Platform",
+    ],
+    overview:
+      "MachineTools.com is one of the world's leading marketplaces for industrial machinery, connecting buyers and sellers of new and used manufacturing equipment across global markets. The platform handles thousands of listings across hundreds of industrial equipment categories, serving manufacturers, dealers, and procurement teams worldwide.",
+    whatWeBuilt: [
+      {
+        title: "Industrial Marketplace Infrastructure",
+        description:
+          "A large-scale marketplace system engineered to manage machinery listings across a vast and highly varied category taxonomy reliably and at volume.",
+      },
+      {
+        title: "Advanced Search & Filtering",
+        description:
+          "Powerful search with category, price range, condition, and location filters that make equipment discovery fast and precise for buyers across international markets.",
+      },
+      {
+        title: "Dealer & Seller Management Tools",
+        description:
+          "Tools that give dealers and individual sellers full control over their inventory listings, inquiry management, and marketplace presence.",
+      },
+      {
+        title: "Lead Generation & Buyer Connections",
+        description:
+          "Integrated workflows that route qualified buyer inquiries to the right sellers and streamline the entire inquiry-to-connection process.",
+      },
+    ],
+    approach: [
+      "Industrial equipment procurement has historically relied on fragmented supplier networks, limited market transparency, and time-consuming sourcing processes.",
+      "The opportunity was to build a trusted, high-volume marketplace that could make equipment discovery genuinely fast and reliable for global buyers and sellers.",
+      "We focused on scalable architecture, a well-structured category taxonomy, and reliable search performance capable of handling high traffic across international markets, all without sacrificing usability or platform stability.",
+    ],
+    techStack: ["Ruby on Rails", "B2B Marketplace Architecture"],
+    outcome:
+      "MachineTools.com continues to operate as a leading global marketplace for industrial machinery, serving manufacturers, equipment dealers, and industrial buyers worldwide. It remains an active, high-traffic destination for equipment discovery, lead generation, and marketplace operations at enterprise scale.",
+    cta: {
+      title: "Building something like this?",
+      description:
+        "We can help you plan it, build it, and get it ready for real users.",
+      actionText: "Start a Conversation",
+      href: "/contact"
+    },
+  },
+  
+  {
+    image: getImgPath("/images/portfolio/project-mockups/happinest.jpg"),
+    mockup: getImgPath("/images/portfolio/project-mockups/details/happinest.png"),
+    slug: "happinest",
+    title: "HappiNest",
+    categories: [
+      "Digital Health",
+      "Mental Wellbeing",
+      "Maternal Care Platform",
+    ],
+    overview:
+      "HappiNest is a digital wellbeing platform built to support the emotional and mental health of new and expecting parents across pregnancy, postpartum, and the early stages of parenthood. It provides structured guidance, expert-led therapy access, and personalized care pathways that help parents navigate one of life's most significant transitions with confidence and proper support. The platform bridges the gap between clinical care and everyday emotional well-being, ensuring no one is left without guidance when they need it most.",
+    whatWeBuilt: [
+      {
+        title: "Personalized Maternal Mental Health Journeys",
+        description:
+          "Guided care experiences tailored to each user's specific stage of pregnancy, postpartum, or early parenting with support that evolves as their needs change.",
+      },
+      {
+        title: "Expert Access & Therapy Integration",
+        description:
+          "Direct access to licensed therapists, counselors, and maternal health specialists for consultations, ongoing sessions, and emotional support available within the platform.",
+      },
+      {
+        title: "Mood & Wellbeing Tracking",
+        description:
+          "A simple but powerful tracking system that monitors emotional patterns and stress levels over time, enabling proactive care before challenges escalate.",
+      },
+      {
+        title: "Content & Guidance Library",
+        description:
+          "A medically reviewed content library covering anxiety, postpartum depression, sleep challenges, relationship changes, and the emotional demands of early parenting.",
+      },
+      {
+        title: "Support Network Features",
+        description:
+          "Community tools that connect parents with peer groups and guided support programs, designed to reduce isolation and build a sense of shared experience.",
+      },
+    ],
+    approach: [
+      "Maternal mental health is chronically underserved in traditional healthcare, often deprioritized despite being critical to both parent and child wellbeing.",
+      "HappiNest was built to change that.",
+      "The goal was a platform that treats emotional health with the same seriousness as physical health, and makes accessing support feel as easy as possible.",
+      "We built with a strong emphasis on personalization, sensitive data handling, privacy, and reducing friction at every point of care access.",
+      "The architecture supports continuous user engagement and scalable expert access across regions.",
+    ],
+    techStack: [
+      "React",
+      "Node.js",
+      "Healthcare API Integrations",
+      "Cloud-Based Architecture",
+    ],
+    outcome:
+      "HappiNest serves as a growing digital companion for new and expecting parents, helping them manage emotional stress, connect with expert care, and feel genuinely supported throughout their parenting journey. It continues to expand as a trusted mental well-being layer within maternal healthcare.",
+    cta: {
+      title: "Building something like this?",
+      description:
+        "We can help you plan it, build it, and get it ready for real users.",
+      actionText: "Start a Conversation",
+      href: "/contact"
+    },
+  },
+  
+  {
+    image: getImgPath("/images/portfolio/project-mockups/study-abroad-apartments.jpg"),
+    mockup: getImgPath("/images/portfolio/project-mockups/details/studyabroadapartments.png"),
+    slug: "study-abroad-apartments",
+    title: "Study Abroad Apartments",
+    categories: [
+      "PropTech",
+      "Student Housing Marketplace",
+      "Global Accommodation Platform",
+    ],
+    overview:
+      "Study Abroad Apartments is a global housing marketplace built to help international students find and book safe, verified, and fully furnished accommodation — removing one of the most stressful parts of studying abroad. The platform consolidates trusted listings, transparent property information, and a seamless booking experience into one place, purpose-built for students relocating across countries.",
+    whatWeBuilt: [
+      {
+        title: "Verified Student Housing Marketplace",
+        description:
+          "A structured listing system featuring verified apartments, vetted housing providers, and furnished rentals across major student cities worldwide.",
+      },
+      {
+        title: "Advanced Search & Location Filters",
+        description:
+          "Smart filters that let students search by city, proximity to their university, budget, lease duration, and available amenities, narrowing options quickly and reliably.",
+      },
+      {
+        title: "Seamless Booking Experience",
+        description:
+          "An end-to-end booking flow that simplifies inquiries, reservations, and confirmations, designed for students navigating an unfamiliar country and process.",
+      },
+      {
+        title: "Trust & Safety Layer",
+        description:
+          "Verification systems for listings, landlords, and properties that ensure students are only accessing reliable options, never left to guess.",
+      },
+    ],
+    approach: [
+      "International students face a uniquely difficult housing challenge, making high-stakes accommodation decisions from abroad, with limited local knowledge and too many unreliable options.",
+      "We built the platform around resolving that uncertainty, creating a trusted global marketplace with strong data structuring, location intelligence, and verification mechanisms that make the right decision easier to reach.",
+      "The goal was to reduce decision-making friction for students navigating new countries, at a moment when stress is already high.",
+    ],
+    techStack: [
+      "React",
+      "Node.js",
+      "Marketplace Infrastructure",
+      "Cloud Storage & APIs",
+    ],
+    outcome:
+      "Study Abroad Apartments has become a trusted destination for international students seeking safe, verified housing abroad. The platform continues to grow as a reliable resource that makes international student relocation faster, safer, and far less stressful.",
+    cta: {
+      title: "Building something like this?",
+      description:
+        "We can help you plan it, build it, and get it ready for real users.",
+      actionText: "Start a Conversation",
+      href: "/contact"
+    },
+  },
+  
+  {
+    image: getImgPath("/images/portfolio/project-mockups/greatest-hire.jpg"),
+    mockup: getImgPath("/images/portfolio/project-mockups/details/greatesthire.png"),
+    slug: "greatest-hire",
+    title: "Greatest Hire",
+    categories: [
+      "HR Tech",
+      "Recruitment Platform",
+      "Talent Marketplace",
+    ],
+    overview:
+      "Greatest Hire is a modern recruitment platform built to help companies connect with the right talent through structured, efficient hiring workflows. It streamlines the full hiring journey from sourcing and screening through evaluation and onboarding, making recruitment faster, more consistent, and more data-informed.",
+    whatWeBuilt: [
+      {
+        title: "Smart Candidate Sourcing",
+        description:
+          "A centralized system that helps recruiters discover, manage, and shortlist candidates efficiently from multiple talent pools without losing track of anyone in the process.",
+      },
+      {
+        title: "Structured Hiring Pipelines",
+        description:
+          "Customizable workflows that move candidates through defined stages like screening, interviews, evaluation, and onboarding, keeping every hire on track and every team aligned.",
+      },
+      {
+        title: "Team Collaboration Tools",
+        description:
+          "Real-time collaboration features that let hiring managers and HR teams share feedback, compare assessments, and make decisions together in a single place.",
+      },
+      {
+        title: "Standardized Evaluation Framework",
+        description:
+          "Consistent evaluation tools that reduce bias, improve hiring accuracy, and make it easier to compare candidates fairly across roles.",
+      },
+    ],
+    approach: [
+      "Most hiring processes are slower and more chaotic than they need to be, built on disconnected tools, inconsistent evaluation criteria, and communication spread across emails and spreadsheets.",
+      "Greatest Hire was designed to replace that with a unified, workflow-driven system.",
+      "We focused on usability, structured pipelines, and an architecture that scales as hiring teams grow with equal attention paid to reducing time-to-hire and improving the experience for candidates going through the process.",
+    ],
+    techStack: [
+      "React",
+      "Node.js",
+      "Workflow Engine",
+      "Cloud-Based SaaS Architecture",
+    ],
+    outcome:
+      "Greatest Hire continues to help companies build stronger teams by making recruitment more structured, transparent, and scalable. It is actively used to streamline hiring and improve collaboration across HR and talent acquisition teams.",
+    cta: {
+      title: "Building something like this?",
+      description:
+        "We can help you plan it, build it, and get it ready for real users.",
+      actionText: "Start a Conversation",
+      href: "/contact"
+    },
+  },
+  
+  {
+    image: getImgPath("/images/portfolio/project-mockups/the-d-zone.jpg"),
+    mockup: getImgPath("/images/portfolio/project-mockups/details/thedzone.png"),
+    slug: "the-d-zone",
+    title: "The D Zone",
+    categories: [
+      "Sports Media",
+      "Content Platform",
+      "High School Football Analytics",
+    ],
+    overview:
+      "The D Zone is a sports content platform dedicated to high school football, delivering real-time updates, news, and data-driven insights to athletes, coaches, recruiters, and fans. The platform provides comprehensive coverage: schedules, rankings, player statistics, and recruiting profiles all in one structured destination built around the needs of high school sports.",
+    whatWeBuilt: [
+      {
+        title: "Real-Time Sports Content Engine",
+        description:
+          "A publishing system built to deliver live game updates, results, and breaking news at the pace high school football actually moves during busy seasons with many simultaneous events.",
+      },
+      {
+        title: "Player Stats & Rankings System",
+        description:
+          "Dynamic tracking of athlete performance, season statistics, and regional rankings is updated continuously and organized for quick reference by coaches and recruiters.",
+      },
+      {
+        title: "Game Schedules & Results Hub",
+        description:
+          "A centralized, always-current hub for fixtures, match schedules, and real-time results across teams and regions.",
+      },
+      {
+        title: "Recruiting Insights Platform",
+        description:
+          "Data-driven athlete profiles and performance insights are designed to improve player visibility and support college recruiting decisions with better information.",
+      },
+    ],
+    approach: [
+      "High school sports data has traditionally been scattered, inconsistent, and difficult to access in a timely way, especially for a stakeholder group as varied as athletes, coaches, fans, and recruiters.",
+      "We built The D Zone to consolidate that information into a structured, scalable platform that serves all of those audiences well.",
+      "Real-time data handling, efficient content delivery, and a clear information architecture were central priorities, particularly during peak season when traffic spikes significantly.",
+    ],
+    techStack: [
+      "React",
+      "Node.js",
+      "Real-Time Data APIs",
+      "Content Management System",
+    ],
+    outcome:
+      "The D Zone has become a key destination for high school football coverage, giving athletes, coaches, recruiters, and fans reliable, timely access to the information they need. The platform continues to grow as a trusted source for high school sports data and player visibility.",
+    cta: {
+      title: "Building something like this?",
+      description:
+        "We can help you plan it, build it, and get it ready for real users.",
+      actionText: "Start a Conversation",
+      href: "/contact"
+    },
   },
   {
-    image: getImgPath('/images/portfolio/roket-squred.png'),
-    alt: 'Cloud computing transformation article',
-    title: 'How Cloud Computing Can Transform Your Operations',
-    slug: 'rocket-squared',
-    info: 'Cloud strategy',
-    Class: 'md:mt-24',
-    kind: 'Blog',
-  },
-  {
-    image: getImgPath('/images/portfolio/panda-logo.png'),
-    alt: 'Mobile design trends article',
-    title: 'Trends of Mobile Design: What’s Next for Your Business?',
-    slug: 'panda-logo',
-    info: 'UX & mobile',
-    Class: 'md:mt-0',
-    kind: 'Blog',
-  },
-  {
-    image: getImgPath('/images/portfolio/humans.png'),
-    alt: 'Pakistan furniture Shopify migration case study',
-    title: 'Pakistan Furniture Leader’s Shopify Migration',
-    slug: 'fusion-dynamics',
-    info: 'Shopify & retail',
-    Class: 'md:mt-0',
-    kind: 'Case Study',
-  },
-  {
-    image: getImgPath('/images/portfolio/cozycasa.png'),
-    alt: 'Generative AI in business article',
-    title: 'How Generative AI Is Transforming Product Teams',
-    slug: 'innovate-x-ventures',
-    info: 'AI adoption',
-    Class: 'md:mt-24',
-    kind: 'Blog',
-  },
-  {
-    image: getImgPath('/images/portfolio/mars.png'),
-    alt: 'US fintech AI financial modeling case study',
-    title: 'US Fintech’s AI Financial Modeling',
-    slug: 'nebula-holdings',
-    info: 'Fintech & ML',
-    Class: 'md:mt-0',
-    kind: 'Case Study',
-  },
-  {
-    image: getImgPath('/images/portfolio/panda-logo.png'),
-    alt: 'Innovation and venture case study',
-    title: 'Summit Partners: Scaling the Product Org',
-    slug: 'summit-partners',
-    info: 'Product & growth',
-    Class: 'md:mt-24',
-    kind: 'Case Study',
+    image: getImgPath("/images/portfolio/project-mockups/abaco.jpg"),
+    mockup: getImgPath("/images/portfolio/project-mockups/details/abaco.png"),
+      slug: "abaco-polarized",
+    title: "Abaco Polarized",
+    categories: ["E-commerce", "Shopify", "CRM Integration"],
+    overview:
+      "Abaco Polarized needed more than just an online store. They required a connected system that could manage customer engagement, rewards, and post-purchase workflows, all in one place.",
+    whatWeBuilt: [
+      {
+        title: "Custom Shopify Applications",
+        description:
+          "Developed tailored apps for rewards and warranty management",
+      },
+      {
+        title: "CRM Platform",
+        description:
+          "Built a dedicated CRM system to manage customer data, engagement, and lifecycle",
+      },
+      {
+        title: "Integrated Ecosystem",
+        description:
+          "Connected storefront and backend systems for a smooth, unified workflow",
+      },
+    ],
+    approach: [
+      "We focused on creating a system that works beyond the storefront, where customer interactions, rewards, and warranties are all managed seamlessly without adding operational complexity.",
+      "The goal was not just functionality, but clarity and efficiency for both the business and its users.",
+    ],
+    techStack: [
+      "Shopify Themes",
+      "React",
+      "Next.js",
+      "Node.js",
+      "DynamoDB",
+    ],
+    outcome:
+      "A fully integrated e-commerce and CRM setup that supports customer engagement, simplifies internal processes, and creates a more connected experience across the platform.",
+    cta: {
+      title: "Building something like this?",
+      description:
+        "We can help you plan it, build it, and get it ready for real users.",
+      actionText: "Start a Conversation",
+      href: "/contact"
+    },
   }
-]
+];
 
 export const services: Service = [
   {
@@ -451,7 +895,7 @@ export const servicesPageData: ServicePageSection[] = [
     description:
       "We help you design and develop software that is structured, scalable, and built to evolve with your business not break as it grows. At Pascolab, we don’t just write code. We build systems with clarity, so every decision made today still supports you tomorrow.",
     icon: "solar:code-bold-duotone",
-    listingCtaLabel: "Let’s Talk",
+    listingCtaLabel: "View Details",
     catLabel: "What We Do",
     eyebrow: "Custom Software Engineering",
     heroTitle: "Build it right from the start, not twice later",
@@ -534,7 +978,7 @@ export const servicesPageData: ServicePageSection[] = [
     description:
       "AI and data is used only where they improve real outcomes, not as a buzzword layer. The focus is simple: clarity, usefulness, and systems that help users and businesses make better decisions without added complexity. At Pascolab, we design AI-driven features that feel natural inside your product.",
     icon: "solar:cpu-bold-duotone",
-    listingCtaLabel: "Let’s Talk",
+    listingCtaLabel: "View Details",
     catLabel: "What We Do",
     eyebrow: "AI & Data Systems",
     heroTitle: "Make your product better without complicating it",
@@ -617,7 +1061,7 @@ export const servicesPageData: ServicePageSection[] = [
     description:
       "Building for finance or real estate isn’t just about features. It’s about handling sensitive, high-value data with precision and clarity. We design systems that simplify complexity and making financial workflows and property platforms secure.",
     icon: "solar:shield-bold-duotone",
-    listingCtaLabel: "Let’s Talk",
+    listingCtaLabel: "View Details",
     catLabel: "What We Do",
     eyebrow: "FinTech & PropTech Systems",
     heroTitle: "When trust, accuracy, and speed matter",
@@ -695,7 +1139,7 @@ export const servicesPageData: ServicePageSection[] = [
     description:
       "We design cloud systems that are built for stability and scale so your product performs reliably even as demand grows. From deployment pipelines to infrastructure optimization, we ensure everything behind your product runs smoothly and efficiently.",
     icon: "solar:cloud-bold-duotone",
-      listingCtaLabel: "Let’s Talk",
+      listingCtaLabel: "View Details",
     catLabel: "What We Do",
     eyebrow: "Cloud & DevOps",
     heroTitle: "Your product shouldn’t slow down because your infrastructure can’t keep up.",
@@ -940,7 +1384,7 @@ export const careersData: CareersPageData = {
       "No chaotic workflows.",
       "Just clear direction and thoughtful execution",
     ],
-    closing: "You'll be trusted to think, contribute, and take ownership — not just follow instructions",
+    closing: "You'll be trusted to think, contribute, and take ownership, not just follow instructions",
   },
   whatWeLookFor: {
     eyebrow: "Who fits here",

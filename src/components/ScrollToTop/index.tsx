@@ -30,15 +30,15 @@ export default function ScrollToTop() {
     }, []);
 
   return (
-    <div className="fixed bottom-8 right-8 z-999">
+    <div className="fixed bottom-5 right-5 z-999">
       <div className="flex items-center gap-2.5">
         {isVisible && (
           <div
             onClick={scrollToTop}
             aria-label="scroll to top"
-            className="back-to-top flex h-10 w-10 cursor-pointer items-center justify-center rounded-md bg-primary text-white shadow-md transition duration-300 ease-in-out hover:bg-dark"
+            className="back-to-top flex h-8 md:h-10 w-8 md:w-10 cursor-pointer items-center justify-center rounded-md bg-primary text-white shadow-md transition duration-300 ease-in-out hover:bg-dark"
           >
-            <span className="mt-[6px] h-3 w-3 rotate-45 border-l border-t border-white"></span>
+            <span className="mt-[6px] h-2 md:h-3 w-2 md:w-3 rotate-45 border-l border-t border-white"></span>
           </div>
         )}
       </div>
