@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { useMemo, useState } from 'react'
 
 import type { ServicePageSection } from '@/types/service'
-import { Button } from '@/components/ui/button'
 
 type ServicesMegaPanelProps = {
   sections: ServicePageSection[]
@@ -56,22 +55,23 @@ const ServicesMegaPanel: React.FC<ServicesMegaPanelProps> = ({ sections, onClose
               const isActive = activeSection.id === section.id
 
               return (
-                <Button 
-                    key={section.id}
-                  type='button'
+                <Link
+                  key={section.id}
+                  href={`/services/${section.id}`}
                   onMouseEnter={() => setActiveSectionId(section.id)}
                   onFocus={() => setActiveSectionId(section.id)}
-                  onClick={() => setActiveSectionId(section.id)}
-                className={`flex w-full items-center justify-between rounded-none px-6.5 h-auto py-4 text-left text-sm font-medium transition-all duration-300 ease-in-out ${
-                  isActive
-                    ? 'text-white'
-                    : 'text-foreground bg-transparent'
-                }`}>
+                  onClick={onClose}
+                  className={`flex w-full items-center justify-between px-6.5 py-4 text-sm font-medium transition-all duration-200 ease-in-out ${
+                    isActive
+                      ? 'bg-primary text-white'
+                      : 'text-foreground bg-transparent'
+                  }`}
+                >
                   <span>{section.title}</span>
                   <span className='shrink-0'>
                     {isActive ? <ChevronIcon /> : null}
                   </span>
-                </Button>
+                </Link>
               )
             })}
           </div>
@@ -123,7 +123,7 @@ const ServicesMegaPanel: React.FC<ServicesMegaPanelProps> = ({ sections, onClose
           </div>
 
           <div className='mt-6 border-t border-border pt-4'>
-            <div className='flex justify-start lg:justify-end'>
+            <div className='flex justify-start'>
               <Link
                 href={`/services/${activeSection.id}`}
                 onClick={onClose}

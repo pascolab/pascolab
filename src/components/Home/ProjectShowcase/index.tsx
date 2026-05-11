@@ -10,6 +10,7 @@ import EyeBrew from "@/components/SharedComponent/EyeBrew";
 import laptopFrame from "../../../../public/images/portfolio/laptop-frame.svg";
 import { Badge } from "@/components/ui/badge";
 import CTA from "@/components/Common/CTA";
+import {Icon} from "@iconify/react"
 
 
 function LaptopFrame({ children }: { children: React.ReactNode }) {
@@ -74,6 +75,15 @@ export default function ProjectShowcase() {
   const scaleX = useTransform(smoothProgress, [0, 1], [0, 1]);
   const active = showcase[activeIndex];
 
+  const scrollToIndex = (i: number) => {
+    const el = containerRef.current;
+    if (!el) return;
+    const containerTop = el.offsetTop;
+    const totalScrollRange = el.offsetHeight - window.innerHeight;
+    const targetProgress = (i + 0.5) / n;
+    window.scrollTo({ top: containerTop + totalScrollRange * targetProgress, behavior: "smooth" });
+  };
+
   return (
     <div
       ref={containerRef}
@@ -124,22 +134,51 @@ export default function ProjectShowcase() {
 
               {/* Dot indicators */}
               <div className="flex items-center justify-between gap-1.5 pt-1">
-               <div className="flex items-center gap-1.5">
-               {showcase.map((_, i) => (
-                  <div
-                    key={i}
-                    className={`h-1 rounded-full transition-all duration-200 ${i === activeIndex ? "w-6 bg-primary" : "w-2 bg-border"
+                <div className="flex items-center gap-3">
+                  {showcase.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => scrollToIndex(i)}
+                      aria-label={`Go to project ${i + 1}`}
+                      className={`rounded-full transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
+                        i === activeIndex
+                          ? "w-8 h-3 bg-primary shadow-[0_0_8px_2px] shadow-primary/40"
+                          : "w-3 h-3 bg-border hover:bg-muted-foreground"
                       }`}
-                  />
-                ))}
-               </div>
+                    />
+                  ))}
+                </div>
 
                 <CTA label="View Details" href={`/projects/${showcase[activeIndex].slug}`} size="sm" className="py-0.5! text-sm! hidden md:flex" />
               </div>
             </div>
 
             {/* RIGHT — fixed laptop, single mockup slides in/out */}
-            <div className="order-1 lg:order-2 flex items-center justify-center">
+            <div className="order-1 lg:order-2 flex items-center justify-center relative">
+              {/* Previous slide edge hint */}
+              {activeIndex > 0 && (
+                <button
+                  onClick={() => scrollToIndex(activeIndex - 1)}
+                  aria-label="Previous project"
+                  className="absolute -left-2.5 md:left-7 z-30 flex flex-col items-center gap-1 group cursor-pointer"
+                >
+                  <span className="flex items-center justify-center w-8 h-8 rounded-full border border-border bg-background/80 backdrop-blur-sm text-muted-foreground group-hover:text-primary group-hover:border-primary transition-all duration-200 shadow-sm">
+                    <Icon icon="mdi:arrow-left" className="w-5 h-5" />
+                  </span>
+                </button>
+              )}
+              {/* Next slide edge hint */}
+              {activeIndex < n - 1 && (
+                <button
+                  onClick={() => scrollToIndex(activeIndex + 1)}
+                  aria-label="Next project"
+                  className="absolute -right-2.5 lg:-right-12 z-30 flex flex-col items-center gap-1 group cursor-pointer"
+                >
+                  <span className="flex items-center justify-center w-8 h-8 rounded-full border border-border bg-background/80 backdrop-blur-sm text-muted-foreground group-hover:text-primary group-hover:border-primary transition-all duration-200 shadow-sm">
+                    <Icon icon="mdi:arrow-right" className="w-5 h-5" />
+                  </span>
+                </button>
+              )}
               <div className="w-full max-w-[540px]">
                 <LaptopFrame>
                   <div className="relative w-full h-full">

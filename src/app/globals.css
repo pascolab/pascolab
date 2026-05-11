@@ -273,7 +273,7 @@
 @layer utilities {
 
   .content-space {
-    @apply flex flex-col gap-y-9 md:gap-y-10;
+    @apply flex flex-col gap-y-5 md:gap-y-10;
   }
 
   .flex-center {

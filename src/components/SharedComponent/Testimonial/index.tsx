@@ -1,14 +1,20 @@
 'use client'
 
+import React, { useRef } from 'react'
 import Slider from 'react-slick'
+import type { Settings } from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { testimonials } from '@/app/api/data'
-import { Card, CardContent, CardHeader } from '@/components/ui/card'
+import { ChevronLeft, ChevronRight, Star } from 'lucide-react'
 import Image from 'next/image'
-import { Quote, Star } from 'lucide-react'
-import clientTestimonial from '../../../../public/images/testimonial/Client-testimonial.png'
 import EyeBrew from '../EyeBrew'
+import { getImgPath } from '@/utils/image'
+
+interface SliderRef {
+  slickPrev: () => void
+  slickNext: () => void
+}
 
 type Testimonial = {
   name: string
@@ -17,94 +23,97 @@ type Testimonial = {
   quote: string
 }
 
-const TestimonialCard = ({
-  item,
-}: {
-  item: Testimonial
-}) => {
-  return (
-    <Card className='relative h-full shadow-none! ring-0 content-space bg-transparent border-none '>
-        <EyeBrew text="Client Testimonial" />
-      <CardHeader className='gap-4'>
+const TestimonialCard = ({ item }: { item: Testimonial }) => (
+  <div className='relative flex flex-col gap-5 rounded-lg  dark:ring-0 bg-card p-4 md:p-6 h-full min-h-[260px]'>
+    <Image src={getImgPath("/images/testimonial/testimonial-icon.svg")} alt="quote" width={50} height={50} className='' />
 
-        <div className='flex items-center gap-1 text-orange-500/80'>
-          {Array.from({ length: 5 }).map((_, i) => (
-            <Star key={i} className='h-4 w-4 fill-current' />
-          ))}
-        </div>
+    <div className='flex items-center gap-1 text-orange-500'>
+      {Array.from({ length: 5 }).map((_, i) => (
+        <Star key={i} className='h-4 w-4 fill-current' />
+      ))}
+    </div>
 
-        <p className='text-foreground text-body-large '>
-          &ldquo;{item.quote}&rdquo;
-        </p>
-      </CardHeader>
+    <p className='text-foreground text-body flex-1 leading-relaxed'>
+      &ldquo;{item.quote}&rdquo;
+    </p>
 
-      <CardContent className=''>
-        <div className='flex items-start justify-between gap-6'>
-          <div>
-            <p className='text-foreground font-bold text-body-large'>{item.name}</p>
-            <p className='text-muted-foreground/75  font-bold  tracking-widest text-small'>
-              {item.role}
-              <span className='inline-block uppercase'>{item.company ? ` · ${item.company}` : null}</span>
-            </p>
-          </div>
-        </div>
-      </CardContent>
-
-      <Quote className='pointer-events-none absolute bottom-4 right-4 h-10 w-10 text-transparent  fill-primary/15 dark:fill-accent/30' />
-    </Card>
-  )
-}
-
+    <div>
+      <p className='text-foreground font-bold tracking-wide text-body'>{item.name}</p>
+      <p className='text-muted-foreground font-medium tracking-wide text-small'>
+        {item.role}
+        {item.company ? (
+          <span className='uppercase'>&nbsp;&middot;&nbsp;{item.company}</span>
+        ) : null}
+      </p>
+    </div>
+  </div>
+)
 
 const Testimonial = () => {
-  const settings = {
+  const sliderRef = useRef<SliderRef>(null)
+
+  const settings: Settings = {
     dots: false,
     arrows: false,
     infinite: true,
     autoplay: true,
-    autoplaySpeed: 7000,
+    autoplaySpeed: 5000,
     speed: 600,
     pauseOnHover: true,
     pauseOnFocus: true,
-    slidesToShow: 1,
+    slidesToShow: 2,
     slidesToScroll: 1,
     swipeToSlide: true,
     touchMove: true,
-    adaptiveHeight: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   }
 
   return (
     <section
       id='testimonials'
-      className='relative z-40 '
+      className='relative z-40'
       aria-labelledby='testimonials-heading'
     >
       <div className='container mx-auto'>
-        <h2 id='testimonials-heading' className='sr-only'>
-          Testimonials
-        </h2>
+        {/* Section header */}
+        <div className='flex flex-col sm:flex-row sm:items-end justify-between gap-4 md:gap-6 mb-10 md:mb-14'>
+          <EyeBrew text='Client Testimonial' />
 
-        <div className='flex flex-col lg:flex-row items-center md:justify-between gap-10 lg:gap-14'>
-          <div className='w-full  max-w-[520px] lg:max-w-[40%]'>
-            <Image
-              src={clientTestimonial}
-              alt='Client testimonial'
-              className='h-auto w-full'
-              priority={false}
-              sizes='(min-width: 1024px) 560px, 100vw'
-            />
-          </div>
-
-          <div className='w-full lg:max-w-[50%] testimonial-slider'>
-            <Slider {...settings}>
-              {testimonials.map((item, index) => (
-                <div key={index} className='py-2'>
-                  <TestimonialCard item={item} />
-                </div>
-              ))}
-            </Slider>
+          {/* Prev / Next controls */}
+          <div className='flex items-center max-sm:justify-end gap-3'>
+            <button
+              onClick={() => sliderRef.current?.slickPrev()}
+              aria-label='Previous testimonial'
+              className='flex items-center justify-center h-8 w-8  md:h-10 md:w-10 rounded-full border border-border bg-card text-foreground hover:bg-primary hover:border-primary hover:text-primary-foreground transition-colors duration-200'
+            >
+              <ChevronLeft className='h-5 w-5' />
+            </button>
+            <button
+              onClick={() => sliderRef.current?.slickNext()}
+              aria-label='Next testimonial'
+              className='flex items-center justify-center h-8 w-8  md:h-10 md:w-10 rounded-full border border-border bg-card text-foreground hover:bg-primary hover:border-primary hover:text-primary-foreground transition-colors duration-200'
+            >
+              <ChevronRight className='h-5 w-5' />
+            </button>
           </div>
         </div>
+
+        {/* Slider */}
+        <Slider ref={sliderRef as unknown as React.LegacyRef<Slider>} {...settings}>
+          {testimonials.map((item, index) => (
+            <div key={index} className='px-3'>
+              <TestimonialCard item={item} />
+            </div>
+          ))}
+        </Slider>
       </div>
     </section>
   )

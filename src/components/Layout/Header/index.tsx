@@ -48,11 +48,15 @@ const Header: React.FC = () => {
 
   const closeMenu = () => {
     clearMenuTimers()
-    setContentVisible(false)
+    // Debounce before doing anything visual — gives the cursor time to
+    // travel from the nav bar into the floating panel without flickering.
     closeTimer.current = setTimeout(() => {
-      setOpenItem(null)
-      setRenderedItem(null)
-    }, 250)
+      setContentVisible(false)
+      contentTimer.current = setTimeout(() => {
+        setOpenItem(null)
+        setRenderedItem(null)
+      }, 250)
+    }, 120)
   }
 
   const toggleMenu = (label: string) => {
@@ -107,6 +111,7 @@ const Header: React.FC = () => {
       {/* Top bar — has its own frosted background */}
       <div
         ref={desktopNavRef}
+        onMouseLeave={closeMenu}
         className='hidden lg:flex items-center bg-background/65 backdrop-blur-xl'
         style={{ height: BAR_H }}
       >
@@ -117,10 +122,11 @@ const Header: React.FC = () => {
             <nav className='flex items-center gap-x-7'>
               {headerData.map((item) =>
                 item.megaMenu || item.panel === 'services' ? (
-                  <button
+                  <Link
                     key={item.label}
-                    type='button'
-                    onClick={() => toggleMenu(item.label)}
+                    href={item.href}
+                    onMouseEnter={() => openMenu(item.label)}
+                    onClick={closeMenu}
                     className='inline-flex items-center select-none gap-0.5 text-sm font-semibold tracking-wider px-3.5 py-1.5 rounded-full transition-colors duration-150 cursor-pointer text-foreground/90 hover:text-foreground'
                   >
                     {item.label}
@@ -140,7 +146,7 @@ const Header: React.FC = () => {
                         d='m7 10l5 5l5-5'
                       />
                     </svg>
-                  </button>
+                  </Link>
                 ) : (
                   <Link
                     key={item.label}
@@ -166,6 +172,8 @@ const Header: React.FC = () => {
       {renderedItem && (
         <div
           ref={panelRef}
+          onMouseEnter={clearMenuTimers}
+          onMouseLeave={closeMenu}
           className='hidden lg:block fixed left-0 right-0 container mx-auto'
           style={{
             top: BAR_H,
@@ -240,7 +248,7 @@ const Header: React.FC = () => {
         </div>
         <nav className='flex min-h-0 flex-1 flex-col items-start overflow-y-auto overscroll-contain p-4'>
           {headerData.map((item, index) => (
-            <MobileHeaderLink key={index} item={item} />
+            <MobileHeaderLink key={index} item={item} onClose={() => setNavbarOpen(false)} />
           ))}
         </nav>
       </div>
