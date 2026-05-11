@@ -6,9 +6,10 @@ import { MegaMenuConfig } from '@/types/menu'
 type Props = {
   config: MegaMenuConfig
   variant: 'desktop' | 'mobile'
+  onClose?: () => void
 }
 
-const MegaMenuPanel: React.FC<Props> = ({ config, variant }) => {
+const MegaMenuPanel: React.FC<Props> = ({ config, variant, onClose }) => {
   const [activeSectionId, setActiveSectionId] = useState(config.sections[0].id)
   const activeSection =
     config.sections.find((s) => s.id === activeSectionId) ?? config.sections[0]
@@ -29,6 +30,7 @@ const MegaMenuPanel: React.FC<Props> = ({ config, variant }) => {
                 <Link
                   key={i}
                   href={item.href ?? '#'}
+                  onClick={onClose}
                   className='group block py-1'>
                   <span className='block text-sm font-medium text-foreground group-hover:text-primary transition-colors'>
                     {item.title}
@@ -42,6 +44,7 @@ const MegaMenuPanel: React.FC<Props> = ({ config, variant }) => {
             {section.cta && (
               <Link
                 href={section.cta.href}
+                onClick={onClose}
                 className='mt-4 inline-block w-full text-center bg-primary text-foreground px-4 py-2 rounded-lg hover:bg-primary/90 text-sm font-medium'>
                 {section.cta.label}
               </Link>

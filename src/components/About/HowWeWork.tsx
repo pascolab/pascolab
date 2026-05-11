@@ -78,19 +78,19 @@ export default function HowWeWork() {
 
 function HowWeWorkStepCard({ step }: { step: typeof howWeWorkContent.steps[0] }) {
   return (
-    <Card tabIndex={0} className=" bg-white/50 max-sm:focus-within:bg-primary cursor-pointer backdrop-blur-md py-20 gap-y-6 group hover:bg-primary transition-all duration-300 dark:shadow-none dark:border-none">
-      <CardHeader className="flex items-center justify-center flex-col gap-y-6 group-focus:text-white group-hover:text-white">
+    <Card tabIndex={0} className=" bg-white/50 max-sm:focus-within:bg-primary cursor-pointer backdrop-blur-md max-sm:px-0 py-5 md:py-20 gap-y-0.5 md:gap-y-6 group hover:bg-primary transition-all duration-300 dark:shadow-none dark:border-none">
+      <CardHeader className="flex items-start md:items-center md:justify-center flex-col gap-y-3 md:gap-y-6 group-focus:text-white group-hover:text-white">
         {/* <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-background text-foreground"> */}
-          <step.icon className="h-12 w-12 stroke-current" />
+          <step.icon className="h-10 md:h-12 w-10 md:w-12 stroke-current" />
         {/* </span> */}
-        <CardTitle>
-          <h2 className="font-bold tracking-wide text-[1.7rem] md:text-[1.95rem]">
+        <CardTitle className="text-left! md:text-center! w-full">
+          <h3 className=" tracking-wide">
           {step.title}
-          </h2>
+          </h3>
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <CardDescription className="text-center text-lg group-focus:text-white group-hover:text-white">{step.description}</CardDescription>
+        <CardDescription className="text-left md:text-center text-lg  group-focus:text-white group-hover:text-white">{step.description}</CardDescription>
       </CardContent>
     </Card>
   )

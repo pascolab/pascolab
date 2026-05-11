@@ -8,7 +8,7 @@ const Contact = () => {
   return (
     <section className='overflow-x-hidden'>
       <div className='container'>
-      <div className='grid grid-cols-1 gap-10 md:grid-cols-[minmax(0,40%)_1fr] md:gap-8 lg:gap-12'>
+      <div className='grid grid-cols-1 gap-10 md:grid-cols-[minmax(0,45%)_1fr] md:gap-8 lg:gap-12'>
           <div className='flex flex-col items-start text-left md:pt-20 content-space'>
             <h2 className='contact-heading'>
              {homeCTAContent.heading}
@@ -22,7 +22,7 @@ const Contact = () => {
             </div>
           </div>
           <div id='contact-form' className='min-w-0'>
-            <ContactForm />
+            <ContactForm showJobInterest={false} />
           </div>
         </div>
       </div>

@@ -64,7 +64,7 @@ const Hero = () => {
               </p>
               <div className='flex flex-wrap items-center gap-4'>
                 <CTA label={homeHeroContent.primaryCtaLabel} href={homeHeroContent.primaryCtaHref} size='lg' className='hover:bg-white! md:px-7' />
-                <CTA label={homeHeroContent.secondaryCtaLabel} href={homeHeroContent.secondaryCtaLabel} size='lg' className='border-primary bg-transparent ' />
+                <CTA label={homeHeroContent.secondaryCtaLabel} href={homeHeroContent.secondaryCtaHref} size='lg' className='border-primary bg-transparent not-dark:hover:text-white ' />
               </div>
             </div>
           </div>

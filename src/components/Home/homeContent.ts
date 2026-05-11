@@ -4,7 +4,7 @@ subheading: 'We turn AI into something you can actually use, not experiments tha
 primaryCtaLabel: 'Let\'s Talk',
 secondaryCtaLabel: 'See Our Work',
 primaryCtaHref: "/contact",
-  secondaryCtaHref: "/contact"
+  secondaryCtaHref: "/projects"
 }
 
 export const homeBrandsContent = {

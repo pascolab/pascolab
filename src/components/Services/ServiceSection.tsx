@@ -38,7 +38,7 @@ export default function ServiceSection({ section, isLast }: ServiceSectionProps)
               {/* CTA — sticks near bottom */}
               <div>
                 <Link
-                  href={`/services/${section.id}`}
+                  href={'/contact'}
                   className="group relative inline-flex items-center gap-2 font-medium text-foreground pb-0.5"
                 >
                   {section.listingCtaLabel}

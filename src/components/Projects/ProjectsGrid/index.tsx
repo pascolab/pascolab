@@ -4,6 +4,7 @@ import { useState, useMemo } from 'react';
 import { projects } from '@/app/api/data';
 import ProjectCard from '../ProjectCard';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Button } from '@/components/ui/button';
 
 const INITIAL_DISPLAY = 4; // 2 cards per row on desktop, 1 on mobile
 const INCREMENT = 4; // Increase by 2 cards per row on each "Show More"
@@ -91,12 +92,11 @@ export default function ProjectsGrid() {
                             {/* Show More Button */}
                             {hasMore && (
                                 <div className="flex justify-center">
-                                    <button
-                                        onClick={handleShowMore}
-                                        className="px-8 py-3 bg-orange-500 text-white rounded-full font-semibold hover:bg-orange-600 transition-colors"
+                                    <Button className='px-8 py-3 h-auto rounded-full text-white hover:bg-primary/90 transition-colors duration-300 ease-in-out'
+                                    onClick={handleShowMore}
                                     >
                                         Show More
-                                    </button>
+                                    </Button>
                                 </div>
                             )}
                         </>

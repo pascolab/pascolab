@@ -895,7 +895,7 @@ export const servicesPageData: ServicePageSection[] = [
     description:
       "We help you design and develop software that is structured, scalable, and built to evolve with your business not break as it grows. At Pascolab, we don’t just write code. We build systems with clarity, so every decision made today still supports you tomorrow.",
     icon: "solar:code-bold-duotone",
-    listingCtaLabel: "View Details",
+    listingCtaLabel: "Let’s Talk",
     catLabel: "What We Do",
     eyebrow: "Custom Software Engineering",
     heroTitle: "Build it right from the start, not twice later",
@@ -978,7 +978,7 @@ export const servicesPageData: ServicePageSection[] = [
     description:
       "AI and data is used only where they improve real outcomes, not as a buzzword layer. The focus is simple: clarity, usefulness, and systems that help users and businesses make better decisions without added complexity. At Pascolab, we design AI-driven features that feel natural inside your product.",
     icon: "solar:cpu-bold-duotone",
-    listingCtaLabel: "View Details",
+    listingCtaLabel: "Let’s Talk",
     catLabel: "What We Do",
     eyebrow: "AI & Data Systems",
     heroTitle: "Make your product better without complicating it",
@@ -1061,7 +1061,7 @@ export const servicesPageData: ServicePageSection[] = [
     description:
       "Building for finance or real estate isn’t just about features. It’s about handling sensitive, high-value data with precision and clarity. We design systems that simplify complexity and making financial workflows and property platforms secure.",
     icon: "solar:shield-bold-duotone",
-    listingCtaLabel: "View Details",
+    listingCtaLabel: "Let’s Talk",
     catLabel: "What We Do",
     eyebrow: "FinTech & PropTech Systems",
     heroTitle: "When trust, accuracy, and speed matter",
@@ -1139,7 +1139,7 @@ export const servicesPageData: ServicePageSection[] = [
     description:
       "We design cloud systems that are built for stability and scale so your product performs reliably even as demand grows. From deployment pipelines to infrastructure optimization, we ensure everything behind your product runs smoothly and efficiently.",
     icon: "solar:cloud-bold-duotone",
-      listingCtaLabel: "View Details",
+    listingCtaLabel: "Let’s Talk",
     catLabel: "What We Do",
     eyebrow: "Cloud & DevOps",
     heroTitle: "Your product shouldn’t slow down because your infrastructure can’t keep up.",

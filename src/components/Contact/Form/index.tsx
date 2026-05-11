@@ -156,7 +156,7 @@ function validate(
   return errors
 }
 
-const ContactForm = ({ showTitle = true }: { showTitle?: boolean }) => {
+const ContactForm = ({ showTitle = true, showJobInterest = true }: { showTitle?: boolean, showJobInterest?: boolean }) => {
   const FORM_URL = `${process.env.NEXT_PUBLIC_FORMBOLD_URL}/${process.env.NEXT_PUBLIC_FORMBOLD_CONTACT_FORM_ID}`;
   if (!FORM_URL) {
     throw new Error("ID for contact form is not set")
@@ -414,6 +414,7 @@ const ContactForm = ({ showTitle = true }: { showTitle?: boolean }) => {
             <FieldError message={errors.projectDetails} />
           </div>
 
+          {showJobInterest && (
           <div className="space-y-2">
             <FieldLabel required>
               I am looking for a job at Pascolab
@@ -434,8 +435,9 @@ const ContactForm = ({ showTitle = true }: { showTitle?: boolean }) => {
                 <SelectItem value="no">No</SelectItem>
               </SelectContent>
             </Select>
-            <FieldError message={errors.jobInterest} />
-          </div>
+              <FieldError message={errors.jobInterest} />
+            </div>
+          )}
         </CardContent>
         <CardFooter className="flex justify-end bg-transparent border-t-0 pb-7 max-sm:px-0">
           <SubmitButton

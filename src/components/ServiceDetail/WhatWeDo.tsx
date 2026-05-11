@@ -19,14 +19,16 @@ export default function WhatWeDo({ section }: { section: ServicePageSection }) {
               key={item.id}
               className="group/card min-h-0 h-full ring-border/90 hover:ring-primary/90 transition-colors duration-300"
             >
-              <div className="flex flex-col gap-6 md:gap-4">
+              <div className="content-space">
                 <span className="mt-1 h-3.5 w-3.5 rounded-full bg-primary group-hover/card:bg-primary transition-colors" />
-                <p className="text-body-large font-semibold text-foreground/90 group-hover/card:text-foreground transition-colors">
+                <div className="flex flex-col gap-3.5">
+                <p className="text-xl font-semibold text-foreground/90 group-hover/card:text-foreground transition-colors">
                   {item.title}
                 </p>
-                <p className="text-small text-muted-foreground group-hover/card:text-foreground/80 transition-colors leading-relaxed">
+                <p className="text-body text-muted-foreground group-hover/card:text-foreground/80 transition-colors leading-relaxed">
                   {item.description}
                 </p>
+                </div>
               </div>
             </Card>
           ))}

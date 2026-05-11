@@ -133,7 +133,8 @@ export default function HowWeThink({ section }: { section: ServicePageSection })
                   className="rounded-lg border border-border bg-background/40 p-4 min-h-32 flex flex-col gap-6 md:gap-3"
                 >
                   <p className="text-sm font-semibold text-primary">{formatIndex(idx)}</p>
-                  <p className="text-body-large font-semibold text-foreground leading-snug tracking-normal">
+                 <div>
+                 <p className="text-body-large font-semibold text-foreground leading-snug tracking-normal">
                     {split.highlight}
                   </p>
                   {split.blur ? (
@@ -148,6 +149,7 @@ export default function HowWeThink({ section }: { section: ServicePageSection })
                       {" "}
                     </p>
                   )}
+                 </div>
                 </div>
               );
             })}

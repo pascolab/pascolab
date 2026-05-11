@@ -5,7 +5,7 @@ import { HeaderItem } from '../../../../types/menu';
 import { usePathname } from 'next/navigation';
 import MegaMenuPanel from './MegaMenuPanel';
 
-const MobileHeaderLink: React.FC<{ item: HeaderItem }> = ({ item }) => {
+const MobileHeaderLink: React.FC<{ item: HeaderItem; onClose?: () => void }> = ({ item, onClose }) => {
   const [submenuOpen, setSubmenuOpen] = useState(false);
   const [activeServiceId, setActiveServiceId] = useState(
     servicesPageData[0]?.id ?? ''
@@ -91,6 +91,7 @@ const MobileHeaderLink: React.FC<{ item: HeaderItem }> = ({ item }) => {
                   <Link
                     key={category.id}
                     href={category.href}
+                    onClick={onClose}
                     className="group flex gap-3 px-2 py-3.5 border-b border-border transition-colors hover:bg-background"
                   >
                     <span className="mt-2 h-2 w-2 shrink-0  transition-colors bg-primary" />
@@ -109,12 +110,14 @@ const MobileHeaderLink: React.FC<{ item: HeaderItem }> = ({ item }) => {
               <div className="flex flex-wrap gap-3 border-t border-border pt-3">
                 <Link
                   href="/services"
+                  onClick={onClose}
                   className="inline-flex items-center gap-1 text-[13px] font-medium text-primary hover:underline"
                 >
                   View all services
                 </Link>
                 <Link
                   href={`/services/${activeService.id}`}
+                  onClick={onClose}
                   className="inline-flex items-center gap-1 text-[13px] font-medium text-primary hover:underline"
                 >
                   All {activeService.title} services
@@ -148,7 +151,7 @@ const MobileHeaderLink: React.FC<{ item: HeaderItem }> = ({ item }) => {
         </button>
         {submenuOpen && (
           <div className="px-3 pb-2">
-            <MegaMenuPanel variant="mobile" config={item.megaMenu} />
+            <MegaMenuPanel variant="mobile" config={item.megaMenu} onClose={onClose} />
           </div>
         )}
       </div>
@@ -156,7 +159,7 @@ const MobileHeaderLink: React.FC<{ item: HeaderItem }> = ({ item }) => {
   }
 
   return (  
-    <Link href={item.href} className="relative block w-full">
+    <Link href={item.href} onClick={onClose} className="relative block w-full">
       <button
         onClick={item.submenu ? handleToggle : undefined}
           className={`flex items-center justify-between w-full py-2 px-3 rounded-md focus:outline-hidden ${isActive ? 'bg-foreground! text-background! ' : '  '}`}
@@ -171,7 +174,7 @@ const MobileHeaderLink: React.FC<{ item: HeaderItem }> = ({ item }) => {
       {submenuOpen && item.submenu && (
         <div className="bg-muted p-2 w-full">
           {item.submenu.map((subItem, index) => (
-            <Link key={index} href={subItem.href} className="block py-2 text-foreground/90 hover:bg-foreground/10">
+            <Link key={index} href={subItem.href} onClick={onClose} className="block py-2 text-foreground/90 hover:bg-foreground/10">
               <span>{subItem.label}</span>
             </Link>
           ))}
