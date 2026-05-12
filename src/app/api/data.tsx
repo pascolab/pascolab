@@ -3,33 +3,6 @@ import { Project } from "@/types/project";
 import { Service, ServicePageSection } from "@/types/service";
 import { getImgPath } from "@/utils/image";
 
-export const menuItems = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Services", href: "#services" },
-  { name: "Portfolio", href: "#portfolio" },
-  { name: "Testimonials", href: "#testimonials" },
-  { name: "Blog", href: "/#blog" },
-];
-
-export const count = [
-  {
-    icon: getImgPath("/images/counter/star.svg"),
-    value: "4.86",
-    description: "Out of 5 stars from 3896 reviews on Google platform",
-  },
-  {
-    icon: getImgPath("/images/counter/admin.svg"),
-    value: "364",
-    description: "Client testimonials received in the year 2021",
-  },
-  {
-    icon: getImgPath("/images/counter/bag.svg"),
-    value: "45M+",
-    description: "Revenue generated through new projects & marketing",
-  },
-];
-
 export const statsContent = {
   title: 'Numbers That Tell Our Story',
   stats: [
@@ -39,12 +12,6 @@ export const statsContent = {
     { label: "Clients Across Multiple Regions" },
   ]
 };
-
-export const Progress = [
-  { title: 'UX Research and Testing', Progress: 95 },
-  { title: 'Product Management', Progress: 84 },
-  { title: 'UI & Visual Design', Progress: 90 }
-];
 
 export const testimonials = [
   {
@@ -1417,11 +1384,6 @@ export const careersData: CareersPageData = {
   },
 }
 
-export const servicesPageIntro = {
-  title: "Services built around what your product actually needs",
-  subtitle:
-    "From custom development to AI systems and cloud infrastructure, everything we do is built to support real products, not just ship features. Clean engineering, thoughtful architecture, and systems designed to hold up over time.",
-};
 
 export const footerCtaContent = {
   title: "Not sure where to start? That’s a good place to begin.",

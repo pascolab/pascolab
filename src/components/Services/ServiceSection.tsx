@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { Icon } from "@iconify/react";
 import CategoryItem from "./CategoryItem";
@@ -83,7 +81,6 @@ export default function ServiceSection({ section, isLast }: ServiceSectionProps)
               <CategoryItem
                 key={cat.id}
                 category={cat}
-                isFirst={idx === 0}
               />
             ))}
           </div>

@@ -4,7 +4,6 @@ import OurCulture from "@/components/Careers/OurCulture";
 import HowWeWork from "@/components/Careers/HowWeWork";
 import WhatWeLookFor from "@/components/Careers/WhatWeLookFor";
 import OpenRoles from "@/components/Careers/OpenRoles";
-import CareersQoute from "@/components/Careers/CareersQoute";
 import CareersCta from "@/components/Careers/CareersCta";
 
 export const metadata: Metadata = {
@@ -20,7 +19,6 @@ export default function CareersPage() {
       <HowWeWork />
       <WhatWeLookFor />
       <OpenRoles />
-      {/* <CareersQoute /> */}
       <CareersCta />
     </article>
   );

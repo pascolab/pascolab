@@ -1,4 +1,3 @@
-
 import { Metadata } from "next";
 import Hero from '@/components/Home/Hero';
 import Brands from '@/components/Home/Brands';

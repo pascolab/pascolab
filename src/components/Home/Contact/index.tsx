@@ -1,8 +1,6 @@
 import ContactForm from '@/components/Contact/Form'
 import CTA from '@/components/Common/CTA'
 import { homeCTAContent } from '../homeContent'
-import { Button } from '@/components/ui/button'
-import Link from 'next/link'
 
 const Contact = () => {
   return (
