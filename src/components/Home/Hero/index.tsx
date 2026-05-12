@@ -1,19 +1,14 @@
 'use client'
 
-import CTA from '@/components/Common/CTA'
-import { Button } from '@/components/ui/button'
+  import CTA from '@/components/Common/CTA'
 import Image from 'next/image'
-import Link from 'next/link'
 import Slider from "react-slick";
-import hero1 from '../../../../public/images/hero/hero-1.svg'
-import hero2 from '../../../../public/images/hero/hero-2.svg'
-import hero3 from '../../../../public/images/hero/hero-3.svg'
 import { homeHeroContent } from '../homeContent'
 
 const heroImages = [
-  { src: hero1, alt: 'Hero slide 1' },
-  { src: hero2, alt: 'Hero slide 2' },
-  { src: hero3, alt: 'Hero slide 3' },
+  { src: "https://ik.imagekit.io/agvenvoax/Pascolab/hero-1.svg", alt: 'Hero slide 1' },
+  { src: "https://ik.imagekit.io/agvenvoax/Pascolab/hero-2.svg", alt: 'Hero slide 2' },
+  { src: "https://ik.imagekit.io/agvenvoax/Pascolab/hero-3.svg", alt: 'Hero slide 3' },
 ]
 
 const Hero = () => {
@@ -55,14 +50,14 @@ const Hero = () => {
 
         <div className='container mx-auto flex h-full flex-1 flex-col justify-center'>
           <div className='flex h-full w-full md:w-[60%] flex-col items-start justify-center'>
-            <div className='pointer-events-auto content-space select-none'>
+            <div className='pointer-events-none content-space select-none'>
               <h1 className='text-display text-white'>
                 {homeHeroContent.heading}
               </h1>
               <p className='max-w-2xl text-white/90 text-body-large'>
                 {homeHeroContent.subheading}
               </p>
-              <div className='flex flex-wrap items-center gap-4'>
+              <div className='flex flex-wrap items-center gap-4 pointer-events-auto'>
                 <CTA label={homeHeroContent.primaryCtaLabel} href={homeHeroContent.primaryCtaHref} size='lg' className='hover:bg-white! md:px-7' />
                 <CTA label={homeHeroContent.secondaryCtaLabel} href={homeHeroContent.secondaryCtaHref} size='lg' className='border-primary bg-transparent not-dark:hover:text-white ' />
               </div>
