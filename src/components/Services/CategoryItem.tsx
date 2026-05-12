@@ -3,10 +3,9 @@ import type { WhatWeDoItem } from "@/types/service";
 
 type CategoryItemProps = {
   category: WhatWeDoItem;
-  isFirst?: boolean;
 };
 
-export default function CategoryItem({ category, isFirst }: CategoryItemProps) {
+export default function CategoryItem({ category}: CategoryItemProps) {
   return (
     <Link
       href={category.href}

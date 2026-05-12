@@ -1,6 +1,5 @@
 
 import { Metadata } from "next";
-import CTA from "@/components/Common/CTA";
 import EyeBrew from "@/components/SharedComponent/EyeBrew";
 import ProjectsGrid from "@/components/Projects/ProjectsGrid";
 export const metadata: Metadata = {

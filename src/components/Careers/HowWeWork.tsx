@@ -1,12 +1,6 @@
 import { careersData } from "@/app/api/data";
 import EyeBrew from "../SharedComponent/EyeBrew";
 
-const pills = [
-  "Clear direction over ambiguous sprints",
-  "Trusted to think — not just follow instructions",
-  "Ownership of what you contribute",
-  "Thoughtful execution over reactive output",
-];
 
 export default function HowWeWork() {
   return (

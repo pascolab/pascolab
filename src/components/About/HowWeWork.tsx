@@ -1,10 +1,7 @@
 import { howWeWorkContent } from "./aboutContent";
-import { cn } from "@/lib/utils";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function HowWeWork() {
-  const { title, steps } = howWeWorkContent;
-
   return (
     <section
       className="overflow-hidden relative bg-accent/30! dark:bg-accent"
@@ -13,11 +10,11 @@ export default function HowWeWork() {
       <div className="container relative ">
         <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-1/2 h-full blur-3xl bg-linear-to-r from-primary/70 via-primary/40 opacity-40 to-transparent" />
         <div className="content-space">
-          <h2>{title}</h2>
+          <h2>{howWeWorkContent.title}</h2>
 
           <div className="grid grid-cols-1 py-6 md:py-4 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {steps.map((step, i) => {
-              const isLast = i === steps.length - 1;
+            {howWeWorkContent.steps.map((step, i) => {
+              const isLast = i === howWeWorkContent.steps.length - 1;
 
               return (
                 // <Card

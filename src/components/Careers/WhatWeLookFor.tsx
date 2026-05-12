@@ -1,28 +1,6 @@
 import { careersData } from "@/app/api/data";
 import EyeBrew from "../SharedComponent/EyeBrew";
 
-const traits = [
-  {
-    num: "01",
-    title: "Care about doing things properly",
-    desc: "Quality isn't a checkbox. It's a standard you hold yourself to.",
-  },
-  {
-    num: "02",
-    title: "Want to grow through real work",
-    desc: "You learn by building, not by watching tutorials.",
-  },
-  {
-    num: "03",
-    title: "Take ownership of what you build",
-    desc: "You see things through — not just hand them off.",
-  },
-  {
-    num: "04",
-    title: 'Ask "why" before "how"',
-    desc: "You question direction before executing it.",
-  },
-];
 
 export default function WhatWeLookFor() {
   return (

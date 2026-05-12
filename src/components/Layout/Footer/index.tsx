@@ -4,8 +4,7 @@ import Image from 'next/image'
 import { getImgPath } from '@/utils/image'
 import CTA from '@/components/Common/CTA'
 import { footerCtaContent } from '@/app/api/data'
-import GetInTouchForm from '@/components/SharedComponent/GetInTouchForm'
-import { Icon } from '@iconify/react';
+  import GetInTouchForm from '@/components/SharedComponent/GetInTouchForm'
 
 const logoLight = getImgPath("/images/logo/white-logo-footer.png");
 const logoDark = getImgPath("/images/logo/logo-light.png");

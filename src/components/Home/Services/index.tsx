@@ -1,8 +1,5 @@
-"use client";
-
 import Link from "next/link";
 import { Icon } from "@iconify/react";
-import { Button } from "@/components/ui/button";
 import { servicesPageData } from "@/app/api/data";
 import EyeBrew from "@/components/SharedComponent/EyeBrew";
 import CTA from "@/components/Common/CTA";
