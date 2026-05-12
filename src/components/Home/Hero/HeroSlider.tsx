@@ -9,11 +9,10 @@ import Image from 'next/image'
 import Slider from "react-slick";
 
 const heroImages = [
-    { src: hero1, alt: 'Hero slide 1' },
-    { src: hero2, alt: 'Hero slide 2' },
-    { src: hero3, alt: 'Hero slide 3' },
-  ]
-
+  { src: "https://ik.imagekit.io/agvenvoax/Pascolab/hero-1.svg", alt: 'Hero slide 1' },
+  { src: "https://ik.imagekit.io/agvenvoax/Pascolab/hero-2.svg", alt: 'Hero slide 2' },
+  { src: "https://ik.imagekit.io/agvenvoax/Pascolab/hero-3.svg", alt: 'Hero slide 3' },
+]
 export default function HeroSlider() {
     const settings = {
         dots: true,
